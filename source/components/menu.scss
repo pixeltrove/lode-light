@@ -1,0 +1,51 @@
+// MENU
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.menu {
+  position: absolute;
+  z-index: $z-index-top;
+  display: none;
+  padding: calc(#{$space-small-c} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
+  border: $border-width-regular solid $color-neutral-light-c;
+  border-radius: $border-radius-regular;
+  margin-top: $space-small-e;
+  margin-bottom: 0;
+  background-color: $color-white-regular;
+
+  &.is-shown {
+    display: block;
+  }
+
+  &-link {
+    display: inline-block;
+    padding-top: $space-small-e;
+    padding-bottom: $space-small-e;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+    white-space: nowrap;
+    color: $color-neutral-regular;
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+      border-radius: $border-radius-regular;
+    }
+  }
+
+  &-separator {
+    border-top: $border-width-regular solid $color-neutral-light-c;
+    margin-top: calc(#{$space-small-c} - #{$border-width-regular});
+    margin-bottom: $space-small-c;
+  }
+}
+
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}

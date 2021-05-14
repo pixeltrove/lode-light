@@ -1,0 +1,203 @@
+// BUTTON
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
+  border: $border-width-regular solid transparent;
+  border-radius: $border-radius-regular;
+  text-align: center;
+  vertical-align: middle;
+  font-size: $font-size-regular;
+  line-height: $line-height-regular;
+  color: $color-white-regular;
+  background-color: $color-brand-regular;
+  user-select: none;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-brand-dark-a;
+  }
+
+  &:focus-visible {
+    @include focus-visible(default);
+  }
+
+  &:active {
+    background-color: $color-brand-dark-b;
+  }
+
+  &:disabled {
+    color: $color-neutral-medium;
+    background-color: $color-neutral-light-b;
+    pointer-events: none;
+
+    &[class*="lean"],
+    &[class*="plain"] {
+      background-color: transparent;
+    }
+
+    &[class*="lean"] {
+      border-color: $color-neutral-light-c;
+    }
+  }
+
+  &-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+
+  &-icon-left {
+    margin-right: $space-small-c;
+  }
+
+  &-icon-right {
+    margin-left: $space-small-c;
+  }
+}
+
+// Symbolic
+
+.button-symbolic {
+  padding: calc(#{$space-small-b} - #{$border-width-regular});
+
+  .button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// Lean and plain
+
+.button-lean {
+  border-color: $color-brand-medium;
+}
+
+.button-lean,
+.button-plain {
+  color: $color-brand-regular;
+  background-color: transparent;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-brand-light-a;
+  }
+
+  &:active {
+    background-color: $color-brand-light-b;
+  }
+}
+
+// Positive
+
+.button-positive {
+  background-color: $color-positive-regular;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-positive-dark-a;
+  }
+
+  &:active {
+    background-color: $color-positive-dark-b;
+  }
+}
+
+// Positive lean and plain
+
+.button-positive-lean {
+  border-color: $color-positive-medium;
+}
+
+.button-positive-lean,
+.button-positive-plain {
+  color: $color-positive-regular;
+  background-color: transparent;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-positive-light-a;
+  }
+
+  &:active {
+    background-color: $color-positive-light-b;
+  }
+}
+
+// Negative
+
+.button-negative {
+  background-color: $color-negative-regular;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-negative-dark-a;
+  }
+
+  &:active {
+    background-color: $color-negative-dark-b;
+  }
+}
+
+// Negative lean and plain
+
+.button-negative-lean {
+  border-color: $color-negative-medium;
+}
+
+.button-negative-lean,
+.button-negative-plain {
+  color: $color-negative-regular;
+  background-color: transparent;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-negative-light-a;
+  }
+
+  &:active {
+    background-color: $color-negative-light-b;
+  }
+}
+
+// Neutral
+
+.button-neutral {
+  background-color: $color-neutral-regular;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-neutral-dark-a;
+  }
+
+  &:active {
+    background-color: $color-neutral-dark-b;
+  }
+}
+
+// Neutral lean and plain
+
+.button-neutral-lean {
+  border-color: $color-neutral-medium;
+}
+
+.button-neutral-lean,
+.button-neutral-plain {
+  color: $color-neutral-regular;
+  background-color: transparent;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-neutral-light-a;
+  }
+
+  &:active {
+    background-color: $color-neutral-light-b;
+  }
+}

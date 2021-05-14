@@ -1,0 +1,46 @@
+// DIALOG
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.dialog {
+  overflow: auto;
+  max-width: 36rem;
+  padding: $space-large-d;
+  border-radius: $border-radius-regular;
+  color: $color-neutral-regular;
+  background-color: $color-white-regular;
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &-heading {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Backdrop
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-top;
+  display: none;
+  padding: $space-large-e;
+  background-color: hsla(0, 0%, 20%, 0.56);
+
+  &.is-shown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

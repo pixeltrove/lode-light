@@ -1,0 +1,26 @@
+// LAYOUT
+// -----------------------------------------------------------------------------
+
+// Container
+
+$container-max-width: 1240px;
+
+// Grid
+
+$grid-regular: (
+  default: (
+    column-count: 2,
+    gap: 1.25rem,
+  ),
+  tablet: (
+    column-count: 6,
+  ),
+  laptop: (
+    column-count: 12,
+    gap: 2.5rem,
+  ),
+);
+
+// Z-index
+
+$z-index-top: 100;

@@ -1,0 +1,26 @@
+// GRID
+// -----------------------------------------------------------------------------
+
+@use "sass:map";
+@use "../settings" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.grid {
+  display: grid;
+
+  @each $breakpoint, $description in $grid-regular {
+    $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
+    $column-count: map.get($description, "column-count");
+    $gap: map.get($description, "gap");
+
+    @include set-breakpoint($breakpoint) {
+      grid-template-columns: repeat($column-count, 1fr);
+      @for $i from 1 through $column-count {
+        @at-root .#{$prefix}grid-column-#{$i} {
+          grid-column: span #{$i};
+        }
+      }
+      gap: $gap;
+    }
+  }
+}

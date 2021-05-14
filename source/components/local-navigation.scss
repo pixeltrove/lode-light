@@ -1,0 +1,30 @@
+// LOCAL NAVIGATION
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.local-navigation {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  &-link {
+    display: inline-block;
+    padding-top: $space-small-e;
+    padding-bottom: $space-small-e;
+    font-size: $font-size-regular;
+    line-height: $line-height-regular;
+    color: $color-neutral-regular;
+
+    &.is-activated,
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+  }
+}

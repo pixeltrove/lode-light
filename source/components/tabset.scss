@@ -1,0 +1,56 @@
+// TABSET
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.tabset {
+  color: $color-neutral-regular;
+
+  &-navigation {
+    display: flex;
+    padding-left: 0;
+    border-bottom: $border-width-regular solid $color-neutral-light-c;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  &-tab {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: $space-small-b $space-regular calc(#{$space-small-b} - #{$border-width-regular});
+    border: 0 solid transparent;
+    border-bottom-width: $border-width-regular;
+    margin-bottom: -#{$border-width-regular};
+    color: $color-neutral-regular;
+    background-color: transparent;
+
+    &.is-activated {
+      border-bottom-color: $color-brand-regular;
+      color: $color-brand-regular;
+    }
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+  }
+
+  &-panel {
+    display: none;
+    padding-top: $space-regular;
+    padding-bottom: $space-regular;
+
+    &.is-shown {
+      display: block;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

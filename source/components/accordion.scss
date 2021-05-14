@@ -1,0 +1,76 @@
+// ACCORDION
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.accordion {
+  &-heading {
+    margin-bottom: 0;
+  }
+
+  &-slat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: calc(#{$space-small-a} - #{$border-width-regular}) 0 $space-small-a;
+    border: 0 solid transparent;
+    border-top-width: $border-width-regular;
+    border-top-color: $color-neutral-light-c;
+    font-size: $font-size-large-e;
+    line-height: $line-height-small-a;
+    background-color: transparent;
+
+    @at-root .accordion-segment:last-child & {
+      padding-bottom: calc(#{$space-small-a} - #{$border-width-regular});
+      border-bottom-width: $border-width-regular;
+      border-bottom-color: $color-neutral-light-c;
+
+      &.is-activated {
+        border-bottom-color: transparent;
+      }
+    }
+
+    &:hover {
+      color: $color-brand-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+
+    &.is-activated {
+      color: $color-brand-regular;
+    }
+  }
+
+  &-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+
+    @at-root .accordion-slat.is-activated & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-panel {
+    display: none;
+    padding-top: $space-small-e;
+    padding-bottom: $space-regular;
+
+    @at-root .accordion-segment:last-child & {
+      padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
+      border-bottom: $border-width-regular solid $color-neutral-light-c;
+    }
+
+    &.is-shown {
+      display: block;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

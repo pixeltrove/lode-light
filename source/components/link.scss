@@ -1,0 +1,31 @@
+// LINK
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.link {
+  color: $color-brand-regular;
+  text-decoration: underline;
+  text-decoration-color: $color-brand-medium;
+  text-underline-offset: 0.25rem;
+
+  &:hover {
+    text-decoration-color: $color-brand-regular;
+  }
+
+  &:focus-visible {
+    @include focus-visible(default);
+  }
+}
+
+// Neutral
+
+.link-neutral {
+  color: $color-neutral-regular;
+  text-decoration-color: $color-neutral-medium;
+
+  &:hover {
+    text-decoration-color: $color-neutral-regular;
+  }
+}
