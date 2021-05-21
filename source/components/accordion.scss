@@ -21,6 +21,7 @@
     font-size: $font-size-large-e;
     line-height: $line-height-small-a;
     background-color: transparent;
+    transition: color $transition-default, outline $transition-default;
 
     @at-root .accordion-segment:last-child & {
       padding-bottom: calc(#{$space-small-a} - #{$border-width-regular});
@@ -49,6 +50,7 @@
     width: 1rem;
     height: 1rem;
     fill: currentColor;
+    transition: transform $transition-default;
 
     @at-root .accordion-slat.is-activated & {
       transform: rotate(180deg);

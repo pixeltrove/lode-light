@@ -25,6 +25,7 @@
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
+    transition: border-color $transition-default, color $transition-default, outline $transition-default;
 
     &.is-activated {
       border-bottom-color: $color-brand-regular;

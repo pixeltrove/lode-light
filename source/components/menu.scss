@@ -27,6 +27,7 @@
     line-height: $line-height-regular;
     white-space: nowrap;
     color: $color-neutral-regular;
+    transition: color $transition-default, outline $transition-default;
 
     &:hover {
       color: $color-brand-regular;

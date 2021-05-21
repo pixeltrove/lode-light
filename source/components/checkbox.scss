@@ -13,6 +13,7 @@
   background-color: $color-white-regular;
   cursor: pointer;
   -webkit-appearance: none;
+  transition: border-color $transition-default, background-color $transition-default, outline $transition-default;
 
   &:checked {
     border-color: $color-brand-regular;

@@ -36,6 +36,7 @@
     border-radius: $border-radius-regular;
     color: $color-brand-regular;
     background-color: transparent;
+    transition: background-color $transition-default, outline $transition-default;
 
     &:hover {
       background-color: $color-brand-light-b;
