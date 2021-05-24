@@ -4,7 +4,9 @@
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_HIDDEN = "is-hidden";
 const CLASS_SHOWN = "is-shown";
+const CLASS_TOGGLING = "is-toggling";
 const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
@@ -15,9 +17,32 @@ function Accordion(accordion) {
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
 
+    function handleShowTransition() {
+      panel.classList.remove(CLASS_TOGGLING);
+      panel.classList.add(CLASS_SHOWN);
+    }
+
+    function handleHideTransition() {
+      panel.classList.remove(CLASS_TOGGLING);
+      panel.classList.add(CLASS_HIDDEN);
+    }
+
     slat.classList.toggle(CLASS_ACTIVATED);
     slat.setAttribute("aria-expanded", !isShown);
-    panel.classList.toggle(CLASS_SHOWN);
+
+    if (!panel.classList.contains(CLASS_SHOWN)) {
+      panel.classList.remove(CLASS_HIDDEN);
+      panel.classList.add(CLASS_TOGGLING);
+      panel.style.height = panel.scrollHeight + "px";
+
+      panel.addEventListener("transitionend", handleShowTransition, { once: true });
+    } else {
+      panel.classList.remove(CLASS_SHOWN);
+      panel.classList.add(CLASS_TOGGLING);
+      panel.style.height = 0;
+
+      panel.addEventListener("transitionend", handleHideTransition, { once: true });
+    }
   }
 
   function moveFocus(key) {

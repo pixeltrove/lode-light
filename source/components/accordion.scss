@@ -58,7 +58,6 @@
   }
 
   &-panel {
-    display: none;
     padding-top: $space-small-e;
     padding-bottom: $space-regular;
 
@@ -67,8 +66,19 @@
       border-bottom: $border-width-regular solid $color-neutral-light-c;
     }
 
+    &.is-hidden {
+      display: none;
+    }
+
     &.is-shown {
       display: block;
+      height: auto;
+    }
+
+    &.is-toggling {
+      overflow: hidden;
+      height: 0;
+      transition: height $transition-default;
     }
 
     p:last-child {
