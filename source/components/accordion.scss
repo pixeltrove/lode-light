@@ -58,14 +58,6 @@
   }
 
   &-panel {
-    padding-top: $space-small-e;
-    padding-bottom: $space-regular;
-
-    @at-root .accordion-segment:last-child & {
-      padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
-      border-bottom: $border-width-regular solid $color-neutral-light-c;
-    }
-
     &.is-hidden {
       display: none;
     }
@@ -83,6 +75,16 @@
 
     p:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &-panel-inside {
+    padding-top: $space-small-e;
+    padding-bottom: $space-regular;
+
+    @at-root .accordion-segment:last-child & {
+      padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
+      border-bottom: $border-width-regular solid $color-neutral-light-c;
     }
   }
 }
