@@ -59,16 +59,13 @@
   }
 
   &-panel {
-    &.is-hidden {
-      display: none;
-    }
+    display: none;
 
     &.is-shown {
       display: block;
-      height: auto;
     }
 
-    &.is-toggling {
+    &.is-transitioning {
       overflow: hidden;
       height: 0;
       transition: height $transition-default;

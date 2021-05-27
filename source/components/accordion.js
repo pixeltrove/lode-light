@@ -4,9 +4,8 @@
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_HIDDEN = "is-hidden";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TOGGLING = "is-toggling";
+const CLASS_TRANSITIONING = "is-transitioning";
 const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
@@ -17,32 +16,38 @@ function Accordion(accordion) {
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
 
-    function handleShowTransition() {
-      panel.classList.remove(CLASS_TOGGLING);
-      panel.classList.add(CLASS_SHOWN);
-    }
-
-    function handleHideTransition() {
-      panel.classList.remove(CLASS_TOGGLING);
-      panel.classList.add(CLASS_HIDDEN);
-    }
-
     slat.classList.toggle(CLASS_ACTIVATED);
     slat.setAttribute("aria-expanded", !isShown);
 
-    if (!panel.classList.contains(CLASS_SHOWN)) {
-      panel.classList.remove(CLASS_HIDDEN);
-      panel.classList.add(CLASS_TOGGLING);
-      panel.style.height = panel.scrollHeight + "px";
+    isShown ? transitionToHidden(panel) : transitionToShown(panel);
+  }
 
-      panel.addEventListener("transitionend", handleShowTransition, { once: true });
-    } else {
-      panel.classList.remove(CLASS_SHOWN);
-      panel.classList.add(CLASS_TOGGLING);
-      panel.style.height = 0;
+  function transitionToShown(panel) {
+    panel.classList.add(CLASS_SHOWN);
+    panel.classList.add(CLASS_TRANSITIONING);
+    panel.style.height = panel.scrollHeight + "px";
 
-      panel.addEventListener("transitionend", handleHideTransition, { once: true });
-    }
+    panel.addEventListener(
+      "transitionend",
+      () => {
+        panel.classList.remove(CLASS_TRANSITIONING);
+      },
+      { once: true }
+    );
+  }
+
+  function transitionToHidden(panel) {
+    panel.classList.add(CLASS_TRANSITIONING);
+    panel.style.height = 0;
+
+    panel.addEventListener(
+      "transitionend",
+      () => {
+        panel.classList.remove(CLASS_TRANSITIONING);
+        panel.classList.remove(CLASS_SHOWN);
+      },
+      { once: true }
+    );
   }
 
   function moveFocus(key) {
