@@ -5,6 +5,8 @@ const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const CLASS_NO_SCROLL = "no-scroll";
 const CLASS_SHOWN = "is-shown";
+const CLASS_TRANSITIONING_IN = "is-transitioning-in";
+const CLASS_TRANSITIONING_OUT = "is-transitioning-out";
 const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
 
@@ -14,7 +16,7 @@ function Dialog(dialog) {
   const backdrop = dialog.closest(SELECTOR_BACKDROP);
 
   function show() {
-    backdrop.classList.add(CLASS_SHOWN);
+    transitionToShown();
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -25,14 +27,44 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
 
+  function transitionToShown() {
+    backdrop.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.classList.add(CLASS_TRANSITIONING_IN);
+
+    backdrop.addEventListener(
+      "animationend",
+      () => {
+        backdrop.classList.remove(CLASS_TRANSITIONING_IN);
+        dialog.classList.remove(CLASS_TRANSITIONING_IN);
+      },
+      { once: true }
+    );
+  }
+
   function hide() {
-    backdrop.classList.remove(CLASS_SHOWN);
+    transitionToHidden();
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
+  }
+
+  function transitionToHidden() {
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
+    dialog.classList.add(CLASS_TRANSITIONING_OUT);
+
+    backdrop.addEventListener(
+      "animationend",
+      () => {
+        backdrop.classList.remove(CLASS_SHOWN);
+        backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
+        dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+      },
+      { once: true }
+    );
   }
 
   function toggleScroll() {
