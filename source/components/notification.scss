@@ -10,6 +10,10 @@
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
+  &.is-transitioning-out {
+    animation: fade-out $transition-default;
+  }
+
   &-heading {
     margin-bottom: $space-small-c;
     font-size: $font-size-large-e;
@@ -113,5 +117,16 @@
     &:active {
       background-color: $color-neutral-light-c;
     }
+  }
+}
+
+// Keyframes
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
