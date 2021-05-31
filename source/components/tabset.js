@@ -6,6 +6,7 @@ const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
+const CLASS_TRANSITIONING_IN = "is-transitioning-in";
 const DATA_TARGET = "data-target";
 
 function Tabset(tabset) {
@@ -27,11 +28,24 @@ function Tabset(tabset) {
 
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        panel.classList.add(CLASS_SHOWN);
+        transitionToShown(panel);
       } else {
         panel.classList.remove(CLASS_SHOWN);
       }
     });
+  }
+
+  function transitionToShown(panel) {
+    panel.classList.add(CLASS_SHOWN);
+    panel.classList.add(CLASS_TRANSITIONING_IN);
+
+    panel.addEventListener(
+      "animationend",
+      () => {
+        panel.classList.remove(CLASS_TRANSITIONING_IN);
+      },
+      { once: true }
+    );
   }
 
   function moveFocus(key) {

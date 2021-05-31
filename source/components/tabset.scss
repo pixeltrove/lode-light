@@ -46,6 +46,10 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
+    &.is-transitioning-in {
+      animation: fade-in $transition-slow;
+    }
+
     &.is-shown {
       display: block;
     }
@@ -53,5 +57,16 @@
     p:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+// Keyframes
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
