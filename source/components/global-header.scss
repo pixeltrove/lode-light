@@ -18,6 +18,7 @@
     line-height: $line-height-small-a;
     font-weight: $font-weight-bold;
     color: $color-neutral-regular;
+    transition: color $transition-default, outline $transition-default;
 
     &:hover {
       color: $color-brand-regular;
@@ -45,6 +46,7 @@
       padding-top: $space-small-b;
       padding-bottom: $space-small-b;
       color: $color-neutral-regular;
+      transition: color $transition-default, outline $transition-default;
 
       &:hover {
         color: $color-brand-regular;

@@ -9,6 +9,7 @@
   text-decoration: underline;
   text-decoration-color: $color-brand-medium;
   text-underline-offset: 0.25rem;
+  transition: text-decoration-color $transition-default, outline $transition-default;
 
   &:hover {
     text-decoration-color: $color-brand-regular;

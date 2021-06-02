@@ -15,6 +15,14 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
+  &.is-transitioning-in {
+    animation: menu-fade-slide-in $transition-default;
+  }
+
+  &.is-transitioning-out {
+    animation: menu-fade-slide-out $transition-default;
+  }
+
   &.is-shown {
     display: block;
   }
@@ -27,6 +35,7 @@
     line-height: $line-height-regular;
     white-space: nowrap;
     color: $color-neutral-regular;
+    transition: color $transition-default, outline $transition-default;
 
     &:hover {
       color: $color-brand-regular;
@@ -48,4 +57,28 @@
 .menu-wrapper {
   position: relative;
   display: inline-block;
+}
+
+// Keyframes
+
+@keyframes menu-fade-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-fade-slide-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
 }

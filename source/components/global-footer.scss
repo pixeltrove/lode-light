@@ -37,6 +37,7 @@
   &-link {
     display: inline-block;
     color: $color-neutral-regular;
+    transition: color $transition-default, outline $transition-default;
 
     &:hover {
       color: $color-brand-regular;

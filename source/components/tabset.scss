@@ -25,6 +25,7 @@
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
+    transition: border-color $transition-default, color $transition-default, outline $transition-default;
 
     &.is-activated {
       border-bottom-color: $color-brand-regular;
@@ -45,6 +46,10 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
+    &.is-transitioning-in {
+      animation: tabset-fade-in $transition-slow;
+    }
+
     &.is-shown {
       display: block;
     }
@@ -52,5 +57,16 @@
     p:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+// Keyframes
+
+@keyframes tabset-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
