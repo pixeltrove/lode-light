@@ -47,7 +47,7 @@
     padding-bottom: $space-regular;
 
     &.is-transitioning-in {
-      animation: fade-in $transition-slow;
+      animation: tabset-fade-in $transition-slow;
     }
 
     &.is-shown {
@@ -62,7 +62,7 @@
 
 // Keyframes
 
-@keyframes fade-in {
+@keyframes tabset-fade-in {
   0% {
     opacity: 0;
   }

@@ -16,11 +16,11 @@
   background-color: $color-white-regular;
 
   &.is-transitioning-in {
-    animation: fade-slide-in $transition-default;
+    animation: menu-fade-slide-in $transition-default;
   }
 
   &.is-transitioning-out {
-    animation: fade-slide-out $transition-default;
+    animation: menu-fade-slide-out $transition-default;
   }
 
   &.is-shown {
@@ -61,7 +61,7 @@
 
 // Keyframes
 
-@keyframes fade-slide-in {
+@keyframes menu-fade-slide-in {
   0% {
     opacity: 0;
     transform: translateY(-1rem);
@@ -72,7 +72,7 @@
   }
 }
 
-@keyframes fade-slide-out {
+@keyframes menu-fade-slide-out {
   0% {
     opacity: 1;
     transform: translateY(0);

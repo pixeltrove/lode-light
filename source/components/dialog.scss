@@ -17,11 +17,11 @@
   }
 
   &.is-transitioning-in {
-    animation: fade-slide-in $transition-slow;
+    animation: dialog-fade-slide-in $transition-slow;
   }
 
   &.is-transitioning-out {
-    animation: fade-slide-out $transition-slow;
+    animation: dialog-fade-slide-out $transition-slow;
   }
 
   &-heading {
@@ -45,11 +45,11 @@
   padding: $space-large-e;
 
   &.is-transitioning-in {
-    animation: fade-in $transition-slow;
+    animation: dialog-fade-in $transition-slow;
   }
 
   &.is-transitioning-out {
-    animation: fade-out $transition-slow;
+    animation: dialog-fade-out $transition-slow;
   }
 
   &.is-shown {
@@ -63,7 +63,7 @@
 
 // Keyframes
 
-@keyframes fade-in {
+@keyframes dialog-fade-in {
   0% {
     background-color: transparent;
   }
@@ -72,7 +72,7 @@
   }
 }
 
-@keyframes fade-out {
+@keyframes dialog-fade-out {
   0% {
     background-color: hsla(0, 0%, 20%, 0.56);
   }
@@ -81,7 +81,7 @@
   }
 }
 
-@keyframes fade-slide-in {
+@keyframes dialog-fade-slide-in {
   0% {
     opacity: 0;
     transform: translateY(-4rem);
@@ -92,7 +92,7 @@
   }
 }
 
-@keyframes fade-slide-out {
+@keyframes dialog-fade-slide-out {
   0% {
     opacity: 1;
     transform: translateY(0);

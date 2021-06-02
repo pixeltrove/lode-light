@@ -11,7 +11,7 @@
   background-color: $color-brand-light-a;
 
   &.is-transitioning-out {
-    animation: fade-out $transition-default;
+    animation: notification-fade-out $transition-default;
   }
 
   &-heading {
@@ -122,7 +122,7 @@
 
 // Keyframes
 
-@keyframes fade-out {
+@keyframes notification-fade-out {
   0% {
     opacity: 1;
   }
