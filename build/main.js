@@ -1,1 +1,354 @@
-var x=".accordion",E=".accordion-slat",D="is-activated",k="is-shown",S="is-transitioning",H="data-target";function q(t){let d=Array.from(t.querySelectorAll(E));function r(e){let a=e.getAttribute(H),n=document.querySelector(`#${a}`),c=n.classList.contains(k);e.classList.toggle(D),e.setAttribute("aria-expanded",!c),c?u(n):i(n)}function i(e){e.classList.add(k),e.classList.add(S),e.style.height=e.scrollHeight+"px",e.addEventListener("transitionend",()=>{e.classList.remove(S)},{once:!0})}function u(e){e.classList.add(S),e.style.height=0,e.addEventListener("transitionend",()=>{e.classList.remove(S),e.classList.remove(k)},{once:!0})}function f(e){let a=d.indexOf(document.activeElement),n=d.length-1,c;switch(e){case"ArrowUp":c=a===0?n:a-1;break;case"ArrowDown":c=a===n?0:a+1;break;case"Home":c=0;break;case"End":c=n;break}d[c].focus()}function L(e){e.target.closest(E)&&r(e.target.closest(E))}function m(e){e.target.closest(E)&&["ArrowUp","ArrowDown","Home","End"].includes(e.key)&&(e.preventDefault(),f(e.key))}t.addEventListener("click",L),t.addEventListener("keydown",m)}var G=Array.from(document.querySelectorAll(x));G.forEach(t=>q(t));var K=".dialog",g=".dialog-backdrop",v="no-scroll",C="is-shown",y="is-transitioning-in",T="is-transitioning-out",U="data-hide",F="data-target";function B(t){let d=t.id,r=document.querySelector(`[${F}="${d}"]`),i=t.closest(g);function u(){f(),t.setAttribute("tabindex",-1),t.focus(),e(),t.addEventListener("keydown",s),t.addEventListener("click",a),i.addEventListener("click",n),document.addEventListener("keydown",c)}function f(){i.classList.add(C),i.classList.add(y),t.classList.add(y),i.addEventListener("animationend",()=>{i.classList.remove(y),t.classList.remove(y)},{once:!0})}function L(){m(),e(),t.removeEventListener("keydown",s),t.removeEventListener("click",a),i.removeEventListener("click",n),document.removeEventListener("keydown",c)}function m(){i.classList.add(T),t.classList.add(T),i.addEventListener("animationend",()=>{i.classList.remove(C),i.classList.remove(T),t.classList.remove(T)},{once:!0})}function e(){if(window.innerHeight>=document.body.scrollHeight)return;let o=Math.abs(parseInt(document.body.style.top))||window.scrollY;document.body.classList.contains(v)?(document.body.classList.remove(v),document.body.style.top="",window.scroll(0,o)):(document.body.classList.add(v),document.body.style.top=-o+"px")}function a(o){o.target.hasAttribute(U)&&L()}function n(o){o.target.matches(g)&&L()}function c(o){o.key==="Escape"&&L()}function s(o){if(o.key==="Tab"){let l=Array.from(t.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]")),A=l.length-1,w=l.indexOf(document.activeElement);o.shiftKey&&w===0||o.shiftKey&&document.activeElement===t?(o.preventDefault(),l[l.length-1].focus()):!o.shiftKey&&w===A&&(o.preventDefault(),l[0].focus())}}r.addEventListener("click",u)}var $=Array.from(document.querySelectorAll(K));$.forEach(t=>B(t));var M=".menu",O=".menu-link",P="is-activated",I="is-shown",_="is-transitioning-in",N="is-transitioning-out",W="data-target";function V(t){let d=t.id,r=document.querySelector(`[${W}="${d}"]`),i=Array.from(t.querySelectorAll(O));function u(){let s=t.classList.contains(I);r.classList.toggle(P),r.setAttribute("aria-expanded",!s),s?(L(),document.removeEventListener("click",e),document.removeEventListener("keydown",a),r.removeEventListener("keydown",n),t.removeEventListener("keydown",n),t.removeEventListener("keydown",c)):(f(),document.addEventListener("click",e),document.addEventListener("keydown",a),r.addEventListener("keydown",n),t.addEventListener("keydown",n),t.addEventListener("keydown",c))}function f(){t.classList.add(I),t.classList.add(_),t.addEventListener("animationend",()=>{t.classList.remove(_)},{once:!0})}function L(){t.classList.add(N),t.addEventListener("animationend",()=>{t.classList.remove(I),t.classList.remove(N)},{once:!0})}function m(s){let o=i.indexOf(document.activeElement),l=i.length-1,A;switch(s){case"ArrowUp":A=o===0?l:o-1;break;case"ArrowDown":A=o===l?0:o+1;break;case"Home":A=0;break;case"End":A=l;break}i[A].focus()}function e(s){!r.contains(s.target)&&!t.contains(s.target)&&u()}function a(s){s.key==="Escape"&&u()}function n(s){let o=Array.from(t.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])")),l=o[o.length-1];(s.key==="Tab"&&document.activeElement===l&&!s.shiftKey||s.key==="Tab"&&document.activeElement===r&&s.shiftKey)&&u()}function c(s){s.target.closest(O)&&["ArrowUp","ArrowDown","Home","End"].includes(s.key)&&(s.preventDefault(),m(s.key))}r.addEventListener("click",u)}var Y=Array.from(document.querySelectorAll(M));Y.forEach(t=>V(t));var j=".notification",z=".notification-button-dismiss",J="is-transitioning-out";function Q(t){function d(i){i.target.closest(z)&&r()}function r(){t.classList.add(J),t.addEventListener("animationend",()=>{t.remove()},{once:!0})}t.addEventListener("click",d)}var X=Array.from(document.querySelectorAll(j));X.forEach(t=>Q(t));var Z=".tabset",h=".tabset-tab",tt=".tabset-panel",b="is-activated",p="is-shown",R="is-transitioning-in",et="data-target";function nt(t){let d=Array.from(t.querySelectorAll(h)),r=Array.from(t.querySelectorAll(tt));function i(e){let a=e.getAttribute(et);d.forEach(n=>{n===e?(e.classList.add(b),n.removeAttribute("tabIndex")):n.classList.contains(b)&&(n.classList.remove(b),n.setAttribute("tabIndex","-1"))}),r.forEach(n=>{n.id===a?u(n):n.classList.remove(p)})}function u(e){e.classList.add(p),e.classList.add(R),e.addEventListener("animationend",()=>{e.classList.remove(R)},{once:!0})}function f(e){let a=d.indexOf(document.activeElement),n=d.length-1,c=0;switch(e){case"ArrowLeft":c=a===0?n:a-1;break;case"ArrowRight":c=a===n?0:a+1;break;case"Home":c=0;break;case"End":c=n;break}d[c].focus()}function L(e){e.target.closest(h)&&i(e.target.closest(h))}function m(e){e.target.closest(h)&&["ArrowLeft","ArrowRight","Home","End"].includes(e.key)&&(e.preventDefault(),f(e.key))}t.addEventListener("click",L),t.addEventListener("keydown",m)}var ot=Array.from(document.querySelectorAll(Z));ot.forEach(t=>nt(t));
+// source/components/accordion.js
+var SELECTOR_ACCORDION = ".accordion";
+var SELECTOR_SLAT = ".accordion-slat";
+var CLASS_ACTIVATED = "is-activated";
+var CLASS_SHOWN = "is-shown";
+var CLASS_TRANSITIONING = "is-transitioning";
+var DATA_TARGET = "data-target";
+function Accordion(accordion) {
+  const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  function togglePanel(slat) {
+    const panelId = slat.getAttribute(DATA_TARGET);
+    const panel = document.querySelector(`#${panelId}`);
+    const isShown = panel.classList.contains(CLASS_SHOWN);
+    slat.classList.toggle(CLASS_ACTIVATED);
+    slat.setAttribute("aria-expanded", !isShown);
+    isShown ? transitionToHidden(panel) : transitionToShown(panel);
+  }
+  function transitionToShown(panel) {
+    panel.classList.add(CLASS_SHOWN);
+    panel.classList.add(CLASS_TRANSITIONING);
+    panel.style.height = panel.scrollHeight + "px";
+    panel.addEventListener("transitionend", () => {
+      panel.classList.remove(CLASS_TRANSITIONING);
+    }, {once: true});
+  }
+  function transitionToHidden(panel) {
+    panel.classList.add(CLASS_TRANSITIONING);
+    panel.style.height = 0;
+    panel.addEventListener("transitionend", () => {
+      panel.classList.remove(CLASS_TRANSITIONING);
+      panel.classList.remove(CLASS_SHOWN);
+    }, {once: true});
+  }
+  function moveFocus(key) {
+    const currentIndex = slats.indexOf(document.activeElement);
+    const lastIndex = slats.length - 1;
+    let upcomingIndex;
+    switch (key) {
+      case "ArrowUp":
+        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
+        break;
+      case "ArrowDown":
+        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
+        break;
+      case "Home":
+        upcomingIndex = 0;
+        break;
+      case "End":
+        upcomingIndex = lastIndex;
+        break;
+    }
+    slats[upcomingIndex].focus();
+  }
+  function handleSlatClick(event) {
+    if (event.target.closest(SELECTOR_SLAT)) {
+      togglePanel(event.target.closest(SELECTOR_SLAT));
+    }
+  }
+  function handleSlatKeydown(event) {
+    if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      moveFocus(event.key);
+    }
+  }
+  accordion.addEventListener("click", handleSlatClick);
+  accordion.addEventListener("keydown", handleSlatKeydown);
+}
+var accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
+accordions.forEach((accordion) => Accordion(accordion));
+
+// source/components/dialog.js
+var SELECTOR_DIALOG = ".dialog";
+var SELECTOR_BACKDROP = ".dialog-backdrop";
+var CLASS_NO_SCROLL = "no-scroll";
+var CLASS_SHOWN2 = "is-shown";
+var CLASS_TRANSITIONING_IN = "is-transitioning-in";
+var CLASS_TRANSITIONING_OUT = "is-transitioning-out";
+var DATA_HIDE = "data-hide";
+var DATA_TARGET2 = "data-target";
+function Dialog(dialog) {
+  const dialogId = dialog.id;
+  const trigger = document.querySelector(`[${DATA_TARGET2}="${dialogId}"]`);
+  const backdrop = dialog.closest(SELECTOR_BACKDROP);
+  function show() {
+    transitionToShown();
+    dialog.setAttribute("tabindex", -1);
+    dialog.focus();
+    toggleScroll();
+    dialog.addEventListener("keydown", handleFocusTrap);
+    dialog.addEventListener("click", handleHideClick);
+    backdrop.addEventListener("click", handleBackdropClick);
+    document.addEventListener("keydown", handleEscape);
+  }
+  function transitionToShown() {
+    backdrop.classList.add(CLASS_SHOWN2);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.classList.add(CLASS_TRANSITIONING_IN);
+    backdrop.addEventListener("animationend", () => {
+      backdrop.classList.remove(CLASS_TRANSITIONING_IN);
+      dialog.classList.remove(CLASS_TRANSITIONING_IN);
+    }, {once: true});
+  }
+  function hide() {
+    transitionToHidden();
+    toggleScroll();
+    dialog.removeEventListener("keydown", handleFocusTrap);
+    dialog.removeEventListener("click", handleHideClick);
+    backdrop.removeEventListener("click", handleBackdropClick);
+    document.removeEventListener("keydown", handleEscape);
+  }
+  function transitionToHidden() {
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
+    dialog.classList.add(CLASS_TRANSITIONING_OUT);
+    backdrop.addEventListener("animationend", () => {
+      backdrop.classList.remove(CLASS_SHOWN2);
+      backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
+      dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+    }, {once: true});
+  }
+  function toggleScroll() {
+    if (window.innerHeight >= document.body.scrollHeight)
+      return;
+    const scrollPosition = Math.abs(parseInt(document.body.style.top)) || window.scrollY;
+    if (document.body.classList.contains(CLASS_NO_SCROLL)) {
+      document.body.classList.remove(CLASS_NO_SCROLL);
+      document.body.style.top = "";
+      window.scroll(0, scrollPosition);
+    } else {
+      document.body.classList.add(CLASS_NO_SCROLL);
+      document.body.style.top = -scrollPosition + "px";
+    }
+  }
+  function handleHideClick(event) {
+    if (event.target.hasAttribute(DATA_HIDE)) {
+      hide();
+    }
+  }
+  function handleBackdropClick(event) {
+    if (event.target.matches(SELECTOR_BACKDROP)) {
+      hide();
+    }
+  }
+  function handleEscape(event) {
+    if (event.key === "Escape") {
+      hide();
+    }
+  }
+  function handleFocusTrap(event) {
+    if (event.key === "Tab") {
+      const focusableElements = Array.from(dialog.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
+      const lastIndex = focusableElements.length - 1;
+      const focusIndex = focusableElements.indexOf(document.activeElement);
+      if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === dialog) {
+        event.preventDefault();
+        focusableElements[focusableElements.length - 1].focus();
+      } else if (!event.shiftKey && focusIndex === lastIndex) {
+        event.preventDefault();
+        focusableElements[0].focus();
+      }
+    }
+  }
+  trigger.addEventListener("click", show);
+}
+var dialogs = Array.from(document.querySelectorAll(SELECTOR_DIALOG));
+dialogs.forEach((dialog) => Dialog(dialog));
+
+// source/components/menu.js
+var SELECTOR_MENU = ".menu";
+var SELECTOR_LINK = ".menu-link";
+var CLASS_ACTIVATED2 = "is-activated";
+var CLASS_SHOWN3 = "is-shown";
+var CLASS_TRANSITIONING_IN2 = "is-transitioning-in";
+var CLASS_TRANSITIONING_OUT2 = "is-transitioning-out";
+var DATA_TARGET3 = "data-target";
+function Menu(menu) {
+  const menuId = menu.id;
+  const trigger = document.querySelector(`[${DATA_TARGET3}="${menuId}"]`);
+  const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
+  function toggle() {
+    const isShown = menu.classList.contains(CLASS_SHOWN3);
+    trigger.classList.toggle(CLASS_ACTIVATED2);
+    trigger.setAttribute("aria-expanded", !isShown);
+    if (!isShown) {
+      transitionToShown();
+      document.addEventListener("click", handleOutsideClick);
+      document.addEventListener("keydown", handleEscape);
+      trigger.addEventListener("keydown", handleTab);
+      menu.addEventListener("keydown", handleTab);
+      menu.addEventListener("keydown", handleLinkKeydown);
+    } else {
+      transitionToHidden();
+      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscape);
+      trigger.removeEventListener("keydown", handleTab);
+      menu.removeEventListener("keydown", handleTab);
+      menu.removeEventListener("keydown", handleLinkKeydown);
+    }
+  }
+  function transitionToShown() {
+    menu.classList.add(CLASS_SHOWN3);
+    menu.classList.add(CLASS_TRANSITIONING_IN2);
+    menu.addEventListener("animationend", () => {
+      menu.classList.remove(CLASS_TRANSITIONING_IN2);
+    }, {once: true});
+  }
+  function transitionToHidden() {
+    menu.classList.add(CLASS_TRANSITIONING_OUT2);
+    menu.addEventListener("animationend", () => {
+      menu.classList.remove(CLASS_SHOWN3);
+      menu.classList.remove(CLASS_TRANSITIONING_OUT2);
+    }, {once: true});
+  }
+  function moveFocus(key) {
+    const currentIndex = links.indexOf(document.activeElement);
+    const lastIndex = links.length - 1;
+    let upcomingIndex;
+    switch (key) {
+      case "ArrowUp":
+        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
+        break;
+      case "ArrowDown":
+        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
+        break;
+      case "Home":
+        upcomingIndex = 0;
+        break;
+      case "End":
+        upcomingIndex = lastIndex;
+        break;
+    }
+    links[upcomingIndex].focus();
+  }
+  function handleOutsideClick(event) {
+    if (!trigger.contains(event.target) && !menu.contains(event.target)) {
+      toggle();
+    }
+  }
+  function handleEscape(event) {
+    if (event.key === "Escape") {
+      toggle();
+    }
+  }
+  function handleTab(event) {
+    const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    if (event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey || event.key === "Tab" && document.activeElement === trigger && event.shiftKey) {
+      toggle();
+    }
+  }
+  function handleLinkKeydown(event) {
+    if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      moveFocus(event.key);
+    }
+  }
+  trigger.addEventListener("click", toggle);
+}
+var menus = Array.from(document.querySelectorAll(SELECTOR_MENU));
+menus.forEach((menu) => Menu(menu));
+
+// source/components/notification.js
+var SELECTOR_NOTIFICATION = ".notification";
+var SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
+var CLASS_TRANSITIONING_OUT3 = "is-transitioning-out";
+function Notification(notification) {
+  function handleDismiss(event) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+      transitionToHidden();
+    }
+  }
+  function transitionToHidden() {
+    notification.classList.add(CLASS_TRANSITIONING_OUT3);
+    notification.addEventListener("animationend", () => {
+      notification.remove();
+    }, {once: true});
+  }
+  notification.addEventListener("click", handleDismiss);
+}
+var notifications = Array.from(document.querySelectorAll(SELECTOR_NOTIFICATION));
+notifications.forEach((notification) => Notification(notification));
+
+// source/components/tabset.js
+var SELECTOR_TABSET = ".tabset";
+var SELECTOR_TAB = ".tabset-tab";
+var SELECTOR_PANEL = ".tabset-panel";
+var CLASS_ACTIVATED3 = "is-activated";
+var CLASS_SHOWN4 = "is-shown";
+var CLASS_TRANSITIONING_IN3 = "is-transitioning-in";
+var DATA_TARGET4 = "data-target";
+function Tabset(tabset) {
+  const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
+  const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
+  function activateTab(currentTab) {
+    const panelId = currentTab.getAttribute(DATA_TARGET4);
+    tabs.forEach((tab) => {
+      if (tab === currentTab) {
+        currentTab.classList.add(CLASS_ACTIVATED3);
+        tab.removeAttribute("tabIndex");
+      } else if (tab.classList.contains(CLASS_ACTIVATED3)) {
+        tab.classList.remove(CLASS_ACTIVATED3);
+        tab.setAttribute("tabIndex", "-1");
+      }
+    });
+    panels.forEach((panel) => {
+      if (panel.id === panelId) {
+        transitionToShown(panel);
+      } else {
+        panel.classList.remove(CLASS_SHOWN4);
+      }
+    });
+  }
+  function transitionToShown(panel) {
+    panel.classList.add(CLASS_SHOWN4);
+    panel.classList.add(CLASS_TRANSITIONING_IN3);
+    panel.addEventListener("animationend", () => {
+      panel.classList.remove(CLASS_TRANSITIONING_IN3);
+    }, {once: true});
+  }
+  function moveFocus(key) {
+    const currentIndex = tabs.indexOf(document.activeElement);
+    const lastIndex = tabs.length - 1;
+    let upcomingIndex = 0;
+    switch (key) {
+      case "ArrowLeft":
+        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
+        break;
+      case "ArrowRight":
+        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
+        break;
+      case "Home":
+        upcomingIndex = 0;
+        break;
+      case "End":
+        upcomingIndex = lastIndex;
+        break;
+    }
+    tabs[upcomingIndex].focus();
+  }
+  function handleTabClick(event) {
+    if (event.target.closest(SELECTOR_TAB)) {
+      activateTab(event.target.closest(SELECTOR_TAB));
+    }
+  }
+  function handleTabKeydown(event) {
+    if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+      event.preventDefault();
+      moveFocus(event.key);
+    }
+  }
+  tabset.addEventListener("click", handleTabClick);
+  tabset.addEventListener("keydown", handleTabKeydown);
+}
+var tabsets = Array.from(document.querySelectorAll(SELECTOR_TABSET));
+tabsets.forEach((tabset) => Tabset(tabset));
