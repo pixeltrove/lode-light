@@ -15,8 +15,8 @@
     "minify:css": "sass --style=compressed --no-source-map build/main.css build/main.min.css",
     "minify:js": "esbuild --bundle --minify --format=esm build/main.js --outfile=build/main.min.js",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
-    "watch:css": "sass --watch --no-source-map source/main.scss build/main.css",
-    "watch:js": "esbuild --watch --bundle --format=esm source/main.js --outfile=build/main.js"
+    "watch:css": "concurrently \"sass --watch --no-source-map source/main.scss build/main.css\" \"sass --watch --style=compressed --no-source-map build/main.css build/main.min.css\"",
+    "watch:js": "concurrently \"esbuild --watch --bundle --format=esm source/main.js --outfile=build/main.js\" \"esbuild --watch --bundle --minify --format=esm build/main.js --outfile=build/main.min.js\""
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
