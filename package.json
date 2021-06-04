@@ -8,12 +8,18 @@
   },
   "license": "MIT",
   "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "npm run compile:css && npm run minify:css",
+    "build:js": "npm run compile:js && npm run minify:js",
     "compile": "npm run compile:css && npm run compile:js",
-    "compile:css": "sass --style=compressed --no-source-map source/main.scss build/main.css",
-    "compile:js": "esbuild --bundle --minify --format=esm source/main.js --outfile=build/main.js",
+    "compile:css": "sass --no-source-map source/main.scss build/main.css",
+    "compile:js": "esbuild --bundle --format=esm source/main.js --outfile=build/main.js",
+    "minify": "npm run minify:css && npm run minify:js",
+    "minify:css": "sass --style=compressed --no-source-map build/main.css build/main.min.css",
+    "minify:js": "esbuild --bundle --minify --format=esm build/main.js --outfile=build/main.min.js",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
-    "watch:css": "sass --watch --style=compressed --no-source-map source/main.scss build/main.css",
-    "watch:js": "esbuild --watch --bundle --minify --format=esm source/main.js --outfile=build/main.js"
+    "watch:css": "concurrently \"sass --watch --no-source-map source/main.scss build/main.css\" \"sass --watch --style=compressed --no-source-map build/main.css build/main.min.css\"",
+    "watch:js": "concurrently \"esbuild --watch --bundle --format=esm source/main.js --outfile=build/main.js\" \"esbuild --watch --bundle --minify --format=esm build/main.js --outfile=build/main.min.js\""
   },
   "devDependencies": {
     "concurrently": "^6.1.0",
