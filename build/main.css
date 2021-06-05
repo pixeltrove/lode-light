@@ -1059,7 +1059,7 @@ summary {
   background-color: #ecf4fd;
 }
 .notification.is-transitioning-out {
-  animation: notification-fade-out 0.12s ease-out;
+  animation: fade-out 0.12s ease-out;
 }
 .notification-heading {
   margin-bottom: 0.5rem;
@@ -1144,7 +1144,7 @@ summary {
   background-color: #e0e0e0;
 }
 
-@keyframes notification-fade-out {
+@keyframes fade-out {
   0% {
     opacity: 1;
   }
@@ -1297,7 +1297,7 @@ tbody .table-header {
   padding-bottom: 1rem;
 }
 .tabset-panel.is-transitioning-in {
-  animation: tabset-fade-in 0.36s ease-out;
+  animation: fade-in 0.36s ease-out;
 }
 .tabset-panel.is-shown {
   display: block;
@@ -1306,7 +1306,7 @@ tbody .table-header {
   margin-bottom: 0;
 }
 
-@keyframes tabset-fade-in {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }

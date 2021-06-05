@@ -1,0 +1,28 @@
+// FADE
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+@mixin fade($style) {
+  @if ($style == "in") {
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  } @else if ($style == "out") {
+    @keyframes fade-out {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  } @else {
+    @error "Invalid fade style. Check spelling or review helper definition.";
+  }
+}

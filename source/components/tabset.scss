@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/fade" as *;
 @use "../helpers/focus-visible" as *;
 
 .tabset {
@@ -47,7 +48,7 @@
     padding-bottom: $space-regular;
 
     &.is-transitioning-in {
-      animation: tabset-fade-in $transition-slow;
+      animation: fade-in $transition-slow;
     }
 
     &.is-shown {
@@ -62,11 +63,4 @@
 
 // Keyframes
 
-@keyframes tabset-fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+@include fade(in);
