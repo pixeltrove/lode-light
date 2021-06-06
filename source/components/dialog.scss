@@ -3,6 +3,7 @@
 
 @use "../settings" as *;
 @use "../helpers/fade" as *;
+@use "../helpers/fade-slide" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
@@ -18,11 +19,11 @@
   }
 
   &.is-transitioning-in {
-    animation: dialog-fade-slide-in $transition-slow;
+    animation: fade-slide-in $transition-slow;
   }
 
   &.is-transitioning-out {
-    animation: dialog-fade-slide-out $transition-slow;
+    animation: fade-slide-out $transition-slow;
   }
 
   &-heading {
@@ -67,25 +68,5 @@
 
 @include fade(in);
 @include fade(out);
-
-@keyframes dialog-fade-slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-4rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes dialog-fade-slide-out {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-4rem);
-  }
-}
+@include fade-slide(in, 4rem);
+@include fade-slide(out, 4rem);

@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/fade-slide" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
@@ -16,11 +17,11 @@
   background-color: $color-white-regular;
 
   &.is-transitioning-in {
-    animation: menu-fade-slide-in $transition-default;
+    animation: fade-slide-in $transition-default;
   }
 
   &.is-transitioning-out {
-    animation: menu-fade-slide-out $transition-default;
+    animation: fade-slide-out $transition-default;
   }
 
   &.is-shown {
@@ -61,24 +62,5 @@
 
 // Keyframes
 
-@keyframes menu-fade-slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes menu-fade-slide-out {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-1rem);
-  }
-}
+@include fade-slide(in, 4rem);
+@include fade-slide(out, 4rem);

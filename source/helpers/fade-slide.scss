@@ -1,0 +1,36 @@
+// FADE SLIDE
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+@mixin fade-slide($style, $distance) {
+  $opacity-start: "";
+  $opacity-end: "";
+  $translateY-start: "";
+  $translateY-end: "";
+
+  @if ($style == "in") {
+    $opacity-start: 0;
+    $opacity-end: 1;
+    $translateY-start: -$distance;
+    $translateY-end: 0;
+  } @else if ($style == "out") {
+    $opacity-start: 1;
+    $opacity-end: 0;
+    $translateY-start: 0;
+    $translateY-end: -$distance;
+  } @else {
+    @error "Invalid fade style. Check spelling or review helper definition.";
+  }
+
+  @keyframes fade-slide-#{$style} {
+    0% {
+      opacity: $opacity-start;
+      transform: translateY($translateY-start);
+    }
+    100% {
+      opacity: $opacity-end;
+      transform: translateY($translateY-end);
+    }
+  }
+}
