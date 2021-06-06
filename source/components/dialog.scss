@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/fade" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
@@ -43,13 +44,14 @@
   z-index: $z-index-top;
   display: none;
   padding: $space-large-e;
+  background-color: hsla(0, 0%, 20%, 0.56);
 
   &.is-transitioning-in {
-    animation: dialog-fade-in $transition-slow;
+    animation: fade-in $transition-slow;
   }
 
   &.is-transitioning-out {
-    animation: dialog-fade-out $transition-slow;
+    animation: fade-out $transition-slow;
   }
 
   &.is-shown {
@@ -63,23 +65,8 @@
 
 // Keyframes
 
-@keyframes dialog-fade-in {
-  0% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: hsla(0, 0%, 20%, 0.56);
-  }
-}
-
-@keyframes dialog-fade-out {
-  0% {
-    background-color: hsla(0, 0%, 20%, 0.56);
-  }
-  100% {
-    background-color: transparent;
-  }
-}
+@include fade(in);
+@include fade(out);
 
 @keyframes dialog-fade-slide-in {
   0% {

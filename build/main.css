@@ -688,12 +688,13 @@ summary {
   z-index: 100;
   display: none;
   padding: 1.25rem;
+  background-color: rgba(51, 51, 51, 0.56);
 }
 .dialog-backdrop.is-transitioning-in {
-  animation: dialog-fade-in 0.36s ease-out;
+  animation: fade-in 0.36s ease-out;
 }
 .dialog-backdrop.is-transitioning-out {
-  animation: dialog-fade-out 0.36s ease-out;
+  animation: fade-out 0.36s ease-out;
 }
 .dialog-backdrop.is-shown {
   display: flex;
@@ -703,20 +704,20 @@ summary {
   background-color: rgba(51, 51, 51, 0.56);
 }
 
-@keyframes dialog-fade-in {
+@keyframes fade-in {
   0% {
-    background-color: transparent;
+    opacity: 0;
   }
   100% {
-    background-color: rgba(51, 51, 51, 0.56);
+    opacity: 1;
   }
 }
-@keyframes dialog-fade-out {
+@keyframes fade-out {
   0% {
-    background-color: rgba(51, 51, 51, 0.56);
+    opacity: 1;
   }
   100% {
-    background-color: transparent;
+    opacity: 0;
   }
 }
 @keyframes dialog-fade-slide-in {
