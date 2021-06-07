@@ -1,0 +1,44 @@
+// ANIMATE
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+@mixin animate($item, $type, $distance: "") {
+  $opacity-start: "";
+  $opacity-end: "";
+  $translateY-start: "";
+  $translateY-end: "";
+
+  @if ($type == "in") {
+    $opacity-start: 0;
+    $opacity-end: 1;
+    @if ($distance != "") {
+      $translateY-start: -$distance;
+      $translateY-end: 0;
+    }
+  } @else if ($type == "out") {
+    $opacity-start: 1;
+    $opacity-end: 0;
+    @if ($distance != "") {
+      $translateY-start: 0;
+      $translateY-end: -$distance;
+    }
+  } @else {
+    @error "Invalid fade style. Check spelling or review helper definition.";
+  }
+
+  @keyframes #{$item}-#{$type} {
+    0% {
+      opacity: $opacity-start;
+      @if ($distance != "") {
+        transform: translateY($translateY-start);
+      }
+    }
+    100% {
+      opacity: $opacity-end;
+      @if ($distance != "") {
+        transform: translateY($translateY-end);
+      }
+    }
+  }
+}

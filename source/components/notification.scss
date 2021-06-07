@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/fade" as *;
+@use "../helpers/animate" as *;
 @use "../helpers/focus-visible" as *;
 
 .notification {
@@ -12,7 +12,7 @@
   background-color: $color-brand-light-a;
 
   &.is-transitioning-out {
-    animation: fade-out $transition-default;
+    animation: notification-out $transition-default;
   }
 
   &-heading {
@@ -123,4 +123,4 @@
 
 // Keyframes
 
-@include fade(out);
+@include animate(notification, out);

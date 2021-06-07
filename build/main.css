@@ -668,10 +668,10 @@ summary {
   outline: 0;
 }
 .dialog.is-transitioning-in {
-  animation: fade-slide-in 0.36s ease-out;
+  animation: dialog-in 0.36s ease-out;
 }
 .dialog.is-transitioning-out {
-  animation: fade-slide-out 0.36s ease-out;
+  animation: dialog-out 0.36s ease-out;
 }
 .dialog-heading {
   margin-bottom: 1rem;
@@ -691,10 +691,10 @@ summary {
   background-color: rgba(51, 51, 51, 0.56);
 }
 .dialog-backdrop.is-transitioning-in {
-  animation: fade-in 0.36s ease-out;
+  animation: dialog-backdrop-in 0.36s ease-out;
 }
 .dialog-backdrop.is-transitioning-out {
-  animation: fade-out 0.36s ease-out;
+  animation: dialog-backdrop-out 0.36s ease-out;
 }
 .dialog-backdrop.is-shown {
   display: flex;
@@ -704,7 +704,7 @@ summary {
   background-color: rgba(51, 51, 51, 0.56);
 }
 
-@keyframes fade-in {
+@keyframes dialog-backdrop-in {
   0% {
     opacity: 0;
   }
@@ -712,7 +712,7 @@ summary {
     opacity: 1;
   }
 }
-@keyframes fade-out {
+@keyframes dialog-backdrop-out {
   0% {
     opacity: 1;
   }
@@ -720,7 +720,7 @@ summary {
     opacity: 0;
   }
 }
-@keyframes fade-slide-in {
+@keyframes dialog-in {
   0% {
     opacity: 0;
     transform: translateY(-4rem);
@@ -730,7 +730,7 @@ summary {
     transform: translateY(0);
   }
 }
-@keyframes fade-slide-out {
+@keyframes dialog-out {
   0% {
     opacity: 1;
     transform: translateY(0);
@@ -996,10 +996,10 @@ summary {
   background-color: white;
 }
 .menu.is-transitioning-in {
-  animation: fade-slide-in 0.12s ease-out;
+  animation: menu-in 0.12s ease-out;
 }
 .menu.is-transitioning-out {
-  animation: fade-slide-out 0.12s ease-out;
+  animation: menu-out 0.12s ease-out;
 }
 .menu.is-shown {
   display: block;
@@ -1033,24 +1033,24 @@ summary {
   display: inline-block;
 }
 
-@keyframes fade-slide-in {
+@keyframes menu-in {
   0% {
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-1rem);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-@keyframes fade-slide-out {
+@keyframes menu-out {
   0% {
     opacity: 1;
     transform: translateY(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-1rem);
   }
 }
 .notification {
@@ -1060,7 +1060,7 @@ summary {
   background-color: #ecf4fd;
 }
 .notification.is-transitioning-out {
-  animation: fade-out 0.12s ease-out;
+  animation: notification-out 0.12s ease-out;
 }
 .notification-heading {
   margin-bottom: 0.5rem;
@@ -1145,7 +1145,7 @@ summary {
   background-color: #e0e0e0;
 }
 
-@keyframes fade-out {
+@keyframes notification-out {
   0% {
     opacity: 1;
   }
@@ -1298,7 +1298,7 @@ tbody .table-header {
   padding-bottom: 1rem;
 }
 .tabset-panel.is-transitioning-in {
-  animation: fade-in 0.36s ease-out;
+  animation: tabset-panel-in 0.36s ease-out;
 }
 .tabset-panel.is-shown {
   display: block;
@@ -1307,7 +1307,7 @@ tbody .table-header {
   margin-bottom: 0;
 }
 
-@keyframes fade-in {
+@keyframes tabset-panel-in {
   0% {
     opacity: 0;
   }

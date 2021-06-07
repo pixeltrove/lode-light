@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/fade-slide" as *;
+@use "../helpers/animate" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
@@ -17,11 +17,11 @@
   background-color: $color-white-regular;
 
   &.is-transitioning-in {
-    animation: fade-slide-in $transition-default;
+    animation: menu-in $transition-default;
   }
 
   &.is-transitioning-out {
-    animation: fade-slide-out $transition-default;
+    animation: menu-out $transition-default;
   }
 
   &.is-shown {
@@ -62,5 +62,5 @@
 
 // Keyframes
 
-@include fade-slide(in, 4rem);
-@include fade-slide(out, 4rem);
+@include animate(menu, in, 1rem);
+@include animate(menu, out, 1rem);
