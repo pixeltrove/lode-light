@@ -4,41 +4,37 @@
 @use "../settings" as *;
 
 @mixin animate-transit($item, $phase, $slide: null) {
-  $opacity-start: null;
-  $opacity-end: null;
-  $translateY-start: null;
-  $translateY-end: null;
-
   @if ($phase == "in") {
-    $opacity-start: 0;
-    $opacity-end: 1;
-    @if ($slide != null) {
-      $translateY-start: -$slide;
-      $translateY-end: 0;
+    @keyframes #{$item}-#{$phase} {
+      0% {
+        opacity: 0;
+        @if ($slide != null) {
+          transform: translateY(-$slide);
+        }
+      }
+      100% {
+        opacity: 1;
+        @if ($slide != null) {
+          transform: translateY(0);
+        }
+      }
     }
   } @else if ($phase == "out") {
-    $opacity-start: 1;
-    $opacity-end: 0;
-    @if ($slide != null) {
-      $translateY-start: 0;
-      $translateY-end: -$slide;
+    @keyframes #{$item}-#{$phase} {
+      0% {
+        opacity: 1;
+        @if ($slide != null) {
+          transform: translateY(0);
+        }
+      }
+      100% {
+        opacity: 0;
+        @if ($slide != null) {
+          transform: translateY(-$slide);
+        }
+      }
     }
   } @else {
     @error "Invalid phase name. Check spelling or review helper definition.";
-  }
-
-  @keyframes #{$item}-#{$phase} {
-    0% {
-      opacity: $opacity-start;
-      @if ($slide != null) {
-        transform: translateY($translateY-start);
-      }
-    }
-    100% {
-      opacity: $opacity-end;
-      @if ($slide != null) {
-        transform: translateY($translateY-end);
-      }
-    }
   }
 }
