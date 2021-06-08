@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .tabset {
@@ -63,4 +63,4 @@
 
 // Keyframes
 
-@include animate(tabset-panel, in);
+@include animate-transit(tabset-panel, in);

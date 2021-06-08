@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
@@ -62,5 +62,5 @@
 
 // Keyframes
 
-@include animate(menu, in, 1rem);
-@include animate(menu, out, 1rem);
+@include animate-transit(menu, in, 1rem);
+@include animate-transit(menu, out, 1rem);

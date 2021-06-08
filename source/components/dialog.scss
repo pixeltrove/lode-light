@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
@@ -65,7 +65,7 @@
 
 // Keyframes
 
-@include animate(dialog-backdrop, in);
-@include animate(dialog-backdrop, out);
-@include animate(dialog, in, 4rem);
-@include animate(dialog, out, 4rem);
+@include animate-transit(dialog-backdrop, in);
+@include animate-transit(dialog-backdrop, out);
+@include animate-transit(dialog, in, 4rem);
+@include animate-transit(dialog, out, 4rem);

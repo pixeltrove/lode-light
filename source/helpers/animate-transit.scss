@@ -1,42 +1,42 @@
-// ANIMATE
+// ANIMATE TRANSIT
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
 
-@mixin animate($item, $type, $distance: "") {
+@mixin animate-transit($item, $phase, $slide: "") {
   $opacity-start: "";
   $opacity-end: "";
   $translateY-start: "";
   $translateY-end: "";
 
-  @if ($type == "in") {
+  @if ($phase == "in") {
     $opacity-start: 0;
     $opacity-end: 1;
-    @if ($distance != "") {
-      $translateY-start: -$distance;
+    @if ($slide != "") {
+      $translateY-start: -$slide;
       $translateY-end: 0;
     }
-  } @else if ($type == "out") {
+  } @else if ($phase == "out") {
     $opacity-start: 1;
     $opacity-end: 0;
-    @if ($distance != "") {
+    @if ($slide != "") {
       $translateY-start: 0;
-      $translateY-end: -$distance;
+      $translateY-end: -$slide;
     }
   } @else {
-    @error "Invalid fade style. Check spelling or review helper definition.";
+    @error "Invalid phase name. Check spelling or review helper definition.";
   }
 
-  @keyframes #{$item}-#{$type} {
+  @keyframes #{$item}-#{$phase} {
     0% {
       opacity: $opacity-start;
-      @if ($distance != "") {
+      @if ($slide != "") {
         transform: translateY($translateY-start);
       }
     }
     100% {
       opacity: $opacity-end;
-      @if ($distance != "") {
+      @if ($slide != "") {
         transform: translateY($translateY-end);
       }
     }

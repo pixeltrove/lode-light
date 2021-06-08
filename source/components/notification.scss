@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .notification {
@@ -123,4 +123,4 @@
 
 // Keyframes
 
-@include animate(notification, out);
+@include animate-transit(notification, out);
