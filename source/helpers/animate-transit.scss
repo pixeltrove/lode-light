@@ -3,23 +3,23 @@
 
 @use "../settings" as *;
 
-@mixin animate-transit($item, $phase, $slide: "") {
-  $opacity-start: "";
-  $opacity-end: "";
-  $translateY-start: "";
-  $translateY-end: "";
+@mixin animate-transit($item, $phase, $slide: null) {
+  $opacity-start: null;
+  $opacity-end: null;
+  $translateY-start: null;
+  $translateY-end: null;
 
   @if ($phase == "in") {
     $opacity-start: 0;
     $opacity-end: 1;
-    @if ($slide != "") {
+    @if ($slide != null) {
       $translateY-start: -$slide;
       $translateY-end: 0;
     }
   } @else if ($phase == "out") {
     $opacity-start: 1;
     $opacity-end: 0;
-    @if ($slide != "") {
+    @if ($slide != null) {
       $translateY-start: 0;
       $translateY-end: -$slide;
     }
@@ -30,13 +30,13 @@
   @keyframes #{$item}-#{$phase} {
     0% {
       opacity: $opacity-start;
-      @if ($slide != "") {
+      @if ($slide != null) {
         transform: translateY($translateY-start);
       }
     }
     100% {
       opacity: $opacity-end;
-      @if ($slide != "") {
+      @if ($slide != null) {
         transform: translateY($translateY-end);
       }
     }
