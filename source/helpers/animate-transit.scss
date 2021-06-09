@@ -8,13 +8,13 @@
     @keyframes #{$item}-#{$phase} {
       0% {
         opacity: 0;
-        @if ($slide != null) {
+        @if ($slide) {
           transform: translateY(-$slide);
         }
       }
       100% {
         opacity: 1;
-        @if ($slide != null) {
+        @if ($slide) {
           transform: translateY(0);
         }
       }
@@ -23,13 +23,13 @@
     @keyframes #{$item}-#{$phase} {
       0% {
         opacity: 1;
-        @if ($slide != null) {
+        @if ($slide) {
           transform: translateY(0);
         }
       }
       100% {
         opacity: 0;
-        @if ($slide != null) {
+        @if ($slide) {
           transform: translateY(-$slide);
         }
       }
