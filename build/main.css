@@ -668,10 +668,10 @@ summary {
   outline: 0;
 }
 .dialog.is-transitioning-in {
-  animation: dialog-fade-slide-in 0.36s ease-out;
+  animation: dialog-in 0.36s ease-out;
 }
 .dialog.is-transitioning-out {
-  animation: dialog-fade-slide-out 0.36s ease-out;
+  animation: dialog-out 0.36s ease-out;
 }
 .dialog-heading {
   margin-bottom: 1rem;
@@ -688,12 +688,13 @@ summary {
   z-index: 100;
   display: none;
   padding: 1.25rem;
+  background-color: rgba(51, 51, 51, 0.56);
 }
 .dialog-backdrop.is-transitioning-in {
-  animation: dialog-fade-in 0.36s ease-out;
+  animation: dialog-backdrop-in 0.36s ease-out;
 }
 .dialog-backdrop.is-transitioning-out {
-  animation: dialog-fade-out 0.36s ease-out;
+  animation: dialog-backdrop-out 0.36s ease-out;
 }
 .dialog-backdrop.is-shown {
   display: flex;
@@ -703,23 +704,23 @@ summary {
   background-color: rgba(51, 51, 51, 0.56);
 }
 
-@keyframes dialog-fade-in {
+@keyframes dialog-backdrop-in {
   0% {
-    background-color: transparent;
+    opacity: 0;
   }
   100% {
-    background-color: rgba(51, 51, 51, 0.56);
+    opacity: 1;
   }
 }
-@keyframes dialog-fade-out {
+@keyframes dialog-backdrop-out {
   0% {
-    background-color: rgba(51, 51, 51, 0.56);
+    opacity: 1;
   }
   100% {
-    background-color: transparent;
+    opacity: 0;
   }
 }
-@keyframes dialog-fade-slide-in {
+@keyframes dialog-in {
   0% {
     opacity: 0;
     transform: translateY(-4rem);
@@ -729,7 +730,7 @@ summary {
     transform: translateY(0);
   }
 }
-@keyframes dialog-fade-slide-out {
+@keyframes dialog-out {
   0% {
     opacity: 1;
     transform: translateY(0);
@@ -995,10 +996,10 @@ summary {
   background-color: white;
 }
 .menu.is-transitioning-in {
-  animation: menu-fade-slide-in 0.12s ease-out;
+  animation: menu-in 0.12s ease-out;
 }
 .menu.is-transitioning-out {
-  animation: menu-fade-slide-out 0.12s ease-out;
+  animation: menu-out 0.12s ease-out;
 }
 .menu.is-shown {
   display: block;
@@ -1032,7 +1033,7 @@ summary {
   display: inline-block;
 }
 
-@keyframes menu-fade-slide-in {
+@keyframes menu-in {
   0% {
     opacity: 0;
     transform: translateY(-1rem);
@@ -1042,7 +1043,7 @@ summary {
     transform: translateY(0);
   }
 }
-@keyframes menu-fade-slide-out {
+@keyframes menu-out {
   0% {
     opacity: 1;
     transform: translateY(0);
@@ -1059,7 +1060,7 @@ summary {
   background-color: #ecf4fd;
 }
 .notification.is-transitioning-out {
-  animation: notification-fade-out 0.12s ease-out;
+  animation: notification-out 0.12s ease-out;
 }
 .notification-heading {
   margin-bottom: 0.5rem;
@@ -1144,7 +1145,7 @@ summary {
   background-color: #e0e0e0;
 }
 
-@keyframes notification-fade-out {
+@keyframes notification-out {
   0% {
     opacity: 1;
   }
@@ -1297,7 +1298,7 @@ tbody .table-header {
   padding-bottom: 1rem;
 }
 .tabset-panel.is-transitioning-in {
-  animation: tabset-fade-in 0.36s ease-out;
+  animation: tabset-panel-in 0.36s ease-out;
 }
 .tabset-panel.is-shown {
   display: block;
@@ -1306,7 +1307,7 @@ tbody .table-header {
   margin-bottom: 0;
 }
 
-@keyframes tabset-fade-in {
+@keyframes tabset-panel-in {
   0% {
     opacity: 0;
   }

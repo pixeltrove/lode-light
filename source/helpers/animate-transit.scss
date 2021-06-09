@@ -1,0 +1,40 @@
+// ANIMATE TRANSIT
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+@mixin animate-transit($item, $phase, $slide: null) {
+  @if ($phase == "in") {
+    @keyframes #{$item}-#{$phase} {
+      0% {
+        opacity: 0;
+        @if ($slide) {
+          transform: translateY(-$slide);
+        }
+      }
+      100% {
+        opacity: 1;
+        @if ($slide) {
+          transform: translateY(0);
+        }
+      }
+    }
+  } @else if ($phase == "out") {
+    @keyframes #{$item}-#{$phase} {
+      0% {
+        opacity: 1;
+        @if ($slide) {
+          transform: translateY(0);
+        }
+      }
+      100% {
+        opacity: 0;
+        @if ($slide) {
+          transform: translateY(-$slide);
+        }
+      }
+    }
+  } @else {
+    @error "Invalid transit animation phase name. Check spelling or review helper definition.";
+  }
+}
