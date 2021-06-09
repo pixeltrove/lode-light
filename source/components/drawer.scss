@@ -1,0 +1,88 @@
+// DRAWER
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/animate-transit" as *;
+@use "../helpers/focus-visible" as *;
+
+.drawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  max-width: 36rem;
+  padding: $space-large-d;
+  color: $color-neutral-regular;
+  background-color: $color-white-regular;
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &.is-transitioning-in {
+    animation: drawer-in $transition-slow;
+  }
+
+  &.is-transitioning-out {
+    animation: drawer-out $transition-slow;
+  }
+
+  &-heading {
+    margin-bottom: $space-regular;
+    font-size: $font-size-large-c;
+    line-height: $line-height-small-a;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Backdrop
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-top;
+  display: none;
+  background-color: hsla(0, 0%, 20%, 0.56);
+
+  &.is-transitioning-in {
+    animation: drawer-backdrop-in $transition-slow;
+  }
+
+  &.is-transitioning-out {
+    animation: drawer-backdrop-out $transition-slow;
+  }
+
+  &.is-shown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0, 0%, 20%, 0.56);
+  }
+}
+
+// Keyframes
+
+@include animate-transit(drawer-backdrop, in);
+@include animate-transit(drawer-backdrop, out);
+
+@keyframes drawer-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes drawer-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
