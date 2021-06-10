@@ -1,9 +1,10 @@
 // ANIMATE TRANSIT
 // -----------------------------------------------------------------------------
 
+@use "sass:list";
 @use "../settings" as *;
 
-@mixin animate-transit($item, $style: "fade", $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
+@mixin animate-transit($item, $styles: "fade", $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
   $opacity-change: null;
   $slide-change: null;
   $opacity-start: null;
@@ -12,10 +13,10 @@
   $translate-end: null;
   $translate-axis: null;
 
-  @if ($style == "fade" or $style == "fade-slide") {
+  @if (list.index($styles, "fade")) {
     $opacity-change: true;
   }
-  @if ($style == "slide" or $style == "fade-slide") {
+  @if (list.index($styles, "slide")) {
     $slide-change: true;
   }
 
