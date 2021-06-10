@@ -4,7 +4,7 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin animate-transit($item, $styles: "fade", $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
+@mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
   $opacity-change: null;
   $slide-change: null;
   $opacity-start: null;
