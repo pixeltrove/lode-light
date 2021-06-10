@@ -5,40 +5,22 @@
 @use "../settings" as *;
 
 @mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
-  $opacity-change: null;
-  $slide-change: null;
-  $opacity-start: null;
-  $opacity-end: null;
-  $translate-start: null;
-  $translate-end: null;
-  $translate-axis: null;
-
-  @if (list.index($styles, "fade")) {
-    $opacity-change: true;
-  }
-  @if (list.index($styles, "slide")) {
-    $slide-change: true;
-  }
+  $opacity-change: if(list.index($styles, "fade"), true, false);
+  $opacity-start: 0;
+  $opacity-end: 1;
+  $slide-change: if(list.index($styles, "slide"), true, false);
+  $translate-start: -$slide-size;
+  $translate-end: 0;
+  $translate-axis: Y;
 
   @if $slide-change {
-    @if ($slide-origin == "top" or $slide-origin == "bottom") {
-      $translate-axis: "Y";
-    } @else if ($slide-origin == "left" or $slide-origin == "right") {
+    @if ($slide-origin == "left" or $slide-origin == "right") {
       $translate-axis: "X";
     }
   }
 
   @each $phase in $phases {
-    @if ($phase == "in") {
-      @if $opacity-change {
-        $opacity-start: 0;
-        $opacity-end: 1;
-      }
-      @if $slide-change {
-        $translate-start: -$slide-size;
-        $translate-end: 0;
-      }
-    } @else if ($phase == "out") {
+    @if ($phase == "out") {
       @if $opacity-change {
         $opacity-start: 1;
         $opacity-end: 0;
@@ -47,7 +29,7 @@
         $translate-start: 0;
         $translate-end: -$slide-size;
       }
-    } @else {
+    } @else if ($phase != "in") {
       @error "Invalid transit animation phase name. Check spelling or review helper definition.";
     }
 
