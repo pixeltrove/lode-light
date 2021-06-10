@@ -63,4 +63,4 @@
 
 // Keyframes
 
-@include animate-transit(tabset-panel, in);
+@include animate-transit(tabset-panel, "fade", "in");

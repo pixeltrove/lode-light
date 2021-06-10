@@ -62,5 +62,4 @@
 
 // Keyframes
 
-@include animate-transit(menu, in, 1rem);
-@include animate-transit(menu, out, 1rem);
+@include animate-transit(menu, "fade-slide");
