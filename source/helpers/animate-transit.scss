@@ -9,16 +9,10 @@
   $opacity-start: 0;
   $opacity-end: 1;
   $translate-change: if(list.index($styles, "slide"), true, false);
+  $translate-axis: if(($slide-origin == "left" or $slide-origin == "right"), "X", "Y");
   $translate-sign: if(($slide-origin == "right" or $slide-origin == "bottom"), "", "-");
   $translate-start: #{$translate-sign}#{$slide-size};
   $translate-end: 0;
-  $translate-axis: Y;
-
-  @if $translate-change {
-    @if ($slide-origin == "left" or $slide-origin == "right") {
-      $translate-axis: "X";
-    }
-  }
 
   @each $phase in $phases {
     @if ($phase == "out") {
