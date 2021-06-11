@@ -8,12 +8,12 @@
   $opacity-change: if(list.index($styles, "fade"), true, false);
   $opacity-start: 0;
   $opacity-end: 1;
-  $slide-change: if(list.index($styles, "slide"), true, false);
+  $translate-change: if(list.index($styles, "slide"), true, false);
   $translate-start: -$slide-size;
   $translate-end: 0;
   $translate-axis: Y;
 
-  @if $slide-change {
+  @if $translate-change {
     @if ($slide-origin == "left" or $slide-origin == "right") {
       $translate-axis: "X";
     }
@@ -25,7 +25,7 @@
         $opacity-start: 1;
         $opacity-end: 0;
       }
-      @if $slide-change {
+      @if $translate-change {
         $translate-start: 0;
         $translate-end: -$slide-size;
       }
@@ -38,7 +38,7 @@
         @if $opacity-change {
           opacity: $opacity-start;
         }
-        @if $slide-change {
+        @if $translate-change {
           transform: translate#{$translate-axis }(#{$translate-start});
         }
       }
@@ -46,7 +46,7 @@
         @if $opacity-change {
           opacity: $opacity-end;
         }
-        @if $slide-change {
+        @if $translate-change {
           transform: translate#{$translate-axis }(#{$translate-end});
         }
       }
