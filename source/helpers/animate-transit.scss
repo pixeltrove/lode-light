@@ -5,6 +5,14 @@
 @use "../settings" as *;
 
 @mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
+  @if ($styles != ("fade", "slide") and $styles != "fade" and $styles != "slide") {
+    @error "Invalid transit animation style name. Check spelling or review helper definition.";
+  } @else if ($phases != ("in", "out") and $phases != "in" and $phases != "out") {
+    @error "Invalid transit animation phase name. Check spelling or review helper definition.";
+  } @else if (not list.index(("top", "right", "bottom", "left"), $slide-origin)) {
+    @error "Invalid transit animation slide origin name. Check spelling or review helper definition.";
+  }
+
   $opacity-change: if(list.index($styles, "fade"), true, false);
   $opacity-start: 0;
   $opacity-end: 1;
@@ -24,8 +32,6 @@
         $translate-start: 0;
         $translate-end: #{$translate-sign}#{$slide-size};
       }
-    } @else if ($phase != "in") {
-      @error "Invalid transit animation phase name. Check spelling or review helper definition.";
     }
 
     @keyframes #{$item}-#{$phase} {
