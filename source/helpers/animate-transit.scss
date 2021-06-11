@@ -9,7 +9,8 @@
   $opacity-start: 0;
   $opacity-end: 1;
   $translate-change: if(list.index($styles, "slide"), true, false);
-  $translate-start: -$slide-size;
+  $translate-sign: if(($slide-origin == "right" or $slide-origin == "bottom"), "", "-");
+  $translate-start: #{$translate-sign}#{$slide-size};
   $translate-end: 0;
   $translate-axis: Y;
 
@@ -27,7 +28,7 @@
       }
       @if $translate-change {
         $translate-start: 0;
-        $translate-end: -$slide-size;
+        $translate-end: #{$translate-sign}#{$slide-size};
       }
     } @else if ($phase != "in") {
       @error "Invalid transit animation phase name. Check spelling or review helper definition.";
