@@ -24,14 +24,10 @@
 
   @each $phase in $phases {
     @if ($phase == "out") {
-      @if $opacity-change {
-        $opacity-start: 1;
-        $opacity-end: 0;
-      }
-      @if $transform-change {
-        $transform-start: translate#{$translate-axis}(0);
-        $transform-end: translate#{$translate-axis}(#{$translate-sign}#{$slide-size});
-      }
+      $opacity-start: 1;
+      $opacity-end: 0;
+      $transform-start: translate#{$translate-axis}(0);
+      $transform-end: translate#{$translate-axis}(#{$translate-sign}#{$slide-size});
     }
 
     @keyframes #{$item}-#{$phase} {
