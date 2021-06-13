@@ -4,22 +4,18 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $slide-origin: "top", $slide-size: 1rem) {
+@mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $translate-axis: "Y", $translate-length: -1rem) {
   @if ($styles != ("fade", "slide") and $styles != "fade" and $styles != "slide") {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
   } @else if ($phases != ("in", "out") and $phases != "in" and $phases != "out") {
     @error "Invalid transit animation phase name. Check spelling or review helper definition.";
-  } @else if (not list.index(("top", "right", "bottom", "left"), $slide-origin)) {
-    @error "Invalid transit animation slide origin name. Check spelling or review helper definition.";
   }
 
   $opacity-change: if(list.index($styles, "fade"), true, false);
   $opacity-start: 0;
   $opacity-end: 1;
   $transform-change: if(list.index($styles, "slide"), true, false);
-  $translate-axis: if(($slide-origin == "left" or $slide-origin == "right"), "X", "Y");
-  $translate-sign: if(($slide-origin == "right" or $slide-origin == "bottom"), "", "-");
-  $transform-start: translate#{$translate-axis}(#{$translate-sign}#{$slide-size});
+  $transform-start: translate#{$translate-axis}(#{$translate-length});
   $transform-end: translate#{$translate-axis}(0);
 
   @each $phase in $phases {
@@ -27,7 +23,7 @@
       $opacity-start: 1;
       $opacity-end: 0;
       $transform-start: translate#{$translate-axis}(0);
-      $transform-end: translate#{$translate-axis}(#{$translate-sign}#{$slide-size});
+      $transform-end: translate#{$translate-axis}(#{$translate-length});
     }
 
     @keyframes #{$item}-#{$phase} {
