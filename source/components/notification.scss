@@ -123,4 +123,4 @@
 
 // Keyframes
 
-@include animate-transit(notification, out);
+@include animate-transit(notification, "fade", "out");
