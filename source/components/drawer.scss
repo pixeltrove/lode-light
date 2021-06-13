@@ -67,8 +67,7 @@
 
 // Keyframes
 
-@include animate-transit(drawer-backdrop, in);
-@include animate-transit(drawer-backdrop, out);
+@include animate-transit(drawer-backdrop, "fade");
 
 @keyframes drawer-in {
   0% {

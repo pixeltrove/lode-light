@@ -65,7 +65,5 @@
 
 // Keyframes
 
-@include animate-transit(dialog-backdrop, in);
-@include animate-transit(dialog-backdrop, out);
-@include animate-transit(dialog, in, 4rem);
-@include animate-transit(dialog, out, 4rem);
+@include animate-transit(dialog-backdrop, "fade");
+@include animate-transit(dialog);

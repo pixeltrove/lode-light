@@ -723,7 +723,7 @@ summary {
 @keyframes dialog-in {
   0% {
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-1rem);
   }
   100% {
     opacity: 1;
@@ -737,7 +737,7 @@ summary {
   }
   100% {
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-1rem);
   }
 }
 .drawer {
