@@ -743,8 +743,8 @@ summary {
 .drawer {
   position: absolute;
   top: 0;
+  right: 0;
   bottom: 0;
-  left: 0;
   overflow: auto;
   max-width: 36rem;
   padding: 1.5rem;
@@ -836,7 +836,7 @@ summary {
 @keyframes drawer-in {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
   100% {
     opacity: 1;
@@ -850,7 +850,7 @@ summary {
   }
   100% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 }
 .global-footer {
