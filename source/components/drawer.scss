@@ -99,20 +99,4 @@
 // Keyframes
 
 @include animate-transit(drawer-backdrop, "fade");
-
-@keyframes drawer-in {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes drawer-out {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
+@include animate-transit(drawer, ("fade", "slide"), ("in", "out"), "X", -100%);
