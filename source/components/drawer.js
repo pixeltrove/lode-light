@@ -3,6 +3,7 @@
 
 const SELECTOR_DRAWER = ".drawer";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
+const SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 const CLASS_NO_SCROLL = "no-scroll";
 const CLASS_SHOWN = "is-shown";
 const CLASS_TRANSITIONING_IN = "is-transitioning-in";
@@ -100,6 +101,12 @@ function Drawer(drawer) {
     }
   }
 
+  function handleDismiss(event) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+      hide();
+    }
+  }
+
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
       const focusableElements = Array.from(drawer.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
@@ -117,6 +124,7 @@ function Drawer(drawer) {
   }
 
   trigger.addEventListener("click", show);
+  drawer.addEventListener("click", handleDismiss);
 }
 
 const drawers = Array.from(document.querySelectorAll(SELECTOR_DRAWER));

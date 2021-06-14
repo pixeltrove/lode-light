@@ -37,6 +37,37 @@
   p:last-child {
     margin-bottom: 0;
   }
+
+  .drawer-button-dismiss {
+    position: absolute;
+    top: 1.6125rem;
+    right: 1.6125rem;
+    padding: calc(#{$space-small-d} - #{$border-width-regular});
+    border: $border-width-regular solid transparent;
+    border-radius: $border-radius-regular;
+    color: $color-neutral-regular;
+    background-color: transparent;
+    transition: background-color $transition-default, outline $transition-default;
+
+    &:hover {
+      background-color: $color-neutral-light-b;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+
+    &:active {
+      background-color: $color-neutral-light-c;
+    }
+  }
+
+  .drawer-icon-dismiss {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
 }
 
 // Backdrop

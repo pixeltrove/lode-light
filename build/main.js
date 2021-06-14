@@ -167,6 +167,7 @@ dialogs.forEach((dialog) => Dialog(dialog));
 // source/components/drawer.js
 var SELECTOR_DRAWER = ".drawer";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
+var SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 var CLASS_NO_SCROLL2 = "no-scroll";
 var CLASS_SHOWN3 = "is-shown";
 var CLASS_TRANSITIONING_IN2 = "is-transitioning-in";
@@ -241,6 +242,11 @@ function Drawer(drawer) {
       hide();
     }
   }
+  function handleDismiss(event) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+      hide();
+    }
+  }
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
       const focusableElements = Array.from(drawer.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
@@ -256,6 +262,7 @@ function Drawer(drawer) {
     }
   }
   trigger.addEventListener("click", show);
+  drawer.addEventListener("click", handleDismiss);
 }
 var drawers = Array.from(document.querySelectorAll(SELECTOR_DRAWER));
 drawers.forEach((drawer) => Drawer(drawer));
@@ -356,11 +363,11 @@ menus.forEach((menu) => Menu(menu));
 
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
-var SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
+var SELECTOR_BUTTON_DISMISS2 = ".notification-button-dismiss";
 var CLASS_TRANSITIONING_OUT4 = "is-transitioning-out";
 function Notification(notification) {
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
       transitionToHidden();
     }
   }
