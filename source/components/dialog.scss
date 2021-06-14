@@ -41,9 +41,9 @@
 .dialog-backdrop {
   position: fixed;
   inset: 0;
-  z-index: $z-index-top;
+  z-index: -1;
   display: none;
-  padding: $space-large-e;
+
   background-color: hsla(0, 0%, 20%, 0.56);
 
   &.is-transitioning-in {
@@ -55,11 +55,25 @@
   }
 
   &.is-shown {
+    display: block;
+    background-color: hsla(0, 0%, 20%, 0.56);
+  }
+}
+
+// Wrapper
+
+.dialog-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-top;
+  display: none;
+  padding: $space-large-e;
+
+  &.is-shown {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: hsla(0, 0%, 20%, 0.56);
   }
 }
 

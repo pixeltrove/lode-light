@@ -685,9 +685,8 @@ summary {
 .dialog-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: -1;
   display: none;
-  padding: 1.25rem;
   background-color: rgba(51, 51, 51, 0.56);
 }
 .dialog-backdrop.is-transitioning-in {
@@ -697,11 +696,22 @@ summary {
   animation: dialog-backdrop-out 0.36s ease-out;
 }
 .dialog-backdrop.is-shown {
+  display: block;
+  background-color: rgba(51, 51, 51, 0.56);
+}
+
+.dialog-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  padding: 1.25rem;
+}
+.dialog-wrapper.is-shown {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(51, 51, 51, 0.56);
 }
 
 @keyframes dialog-backdrop-in {
