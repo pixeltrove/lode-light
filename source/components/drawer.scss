@@ -76,7 +76,7 @@
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  z-index: $z-index-top;
+  z-index: -1;
   display: none;
   background-color: hsla(0, 0%, 20%, 0.56);
 
@@ -97,7 +97,21 @@
   }
 }
 
+// Wrapper
+
+.drawer-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-top;
+  display: none;
+  padding: $space-large-e;
+
+  &.is-shown {
+    display: block;
+  }
+}
+
 // Keyframes
 
 @include animate-transit(drawer-backdrop, "fade");
-@include animate-transit(drawer, ("fade", "slide"), ("in", "out"), "X", 100%);
+@include animate-transit(drawer, "slide", ("in", "out"), "X", 100%);

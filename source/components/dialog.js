@@ -13,9 +13,11 @@ const DATA_TARGET = "data-target";
 function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_TARGET}="${dialogId}"]`);
-  const backdrop = dialog.closest(SELECTOR_BACKDROP);
+  const wrapper = dialog.parentElement;
+  const backdrop = dialog.nextElementSibling;
 
   function show() {
+    wrapper.classList.add(CLASS_SHOWN);
     transitionToShown();
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -62,6 +64,7 @@ function Dialog(dialog) {
         backdrop.classList.remove(CLASS_SHOWN);
         backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
         dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+        wrapper.classList.remove(CLASS_SHOWN);
       },
       { once: true }
     );

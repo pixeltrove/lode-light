@@ -80,8 +80,10 @@ var DATA_TARGET2 = "data-target";
 function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_TARGET2}="${dialogId}"]`);
-  const backdrop = dialog.closest(SELECTOR_BACKDROP);
+  const wrapper = dialog.parentElement;
+  const backdrop = dialog.nextElementSibling;
   function show() {
+    wrapper.classList.add(CLASS_SHOWN2);
     transitionToShown();
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -115,6 +117,7 @@ function Dialog(dialog) {
       backdrop.classList.remove(CLASS_SHOWN2);
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
       dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+      wrapper.classList.remove(CLASS_SHOWN2);
     }, {once: true});
   }
   function toggleScroll() {
@@ -177,8 +180,10 @@ var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
   const trigger = document.querySelector(`[${DATA_TARGET3}="${drawerId}"]`);
-  const backdrop = drawer.closest(SELECTOR_BACKDROP2);
+  const wrapper = drawer.parentElement;
+  const backdrop = drawer.nextElementSibling;
   function show() {
+    wrapper.classList.add(CLASS_SHOWN3);
     transitionToShown();
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
@@ -212,6 +217,7 @@ function Drawer(drawer) {
       backdrop.classList.remove(CLASS_SHOWN3);
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT2);
       drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
+      wrapper.classList.remove(CLASS_SHOWN3);
     }, {once: true});
   }
   function toggleScroll() {
