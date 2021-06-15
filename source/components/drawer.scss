@@ -77,7 +77,6 @@
   position: fixed;
   inset: 0;
   z-index: -1;
-  display: none;
   background-color: hsla(0, 0%, 20%, 0.56);
 
   &.is-transitioning-in {
@@ -86,14 +85,6 @@
 
   &.is-transitioning-out {
     animation: drawer-backdrop-out $transition-slow;
-  }
-
-  &.is-shown {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: hsla(0, 0%, 20%, 0.56);
   }
 }
 

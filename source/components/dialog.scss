@@ -42,8 +42,6 @@
   position: fixed;
   inset: 0;
   z-index: -1;
-  display: none;
-
   background-color: hsla(0, 0%, 20%, 0.56);
 
   &.is-transitioning-in {
@@ -52,11 +50,6 @@
 
   &.is-transitioning-out {
     animation: dialog-backdrop-out $transition-slow;
-  }
-
-  &.is-shown {
-    display: block;
-    background-color: hsla(0, 0%, 20%, 0.56);
   }
 }
 
