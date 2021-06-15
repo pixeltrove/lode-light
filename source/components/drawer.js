@@ -14,9 +14,11 @@ const DATA_TARGET = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
   const trigger = document.querySelector(`[${DATA_TARGET}="${drawerId}"]`);
-  const backdrop = drawer.closest(SELECTOR_BACKDROP);
+  const wrapper = drawer.parentElement;
+  const backdrop = drawer.nextElementSibling;
 
   function show() {
+    wrapper.classList.add(CLASS_SHOWN);
     transitionToShown();
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
@@ -63,6 +65,7 @@ function Drawer(drawer) {
         backdrop.classList.remove(CLASS_SHOWN);
         backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
         drawer.classList.remove(CLASS_TRANSITIONING_OUT);
+        wrapper.classList.remove(CLASS_SHOWN);
       },
       { once: true }
     );

@@ -180,8 +180,10 @@ var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
   const trigger = document.querySelector(`[${DATA_TARGET3}="${drawerId}"]`);
-  const backdrop = drawer.closest(SELECTOR_BACKDROP2);
+  const wrapper = drawer.parentElement;
+  const backdrop = drawer.nextElementSibling;
   function show() {
+    wrapper.classList.add(CLASS_SHOWN3);
     transitionToShown();
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
@@ -215,6 +217,7 @@ function Drawer(drawer) {
       backdrop.classList.remove(CLASS_SHOWN3);
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT2);
       drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
+      wrapper.classList.remove(CLASS_SHOWN3);
     }, {once: true});
   }
   function toggleScroll() {
