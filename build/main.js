@@ -94,7 +94,6 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function transitionToShown() {
-    backdrop.classList.add(CLASS_SHOWN2);
     backdrop.classList.add(CLASS_TRANSITIONING_IN);
     dialog.classList.add(CLASS_TRANSITIONING_IN);
     backdrop.addEventListener("animationend", () => {
@@ -114,7 +113,6 @@ function Dialog(dialog) {
     backdrop.classList.add(CLASS_TRANSITIONING_OUT);
     dialog.classList.add(CLASS_TRANSITIONING_OUT);
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_SHOWN2);
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
       dialog.classList.remove(CLASS_TRANSITIONING_OUT);
       wrapper.classList.remove(CLASS_SHOWN2);
@@ -194,7 +192,6 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function transitionToShown() {
-    backdrop.classList.add(CLASS_SHOWN3);
     backdrop.classList.add(CLASS_TRANSITIONING_IN2);
     drawer.classList.add(CLASS_TRANSITIONING_IN2);
     backdrop.addEventListener("animationend", () => {
@@ -214,7 +211,6 @@ function Drawer(drawer) {
     backdrop.classList.add(CLASS_TRANSITIONING_OUT2);
     drawer.classList.add(CLASS_TRANSITIONING_OUT2);
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_SHOWN3);
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT2);
       drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
       wrapper.classList.remove(CLASS_SHOWN3);

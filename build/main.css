@@ -686,7 +686,6 @@ summary {
   position: fixed;
   inset: 0;
   z-index: -1;
-  display: none;
   background-color: rgba(51, 51, 51, 0.56);
 }
 .dialog-backdrop.is-transitioning-in {
@@ -694,10 +693,6 @@ summary {
 }
 .dialog-backdrop.is-transitioning-out {
   animation: dialog-backdrop-out 0.36s ease-out;
-}
-.dialog-backdrop.is-shown {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.56);
 }
 
 .dialog-wrapper {
@@ -811,7 +806,6 @@ summary {
   position: fixed;
   inset: 0;
   z-index: -1;
-  display: none;
   background-color: rgba(51, 51, 51, 0.56);
 }
 .drawer-backdrop.is-transitioning-in {
@@ -819,13 +813,6 @@ summary {
 }
 .drawer-backdrop.is-transitioning-out {
   animation: drawer-backdrop-out 0.36s ease-out;
-}
-.drawer-backdrop.is-shown {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(51, 51, 51, 0.56);
 }
 
 .drawer-wrapper {

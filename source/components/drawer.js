@@ -31,7 +31,6 @@ function Drawer(drawer) {
   }
 
   function transitionToShown() {
-    backdrop.classList.add(CLASS_SHOWN);
     backdrop.classList.add(CLASS_TRANSITIONING_IN);
     drawer.classList.add(CLASS_TRANSITIONING_IN);
 
@@ -62,7 +61,6 @@ function Drawer(drawer) {
     backdrop.addEventListener(
       "animationend",
       () => {
-        backdrop.classList.remove(CLASS_SHOWN);
         backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
         drawer.classList.remove(CLASS_TRANSITIONING_OUT);
         wrapper.classList.remove(CLASS_SHOWN);
