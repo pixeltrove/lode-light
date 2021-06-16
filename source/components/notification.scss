@@ -11,7 +11,7 @@
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
-  &.is-transitioning-out {
+  &.is-transiting-out {
     animation: notification-out $transition-default;
   }
 

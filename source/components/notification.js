@@ -3,17 +3,17 @@
 
 const SELECTOR_NOTIFICATION = ".notification";
 const SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
-const CLASS_TRANSITIONING_OUT = "is-transitioning-out";
+const CLASS_TRANSITING_OUT = "is-transiting-out";
 
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
-      transitionToHidden();
+      transitToHidden();
     }
   }
 
-  function transitionToHidden() {
-    notification.classList.add(CLASS_TRANSITIONING_OUT);
+  function transitToHidden() {
+    notification.classList.add(CLASS_TRANSITING_OUT);
 
     notification.addEventListener(
       "animationend",

@@ -47,7 +47,7 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
-    &.is-transitioning-in {
+    &.is-transiting-in {
       animation: tabset-panel-in $transition-slow;
     }
 

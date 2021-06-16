@@ -16,11 +16,11 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
-  &.is-transitioning-in {
+  &.is-transiting-in {
     animation: menu-in $transition-default;
   }
 
-  &.is-transitioning-out {
+  &.is-transiting-out {
     animation: menu-out $transition-default;
   }
 

@@ -5,7 +5,7 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITIONING = "is-transitioning";
+const CLASS_TOGGLING = "is-toggling";
 const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
@@ -19,31 +19,31 @@ function Accordion(accordion) {
     slat.classList.toggle(CLASS_ACTIVATED);
     slat.setAttribute("aria-expanded", !isShown);
 
-    isShown ? transitionToHidden(panel) : transitionToShown(panel);
+    isShown ? toggleToHidden(panel) : toggleToShown(panel);
   }
 
-  function transitionToShown(panel) {
+  function toggleToShown(panel) {
     panel.classList.add(CLASS_SHOWN);
-    panel.classList.add(CLASS_TRANSITIONING);
+    panel.classList.add(CLASS_TOGGLING);
     panel.style.height = panel.scrollHeight + "px";
 
     panel.addEventListener(
       "transitionend",
       () => {
-        panel.classList.remove(CLASS_TRANSITIONING);
+        panel.classList.remove(CLASS_TOGGLING);
       },
       { once: true }
     );
   }
 
-  function transitionToHidden(panel) {
-    panel.classList.add(CLASS_TRANSITIONING);
+  function toggleToHidden(panel) {
+    panel.classList.add(CLASS_TOGGLING);
     panel.style.height = 0;
 
     panel.addEventListener(
       "transitionend",
       () => {
-        panel.classList.remove(CLASS_TRANSITIONING);
+        panel.classList.remove(CLASS_TOGGLING);
         panel.classList.remove(CLASS_SHOWN);
       },
       { once: true }
