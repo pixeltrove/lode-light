@@ -31,14 +31,22 @@ function Drawer(drawer) {
   }
 
   function transitionToShown() {
-    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    drawer.classList.add(CLASS_SHOWN);
     drawer.classList.add(CLASS_TRANSITIONING_IN);
+    backdrop.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN);
 
+    drawer.addEventListener(
+      "animationend",
+      () => {
+        drawer.classList.remove(CLASS_TRANSITIONING_IN);
+      },
+      { once: true }
+    );
     backdrop.addEventListener(
       "animationend",
       () => {
         backdrop.classList.remove(CLASS_TRANSITIONING_IN);
-        drawer.classList.remove(CLASS_TRANSITIONING_IN);
       },
       { once: true }
     );
@@ -55,18 +63,33 @@ function Drawer(drawer) {
   }
 
   function transitionToHidden() {
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
     drawer.classList.add(CLASS_TRANSITIONING_OUT);
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
 
+    drawer.addEventListener(
+      "animationend",
+      () => {
+        drawer.classList.remove(CLASS_TRANSITIONING_OUT);
+        drawer.classList.remove(CLASS_SHOWN);
+      },
+      { once: true }
+    );
     backdrop.addEventListener(
       "animationend",
       () => {
         backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
-        drawer.classList.remove(CLASS_TRANSITIONING_OUT);
-        wrapper.classList.remove(CLASS_SHOWN);
+        backdrop.classList.remove(CLASS_SHOWN);
       },
       { once: true }
     );
+
+    Promise.all(
+      wrapper.getAnimations({ subtree: true }).map(function (animation) {
+        return animation.finished;
+      })
+    ).then(function () {
+      return wrapper.classList.remove(CLASS_SHOWN);
+    });
   }
 
   function toggleScroll() {

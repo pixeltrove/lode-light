@@ -94,11 +94,15 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function transitionToShown() {
-    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.classList.add(CLASS_SHOWN2);
     dialog.classList.add(CLASS_TRANSITIONING_IN);
+    backdrop.classList.add(CLASS_SHOWN2);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.addEventListener("animationend", () => {
+      dialog.classList.remove(CLASS_TRANSITIONING_IN);
+    }, {once: true});
     backdrop.addEventListener("animationend", () => {
       backdrop.classList.remove(CLASS_TRANSITIONING_IN);
-      dialog.classList.remove(CLASS_TRANSITIONING_IN);
     }, {once: true});
   }
   function hide() {
@@ -110,13 +114,21 @@ function Dialog(dialog) {
     document.removeEventListener("keydown", handleEscape);
   }
   function transitionToHidden() {
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
     dialog.classList.add(CLASS_TRANSITIONING_OUT);
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
+    dialog.addEventListener("animationend", () => {
+      dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+      dialog.classList.remove(CLASS_SHOWN2);
+    }, {once: true});
     backdrop.addEventListener("animationend", () => {
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
-      dialog.classList.remove(CLASS_TRANSITIONING_OUT);
-      wrapper.classList.remove(CLASS_SHOWN2);
+      backdrop.classList.remove(CLASS_SHOWN2);
     }, {once: true});
+    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
+      return animation.finished;
+    })).then(function() {
+      return wrapper.classList.remove(CLASS_SHOWN2);
+    });
   }
   function toggleScroll() {
     if (window.innerHeight >= document.body.scrollHeight)
@@ -192,11 +204,15 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function transitionToShown() {
-    backdrop.classList.add(CLASS_TRANSITIONING_IN2);
+    drawer.classList.add(CLASS_SHOWN3);
     drawer.classList.add(CLASS_TRANSITIONING_IN2);
+    backdrop.classList.add(CLASS_SHOWN3);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN2);
+    drawer.addEventListener("animationend", () => {
+      drawer.classList.remove(CLASS_TRANSITIONING_IN2);
+    }, {once: true});
     backdrop.addEventListener("animationend", () => {
       backdrop.classList.remove(CLASS_TRANSITIONING_IN2);
-      drawer.classList.remove(CLASS_TRANSITIONING_IN2);
     }, {once: true});
   }
   function hide() {
@@ -208,13 +224,21 @@ function Drawer(drawer) {
     document.removeEventListener("keydown", handleEscape);
   }
   function transitionToHidden() {
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT2);
     drawer.classList.add(CLASS_TRANSITIONING_OUT2);
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT2);
+    drawer.addEventListener("animationend", () => {
+      drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
+      drawer.classList.remove(CLASS_SHOWN3);
+    }, {once: true});
     backdrop.addEventListener("animationend", () => {
       backdrop.classList.remove(CLASS_TRANSITIONING_OUT2);
-      drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
-      wrapper.classList.remove(CLASS_SHOWN3);
+      backdrop.classList.remove(CLASS_SHOWN3);
     }, {once: true});
+    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
+      return animation.finished;
+    })).then(function() {
+      return wrapper.classList.remove(CLASS_SHOWN3);
+    });
   }
   function toggleScroll() {
     if (window.innerHeight >= document.body.scrollHeight)
