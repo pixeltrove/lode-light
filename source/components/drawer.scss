@@ -26,11 +26,11 @@
     display: block;
   }
 
-  &.is-transitioning-in {
+  &.is-transiting-in {
     animation: drawer-in $transition-slow;
   }
 
-  &.is-transitioning-out {
+  &.is-transiting-out {
     animation: drawer-out $transition-slow;
   }
 
@@ -89,11 +89,11 @@
     display: block;
   }
 
-  &.is-transitioning-in {
+  &.is-transiting-in {
     animation: drawer-backdrop-in $transition-slow;
   }
 
-  &.is-transitioning-out {
+  &.is-transiting-out {
     animation: drawer-backdrop-out $transition-slow;
   }
 }

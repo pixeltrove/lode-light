@@ -344,7 +344,7 @@ summary {
 .accordion-panel.is-shown {
   display: block;
 }
-.accordion-panel.is-transitioning {
+.accordion-panel.is-toggling {
   overflow: hidden;
   height: 0;
   transition: height 0.12s ease-out;
@@ -671,10 +671,10 @@ summary {
 .dialog.is-shown {
   display: block;
 }
-.dialog.is-transitioning-in {
+.dialog.is-transiting-in {
   animation: dialog-in 0.36s ease-out;
 }
-.dialog.is-transitioning-out {
+.dialog.is-transiting-out {
   animation: dialog-out 0.36s ease-out;
 }
 .dialog-heading {
@@ -696,10 +696,10 @@ summary {
 .dialog-backdrop.is-shown {
   display: block;
 }
-.dialog-backdrop.is-transitioning-in {
+.dialog-backdrop.is-transiting-in {
   animation: dialog-backdrop-in 0.36s ease-out;
 }
-.dialog-backdrop.is-transitioning-out {
+.dialog-backdrop.is-transiting-out {
   animation: dialog-backdrop-out 0.36s ease-out;
 }
 
@@ -772,10 +772,10 @@ summary {
 .drawer.is-shown {
   display: block;
 }
-.drawer.is-transitioning-in {
+.drawer.is-transiting-in {
   animation: drawer-in 0.36s ease-out;
 }
-.drawer.is-transitioning-out {
+.drawer.is-transiting-out {
   animation: drawer-out 0.36s ease-out;
 }
 .drawer-heading {
@@ -824,10 +824,10 @@ summary {
 .drawer-backdrop.is-shown {
   display: block;
 }
-.drawer-backdrop.is-transitioning-in {
+.drawer-backdrop.is-transiting-in {
   animation: drawer-backdrop-in 0.36s ease-out;
 }
-.drawer-backdrop.is-transitioning-out {
+.drawer-backdrop.is-transiting-out {
   animation: drawer-backdrop-out 0.36s ease-out;
 }
 
@@ -1129,10 +1129,10 @@ summary {
   margin-bottom: 0;
   background-color: white;
 }
-.menu.is-transitioning-in {
+.menu.is-transiting-in {
   animation: menu-in 0.12s ease-out;
 }
-.menu.is-transitioning-out {
+.menu.is-transiting-out {
   animation: menu-out 0.12s ease-out;
 }
 .menu.is-shown {
@@ -1193,7 +1193,7 @@ summary {
   color: #1060bc;
   background-color: #ecf4fd;
 }
-.notification.is-transitioning-out {
+.notification.is-transiting-out {
   animation: notification-out 0.12s ease-out;
 }
 .notification-heading {
@@ -1431,7 +1431,7 @@ tbody .table-header {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.tabset-panel.is-transitioning-in {
+.tabset-panel.is-transiting-in {
   animation: tabset-panel-in 0.36s ease-out;
 }
 .tabset-panel.is-shown {

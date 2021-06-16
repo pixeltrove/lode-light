@@ -3,7 +3,7 @@ var SELECTOR_ACCORDION = ".accordion";
 var SELECTOR_SLAT = ".accordion-slat";
 var CLASS_ACTIVATED = "is-activated";
 var CLASS_SHOWN = "is-shown";
-var CLASS_TRANSITIONING = "is-transitioning";
+var CLASS_TOGGLING = "is-toggling";
 var DATA_TARGET = "data-target";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
@@ -13,21 +13,21 @@ function Accordion(accordion) {
     const isShown = panel.classList.contains(CLASS_SHOWN);
     slat.classList.toggle(CLASS_ACTIVATED);
     slat.setAttribute("aria-expanded", !isShown);
-    isShown ? transitionToHidden(panel) : transitionToShown(panel);
+    isShown ? toggleToHidden(panel) : toggleToShown(panel);
   }
-  function transitionToShown(panel) {
+  function toggleToShown(panel) {
     panel.classList.add(CLASS_SHOWN);
-    panel.classList.add(CLASS_TRANSITIONING);
+    panel.classList.add(CLASS_TOGGLING);
     panel.style.height = panel.scrollHeight + "px";
     panel.addEventListener("transitionend", () => {
-      panel.classList.remove(CLASS_TRANSITIONING);
+      panel.classList.remove(CLASS_TOGGLING);
     }, {once: true});
   }
-  function transitionToHidden(panel) {
-    panel.classList.add(CLASS_TRANSITIONING);
+  function toggleToHidden(panel) {
+    panel.classList.add(CLASS_TOGGLING);
     panel.style.height = 0;
     panel.addEventListener("transitionend", () => {
-      panel.classList.remove(CLASS_TRANSITIONING);
+      panel.classList.remove(CLASS_TOGGLING);
       panel.classList.remove(CLASS_SHOWN);
     }, {once: true});
   }
@@ -73,8 +73,8 @@ var SELECTOR_DIALOG = ".dialog";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
 var CLASS_NO_SCROLL = "no-scroll";
 var CLASS_SHOWN2 = "is-shown";
-var CLASS_TRANSITIONING_IN = "is-transitioning-in";
-var CLASS_TRANSITIONING_OUT = "is-transitioning-out";
+var CLASS_TRANSITING_IN = "is-transiting-in";
+var CLASS_TRANSITING_OUT = "is-transiting-out";
 var DATA_HIDE = "data-hide";
 var DATA_TARGET2 = "data-target";
 function Dialog(dialog) {
@@ -84,7 +84,7 @@ function Dialog(dialog) {
   const backdrop = dialog.nextElementSibling;
   function show() {
     wrapper.classList.add(CLASS_SHOWN2);
-    transitionToShown();
+    transitToShown();
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -93,35 +93,35 @@ function Dialog(dialog) {
     backdrop.addEventListener("click", handleBackdropClick);
     document.addEventListener("keydown", handleEscape);
   }
-  function transitionToShown() {
+  function transitToShown() {
     dialog.classList.add(CLASS_SHOWN2);
-    dialog.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.classList.add(CLASS_TRANSITING_IN);
     backdrop.classList.add(CLASS_SHOWN2);
-    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    backdrop.classList.add(CLASS_TRANSITING_IN);
     dialog.addEventListener("animationend", () => {
-      dialog.classList.remove(CLASS_TRANSITIONING_IN);
+      dialog.classList.remove(CLASS_TRANSITING_IN);
     }, {once: true});
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITIONING_IN);
+      backdrop.classList.remove(CLASS_TRANSITING_IN);
     }, {once: true});
   }
   function hide() {
-    transitionToHidden();
+    transitToHidden();
     toggleScroll();
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
   }
-  function transitionToHidden() {
-    dialog.classList.add(CLASS_TRANSITIONING_OUT);
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
+  function transitToHidden() {
+    dialog.classList.add(CLASS_TRANSITING_OUT);
+    backdrop.classList.add(CLASS_TRANSITING_OUT);
     dialog.addEventListener("animationend", () => {
-      dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+      dialog.classList.remove(CLASS_TRANSITING_OUT);
       dialog.classList.remove(CLASS_SHOWN2);
     }, {once: true});
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
+      backdrop.classList.remove(CLASS_TRANSITING_OUT);
       backdrop.classList.remove(CLASS_SHOWN2);
     }, {once: true});
     Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
@@ -183,8 +183,8 @@ var SELECTOR_BACKDROP2 = ".drawer-backdrop";
 var SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 var CLASS_NO_SCROLL2 = "no-scroll";
 var CLASS_SHOWN3 = "is-shown";
-var CLASS_TRANSITIONING_IN2 = "is-transitioning-in";
-var CLASS_TRANSITIONING_OUT2 = "is-transitioning-out";
+var CLASS_TRANSITING_IN2 = "is-transiting-in";
+var CLASS_TRANSITING_OUT2 = "is-transiting-out";
 var DATA_HIDE2 = "data-hide";
 var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
@@ -194,7 +194,7 @@ function Drawer(drawer) {
   const backdrop = drawer.nextElementSibling;
   function show() {
     wrapper.classList.add(CLASS_SHOWN3);
-    transitionToShown();
+    transitToShown();
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
     toggleScroll();
@@ -203,35 +203,35 @@ function Drawer(drawer) {
     backdrop.addEventListener("click", handleBackdropClick);
     document.addEventListener("keydown", handleEscape);
   }
-  function transitionToShown() {
+  function transitToShown() {
     drawer.classList.add(CLASS_SHOWN3);
-    drawer.classList.add(CLASS_TRANSITIONING_IN2);
+    drawer.classList.add(CLASS_TRANSITING_IN2);
     backdrop.classList.add(CLASS_SHOWN3);
-    backdrop.classList.add(CLASS_TRANSITIONING_IN2);
+    backdrop.classList.add(CLASS_TRANSITING_IN2);
     drawer.addEventListener("animationend", () => {
-      drawer.classList.remove(CLASS_TRANSITIONING_IN2);
+      drawer.classList.remove(CLASS_TRANSITING_IN2);
     }, {once: true});
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITIONING_IN2);
+      backdrop.classList.remove(CLASS_TRANSITING_IN2);
     }, {once: true});
   }
   function hide() {
-    transitionToHidden();
+    transitToHidden();
     toggleScroll();
     drawer.removeEventListener("keydown", handleFocusTrap);
     drawer.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
   }
-  function transitionToHidden() {
-    drawer.classList.add(CLASS_TRANSITIONING_OUT2);
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT2);
+  function transitToHidden() {
+    drawer.classList.add(CLASS_TRANSITING_OUT2);
+    backdrop.classList.add(CLASS_TRANSITING_OUT2);
     drawer.addEventListener("animationend", () => {
-      drawer.classList.remove(CLASS_TRANSITIONING_OUT2);
+      drawer.classList.remove(CLASS_TRANSITING_OUT2);
       drawer.classList.remove(CLASS_SHOWN3);
     }, {once: true});
     backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITIONING_OUT2);
+      backdrop.classList.remove(CLASS_TRANSITING_OUT2);
       backdrop.classList.remove(CLASS_SHOWN3);
     }, {once: true});
     Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
@@ -298,8 +298,8 @@ var SELECTOR_MENU = ".menu";
 var SELECTOR_LINK = ".menu-link";
 var CLASS_ACTIVATED2 = "is-activated";
 var CLASS_SHOWN4 = "is-shown";
-var CLASS_TRANSITIONING_IN3 = "is-transitioning-in";
-var CLASS_TRANSITIONING_OUT3 = "is-transitioning-out";
+var CLASS_TRANSITING_IN3 = "is-transiting-in";
+var CLASS_TRANSITING_OUT3 = "is-transiting-out";
 var DATA_TARGET4 = "data-target";
 function Menu(menu) {
   const menuId = menu.id;
@@ -310,14 +310,14 @@ function Menu(menu) {
     trigger.classList.toggle(CLASS_ACTIVATED2);
     trigger.setAttribute("aria-expanded", !isShown);
     if (!isShown) {
-      transitionToShown();
+      transitToShown();
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      transitionToHidden();
+      transitToHidden();
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
       trigger.removeEventListener("keydown", handleTab);
@@ -325,18 +325,18 @@ function Menu(menu) {
       menu.removeEventListener("keydown", handleLinkKeydown);
     }
   }
-  function transitionToShown() {
+  function transitToShown() {
     menu.classList.add(CLASS_SHOWN4);
-    menu.classList.add(CLASS_TRANSITIONING_IN3);
+    menu.classList.add(CLASS_TRANSITING_IN3);
     menu.addEventListener("animationend", () => {
-      menu.classList.remove(CLASS_TRANSITIONING_IN3);
+      menu.classList.remove(CLASS_TRANSITING_IN3);
     }, {once: true});
   }
-  function transitionToHidden() {
-    menu.classList.add(CLASS_TRANSITIONING_OUT3);
+  function transitToHidden() {
+    menu.classList.add(CLASS_TRANSITING_OUT3);
     menu.addEventListener("animationend", () => {
       menu.classList.remove(CLASS_SHOWN4);
-      menu.classList.remove(CLASS_TRANSITIONING_OUT3);
+      menu.classList.remove(CLASS_TRANSITING_OUT3);
     }, {once: true});
   }
   function moveFocus(key) {
@@ -390,15 +390,15 @@ menus.forEach((menu) => Menu(menu));
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
 var SELECTOR_BUTTON_DISMISS2 = ".notification-button-dismiss";
-var CLASS_TRANSITIONING_OUT4 = "is-transitioning-out";
+var CLASS_TRANSITING_OUT4 = "is-transiting-out";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
-      transitionToHidden();
+      transitToHidden();
     }
   }
-  function transitionToHidden() {
-    notification.classList.add(CLASS_TRANSITIONING_OUT4);
+  function transitToHidden() {
+    notification.classList.add(CLASS_TRANSITING_OUT4);
     notification.addEventListener("animationend", () => {
       notification.remove();
     }, {once: true});
@@ -414,7 +414,7 @@ var SELECTOR_TAB = ".tabset-tab";
 var SELECTOR_PANEL = ".tabset-panel";
 var CLASS_ACTIVATED3 = "is-activated";
 var CLASS_SHOWN5 = "is-shown";
-var CLASS_TRANSITIONING_IN4 = "is-transitioning-in";
+var CLASS_TRANSITING_IN4 = "is-transiting-in";
 var DATA_TARGET5 = "data-target";
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
@@ -432,17 +432,17 @@ function Tabset(tabset) {
     });
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        transitionToShown(panel);
+        transitToShown(panel);
       } else {
         panel.classList.remove(CLASS_SHOWN5);
       }
     });
   }
-  function transitionToShown(panel) {
+  function transitToShown(panel) {
     panel.classList.add(CLASS_SHOWN5);
-    panel.classList.add(CLASS_TRANSITIONING_IN4);
+    panel.classList.add(CLASS_TRANSITING_IN4);
     panel.addEventListener("animationend", () => {
-      panel.classList.remove(CLASS_TRANSITIONING_IN4);
+      panel.classList.remove(CLASS_TRANSITING_IN4);
     }, {once: true});
   }
   function moveFocus(key) {
