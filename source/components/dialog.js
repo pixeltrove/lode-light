@@ -30,14 +30,22 @@ function Dialog(dialog) {
   }
 
   function transitionToShown() {
-    backdrop.classList.add(CLASS_TRANSITIONING_IN);
+    dialog.classList.add(CLASS_SHOWN);
     dialog.classList.add(CLASS_TRANSITIONING_IN);
+    backdrop.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_TRANSITIONING_IN);
 
+    dialog.addEventListener(
+      "animationend",
+      () => {
+        dialog.classList.remove(CLASS_TRANSITIONING_IN);
+      },
+      { once: true }
+    );
     backdrop.addEventListener(
       "animationend",
       () => {
         backdrop.classList.remove(CLASS_TRANSITIONING_IN);
-        dialog.classList.remove(CLASS_TRANSITIONING_IN);
       },
       { once: true }
     );
@@ -54,18 +62,33 @@ function Dialog(dialog) {
   }
 
   function transitionToHidden() {
-    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
     dialog.classList.add(CLASS_TRANSITIONING_OUT);
+    backdrop.classList.add(CLASS_TRANSITIONING_OUT);
 
+    dialog.addEventListener(
+      "animationend",
+      () => {
+        dialog.classList.remove(CLASS_TRANSITIONING_OUT);
+        dialog.classList.remove(CLASS_SHOWN);
+      },
+      { once: true }
+    );
     backdrop.addEventListener(
       "animationend",
       () => {
         backdrop.classList.remove(CLASS_TRANSITIONING_OUT);
-        dialog.classList.remove(CLASS_TRANSITIONING_OUT);
-        wrapper.classList.remove(CLASS_SHOWN);
+        backdrop.classList.remove(CLASS_SHOWN);
       },
       { once: true }
     );
+
+    Promise.all(
+      wrapper.getAnimations({ subtree: true }).map(function (animation) {
+        return animation.finished;
+      })
+    ).then(function () {
+      return wrapper.classList.remove(CLASS_SHOWN);
+    });
   }
 
   function toggleScroll() {

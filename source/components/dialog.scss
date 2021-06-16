@@ -6,6 +6,7 @@
 @use "../helpers/focus-visible" as *;
 
 .dialog {
+  display: none;
   overflow: auto;
   max-width: 36rem;
   padding: $space-large-d;
@@ -15,6 +16,10 @@
 
   &:focus-visible {
     outline: 0;
+  }
+
+  &.is-shown {
+    display: block;
   }
 
   &.is-transitioning-in {
@@ -42,7 +47,12 @@
   position: fixed;
   inset: 0;
   z-index: -1;
+  display: none;
   background-color: hsla(0, 0%, 20%, 0.56);
+
+  &.is-shown {
+    display: block;
+  }
 
   &.is-transitioning-in {
     animation: dialog-backdrop-in $transition-slow;
