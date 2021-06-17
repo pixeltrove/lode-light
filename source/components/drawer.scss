@@ -27,11 +27,11 @@
   }
 
   &.is-transiting-in {
-    animation: drawer-in $transition-slow;
+    animation: drawer-transit-in $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: drawer-out $transition-slow;
+    animation: drawer-transit-out $transition-slow;
   }
 
   &-heading {
@@ -90,11 +90,11 @@
   }
 
   &.is-transiting-in {
-    animation: drawer-backdrop-in $transition-slow;
+    animation: drawer-backdrop-transit-in $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: drawer-backdrop-out $transition-slow;
+    animation: drawer-backdrop-transit-out $transition-slow;
   }
 }
 

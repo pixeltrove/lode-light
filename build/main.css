@@ -672,10 +672,10 @@ summary {
   display: block;
 }
 .dialog.is-transiting-in {
-  animation: dialog-in 0.36s ease-out;
+  animation: dialog-transit-in 0.36s ease-out;
 }
 .dialog.is-transiting-out {
-  animation: dialog-out 0.36s ease-out;
+  animation: dialog-transit-out 0.36s ease-out;
 }
 .dialog-heading {
   margin-bottom: 1rem;
@@ -697,10 +697,10 @@ summary {
   display: block;
 }
 .dialog-backdrop.is-transiting-in {
-  animation: dialog-backdrop-in 0.36s ease-out;
+  animation: dialog-backdrop-transit-in 0.36s ease-out;
 }
 .dialog-backdrop.is-transiting-out {
-  animation: dialog-backdrop-out 0.36s ease-out;
+  animation: dialog-backdrop-transit-out 0.36s ease-out;
 }
 
 .dialog-wrapper {
@@ -717,7 +717,7 @@ summary {
   align-items: center;
 }
 
-@keyframes dialog-backdrop-in {
+@keyframes dialog-backdrop-transit-in {
   0% {
     opacity: 0;
   }
@@ -725,7 +725,7 @@ summary {
     opacity: 1;
   }
 }
-@keyframes dialog-backdrop-out {
+@keyframes dialog-backdrop-transit-out {
   0% {
     opacity: 1;
   }
@@ -733,7 +733,7 @@ summary {
     opacity: 0;
   }
 }
-@keyframes dialog-in {
+@keyframes dialog-transit-in {
   0% {
     opacity: 0;
     transform: translateY(-1rem);
@@ -743,7 +743,7 @@ summary {
     transform: translateY(0);
   }
 }
-@keyframes dialog-out {
+@keyframes dialog-transit-out {
   0% {
     opacity: 1;
     transform: translateY(0);
@@ -773,10 +773,10 @@ summary {
   display: block;
 }
 .drawer.is-transiting-in {
-  animation: drawer-in 0.36s ease-out;
+  animation: drawer-transit-in 0.36s ease-out;
 }
 .drawer.is-transiting-out {
-  animation: drawer-out 0.36s ease-out;
+  animation: drawer-transit-out 0.36s ease-out;
 }
 .drawer-heading {
   margin-bottom: 1rem;
@@ -825,10 +825,10 @@ summary {
   display: block;
 }
 .drawer-backdrop.is-transiting-in {
-  animation: drawer-backdrop-in 0.36s ease-out;
+  animation: drawer-backdrop-transit-in 0.36s ease-out;
 }
 .drawer-backdrop.is-transiting-out {
-  animation: drawer-backdrop-out 0.36s ease-out;
+  animation: drawer-backdrop-transit-out 0.36s ease-out;
 }
 
 .drawer-wrapper {
@@ -842,7 +842,7 @@ summary {
   display: block;
 }
 
-@keyframes drawer-backdrop-in {
+@keyframes drawer-backdrop-transit-in {
   0% {
     opacity: 0;
   }
@@ -850,7 +850,7 @@ summary {
     opacity: 1;
   }
 }
-@keyframes drawer-backdrop-out {
+@keyframes drawer-backdrop-transit-out {
   0% {
     opacity: 1;
   }
@@ -858,7 +858,7 @@ summary {
     opacity: 0;
   }
 }
-@keyframes drawer-in {
+@keyframes drawer-transit-in {
   0% {
     transform: translateX(100%);
   }
@@ -866,7 +866,7 @@ summary {
     transform: translateX(0);
   }
 }
-@keyframes drawer-out {
+@keyframes drawer-transit-out {
   0% {
     transform: translateX(0);
   }
@@ -1130,10 +1130,10 @@ summary {
   background-color: white;
 }
 .menu.is-transiting-in {
-  animation: menu-in 0.12s ease-out;
+  animation: menu-transit-in 0.12s ease-out;
 }
 .menu.is-transiting-out {
-  animation: menu-out 0.12s ease-out;
+  animation: menu-transit-out 0.12s ease-out;
 }
 .menu.is-shown {
   display: block;
@@ -1167,7 +1167,7 @@ summary {
   display: inline-block;
 }
 
-@keyframes menu-in {
+@keyframes menu-transit-in {
   0% {
     opacity: 0;
     transform: translateY(-1rem);
@@ -1177,7 +1177,7 @@ summary {
     transform: translateY(0);
   }
 }
-@keyframes menu-out {
+@keyframes menu-transit-out {
   0% {
     opacity: 1;
     transform: translateY(0);
@@ -1194,7 +1194,7 @@ summary {
   background-color: #ecf4fd;
 }
 .notification.is-transiting-out {
-  animation: notification-out 0.12s ease-out;
+  animation: notification-transit-out 0.12s ease-out;
 }
 .notification-heading {
   margin-bottom: 0.5rem;
@@ -1279,7 +1279,7 @@ summary {
   background-color: #e0e0e0;
 }
 
-@keyframes notification-out {
+@keyframes notification-transit-out {
   0% {
     opacity: 1;
   }
@@ -1432,7 +1432,7 @@ tbody .table-header {
   padding-bottom: 1rem;
 }
 .tabset-panel.is-transiting-in {
-  animation: tabset-panel-in 0.36s ease-out;
+  animation: tabset-panel-transit-in 0.36s ease-out;
 }
 .tabset-panel.is-shown {
   display: block;
@@ -1441,7 +1441,7 @@ tbody .table-header {
   margin-bottom: 0;
 }
 
-@keyframes tabset-panel-in {
+@keyframes tabset-panel-transit-in {
   0% {
     opacity: 0;
   }

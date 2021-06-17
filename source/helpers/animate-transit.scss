@@ -26,7 +26,7 @@
       $transform-end: translate#{$translate-axis}(#{$translate-length});
     }
 
-    @keyframes #{$item}-#{$phase} {
+    @keyframes #{$item}-transit-#{$phase} {
       0% {
         @if $opacity-change {
           opacity: $opacity-start;
