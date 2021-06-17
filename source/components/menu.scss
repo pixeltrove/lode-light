@@ -17,11 +17,11 @@
   background-color: $color-white-regular;
 
   &.is-transiting-in {
-    animation: menu-in $transition-default;
+    animation: menu-transit-in $transition-default;
   }
 
   &.is-transiting-out {
-    animation: menu-out $transition-default;
+    animation: menu-transit-out $transition-default;
   }
 
   &.is-shown {
