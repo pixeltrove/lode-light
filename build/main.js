@@ -69,21 +69,12 @@ var accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
 accordions.forEach((accordion) => Accordion(accordion));
 
 // source/helpers/manage-transit.js
-var CLASS_TRANSITING_IN = "is-transiting-in";
-var CLASS_TRANSITING_OUT = "is-transiting-out";
 function manageTransit(phase, element) {
-  if (phase === "in") {
-    element.classList.add(CLASS_TRANSITING_IN);
-  } else if (phase === "out") {
-    element.classList.add(CLASS_TRANSITING_OUT);
-  }
+  const phaseClass = `is-transiting-${phase}`;
+  element.classList.add(phaseClass);
   return new Promise((resolve) => {
     const handleAnimationEnd = () => {
-      if (phase === "in") {
-        element.classList.remove(CLASS_TRANSITING_IN);
-      } else if (phase === "out") {
-        element.classList.remove(CLASS_TRANSITING_OUT);
-      }
+      element.classList.remove(phaseClass);
       element.removeEventListener("animationend", handleAnimationEnd);
       resolve();
     };
