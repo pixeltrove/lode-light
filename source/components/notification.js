@@ -9,7 +9,7 @@ const SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
-      manageTransit("out", notification).then(() => {
+      manageTransit(notification, "out").then(() => {
         notification.remove();
       });
     }

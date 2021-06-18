@@ -21,8 +21,8 @@ function Dialog(dialog) {
     dialog.classList.add(CLASS_SHOWN);
     backdrop.classList.add(CLASS_SHOWN);
 
-    manageTransit("in", dialog);
-    manageTransit("in", backdrop);
+    manageTransit(dialog, "in");
+    manageTransit(backdrop, "in");
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -35,10 +35,10 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    manageTransit("out", dialog).then(() => {
+    manageTransit(dialog, "out").then(() => {
       dialog.classList.remove(CLASS_SHOWN);
     });
-    manageTransit("out", backdrop).then(() => {
+    manageTransit(backdrop, "out").then(() => {
       backdrop.classList.remove(CLASS_SHOWN);
     });
     Promise.all(

@@ -69,7 +69,7 @@ var accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
 accordions.forEach((accordion) => Accordion(accordion));
 
 // source/helpers/manage-transit.js
-function manageTransit(phase, element) {
+function manageTransit(element, phase) {
   const phaseClass = `is-transiting-${phase}`;
   element.classList.add(phaseClass);
   return new Promise((resolve) => {
@@ -99,8 +99,8 @@ function Dialog(dialog) {
     wrapper.classList.add(CLASS_SHOWN2);
     dialog.classList.add(CLASS_SHOWN2);
     backdrop.classList.add(CLASS_SHOWN2);
-    manage_transit_default("in", dialog);
-    manage_transit_default("in", backdrop);
+    manage_transit_default(dialog, "in");
+    manage_transit_default(backdrop, "in");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -110,10 +110,10 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    manage_transit_default("out", dialog).then(() => {
+    manage_transit_default(dialog, "out").then(() => {
       dialog.classList.remove(CLASS_SHOWN2);
     });
-    manage_transit_default("out", backdrop).then(() => {
+    manage_transit_default(backdrop, "out").then(() => {
       backdrop.classList.remove(CLASS_SHOWN2);
     });
     Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
@@ -191,8 +191,8 @@ function Drawer(drawer) {
     wrapper.classList.add(CLASS_SHOWN3);
     drawer.classList.add(CLASS_SHOWN3);
     backdrop.classList.add(CLASS_SHOWN3);
-    manage_transit_default("in", drawer);
-    manage_transit_default("in", backdrop);
+    manage_transit_default(drawer, "in");
+    manage_transit_default(backdrop, "in");
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
     toggleScroll();
@@ -202,10 +202,10 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    manage_transit_default("out", drawer).then(() => {
+    manage_transit_default(drawer, "out").then(() => {
       drawer.classList.remove(CLASS_SHOWN3);
     });
-    manage_transit_default("out", backdrop).then(() => {
+    manage_transit_default(backdrop, "out").then(() => {
       backdrop.classList.remove(CLASS_SHOWN3);
     });
     Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
@@ -288,14 +288,14 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
     if (!isShown) {
       menu.classList.add(CLASS_SHOWN4);
-      manage_transit_default("in", menu);
+      manage_transit_default(menu, "in");
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      manage_transit_default("out", menu).then(() => {
+      manage_transit_default(menu, "out").then(() => {
         menu.classList.remove(CLASS_SHOWN4);
       });
       document.removeEventListener("click", handleOutsideClick);
@@ -359,7 +359,7 @@ var SELECTOR_BUTTON_DISMISS2 = ".notification-button-dismiss";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
-      manage_transit_default("out", notification).then(() => {
+      manage_transit_default(notification, "out").then(() => {
         notification.remove();
       });
     }
@@ -393,7 +393,7 @@ function Tabset(tabset) {
     panels.forEach((panel) => {
       if (panel.id === panelId) {
         panel.classList.add(CLASS_SHOWN5);
-        manage_transit_default("in", panel);
+        manage_transit_default(panel, "in");
       } else {
         panel.classList.remove(CLASS_SHOWN5);
       }

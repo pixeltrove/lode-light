@@ -1,7 +1,7 @@
 // MANAGE TRANSIT
 // -----------------------------------------------------------------------------
 
-function manageTransit(phase, element) {
+function manageTransit(element, phase) {
   const phaseClass = "is-transiting-" + `${phase}`;
 
   element.classList.add(phaseClass);

@@ -22,8 +22,8 @@ function Drawer(drawer) {
     drawer.classList.add(CLASS_SHOWN);
     backdrop.classList.add(CLASS_SHOWN);
 
-    manageTransit("in", drawer);
-    manageTransit("in", backdrop);
+    manageTransit(drawer, "in");
+    manageTransit(backdrop, "in");
 
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
@@ -36,10 +36,10 @@ function Drawer(drawer) {
   }
 
   function hide() {
-    manageTransit("out", drawer).then(() => {
+    manageTransit(drawer, "out").then(() => {
       drawer.classList.remove(CLASS_SHOWN);
     });
-    manageTransit("out", backdrop).then(() => {
+    manageTransit(backdrop, "out").then(() => {
       backdrop.classList.remove(CLASS_SHOWN);
     });
     Promise.all(

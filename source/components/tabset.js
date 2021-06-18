@@ -31,7 +31,7 @@ function Tabset(tabset) {
       if (panel.id === panelId) {
         panel.classList.add(CLASS_SHOWN);
 
-        manageTransit("in", panel);
+        manageTransit(panel, "in");
       } else {
         panel.classList.remove(CLASS_SHOWN);
       }

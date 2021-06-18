@@ -23,7 +23,7 @@ function Menu(menu) {
     if (!isShown) {
       menu.classList.add(CLASS_SHOWN);
 
-      manageTransit("in", menu);
+      manageTransit(menu, "in");
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -31,7 +31,7 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      manageTransit("out", menu).then(() => {
+      manageTransit(menu, "out").then(() => {
         menu.classList.remove(CLASS_SHOWN);
       });
 
