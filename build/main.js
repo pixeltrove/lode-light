@@ -110,15 +110,15 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    manage_transit_default(dialog, "out").then(() => {
+    const dialogTransitOutPromise = manage_transit_default(dialog, "out");
+    const backdropTransitOutPromise = manage_transit_default(backdrop, "out");
+    dialogTransitOutPromise.then(() => {
       dialog.classList.remove(CLASS_SHOWN2);
     });
-    manage_transit_default(backdrop, "out").then(() => {
+    backdropTransitOutPromise.then(() => {
       backdrop.classList.remove(CLASS_SHOWN2);
     });
-    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
-      return animation.finished;
-    })).then(function() {
+    Promise.all([dialogTransitOutPromise, backdropTransitOutPromise]).then(() => {
       return wrapper.classList.remove(CLASS_SHOWN2);
     });
     toggleScroll();
@@ -202,15 +202,15 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    manage_transit_default(drawer, "out").then(() => {
+    const drawerTransitOutPromise = manage_transit_default(drawer, "out");
+    const backdropTransitOutPromise = manage_transit_default(backdrop, "out");
+    drawerTransitOutPromise.then(() => {
       drawer.classList.remove(CLASS_SHOWN3);
     });
-    manage_transit_default(backdrop, "out").then(() => {
+    backdropTransitOutPromise.then(() => {
       backdrop.classList.remove(CLASS_SHOWN3);
     });
-    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
-      return animation.finished;
-    })).then(function() {
+    Promise.all([drawerTransitOutPromise, backdropTransitOutPromise]).then(() => {
       return wrapper.classList.remove(CLASS_SHOWN3);
     });
     toggleScroll();

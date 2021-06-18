@@ -36,17 +36,16 @@ function Drawer(drawer) {
   }
 
   function hide() {
-    manageTransit(drawer, "out").then(() => {
+    const drawerTransitOutPromise = manageTransit(drawer, "out");
+    const backdropTransitOutPromise = manageTransit(backdrop, "out");
+
+    drawerTransitOutPromise.then(() => {
       drawer.classList.remove(CLASS_SHOWN);
     });
-    manageTransit(backdrop, "out").then(() => {
+    backdropTransitOutPromise.then(() => {
       backdrop.classList.remove(CLASS_SHOWN);
     });
-    Promise.all(
-      wrapper.getAnimations({ subtree: true }).map(function (animation) {
-        return animation.finished;
-      })
-    ).then(function () {
+    Promise.all([drawerTransitOutPromise, backdropTransitOutPromise]).then(() => {
       return wrapper.classList.remove(CLASS_SHOWN);
     });
 

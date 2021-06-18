@@ -35,17 +35,16 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    manageTransit(dialog, "out").then(() => {
+    const dialogTransitOutPromise = manageTransit(dialog, "out");
+    const backdropTransitOutPromise = manageTransit(backdrop, "out");
+
+    dialogTransitOutPromise.then(() => {
       dialog.classList.remove(CLASS_SHOWN);
     });
-    manageTransit(backdrop, "out").then(() => {
+    backdropTransitOutPromise.then(() => {
       backdrop.classList.remove(CLASS_SHOWN);
     });
-    Promise.all(
-      wrapper.getAnimations({ subtree: true }).map(function (animation) {
-        return animation.finished;
-      })
-    ).then(function () {
+    Promise.all([dialogTransitOutPromise, backdropTransitOutPromise]).then(() => {
       return wrapper.classList.remove(CLASS_SHOWN);
     });
 
