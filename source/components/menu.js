@@ -1,12 +1,12 @@
 // MENU
 // -----------------------------------------------------------------------------
 
+import manageTransit from "../helpers/manage-transit";
+
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITING_IN = "is-transiting-in";
-const CLASS_TRANSITING_OUT = "is-transiting-out";
 const DATA_TARGET = "data-target";
 
 function Menu(menu) {
@@ -21,7 +21,7 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      transitToShown();
+      manageTransit("in", menu);
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -29,7 +29,7 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      transitToHidden();
+      manageTransit("out", menu);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
@@ -37,32 +37,6 @@ function Menu(menu) {
       menu.removeEventListener("keydown", handleTab);
       menu.removeEventListener("keydown", handleLinkKeydown);
     }
-  }
-
-  function transitToShown() {
-    menu.classList.add(CLASS_SHOWN);
-    menu.classList.add(CLASS_TRANSITING_IN);
-
-    menu.addEventListener(
-      "animationend",
-      () => {
-        menu.classList.remove(CLASS_TRANSITING_IN);
-      },
-      { once: true }
-    );
-  }
-
-  function transitToHidden() {
-    menu.classList.add(CLASS_TRANSITING_OUT);
-
-    menu.addEventListener(
-      "animationend",
-      () => {
-        menu.classList.remove(CLASS_SHOWN);
-        menu.classList.remove(CLASS_TRANSITING_OUT);
-      },
-      { once: true }
-    );
   }
 
   function moveFocus(key) {

@@ -68,13 +68,37 @@ function Accordion(accordion) {
 var accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
 accordions.forEach((accordion) => Accordion(accordion));
 
+// source/helpers/manage-transit.js
+var CLASS_SHOWN2 = "is-shown";
+var CLASS_TRANSITING_IN = "is-transiting-in";
+var CLASS_TRANSITING_OUT = "is-transiting-out";
+function manageTransit(phase, ...elements) {
+  elements.forEach((element) => {
+    const handleAnimationEnd = () => {
+      if (phase === "in") {
+        element.classList.remove(CLASS_TRANSITING_IN);
+      } else if (phase === "out") {
+        element.classList.remove(CLASS_TRANSITING_OUT);
+        element.classList.remove(CLASS_SHOWN2);
+      }
+      element.removeEventListener("animationend", handleAnimationEnd);
+    };
+    if (phase === "in") {
+      element.classList.add(CLASS_SHOWN2);
+      element.classList.add(CLASS_TRANSITING_IN);
+    } else if (phase === "out") {
+      element.classList.add(CLASS_TRANSITING_OUT);
+    }
+    element.addEventListener("animationend", handleAnimationEnd);
+  });
+}
+var manage_transit_default = manageTransit;
+
 // source/components/dialog.js
 var SELECTOR_DIALOG = ".dialog";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
 var CLASS_NO_SCROLL = "no-scroll";
-var CLASS_SHOWN2 = "is-shown";
-var CLASS_TRANSITING_IN = "is-transiting-in";
-var CLASS_TRANSITING_OUT = "is-transiting-out";
+var CLASS_SHOWN3 = "is-shown";
 var DATA_HIDE = "data-hide";
 var DATA_TARGET2 = "data-target";
 function Dialog(dialog) {
@@ -83,8 +107,8 @@ function Dialog(dialog) {
   const wrapper = dialog.parentElement;
   const backdrop = dialog.nextElementSibling;
   function show() {
-    wrapper.classList.add(CLASS_SHOWN2);
-    transitToShown();
+    wrapper.classList.add(CLASS_SHOWN3);
+    manage_transit_default("in", dialog, backdrop);
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -93,42 +117,18 @@ function Dialog(dialog) {
     backdrop.addEventListener("click", handleBackdropClick);
     document.addEventListener("keydown", handleEscape);
   }
-  function transitToShown() {
-    dialog.classList.add(CLASS_SHOWN2);
-    dialog.classList.add(CLASS_TRANSITING_IN);
-    backdrop.classList.add(CLASS_SHOWN2);
-    backdrop.classList.add(CLASS_TRANSITING_IN);
-    dialog.addEventListener("animationend", () => {
-      dialog.classList.remove(CLASS_TRANSITING_IN);
-    }, {once: true});
-    backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITING_IN);
-    }, {once: true});
-  }
   function hide() {
-    transitToHidden();
+    manage_transit_default("out", dialog, backdrop);
     toggleScroll();
+    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
+      return animation.finished;
+    })).then(function() {
+      return wrapper.classList.remove(CLASS_SHOWN3);
+    });
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-  function transitToHidden() {
-    dialog.classList.add(CLASS_TRANSITING_OUT);
-    backdrop.classList.add(CLASS_TRANSITING_OUT);
-    dialog.addEventListener("animationend", () => {
-      dialog.classList.remove(CLASS_TRANSITING_OUT);
-      dialog.classList.remove(CLASS_SHOWN2);
-    }, {once: true});
-    backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITING_OUT);
-      backdrop.classList.remove(CLASS_SHOWN2);
-    }, {once: true});
-    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
-      return animation.finished;
-    })).then(function() {
-      return wrapper.classList.remove(CLASS_SHOWN2);
-    });
   }
   function toggleScroll() {
     if (window.innerHeight >= document.body.scrollHeight)
@@ -182,9 +182,7 @@ var SELECTOR_DRAWER = ".drawer";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
 var SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 var CLASS_NO_SCROLL2 = "no-scroll";
-var CLASS_SHOWN3 = "is-shown";
-var CLASS_TRANSITING_IN2 = "is-transiting-in";
-var CLASS_TRANSITING_OUT2 = "is-transiting-out";
+var CLASS_SHOWN4 = "is-shown";
 var DATA_HIDE2 = "data-hide";
 var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
@@ -193,8 +191,8 @@ function Drawer(drawer) {
   const wrapper = drawer.parentElement;
   const backdrop = drawer.nextElementSibling;
   function show() {
-    wrapper.classList.add(CLASS_SHOWN3);
-    transitToShown();
+    wrapper.classList.add(CLASS_SHOWN4);
+    manage_transit_default("in", drawer, backdrop);
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
     toggleScroll();
@@ -203,42 +201,18 @@ function Drawer(drawer) {
     backdrop.addEventListener("click", handleBackdropClick);
     document.addEventListener("keydown", handleEscape);
   }
-  function transitToShown() {
-    drawer.classList.add(CLASS_SHOWN3);
-    drawer.classList.add(CLASS_TRANSITING_IN2);
-    backdrop.classList.add(CLASS_SHOWN3);
-    backdrop.classList.add(CLASS_TRANSITING_IN2);
-    drawer.addEventListener("animationend", () => {
-      drawer.classList.remove(CLASS_TRANSITING_IN2);
-    }, {once: true});
-    backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITING_IN2);
-    }, {once: true});
-  }
   function hide() {
-    transitToHidden();
+    manage_transit_default("out", drawer, backdrop);
     toggleScroll();
+    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
+      return animation.finished;
+    })).then(function() {
+      return wrapper.classList.remove(CLASS_SHOWN4);
+    });
     drawer.removeEventListener("keydown", handleFocusTrap);
     drawer.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-  function transitToHidden() {
-    drawer.classList.add(CLASS_TRANSITING_OUT2);
-    backdrop.classList.add(CLASS_TRANSITING_OUT2);
-    drawer.addEventListener("animationend", () => {
-      drawer.classList.remove(CLASS_TRANSITING_OUT2);
-      drawer.classList.remove(CLASS_SHOWN3);
-    }, {once: true});
-    backdrop.addEventListener("animationend", () => {
-      backdrop.classList.remove(CLASS_TRANSITING_OUT2);
-      backdrop.classList.remove(CLASS_SHOWN3);
-    }, {once: true});
-    Promise.all(wrapper.getAnimations({subtree: true}).map(function(animation) {
-      return animation.finished;
-    })).then(function() {
-      return wrapper.classList.remove(CLASS_SHOWN3);
-    });
   }
   function toggleScroll() {
     if (window.innerHeight >= document.body.scrollHeight)
@@ -297,47 +271,31 @@ drawers.forEach((drawer) => Drawer(drawer));
 var SELECTOR_MENU = ".menu";
 var SELECTOR_LINK = ".menu-link";
 var CLASS_ACTIVATED2 = "is-activated";
-var CLASS_SHOWN4 = "is-shown";
-var CLASS_TRANSITING_IN3 = "is-transiting-in";
-var CLASS_TRANSITING_OUT3 = "is-transiting-out";
+var CLASS_SHOWN5 = "is-shown";
 var DATA_TARGET4 = "data-target";
 function Menu(menu) {
   const menuId = menu.id;
   const trigger = document.querySelector(`[${DATA_TARGET4}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
   function toggle() {
-    const isShown = menu.classList.contains(CLASS_SHOWN4);
+    const isShown = menu.classList.contains(CLASS_SHOWN5);
     trigger.classList.toggle(CLASS_ACTIVATED2);
     trigger.setAttribute("aria-expanded", !isShown);
     if (!isShown) {
-      transitToShown();
+      manage_transit_default("in", menu);
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      transitToHidden();
+      manage_transit_default("out", menu);
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
       trigger.removeEventListener("keydown", handleTab);
       menu.removeEventListener("keydown", handleTab);
       menu.removeEventListener("keydown", handleLinkKeydown);
     }
-  }
-  function transitToShown() {
-    menu.classList.add(CLASS_SHOWN4);
-    menu.classList.add(CLASS_TRANSITING_IN3);
-    menu.addEventListener("animationend", () => {
-      menu.classList.remove(CLASS_TRANSITING_IN3);
-    }, {once: true});
-  }
-  function transitToHidden() {
-    menu.classList.add(CLASS_TRANSITING_OUT3);
-    menu.addEventListener("animationend", () => {
-      menu.classList.remove(CLASS_SHOWN4);
-      menu.classList.remove(CLASS_TRANSITING_OUT3);
-    }, {once: true});
   }
   function moveFocus(key) {
     const currentIndex = links.indexOf(document.activeElement);
@@ -390,7 +348,7 @@ menus.forEach((menu) => Menu(menu));
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
 var SELECTOR_BUTTON_DISMISS2 = ".notification-button-dismiss";
-var CLASS_TRANSITING_OUT4 = "is-transiting-out";
+var CLASS_TRANSITING_OUT2 = "is-transiting-out";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
@@ -398,7 +356,7 @@ function Notification(notification) {
     }
   }
   function transitToHidden() {
-    notification.classList.add(CLASS_TRANSITING_OUT4);
+    notification.classList.add(CLASS_TRANSITING_OUT2);
     notification.addEventListener("animationend", () => {
       notification.remove();
     }, {once: true});
@@ -413,8 +371,7 @@ var SELECTOR_TABSET = ".tabset";
 var SELECTOR_TAB = ".tabset-tab";
 var SELECTOR_PANEL = ".tabset-panel";
 var CLASS_ACTIVATED3 = "is-activated";
-var CLASS_SHOWN5 = "is-shown";
-var CLASS_TRANSITING_IN4 = "is-transiting-in";
+var CLASS_SHOWN6 = "is-shown";
 var DATA_TARGET5 = "data-target";
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
@@ -432,18 +389,11 @@ function Tabset(tabset) {
     });
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        transitToShown(panel);
+        manage_transit_default("in", panel);
       } else {
-        panel.classList.remove(CLASS_SHOWN5);
+        panel.classList.remove(CLASS_SHOWN6);
       }
     });
-  }
-  function transitToShown(panel) {
-    panel.classList.add(CLASS_SHOWN5);
-    panel.classList.add(CLASS_TRANSITING_IN4);
-    panel.addEventListener("animationend", () => {
-      panel.classList.remove(CLASS_TRANSITING_IN4);
-    }, {once: true});
   }
   function moveFocus(key) {
     const currentIndex = tabs.indexOf(document.activeElement);

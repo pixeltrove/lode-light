@@ -1,12 +1,12 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
+import manageTransit from "../helpers/manage-transit";
+
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const CLASS_NO_SCROLL = "no-scroll";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITING_IN = "is-transiting-in";
-const CLASS_TRANSITING_OUT = "is-transiting-out";
 const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
 
@@ -18,7 +18,7 @@ function Dialog(dialog) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    transitToShown();
+    manageTransit("in", dialog, backdrop);
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -29,58 +29,9 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
 
-  function transitToShown() {
-    dialog.classList.add(CLASS_SHOWN);
-    dialog.classList.add(CLASS_TRANSITING_IN);
-    backdrop.classList.add(CLASS_SHOWN);
-    backdrop.classList.add(CLASS_TRANSITING_IN);
-
-    dialog.addEventListener(
-      "animationend",
-      () => {
-        dialog.classList.remove(CLASS_TRANSITING_IN);
-      },
-      { once: true }
-    );
-    backdrop.addEventListener(
-      "animationend",
-      () => {
-        backdrop.classList.remove(CLASS_TRANSITING_IN);
-      },
-      { once: true }
-    );
-  }
-
   function hide() {
-    transitToHidden();
+    manageTransit("out", dialog, backdrop);
     toggleScroll();
-
-    dialog.removeEventListener("keydown", handleFocusTrap);
-    dialog.removeEventListener("click", handleHideClick);
-    backdrop.removeEventListener("click", handleBackdropClick);
-    document.removeEventListener("keydown", handleEscape);
-  }
-
-  function transitToHidden() {
-    dialog.classList.add(CLASS_TRANSITING_OUT);
-    backdrop.classList.add(CLASS_TRANSITING_OUT);
-
-    dialog.addEventListener(
-      "animationend",
-      () => {
-        dialog.classList.remove(CLASS_TRANSITING_OUT);
-        dialog.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
-    backdrop.addEventListener(
-      "animationend",
-      () => {
-        backdrop.classList.remove(CLASS_TRANSITING_OUT);
-        backdrop.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
 
     Promise.all(
       wrapper.getAnimations({ subtree: true }).map(function (animation) {
@@ -89,6 +40,11 @@ function Dialog(dialog) {
     ).then(function () {
       return wrapper.classList.remove(CLASS_SHOWN);
     });
+
+    dialog.removeEventListener("keydown", handleFocusTrap);
+    dialog.removeEventListener("click", handleHideClick);
+    backdrop.removeEventListener("click", handleBackdropClick);
+    document.removeEventListener("keydown", handleEscape);
   }
 
   function toggleScroll() {
