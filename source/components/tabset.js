@@ -29,6 +29,8 @@ function Tabset(tabset) {
 
     panels.forEach((panel) => {
       if (panel.id === panelId) {
+        panel.classList.add(CLASS_SHOWN);
+
         manageTransit("in", panel);
       } else {
         panel.classList.remove(CLASS_SHOWN);

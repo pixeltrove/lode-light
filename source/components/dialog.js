@@ -18,7 +18,12 @@ function Dialog(dialog) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    manageTransit("in", dialog, backdrop);
+    dialog.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_SHOWN);
+
+    manageTransit("in", dialog);
+    manageTransit("in", backdrop);
+
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -30,9 +35,12 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    manageTransit("out", dialog, backdrop);
-    toggleScroll();
-
+    manageTransit("out", dialog).then(() => {
+      dialog.classList.remove(CLASS_SHOWN);
+    });
+    manageTransit("out", backdrop).then(() => {
+      backdrop.classList.remove(CLASS_SHOWN);
+    });
     Promise.all(
       wrapper.getAnimations({ subtree: true }).map(function (animation) {
         return animation.finished;
@@ -40,6 +48,8 @@ function Dialog(dialog) {
     ).then(function () {
       return wrapper.classList.remove(CLASS_SHOWN);
     });
+
+    toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);

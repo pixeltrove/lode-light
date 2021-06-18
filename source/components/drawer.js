@@ -19,7 +19,12 @@ function Drawer(drawer) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    manageTransit("in", drawer, backdrop);
+    drawer.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_SHOWN);
+
+    manageTransit("in", drawer);
+    manageTransit("in", backdrop);
+
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
     toggleScroll();
@@ -31,9 +36,12 @@ function Drawer(drawer) {
   }
 
   function hide() {
-    manageTransit("out", drawer, backdrop);
-    toggleScroll();
-
+    manageTransit("out", drawer).then(() => {
+      drawer.classList.remove(CLASS_SHOWN);
+    });
+    manageTransit("out", backdrop).then(() => {
+      backdrop.classList.remove(CLASS_SHOWN);
+    });
     Promise.all(
       wrapper.getAnimations({ subtree: true }).map(function (animation) {
         return animation.finished;
@@ -41,6 +49,8 @@ function Drawer(drawer) {
     ).then(function () {
       return wrapper.classList.remove(CLASS_SHOWN);
     });
+
+    toggleScroll();
 
     drawer.removeEventListener("keydown", handleFocusTrap);
     drawer.removeEventListener("click", handleHideClick);
