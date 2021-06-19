@@ -108,15 +108,15 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const dialogTransitOutPromise = manage_transit_default(dialog, "out");
-    const backdropTransitOutPromise = manage_transit_default(backdrop, "out");
-    dialogTransitOutPromise.then(() => {
+    const dialogTransitOut = manage_transit_default(dialog, "out");
+    const backdropTransitOut = manage_transit_default(backdrop, "out");
+    dialogTransitOut.then(() => {
       dialog.classList.remove(CLASS_SHOWN2);
     });
-    backdropTransitOutPromise.then(() => {
+    backdropTransitOut.then(() => {
       backdrop.classList.remove(CLASS_SHOWN2);
     });
-    Promise.all([dialogTransitOutPromise, backdropTransitOutPromise]).then(() => {
+    Promise.all([dialogTransitOut, backdropTransitOut]).then(() => {
       wrapper.classList.remove(CLASS_SHOWN2);
     });
     toggleScroll();
@@ -200,15 +200,15 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const drawerTransitOutPromise = manage_transit_default(drawer, "out");
-    const backdropTransitOutPromise = manage_transit_default(backdrop, "out");
-    drawerTransitOutPromise.then(() => {
+    const drawerTransitOut = manage_transit_default(drawer, "out");
+    const backdropTransitOut = manage_transit_default(backdrop, "out");
+    drawerTransitOut.then(() => {
       drawer.classList.remove(CLASS_SHOWN3);
     });
-    backdropTransitOutPromise.then(() => {
+    backdropTransitOut.then(() => {
       backdrop.classList.remove(CLASS_SHOWN3);
     });
-    Promise.all([drawerTransitOutPromise, backdropTransitOutPromise]).then(() => {
+    Promise.all([drawerTransitOut, backdropTransitOut]).then(() => {
       wrapper.classList.remove(CLASS_SHOWN3);
     });
     toggleScroll();
