@@ -7,14 +7,14 @@ function manageTransit(element, phase) {
   element.classList.add(phaseClass);
 
   return new Promise((resolve) => {
-    const handleAnimationEnd = () => {
-      element.classList.remove(phaseClass);
-
-      element.removeEventListener("animationend", handleAnimationEnd);
-      resolve();
-    };
-
-    element.addEventListener("animationend", handleAnimationEnd);
+    element.addEventListener(
+      "animationend",
+      () => {
+        element.classList.remove(phaseClass);
+        resolve();
+      },
+      { once: true }
+    );
   });
 }
 
