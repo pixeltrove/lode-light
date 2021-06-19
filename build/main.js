@@ -117,7 +117,7 @@ function Dialog(dialog) {
       backdrop.classList.remove(CLASS_SHOWN2);
     });
     Promise.all([dialogTransitOutPromise, backdropTransitOutPromise]).then(() => {
-      return wrapper.classList.remove(CLASS_SHOWN2);
+      wrapper.classList.remove(CLASS_SHOWN2);
     });
     toggleScroll();
     dialog.removeEventListener("keydown", handleFocusTrap);
@@ -209,7 +209,7 @@ function Drawer(drawer) {
       backdrop.classList.remove(CLASS_SHOWN3);
     });
     Promise.all([drawerTransitOutPromise, backdropTransitOutPromise]).then(() => {
-      return wrapper.classList.remove(CLASS_SHOWN3);
+      wrapper.classList.remove(CLASS_SHOWN3);
     });
     toggleScroll();
     drawer.removeEventListener("keydown", handleFocusTrap);

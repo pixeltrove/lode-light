@@ -46,7 +46,7 @@ function Drawer(drawer) {
       backdrop.classList.remove(CLASS_SHOWN);
     });
     Promise.all([drawerTransitOutPromise, backdropTransitOutPromise]).then(() => {
-      return wrapper.classList.remove(CLASS_SHOWN);
+      wrapper.classList.remove(CLASS_SHOWN);
     });
 
     toggleScroll();

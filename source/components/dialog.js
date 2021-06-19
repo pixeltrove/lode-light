@@ -45,7 +45,7 @@ function Dialog(dialog) {
       backdrop.classList.remove(CLASS_SHOWN);
     });
     Promise.all([dialogTransitOutPromise, backdropTransitOutPromise]).then(() => {
-      return wrapper.classList.remove(CLASS_SHOWN);
+      wrapper.classList.remove(CLASS_SHOWN);
     });
 
     toggleScroll();
