@@ -11,7 +11,7 @@ function manageTransit(element, phase) {
       "animationend",
       () => {
         element.classList.remove(phaseClass);
-        resolve();
+        resolve(element);
       },
       { once: true }
     );

@@ -35,16 +35,12 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    const dialogTransitOut = manageTransit(dialog, "out");
-    const backdropTransitOut = manageTransit(backdrop, "out");
+    const transitOutResolutions = [manageTransit(dialog, "out"), manageTransit(backdrop, "out")];
 
-    dialogTransitOut.then(() => {
-      dialog.classList.remove(CLASS_SHOWN);
-    });
-    backdropTransitOut.then(() => {
-      backdrop.classList.remove(CLASS_SHOWN);
-    });
-    Promise.all([dialogTransitOut, backdropTransitOut]).then(() => {
+    Promise.all(transitOutResolutions).then((elements) => {
+      elements.forEach((element) => {
+        element.classList.remove(CLASS_SHOWN);
+      });
       wrapper.classList.remove(CLASS_SHOWN);
     });
 

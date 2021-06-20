@@ -36,16 +36,12 @@ function Drawer(drawer) {
   }
 
   function hide() {
-    const drawerTransitOut = manageTransit(drawer, "out");
-    const backdropTransitOut = manageTransit(backdrop, "out");
+    const transitOutResolutions = [manageTransit(drawer, "out"), manageTransit(backdrop, "out")];
 
-    drawerTransitOut.then(() => {
-      drawer.classList.remove(CLASS_SHOWN);
-    });
-    backdropTransitOut.then(() => {
-      backdrop.classList.remove(CLASS_SHOWN);
-    });
-    Promise.all([drawerTransitOut, backdropTransitOut]).then(() => {
+    Promise.all(transitOutResolutions).then((elements) => {
+      elements.forEach((element) => {
+        element.classList.remove(CLASS_SHOWN);
+      });
       wrapper.classList.remove(CLASS_SHOWN);
     });
 

@@ -75,7 +75,7 @@ function manageTransit(element, phase) {
   return new Promise((resolve) => {
     element.addEventListener("animationend", () => {
       element.classList.remove(phaseClass);
-      resolve();
+      resolve(element);
     }, {once: true});
   });
 }
@@ -108,15 +108,11 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const dialogTransitOut = manage_transit_default(dialog, "out");
-    const backdropTransitOut = manage_transit_default(backdrop, "out");
-    dialogTransitOut.then(() => {
-      dialog.classList.remove(CLASS_SHOWN2);
-    });
-    backdropTransitOut.then(() => {
-      backdrop.classList.remove(CLASS_SHOWN2);
-    });
-    Promise.all([dialogTransitOut, backdropTransitOut]).then(() => {
+    const transitOutResolutions = [manage_transit_default(dialog, "out"), manage_transit_default(backdrop, "out")];
+    Promise.all(transitOutResolutions).then((elements) => {
+      elements.forEach((element) => {
+        element.classList.remove(CLASS_SHOWN2);
+      });
       wrapper.classList.remove(CLASS_SHOWN2);
     });
     toggleScroll();
@@ -200,15 +196,11 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const drawerTransitOut = manage_transit_default(drawer, "out");
-    const backdropTransitOut = manage_transit_default(backdrop, "out");
-    drawerTransitOut.then(() => {
-      drawer.classList.remove(CLASS_SHOWN3);
-    });
-    backdropTransitOut.then(() => {
-      backdrop.classList.remove(CLASS_SHOWN3);
-    });
-    Promise.all([drawerTransitOut, backdropTransitOut]).then(() => {
+    const transitOutResolutions = [manage_transit_default(drawer, "out"), manage_transit_default(backdrop, "out")];
+    Promise.all(transitOutResolutions).then((elements) => {
+      elements.forEach((element) => {
+        element.classList.remove(CLASS_SHOWN3);
+      });
       wrapper.classList.remove(CLASS_SHOWN3);
     });
     toggleScroll();
