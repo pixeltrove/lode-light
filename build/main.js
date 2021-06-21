@@ -108,8 +108,7 @@ function Dialog(dialog) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const transitOutResolutions = [manage_transit_default(dialog, "out"), manage_transit_default(backdrop, "out")];
-    Promise.all(transitOutResolutions).then((elements) => {
+    Promise.all([manage_transit_default(dialog, "out"), manage_transit_default(backdrop, "out")]).then((elements) => {
       elements.forEach((element) => {
         element.classList.remove(CLASS_SHOWN2);
       });
@@ -196,8 +195,7 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
   function hide() {
-    const transitOutResolutions = [manage_transit_default(drawer, "out"), manage_transit_default(backdrop, "out")];
-    Promise.all(transitOutResolutions).then((elements) => {
+    Promise.all([manage_transit_default(drawer, "out"), manage_transit_default(backdrop, "out")]).then((elements) => {
       elements.forEach((element) => {
         element.classList.remove(CLASS_SHOWN3);
       });

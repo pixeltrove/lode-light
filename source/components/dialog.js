@@ -35,9 +35,7 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    const transitOutResolutions = [manageTransit(dialog, "out"), manageTransit(backdrop, "out")];
-
-    Promise.all(transitOutResolutions).then((elements) => {
+    Promise.all([manageTransit(dialog, "out"), manageTransit(backdrop, "out")]).then((elements) => {
       elements.forEach((element) => {
         element.classList.remove(CLASS_SHOWN);
       });

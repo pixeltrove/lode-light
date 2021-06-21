@@ -36,9 +36,7 @@ function Drawer(drawer) {
   }
 
   function hide() {
-    const transitOutResolutions = [manageTransit(drawer, "out"), manageTransit(backdrop, "out")];
-
-    Promise.all(transitOutResolutions).then((elements) => {
+    Promise.all([manageTransit(drawer, "out"), manageTransit(backdrop, "out")]).then((elements) => {
       elements.forEach((element) => {
         element.classList.remove(CLASS_SHOWN);
       });
