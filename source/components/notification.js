@@ -1,27 +1,18 @@
 // NOTIFICATION
 // -----------------------------------------------------------------------------
 
+import manageTransit from "../helpers/manage-transit";
+
 const SELECTOR_NOTIFICATION = ".notification";
 const SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
-const CLASS_TRANSITING_OUT = "is-transiting-out";
 
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
-      transitToHidden();
-    }
-  }
-
-  function transitToHidden() {
-    notification.classList.add(CLASS_TRANSITING_OUT);
-
-    notification.addEventListener(
-      "animationend",
-      () => {
+      manageTransit(notification, "out").then(() => {
         notification.remove();
-      },
-      { once: true }
-    );
+      });
+    }
   }
 
   notification.addEventListener("click", handleDismiss);

@@ -1,13 +1,13 @@
 // DRAWER
 // -----------------------------------------------------------------------------
 
+import manageTransit from "../helpers/manage-transit";
+
 const SELECTOR_DRAWER = ".drawer";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
 const SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 const CLASS_NO_SCROLL = "no-scroll";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITING_IN = "is-transiting-in";
-const CLASS_TRANSITING_OUT = "is-transiting-out";
 const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
 
@@ -19,7 +19,12 @@ function Drawer(drawer) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    transitToShown();
+    drawer.classList.add(CLASS_SHOWN);
+    backdrop.classList.add(CLASS_SHOWN);
+
+    manageTransit(drawer, "in");
+    manageTransit(backdrop, "in");
+
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
     toggleScroll();
@@ -30,66 +35,20 @@ function Drawer(drawer) {
     document.addEventListener("keydown", handleEscape);
   }
 
-  function transitToShown() {
-    drawer.classList.add(CLASS_SHOWN);
-    drawer.classList.add(CLASS_TRANSITING_IN);
-    backdrop.classList.add(CLASS_SHOWN);
-    backdrop.classList.add(CLASS_TRANSITING_IN);
-
-    drawer.addEventListener(
-      "animationend",
-      () => {
-        drawer.classList.remove(CLASS_TRANSITING_IN);
-      },
-      { once: true }
-    );
-    backdrop.addEventListener(
-      "animationend",
-      () => {
-        backdrop.classList.remove(CLASS_TRANSITING_IN);
-      },
-      { once: true }
-    );
-  }
-
   function hide() {
-    transitToHidden();
+    Promise.all([manageTransit(drawer, "out"), manageTransit(backdrop, "out")]).then((elements) => {
+      elements.forEach((element) => {
+        element.classList.remove(CLASS_SHOWN);
+      });
+      wrapper.classList.remove(CLASS_SHOWN);
+    });
+
     toggleScroll();
 
     drawer.removeEventListener("keydown", handleFocusTrap);
     drawer.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-
-  function transitToHidden() {
-    drawer.classList.add(CLASS_TRANSITING_OUT);
-    backdrop.classList.add(CLASS_TRANSITING_OUT);
-
-    drawer.addEventListener(
-      "animationend",
-      () => {
-        drawer.classList.remove(CLASS_TRANSITING_OUT);
-        drawer.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
-    backdrop.addEventListener(
-      "animationend",
-      () => {
-        backdrop.classList.remove(CLASS_TRANSITING_OUT);
-        backdrop.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
-
-    Promise.all(
-      wrapper.getAnimations({ subtree: true }).map(function (animation) {
-        return animation.finished;
-      })
-    ).then(function () {
-      return wrapper.classList.remove(CLASS_SHOWN);
-    });
   }
 
   function toggleScroll() {
