@@ -672,10 +672,10 @@ summary {
   display: block;
 }
 .dialog.is-transiting-in {
-  animation: dialog-transit-in 0.36s ease-out;
+  animation: dialog-transit-in 0.12s ease-out;
 }
 .dialog.is-transiting-out {
-  animation: dialog-transit-out 0.36s ease-out;
+  animation: dialog-transit-out 0.12s ease-out;
 }
 .dialog-heading {
   margin-bottom: 1rem;
@@ -697,10 +697,10 @@ summary {
   display: block;
 }
 .dialog-backdrop.is-transiting-in {
-  animation: dialog-backdrop-transit-in 0.36s ease-out;
+  animation: dialog-backdrop-transit-in 0.12s ease-out;
 }
 .dialog-backdrop.is-transiting-out {
-  animation: dialog-backdrop-transit-out 0.36s ease-out;
+  animation: dialog-backdrop-transit-out 0.12s ease-out;
 }
 
 .dialog-wrapper {
