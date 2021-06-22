@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 function trapFocus(event, element) {
-  const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
+  const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), input:not([disabled]), select:not([disabled]), summary, textarea:not([disabled]), video[controls], [contenteditable]"));
   const lastIndex = focusableElements.length - 1;
   const focusIndex = focusableElements.indexOf(document.activeElement);
 

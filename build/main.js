@@ -100,7 +100,7 @@ var toggle_scroll_default = toggleScroll;
 
 // source/helpers/trap-focus.js
 function trapFocus(event, element) {
-  const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
+  const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), input:not([disabled]), select:not([disabled]), summary, textarea:not([disabled]), video[controls], [contenteditable]"));
   const lastIndex = focusableElements.length - 1;
   const focusIndex = focusableElements.indexOf(document.activeElement);
   if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === element) {
