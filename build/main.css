@@ -312,7 +312,7 @@ summary {
   font-size: 1.125rem;
   line-height: 1.33333333;
   background-color: transparent;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .accordion-segment:last-child .accordion-slat {
   margin-bottom: -1px;
@@ -332,7 +332,7 @@ summary {
   width: 1rem;
   height: 1rem;
   fill: currentColor;
-  transition: transform 0.12s ease-out;
+  transition: transform 0.14s ease-out;
 }
 .accordion-slat.is-activated .accordion-icon {
   transform: rotate(180deg);
@@ -347,7 +347,7 @@ summary {
 .accordion-panel.is-toggling {
   overflow: hidden;
   height: 0;
-  transition: height 0.12s ease-out;
+  transition: height 0.14s ease-out;
 }
 .accordion-panel p:last-child {
   margin-bottom: 0;
@@ -404,7 +404,7 @@ summary {
   color: white;
   background-color: #1060bc;
   user-select: none;
-  transition: background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .button.is-activated, .button:hover {
   background-color: #0f57a9;
@@ -567,7 +567,7 @@ summary {
   margin-right: -1.5rem;
   margin-bottom: 1.25rem;
   margin-left: -1.5rem;
-  transition: outline 0.12s ease-out;
+  transition: outline 0.14s ease-out;
 }
 .card-media:first-child {
   border-top-left-radius: inherit;
@@ -591,7 +591,7 @@ summary {
 }
 
 .card-interactive {
-  transition: background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .card-interactive:hover {
   background-color: whitesmoke;
@@ -613,7 +613,7 @@ summary {
   background-color: white;
   cursor: pointer;
   -webkit-appearance: none;
-  transition: border-color 0.12s ease-out, background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: border-color 0.14s ease-out, background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .checkbox:checked {
   border-color: #1060bc;
@@ -672,10 +672,10 @@ summary {
   display: block;
 }
 .dialog.is-transiting-in {
-  animation: dialog-transit-in 0.12s ease-out;
+  animation: dialog-transit-in 0.14s ease-out;
 }
 .dialog.is-transiting-out {
-  animation: dialog-transit-out 0.12s ease-out;
+  animation: dialog-transit-out 0.14s ease-out;
 }
 .dialog-heading {
   margin-bottom: 1rem;
@@ -697,10 +697,10 @@ summary {
   display: block;
 }
 .dialog-backdrop.is-transiting-in {
-  animation: dialog-backdrop-transit-in 0.12s ease-out;
+  animation: dialog-backdrop-transit-in 0.14s ease-out;
 }
 .dialog-backdrop.is-transiting-out {
-  animation: dialog-backdrop-transit-out 0.12s ease-out;
+  animation: dialog-backdrop-transit-out 0.14s ease-out;
 }
 
 .dialog-wrapper {
@@ -773,10 +773,10 @@ summary {
   display: block;
 }
 .drawer.is-transiting-in {
-  animation: drawer-transit-in 0.36s ease-out;
+  animation: drawer-transit-in 0.28s ease-out;
 }
 .drawer.is-transiting-out {
-  animation: drawer-transit-out 0.36s ease-out;
+  animation: drawer-transit-out 0.28s ease-out;
 }
 .drawer-heading {
   margin-bottom: 1rem;
@@ -795,7 +795,7 @@ summary {
   border-radius: 4px;
   color: #3d3d3d;
   background-color: transparent;
-  transition: background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .drawer .drawer-button-dismiss:hover {
   background-color: #ebebeb;
@@ -825,10 +825,10 @@ summary {
   display: block;
 }
 .drawer-backdrop.is-transiting-in {
-  animation: drawer-backdrop-transit-in 0.36s ease-out;
+  animation: drawer-backdrop-transit-in 0.28s ease-out;
 }
 .drawer-backdrop.is-transiting-out {
-  animation: drawer-backdrop-transit-out 0.36s ease-out;
+  animation: drawer-backdrop-transit-out 0.28s ease-out;
 }
 
 .drawer-wrapper {
@@ -901,7 +901,7 @@ summary {
 .global-footer-link {
   display: inline-block;
   color: #3d3d3d;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .global-footer-link:hover {
   color: #1060bc;
@@ -937,7 +937,7 @@ summary {
   line-height: 1.33333333;
   font-weight: 700;
   color: #3d3d3d;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .global-header-brand:hover {
   color: #1060bc;
@@ -960,7 +960,7 @@ summary {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   color: #3d3d3d;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .global-header-navigation-link:hover {
   color: #1060bc;
@@ -1077,7 +1077,7 @@ summary {
   text-decoration: underline;
   text-decoration-color: #3e8eea;
   text-underline-offset: 0.25rem;
-  transition: text-decoration-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: text-decoration-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .link:hover {
   text-decoration-color: #1060bc;
@@ -1108,7 +1108,7 @@ summary {
   font-size: 1rem;
   line-height: 1.5;
   color: #3d3d3d;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .local-navigation-link.is-activated, .local-navigation-link:hover {
   color: #1060bc;
@@ -1130,10 +1130,10 @@ summary {
   background-color: white;
 }
 .menu.is-transiting-in {
-  animation: menu-transit-in 0.12s ease-out;
+  animation: menu-transit-in 0.14s ease-out;
 }
 .menu.is-transiting-out {
-  animation: menu-transit-out 0.12s ease-out;
+  animation: menu-transit-out 0.14s ease-out;
 }
 .menu.is-shown {
   display: block;
@@ -1146,7 +1146,7 @@ summary {
   line-height: 1.5;
   white-space: nowrap;
   color: #3d3d3d;
-  transition: color 0.12s ease-out, outline 0.12s ease-out;
+  transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
 .menu-link:hover {
   color: #1060bc;
@@ -1194,7 +1194,7 @@ summary {
   background-color: #ecf4fd;
 }
 .notification.is-transiting-out {
-  animation: notification-transit-out 0.12s ease-out;
+  animation: notification-transit-out 0.14s ease-out;
 }
 .notification-heading {
   margin-bottom: 0.5rem;
@@ -1218,7 +1218,7 @@ summary {
   border-radius: 4px;
   color: #1060bc;
   background-color: transparent;
-  transition: background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .notification-dismissible .notification-button-dismiss:hover {
   background-color: #d9e9fc;
@@ -1296,7 +1296,7 @@ summary {
   background-color: white;
   cursor: pointer;
   -webkit-appearance: none;
-  transition: border-color 0.12s ease-out, background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: border-color 0.14s ease-out, background-color 0.14s ease-out, outline 0.14s ease-out;
 }
 .radio:checked {
   border-color: #1060bc;
@@ -1336,7 +1336,7 @@ summary {
   background-size: 1.5rem;
   background-repeat: no-repeat;
   background-color: white;
-  transition: border-color 0.12s ease-out, background-position 0.12s ease-out, background-color 0.12s ease-out, outline 0.12s ease-out;
+  transition: border-color 0.14s ease-out, background-position 0.14s ease-out, background-color 0.14s ease-out, outline 0.14s ease-out;
   cursor: pointer;
   -webkit-appearance: none;
 }
@@ -1413,7 +1413,7 @@ tbody .table-header {
   margin-bottom: -1px;
   color: #3d3d3d;
   background-color: transparent;
-  transition: border-color 0.12s ease-out, color 0.12s ease-out, outline 0.12s ease-out;
+  transition: border-color 0.14s ease-out, color 0.14s ease-out, outline 0.14s ease-out;
 }
 .tabset-tab.is-activated {
   border-bottom-color: #1060bc;
@@ -1432,7 +1432,7 @@ tbody .table-header {
   padding-bottom: 1rem;
 }
 .tabset-panel.is-transiting-in {
-  animation: tabset-panel-transit-in 0.36s ease-out;
+  animation: tabset-panel-transit-in 0.28s ease-out;
 }
 .tabset-panel.is-shown {
   display: block;
@@ -1459,7 +1459,7 @@ tbody .table-header {
   line-height: 1.5;
   color: #3d3d3d;
   background-color: white;
-  transition: outline 0.12s ease-out, border-color 0.12s ease-out;
+  transition: outline 0.14s ease-out, border-color 0.14s ease-out;
 }
 .textfield:focus-visible {
   outline: 3px solid #0a82eb;
