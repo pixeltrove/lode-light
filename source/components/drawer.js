@@ -3,6 +3,7 @@
 
 import manageTransit from "../helpers/manage-transit";
 import toggleScroll from "../helpers/toggle-scroll";
+import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DRAWER = ".drawer";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
@@ -77,17 +78,7 @@ function Drawer(drawer) {
 
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
-      const focusableElements = Array.from(drawer.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
-      const lastIndex = focusableElements.length - 1;
-      const focusIndex = focusableElements.indexOf(document.activeElement);
-
-      if ((event.shiftKey && focusIndex === 0) || (event.shiftKey && document.activeElement === drawer)) {
-        event.preventDefault();
-        focusableElements[focusableElements.length - 1].focus();
-      } else if (!event.shiftKey && focusIndex === lastIndex) {
-        event.preventDefault();
-        focusableElements[0].focus();
-      }
+      trapFocus(event, drawer);
     }
   }
 
