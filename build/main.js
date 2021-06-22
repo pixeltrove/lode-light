@@ -81,10 +81,26 @@ function manageTransit(element, phase) {
 }
 var manage_transit_default = manageTransit;
 
+// source/helpers/toggle-scroll.js
+var CLASS_NO_SCROLL = "no-scroll";
+function toggleScroll() {
+  if (window.innerHeight >= document.body.scrollHeight)
+    return;
+  const scrollPosition = Math.abs(parseInt(document.body.style.top)) || window.scrollY;
+  if (document.body.classList.contains(CLASS_NO_SCROLL)) {
+    document.body.classList.remove(CLASS_NO_SCROLL);
+    document.body.style.top = "";
+    window.scroll(0, scrollPosition);
+  } else {
+    document.body.classList.add(CLASS_NO_SCROLL);
+    document.body.style.top = -scrollPosition + "px";
+  }
+}
+var toggle_scroll_default = toggleScroll;
+
 // source/components/dialog.js
 var SELECTOR_DIALOG = ".dialog";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
-var CLASS_NO_SCROLL = "no-scroll";
 var CLASS_SHOWN2 = "is-shown";
 var DATA_HIDE = "data-hide";
 var DATA_TARGET2 = "data-target";
@@ -101,7 +117,7 @@ function Dialog(dialog) {
     manage_transit_default(backdrop, "in");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
+    toggle_scroll_default();
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
     backdrop.addEventListener("click", handleBackdropClick);
@@ -114,24 +130,11 @@ function Dialog(dialog) {
       });
       wrapper.classList.remove(CLASS_SHOWN2);
     });
-    toggleScroll();
+    toggle_scroll_default();
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-  function toggleScroll() {
-    if (window.innerHeight >= document.body.scrollHeight)
-      return;
-    const scrollPosition = Math.abs(parseInt(document.body.style.top)) || window.scrollY;
-    if (document.body.classList.contains(CLASS_NO_SCROLL)) {
-      document.body.classList.remove(CLASS_NO_SCROLL);
-      document.body.style.top = "";
-      window.scroll(0, scrollPosition);
-    } else {
-      document.body.classList.add(CLASS_NO_SCROLL);
-      document.body.style.top = -scrollPosition + "px";
-    }
   }
   function handleHideClick(event) {
     if (event.target.hasAttribute(DATA_HIDE)) {
@@ -171,7 +174,6 @@ dialogs.forEach((dialog) => Dialog(dialog));
 var SELECTOR_DRAWER = ".drawer";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
 var SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
-var CLASS_NO_SCROLL2 = "no-scroll";
 var CLASS_SHOWN3 = "is-shown";
 var DATA_HIDE2 = "data-hide";
 var DATA_TARGET3 = "data-target";
@@ -188,7 +190,7 @@ function Drawer(drawer) {
     manage_transit_default(backdrop, "in");
     drawer.setAttribute("tabindex", -1);
     drawer.focus();
-    toggleScroll();
+    toggle_scroll_default();
     drawer.addEventListener("keydown", handleFocusTrap);
     drawer.addEventListener("click", handleHideClick);
     backdrop.addEventListener("click", handleBackdropClick);
@@ -201,24 +203,11 @@ function Drawer(drawer) {
       });
       wrapper.classList.remove(CLASS_SHOWN3);
     });
-    toggleScroll();
+    toggle_scroll_default();
     drawer.removeEventListener("keydown", handleFocusTrap);
     drawer.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-  function toggleScroll() {
-    if (window.innerHeight >= document.body.scrollHeight)
-      return;
-    const scrollPosition = Math.abs(parseInt(document.body.style.top)) || window.scrollY;
-    if (document.body.classList.contains(CLASS_NO_SCROLL2)) {
-      document.body.classList.remove(CLASS_NO_SCROLL2);
-      document.body.style.top = "";
-      window.scroll(0, scrollPosition);
-    } else {
-      document.body.classList.add(CLASS_NO_SCROLL2);
-      document.body.style.top = -scrollPosition + "px";
-    }
   }
   function handleHideClick(event) {
     if (event.target.hasAttribute(DATA_HIDE2)) {
