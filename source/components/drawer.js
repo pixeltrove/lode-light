@@ -2,11 +2,11 @@
 // -----------------------------------------------------------------------------
 
 import manageTransit from "../helpers/manage-transit";
+import toggleScroll from "../helpers/toggle-scroll";
 
 const SELECTOR_DRAWER = ".drawer";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
 const SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
-const CLASS_NO_SCROLL = "no-scroll";
 const CLASS_SHOWN = "is-shown";
 const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
@@ -49,21 +49,6 @@ function Drawer(drawer) {
     drawer.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
     document.removeEventListener("keydown", handleEscape);
-  }
-
-  function toggleScroll() {
-    if (window.innerHeight >= document.body.scrollHeight) return;
-
-    const scrollPosition = Math.abs(parseInt(document.body.style.top)) || window.scrollY;
-
-    if (document.body.classList.contains(CLASS_NO_SCROLL)) {
-      document.body.classList.remove(CLASS_NO_SCROLL);
-      document.body.style.top = "";
-      window.scroll(0, scrollPosition);
-    } else {
-      document.body.classList.add(CLASS_NO_SCROLL);
-      document.body.style.top = -scrollPosition + "px";
-    }
   }
 
   function handleHideClick(event) {
