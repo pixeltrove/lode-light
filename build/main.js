@@ -98,6 +98,21 @@ function toggleScroll() {
 }
 var toggle_scroll_default = toggleScroll;
 
+// source/helpers/trap-focus.js
+function trapFocus(event, element) {
+  const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
+  const lastIndex = focusableElements.length - 1;
+  const focusIndex = focusableElements.indexOf(document.activeElement);
+  if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === element) {
+    event.preventDefault();
+    focusableElements[focusableElements.length - 1].focus();
+  } else if (!event.shiftKey && focusIndex === lastIndex) {
+    event.preventDefault();
+    focusableElements[0].focus();
+  }
+}
+var trap_focus_default = trapFocus;
+
 // source/components/dialog.js
 var SELECTOR_DIALOG = ".dialog";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
@@ -153,16 +168,7 @@ function Dialog(dialog) {
   }
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
-      const focusableElements = Array.from(dialog.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
-      const lastIndex = focusableElements.length - 1;
-      const focusIndex = focusableElements.indexOf(document.activeElement);
-      if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === dialog) {
-        event.preventDefault();
-        focusableElements[focusableElements.length - 1].focus();
-      } else if (!event.shiftKey && focusIndex === lastIndex) {
-        event.preventDefault();
-        focusableElements[0].focus();
-      }
+      trap_focus_default(event, dialog);
     }
   }
   trigger.addEventListener("click", show);
@@ -231,16 +237,7 @@ function Drawer(drawer) {
   }
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
-      const focusableElements = Array.from(drawer.querySelectorAll("a[href], audio[controls], button:not([disabled]), details, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), video[controls], [contenteditable]"));
-      const lastIndex = focusableElements.length - 1;
-      const focusIndex = focusableElements.indexOf(document.activeElement);
-      if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === drawer) {
-        event.preventDefault();
-        focusableElements[focusableElements.length - 1].focus();
-      } else if (!event.shiftKey && focusIndex === lastIndex) {
-        event.preventDefault();
-        focusableElements[0].focus();
-      }
+      trap_focus_default(event, drawer);
     }
   }
   trigger.addEventListener("click", show);
