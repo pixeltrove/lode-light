@@ -105,7 +105,7 @@ function trapFocus(event, element) {
   const focusIndex = focusableElements.indexOf(document.activeElement);
   if (event.shiftKey && focusIndex === 0 || event.shiftKey && document.activeElement === element) {
     event.preventDefault();
-    focusableElements[focusableElements.length - 1].focus();
+    focusableElements[lastIndex].focus();
   } else if (!event.shiftKey && focusIndex === lastIndex) {
     event.preventDefault();
     focusableElements[0].focus();
