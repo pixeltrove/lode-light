@@ -1,3 +1,26 @@
+// source/helpers/move-focus.js
+function moveFocus(key, elements) {
+  const currentIndex = elements.indexOf(document.activeElement);
+  const lastIndex = elements.length - 1;
+  let upcomingIndex;
+  switch (key) {
+    case "ArrowUp":
+      upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
+      break;
+    case "ArrowDown":
+      upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
+      break;
+    case "Home":
+      upcomingIndex = 0;
+      break;
+    case "End":
+      upcomingIndex = lastIndex;
+      break;
+  }
+  elements[upcomingIndex].focus();
+}
+var move_focus_default = moveFocus;
+
 // source/components/accordion.js
 var SELECTOR_ACCORDION = ".accordion";
 var SELECTOR_SLAT = ".accordion-slat";
@@ -31,26 +54,6 @@ function Accordion(accordion) {
       panel.classList.remove(CLASS_SHOWN);
     }, {once: true});
   }
-  function moveFocus(key) {
-    const currentIndex = slats.indexOf(document.activeElement);
-    const lastIndex = slats.length - 1;
-    let upcomingIndex;
-    switch (key) {
-      case "ArrowUp":
-        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-        break;
-      case "ArrowDown":
-        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-        break;
-      case "Home":
-        upcomingIndex = 0;
-        break;
-      case "End":
-        upcomingIndex = lastIndex;
-        break;
-    }
-    slats[upcomingIndex].focus();
-  }
   function handleSlatClick(event) {
     if (event.target.closest(SELECTOR_SLAT)) {
       togglePanel(event.target.closest(SELECTOR_SLAT));
@@ -59,7 +62,7 @@ function Accordion(accordion) {
   function handleSlatKeydown(event) {
     if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      move_focus_default(event.key, slats);
     }
   }
   accordion.addEventListener("click", handleSlatClick);
@@ -279,26 +282,6 @@ function Menu(menu) {
       menu.removeEventListener("keydown", handleLinkKeydown);
     }
   }
-  function moveFocus(key) {
-    const currentIndex = links.indexOf(document.activeElement);
-    const lastIndex = links.length - 1;
-    let upcomingIndex;
-    switch (key) {
-      case "ArrowUp":
-        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-        break;
-      case "ArrowDown":
-        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-        break;
-      case "Home":
-        upcomingIndex = 0;
-        break;
-      case "End":
-        upcomingIndex = lastIndex;
-        break;
-    }
-    links[upcomingIndex].focus();
-  }
   function handleOutsideClick(event) {
     if (!trigger.contains(event.target) && !menu.contains(event.target)) {
       toggle();
@@ -319,7 +302,7 @@ function Menu(menu) {
   function handleLinkKeydown(event) {
     if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      move_focus_default(event.key, links);
     }
   }
   trigger.addEventListener("click", toggle);
@@ -373,7 +356,7 @@ function Tabset(tabset) {
       }
     });
   }
-  function moveFocus(key) {
+  function moveFocus2(key) {
     const currentIndex = tabs.indexOf(document.activeElement);
     const lastIndex = tabs.length - 1;
     let upcomingIndex = 0;
@@ -401,7 +384,7 @@ function Tabset(tabset) {
   function handleTabKeydown(event) {
     if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      moveFocus2(event.key);
     }
   }
   tabset.addEventListener("click", handleTabClick);
