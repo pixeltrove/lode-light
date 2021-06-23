@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import manageTransit from "../helpers/manage-transit";
+import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
@@ -38,29 +39,6 @@ function Tabset(tabset) {
     });
   }
 
-  function moveFocus(key) {
-    const currentIndex = tabs.indexOf(document.activeElement);
-    const lastIndex = tabs.length - 1;
-    let upcomingIndex = 0;
-
-    switch (key) {
-      case "ArrowLeft":
-        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-        break;
-      case "ArrowRight":
-        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-        break;
-      case "Home":
-        upcomingIndex = 0;
-        break;
-      case "End":
-        upcomingIndex = lastIndex;
-        break;
-    }
-
-    tabs[upcomingIndex].focus();
-  }
-
   function handleTabClick(event) {
     if (event.target.closest(SELECTOR_TAB)) {
       activateTab(event.target.closest(SELECTOR_TAB));
@@ -70,7 +48,7 @@ function Tabset(tabset) {
   function handleTabKeydown(event) {
     if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      moveFocus(event.key, tabs);
     }
   }
 

@@ -8,9 +8,11 @@ function moveFocus(key, elements) {
 
   switch (key) {
     case "ArrowUp":
+    case "ArrowLeft":
       upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
       break;
     case "ArrowDown":
+    case "ArrowRight":
       upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
       break;
     case "Home":
