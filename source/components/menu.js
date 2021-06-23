@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import manageTransit from "../helpers/manage-transit";
+import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
@@ -43,29 +44,6 @@ function Menu(menu) {
     }
   }
 
-  function moveFocus(key) {
-    const currentIndex = links.indexOf(document.activeElement);
-    const lastIndex = links.length - 1;
-    let upcomingIndex;
-
-    switch (key) {
-      case "ArrowUp":
-        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-        break;
-      case "ArrowDown":
-        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-        break;
-      case "Home":
-        upcomingIndex = 0;
-        break;
-      case "End":
-        upcomingIndex = lastIndex;
-        break;
-    }
-
-    links[upcomingIndex].focus();
-  }
-
   function handleOutsideClick(event) {
     if (!trigger.contains(event.target) && !menu.contains(event.target)) {
       toggle();
@@ -89,7 +67,7 @@ function Menu(menu) {
   function handleLinkKeydown(event) {
     if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      moveFocus(event.key, links);
     }
   }
 

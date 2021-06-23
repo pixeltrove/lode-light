@@ -1,6 +1,8 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
+import moveFocus from "../helpers/move-focus";
+
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
@@ -50,29 +52,6 @@ function Accordion(accordion) {
     );
   }
 
-  function moveFocus(key) {
-    const currentIndex = slats.indexOf(document.activeElement);
-    const lastIndex = slats.length - 1;
-    let upcomingIndex;
-
-    switch (key) {
-      case "ArrowUp":
-        upcomingIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-        break;
-      case "ArrowDown":
-        upcomingIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-        break;
-      case "Home":
-        upcomingIndex = 0;
-        break;
-      case "End":
-        upcomingIndex = lastIndex;
-        break;
-    }
-
-    slats[upcomingIndex].focus();
-  }
-
   function handleSlatClick(event) {
     if (event.target.closest(SELECTOR_SLAT)) {
       togglePanel(event.target.closest(SELECTOR_SLAT));
@@ -82,7 +61,7 @@ function Accordion(accordion) {
   function handleSlatKeydown(event) {
     if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key);
+      moveFocus(event.key, slats);
     }
   }
 
