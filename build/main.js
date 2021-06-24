@@ -34,10 +34,19 @@ function toggleCollapsible(trigger) {
   const isShown = collapsible.classList.contains(CLASS_SHOWN);
   trigger.classList.toggle(CLASS_ACTIVATED);
   trigger.setAttribute("aria-expanded", !isShown);
-  if (!isShown)
+  if (!isShown) {
     collapsible.classList.add(CLASS_SHOWN);
-  collapsible.classList.add(CLASS_TOGGLING);
-  collapsible.style.height = !isShown ? collapsible.scrollHeight + "px" : 0;
+    collapsible.classList.add(CLASS_TOGGLING);
+    collapsible.style.height = collapsible.scrollHeight + "px";
+  } else {
+    if (collapsible.style.height === "") {
+      collapsible.style.height = collapsible.scrollHeight + "px";
+    }
+    requestAnimationFrame(() => {
+      collapsible.classList.add(CLASS_TOGGLING);
+      collapsible.style.height = 0;
+    });
+  }
   collapsible.addEventListener("transitionend", () => {
     collapsible.classList.remove(CLASS_TOGGLING);
     if (isShown)
