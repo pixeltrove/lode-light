@@ -346,7 +346,6 @@ summary {
 }
 .accordion-panel.is-toggling {
   overflow: hidden;
-  height: 0;
   transition: height 0.14s ease-out;
 }
 .accordion-panel p:last-child {
