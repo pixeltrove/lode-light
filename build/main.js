@@ -32,11 +32,15 @@ function toggleCollapsible(trigger) {
   const collapsibleId = trigger.getAttribute(DATA_TARGET);
   const collapsible = document.querySelector(`#${collapsibleId}`);
   const isShown = collapsible.classList.contains(CLASS_SHOWN);
-  trigger.classList.toggle(CLASS_ACTIVATED);
-  trigger.setAttribute("aria-expanded", !isShown);
-  collapsible.style.height = !isShown ? 0 : collapsible.scrollHeight + "px";
-  if (!isShown)
+  if (!isShown) {
+    trigger.classList.add(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", "true");
     collapsible.classList.add(CLASS_SHOWN);
+  } else {
+    trigger.classList.remove(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", "true");
+  }
+  collapsible.style.height = !isShown ? 0 : collapsible.scrollHeight + "px";
   collapsible.classList.add(CLASS_TOGGLING);
   requestAnimationFrame(() => {
     collapsible.style.height = !isShown ? collapsible.scrollHeight + "px" : 0;
