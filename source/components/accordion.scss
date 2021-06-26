@@ -67,7 +67,6 @@
 
     &.is-toggling {
       overflow: hidden;
-      height: 0;
       transition: height $transition-default;
     }
 
