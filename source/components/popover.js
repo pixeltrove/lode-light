@@ -27,7 +27,6 @@ function Popover(popover) {
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
-      popover.addEventListener("keydown", handleLinkKeydown);
     } else {
       manageTransit(popover, "out").then(() => {
         popover.classList.remove(CLASS_SHOWN);

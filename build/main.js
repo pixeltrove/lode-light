@@ -274,7 +274,7 @@ function Menu(menu) {
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleTab);
-      menu.addEventListener("keydown", handleLinkKeydown2);
+      menu.addEventListener("keydown", handleLinkKeydown);
     } else {
       manage_transit_default(menu, "out").then(() => {
         menu.classList.remove(CLASS_SHOWN4);
@@ -283,7 +283,7 @@ function Menu(menu) {
       document.removeEventListener("keydown", handleEscape);
       trigger.removeEventListener("keydown", handleTab);
       menu.removeEventListener("keydown", handleTab);
-      menu.removeEventListener("keydown", handleLinkKeydown2);
+      menu.removeEventListener("keydown", handleLinkKeydown);
     }
   }
   function handleOutsideClick(event) {
@@ -303,7 +303,7 @@ function Menu(menu) {
       toggle();
     }
   }
-  function handleLinkKeydown2(event) {
+  function handleLinkKeydown(event) {
     if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
       move_focus_default(event.key, links);
@@ -349,7 +349,6 @@ function Popover(popover) {
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
-      popover.addEventListener("keydown", handleLinkKeydown);
     } else {
       manage_transit_default(popover, "out").then(() => {
         popover.classList.remove(CLASS_SHOWN5);
