@@ -345,6 +345,8 @@ function Popover(popover) {
     if (!isShown) {
       popover.classList.add(CLASS_SHOWN5);
       manage_transit_default(popover, "in");
+      position();
+      window.addEventListener("resize", position);
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
@@ -358,6 +360,10 @@ function Popover(popover) {
       trigger.removeEventListener("keydown", handleTab);
       popover.removeEventListener("keydown", handleTab);
     }
+  }
+  function position() {
+    popover.style.left = trigger.getBoundingClientRect().left + "px";
+    popover.style.top = document.documentElement.scrollTop + trigger.getBoundingClientRect().bottom + "px";
   }
   function handleOutsideClick(event) {
     if (!trigger.contains(event.target) && !popover.contains(event.target)) {
