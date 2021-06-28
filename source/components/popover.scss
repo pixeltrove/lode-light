@@ -1,0 +1,46 @@
+// POPOVER
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/animate-transit" as *;
+@use "../helpers/focus-visible" as *;
+
+.popover {
+  position: absolute;
+  z-index: $z-index-top;
+  display: none;
+  width: 36rem;
+  padding: calc(#{$space-large-d} - #{$border-width-regular});
+  border: $border-width-regular solid $color-neutral-light-c;
+  border-radius: $border-radius-regular;
+  margin-top: $space-small-e;
+  margin-bottom: 0;
+  background-color: $color-white-regular;
+
+  &.is-transiting-in {
+    animation: popover-transit-in $transition-default;
+  }
+
+  &.is-transiting-out {
+    animation: popover-transit-out $transition-default;
+  }
+
+  &.is-shown {
+    display: block;
+  }
+
+  &-separator {
+    border-top: $border-width-regular solid $color-neutral-light-c;
+    margin-top: calc(#{$space-small-c} - #{$border-width-regular});
+    margin-bottom: $space-small-c;
+  }
+}
+
+.popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+// Keyframes
+
+@include animate-transit(popover);
