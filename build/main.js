@@ -23,44 +23,42 @@ function moveFocus(key, elements) {
 }
 var move_focus_default = moveFocus;
 
-// source/helpers/toggle-collapsible.js
+// source/components/accordion.js
+var SELECTOR_ACCORDION = ".accordion";
+var SELECTOR_SLAT = ".accordion-slat";
 var CLASS_ACTIVATED = "is-activated";
 var CLASS_SHOWN = "is-shown";
 var CLASS_TOGGLING = "is-toggling";
 var DATA_TARGET = "data-target";
-function toggleCollapsible(trigger) {
-  const collapsibleId = trigger.getAttribute(DATA_TARGET);
-  const collapsible = document.querySelector(`#${collapsibleId}`);
-  const isShown = collapsible.classList.contains(CLASS_SHOWN);
-  if (!isShown) {
-    trigger.classList.add(CLASS_ACTIVATED);
-    trigger.setAttribute("aria-expanded", "true");
-    collapsible.classList.add(CLASS_SHOWN);
-  } else {
-    trigger.classList.remove(CLASS_ACTIVATED);
-    trigger.setAttribute("aria-expanded", "true");
-  }
-  collapsible.style.height = !isShown ? 0 : collapsible.scrollHeight + "px";
-  collapsible.classList.add(CLASS_TOGGLING);
-  requestAnimationFrame(() => {
-    collapsible.style.height = !isShown ? collapsible.scrollHeight + "px" : 0;
-  });
-  collapsible.addEventListener("transitionend", () => {
-    collapsible.classList.remove(CLASS_TOGGLING);
-    if (isShown)
-      collapsible.classList.remove(CLASS_SHOWN);
-  }, {once: true});
-}
-var toggle_collapsible_default = toggleCollapsible;
-
-// source/components/accordion.js
-var SELECTOR_ACCORDION = ".accordion";
-var SELECTOR_SLAT = ".accordion-slat";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  function togglePanel(slat) {
+    const panelId = slat.getAttribute(DATA_TARGET);
+    const panel = document.querySelector(`#${panelId}`);
+    const isShown = panel.classList.contains(CLASS_SHOWN);
+    if (!isShown) {
+      slat.classList.add(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", "true");
+      panel.classList.add(CLASS_SHOWN);
+      panel.style.height = 0;
+    } else {
+      slat.classList.remove(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", "false");
+      panel.style.height = panel.scrollHeight + "px";
+    }
+    panel.classList.add(CLASS_TOGGLING);
+    requestAnimationFrame(() => {
+      panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
+    });
+    panel.addEventListener("transitionend", () => {
+      panel.classList.remove(CLASS_TOGGLING);
+      if (isShown)
+        panel.classList.remove(CLASS_SHOWN);
+    }, {once: true});
+  }
   function handleSlatClick(event) {
     if (event.target.closest(SELECTOR_SLAT)) {
-      toggle_collapsible_default(event.target.closest(SELECTOR_SLAT));
+      togglePanel(event.target.closest(SELECTOR_SLAT));
     }
   }
   function handleSlatKeydown(event) {
