@@ -30,11 +30,6 @@
   }
 }
 
-.popover-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
 // Keyframes
 
 @include animate-transit(popover);

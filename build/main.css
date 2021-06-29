@@ -1308,11 +1308,6 @@ summary {
   display: block;
 }
 
-.popover-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
 @keyframes popover-transit-in {
   0% {
     opacity: 0;
