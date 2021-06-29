@@ -40,15 +40,16 @@ function Accordion(accordion) {
       slat.classList.add(CLASS_ACTIVATED);
       slat.setAttribute("aria-expanded", "true");
       panel.classList.add(CLASS_SHOWN);
-      panel.style.height = 0;
     } else {
       slat.classList.remove(CLASS_ACTIVATED);
       slat.setAttribute("aria-expanded", "false");
-      panel.style.height = panel.scrollHeight + "px";
     }
-    panel.classList.add(CLASS_TOGGLING);
     requestAnimationFrame(() => {
-      panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
+      panel.style.height = !isShown ? 0 : panel.scrollHeight + "px";
+      panel.classList.add(CLASS_TOGGLING);
+      requestAnimationFrame(() => {
+        panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
+      });
     });
     panel.addEventListener("transitionend", () => {
       panel.classList.remove(CLASS_TOGGLING);
