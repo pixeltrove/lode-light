@@ -330,33 +330,90 @@ function Notification(notification) {
 var notifications = Array.from(document.querySelectorAll(SELECTOR_NOTIFICATION));
 notifications.forEach((notification) => Notification(notification));
 
+// source/components/popover.js
+var SELECTOR_POPOVER = ".popover";
+var CLASS_ACTIVATED3 = "is-activated";
+var CLASS_SHOWN5 = "is-shown";
+var DATA_TARGET5 = "data-target";
+function Popover(popover) {
+  const popoverId = popover.id;
+  const trigger = document.querySelector(`[${DATA_TARGET5}="${popoverId}"]`);
+  function toggle() {
+    const isShown = popover.classList.contains(CLASS_SHOWN5);
+    trigger.classList.toggle(CLASS_ACTIVATED3);
+    trigger.setAttribute("aria-expanded", !isShown);
+    if (!isShown) {
+      popover.classList.add(CLASS_SHOWN5);
+      manage_transit_default(popover, "in");
+      position();
+      window.addEventListener("resize", position);
+      document.addEventListener("click", handleOutsideClick);
+      document.addEventListener("keydown", handleEscape);
+      trigger.addEventListener("keydown", handleTab);
+      popover.addEventListener("keydown", handleTab);
+    } else {
+      manage_transit_default(popover, "out").then(() => {
+        popover.classList.remove(CLASS_SHOWN5);
+      });
+      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscape);
+      trigger.removeEventListener("keydown", handleTab);
+      popover.removeEventListener("keydown", handleTab);
+    }
+  }
+  function position() {
+    popover.style.left = trigger.getBoundingClientRect().left + "px";
+    popover.style.top = document.documentElement.scrollTop + trigger.getBoundingClientRect().bottom + "px";
+  }
+  function handleOutsideClick(event) {
+    if (!trigger.contains(event.target) && !popover.contains(event.target)) {
+      toggle();
+    }
+  }
+  function handleEscape(event) {
+    if (event.key === "Escape") {
+      toggle();
+    }
+  }
+  function handleTab(event) {
+    const focusableElements = Array.from(popover.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    if (event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey || event.key === "Tab" && document.activeElement === trigger && event.shiftKey) {
+      toggle();
+    }
+  }
+  trigger.addEventListener("click", toggle);
+}
+var popovers = Array.from(document.querySelectorAll(SELECTOR_POPOVER));
+popovers.forEach((popover) => Popover(popover));
+
 // source/components/tabset.js
 var SELECTOR_TABSET = ".tabset";
 var SELECTOR_TAB = ".tabset-tab";
 var SELECTOR_PANEL = ".tabset-panel";
-var CLASS_ACTIVATED3 = "is-activated";
-var CLASS_SHOWN5 = "is-shown";
-var DATA_TARGET5 = "data-target";
+var CLASS_ACTIVATED4 = "is-activated";
+var CLASS_SHOWN6 = "is-shown";
+var DATA_TARGET6 = "data-target";
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
   function activateTab(currentTab) {
-    const panelId = currentTab.getAttribute(DATA_TARGET5);
+    const panelId = currentTab.getAttribute(DATA_TARGET6);
     tabs.forEach((tab) => {
       if (tab === currentTab) {
-        currentTab.classList.add(CLASS_ACTIVATED3);
+        currentTab.classList.add(CLASS_ACTIVATED4);
         tab.removeAttribute("tabIndex");
-      } else if (tab.classList.contains(CLASS_ACTIVATED3)) {
-        tab.classList.remove(CLASS_ACTIVATED3);
+      } else if (tab.classList.contains(CLASS_ACTIVATED4)) {
+        tab.classList.remove(CLASS_ACTIVATED4);
         tab.setAttribute("tabIndex", "-1");
       }
     });
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        panel.classList.add(CLASS_SHOWN5);
+        panel.classList.add(CLASS_SHOWN6);
         manage_transit_default(panel, "in");
       } else {
-        panel.classList.remove(CLASS_SHOWN5);
+        panel.classList.remove(CLASS_SHOWN6);
       }
     });
   }

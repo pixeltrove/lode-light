@@ -1286,6 +1286,48 @@ summary {
     opacity: 0;
   }
 }
+.popover {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  width: 36rem;
+  padding: calc(1.5rem - 1px);
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  background-color: white;
+}
+.popover.is-transiting-in {
+  animation: popover-transit-in 0.14s ease-out;
+}
+.popover.is-transiting-out {
+  animation: popover-transit-out 0.14s ease-out;
+}
+.popover.is-shown {
+  display: block;
+}
+
+@keyframes popover-transit-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popover-transit-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
 .radio {
   width: 1.5rem;
   height: 1.5rem;
