@@ -28,12 +28,6 @@
   &.is-shown {
     display: block;
   }
-
-  &-separator {
-    border-top: $border-width-regular solid $color-neutral-light-c;
-    margin-top: calc(#{$space-small-c} - #{$border-width-regular});
-    margin-bottom: $space-small-c;
-  }
 }
 
 .popover-wrapper {

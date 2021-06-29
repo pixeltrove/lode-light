@@ -1307,11 +1307,6 @@ summary {
 .popover.is-shown {
   display: block;
 }
-.popover-separator {
-  border-top: 1px solid #e0e0e0;
-  margin-top: calc(0.5rem - 1px);
-  margin-bottom: 0.5rem;
-}
 
 .popover-wrapper {
   position: relative;
