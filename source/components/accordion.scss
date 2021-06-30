@@ -8,7 +8,7 @@
   &-segment {
     border-top: $border-width-regular solid $color-neutral-light-c;
 
-    &:last-child {
+    &:last-of-type {
       border-bottom: $border-width-regular solid $color-neutral-light-c;
     }
   }
@@ -30,7 +30,7 @@
     background-color: transparent;
     transition: color $transition-default, outline $transition-default;
 
-    @at-root .accordion-segment:last-child & {
+    @at-root .accordion-segment:last-of-type & {
       margin-bottom: -$border-width-regular;
     }
 
@@ -79,7 +79,7 @@
     padding-top: $space-small-e;
     padding-bottom: $space-regular;
 
-    @at-root .accordion-segment:last-child & {
+    @at-root .accordion-segment:last-of-type & {
       padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
     }
   }
