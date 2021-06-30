@@ -314,7 +314,7 @@ summary {
   background-color: transparent;
   transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
-.accordion-segment:last-of-type .accordion-slat {
+.accordion-segment:last-of-type .accordion-slat:not(.is-activated) {
   margin-bottom: -1px;
 }
 

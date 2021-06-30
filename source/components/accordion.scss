@@ -30,7 +30,7 @@
     background-color: transparent;
     transition: color $transition-default, outline $transition-default;
 
-    @at-root .accordion-segment:last-of-type & {
+    @at-root .accordion-segment:last-of-type &:not(.is-activated) {
       margin-bottom: -$border-width-regular;
     }
 
