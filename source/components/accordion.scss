@@ -69,10 +69,6 @@
       overflow: hidden;
       transition: height $transition-default;
     }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
   }
 
   &-panel-inner {
@@ -81,6 +77,10 @@
 
     @at-root .accordion-segment:last-of-type & {
       padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
+    }
+
+    > :last-child {
+      margin-bottom: 0;
     }
   }
 }
