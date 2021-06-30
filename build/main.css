@@ -351,11 +351,11 @@ summary {
 .accordion-panel p:last-child {
   margin-bottom: 0;
 }
-.accordion-panel-inside {
+.accordion-panel-inner {
   padding-top: 0.25rem;
   padding-bottom: 1rem;
 }
-.accordion-segment:last-of-type .accordion-panel-inside {
+.accordion-segment:last-of-type .accordion-panel-inner {
   padding-bottom: calc(1rem - 1px);
 }
 
