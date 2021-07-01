@@ -32,6 +32,7 @@ var CLASS_TOGGLING = "is-toggling";
 var DATA_TARGET = "data-target";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TARGET);
     const panel = document.querySelector(`#${panelId}`);
@@ -63,7 +64,7 @@ function Accordion(accordion) {
     }
   }
   function handleSlatKeydown(event) {
-    if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+    if (event.target.closest(SELECTOR_SLAT) && navigationKeys.includes(event.key)) {
       event.preventDefault();
       move_focus_default(event.key, slats);
     }

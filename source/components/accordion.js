@@ -12,6 +12,7 @@ const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
 
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TARGET);
@@ -53,7 +54,7 @@ function Accordion(accordion) {
   }
 
   function handleSlatKeydown(event) {
-    if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+    if (event.target.closest(SELECTOR_SLAT) && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, slats);
     }
