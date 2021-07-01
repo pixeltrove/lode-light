@@ -31,7 +31,7 @@
     background-color: transparent;
     transition: color $transition-default, outline $transition-default;
 
-    @at-root .accordion-segment:last-of-type &:not(.is-activated) {
+    @at-root .accordion-segment:last-of-type & {
       margin-bottom: -$border-width-regular;
     }
 
@@ -77,6 +77,7 @@
     padding-bottom: $space-regular;
 
     @at-root .accordion-segment:last-of-type & {
+      padding-top: calc(#{$space-small-e} + #{$border-width-regular});
       padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
     }
 

@@ -315,7 +315,7 @@ summary {
   background-color: transparent;
   transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
-.accordion-segment:last-of-type .accordion-slat:not(.is-activated) {
+.accordion-segment:last-of-type .accordion-slat {
   margin-bottom: -1px;
 }
 
@@ -354,6 +354,7 @@ summary {
   padding-bottom: 1rem;
 }
 .accordion-segment:last-of-type .accordion-panel-inner {
+  padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(1rem - 1px);
 }
 
