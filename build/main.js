@@ -60,13 +60,13 @@ function Accordion(accordion) {
   }
   function handleSlatClick(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
-    if (targetSlat) {
+    if (slats.includes(targetSlat)) {
       togglePanel(targetSlat);
     }
   }
   function handleSlatKeydown(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
-    if (targetSlat && navigationKeys.includes(event.key)) {
+    if (slats.includes(targetSlat) && navigationKeys.includes(event.key)) {
       event.preventDefault();
       move_focus_default(event.key, slats);
     }
