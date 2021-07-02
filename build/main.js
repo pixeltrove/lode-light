@@ -32,6 +32,7 @@ var CLASS_TOGGLING = "is-toggling";
 var DATA_TARGET = "data-target";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TARGET);
     const panel = document.querySelector(`#${panelId}`);
@@ -58,12 +59,14 @@ function Accordion(accordion) {
     }, {once: true});
   }
   function handleSlatClick(event) {
-    if (event.target.closest(SELECTOR_SLAT)) {
-      togglePanel(event.target.closest(SELECTOR_SLAT));
+    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    if (slats.includes(targetSlat)) {
+      togglePanel(targetSlat);
     }
   }
   function handleSlatKeydown(event) {
-    if (event.target.closest(SELECTOR_SLAT) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    if (slats.includes(targetSlat) && navigationKeys.includes(event.key)) {
       event.preventDefault();
       move_focus_default(event.key, slats);
     }
