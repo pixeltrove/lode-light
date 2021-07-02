@@ -59,12 +59,14 @@ function Accordion(accordion) {
     }, {once: true});
   }
   function handleSlatClick(event) {
-    if (event.target.closest(SELECTOR_SLAT)) {
-      togglePanel(event.target.closest(SELECTOR_SLAT));
+    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    if (targetSlat) {
+      togglePanel(targetSlat);
     }
   }
   function handleSlatKeydown(event) {
-    if (event.target.closest(SELECTOR_SLAT) && navigationKeys.includes(event.key)) {
+    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    if (targetSlat && navigationKeys.includes(event.key)) {
       event.preventDefault();
       move_focus_default(event.key, slats);
     }
