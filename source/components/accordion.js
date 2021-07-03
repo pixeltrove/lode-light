@@ -19,9 +19,14 @@ function Accordion(accordion) {
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
 
-    slat.classList.toggle(CLASS_ACTIVATED);
-    slat.setAttribute("aria-expanded", !isShown);
-    if (!isShown) panel.classList.add(CLASS_SHOWN);
+    if (!isShown) {
+      slat.classList.add(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", "true");
+      panel.classList.add(CLASS_SHOWN);
+    } else {
+      slat.classList.remove(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", "false");
+    }
 
     requestAnimationFrame(() => {
       panel.style.height = !isShown ? 0 : panel.scrollHeight + "px";
