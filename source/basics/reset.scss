@@ -74,7 +74,7 @@ ul {
 }
 
 dt {
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold-a;
 }
 
 dd {
@@ -97,7 +97,7 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold-a;
 }
 
 h1 {
@@ -249,7 +249,7 @@ legend {
   width: 100%;
   padding-right: 0;
   padding-left: 0;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold-a;
 }
 
 // Label
@@ -289,7 +289,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold-a;
 }
 
 // Code, user input, and sample output
