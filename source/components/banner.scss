@@ -17,7 +17,6 @@
   }
 
   &-inner {
-    position: relative;
     display: flex;
     align-items: flex-start;
     max-width: $container-max-width;
@@ -41,7 +40,6 @@
   }
 
   &-message {
-    margin-right: $space-large-b;
     margin-bottom: 0;
   }
 }
@@ -50,12 +48,11 @@
 
 .banner-dismissible {
   .banner-button-dismiss {
-    position: absolute;
-    top: -2px;
-    right: $space-large-b;
     padding: calc(#{$space-small-d} - #{$border-width-regular});
     border: $border-width-regular solid transparent;
     border-radius: $border-radius-regular;
+    margin-top: -2px;
+    margin-bottom: -2px;
     margin-left: auto;
     color: $color-brand-regular;
     background-color: transparent;
