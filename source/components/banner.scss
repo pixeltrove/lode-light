@@ -1,0 +1,142 @@
+// BANNER
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/animate-transit" as *;
+@use "../helpers/focus-visible" as *;
+@use "../helpers/set-breakpoint" as *;
+
+.banner {
+  padding: $space-regular 0 calc(#{$space-regular} - #{$border-width-regular});
+  border-bottom: $border-width-regular solid $color-brand-light-c;
+  color: $color-brand-regular;
+  background-color: $color-brand-light-a;
+
+  &.is-transiting-out {
+    animation: banner-transit-out $transition-default;
+  }
+
+  &-inner {
+    display: flex;
+    align-items: flex-start;
+    max-width: $container-max-width;
+    padding-right: $space-large-d;
+    padding-left: $space-large-d;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include set-breakpoint(tablet) {
+      padding-right: $space-large-b;
+      padding-left: $space-large-b;
+    }
+  }
+
+  &-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: $space-regular;
+    fill: currentColor;
+  }
+
+  &-message {
+    margin-bottom: 0;
+  }
+}
+
+// Dismissible
+
+.banner-dismissible {
+  .banner-button-dismiss {
+    padding: calc(#{$space-small-d} - #{$border-width-regular});
+    border: $border-width-regular solid transparent;
+    border-radius: $border-radius-regular;
+    margin-left: auto;
+    color: $color-brand-regular;
+    background-color: transparent;
+    transition: background-color $transition-default, outline $transition-default;
+
+    &:hover {
+      background-color: $color-brand-light-b;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+
+    &:active {
+      background-color: $color-brand-light-c;
+    }
+  }
+
+  .banner-icon-dismiss {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+}
+
+// Positive
+
+.banner-positive {
+  border-bottom-color: $color-positive-light-c;
+  color: $color-positive-regular;
+  background-color: $color-positive-light-a;
+
+  .banner-button-dismiss {
+    color: $color-positive-regular;
+
+    &:hover {
+      background-color: $color-positive-light-b;
+    }
+
+    &:active {
+      background-color: $color-positive-light-c;
+    }
+  }
+}
+
+// Negative
+
+.banner-negative {
+  border-bottom-color: $color-negative-light-c;
+  color: $color-negative-regular;
+  background-color: $color-negative-light-a;
+
+  .banner-button-dismiss {
+    color: $color-negative-regular;
+
+    &:hover {
+      background-color: $color-negative-light-b;
+    }
+
+    &:active {
+      background-color: $color-negative-light-c;
+    }
+  }
+}
+
+// Neutral
+
+.banner-neutral {
+  border-bottom-color: $color-neutral-light-c;
+  color: $color-neutral-regular;
+  background-color: $color-neutral-light-a;
+
+  .banner-button-dismiss {
+    color: $color-neutral-regular;
+
+    &:hover {
+      background-color: $color-neutral-light-b;
+    }
+
+    &:active {
+      background-color: $color-neutral-light-c;
+    }
+  }
+}
+
+// Keyframes
+
+@include animate-transit(banner, "fade", "out");

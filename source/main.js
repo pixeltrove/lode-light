@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import "./components/accordion";
+import "./components/banner";
 import "./components/dialog";
 import "./components/drawer";
 import "./components/menu";

@@ -90,6 +90,22 @@ function manageTransit(element, phase) {
 }
 var manage_transit_default = manageTransit;
 
+// source/components/banner.js
+var SELECTOR_BANNER = ".banner";
+var SELECTOR_BUTTON_DISMISS = ".banner-button-dismiss";
+function Banner(banner) {
+  function handleDismiss(event) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+      manage_transit_default(banner, "out").then(() => {
+        banner.remove();
+      });
+    }
+  }
+  banner.addEventListener("click", handleDismiss);
+}
+var banners = Array.from(document.querySelectorAll(SELECTOR_BANNER));
+banners.forEach((banner) => Banner(banner));
+
 // source/helpers/toggle-scroll.js
 var CLASS_NO_SCROLL = "no-scroll";
 function toggleScroll() {
@@ -188,7 +204,7 @@ dialogs.forEach((dialog) => Dialog(dialog));
 // source/components/drawer.js
 var SELECTOR_DRAWER = ".drawer";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
-var SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
+var SELECTOR_BUTTON_DISMISS2 = ".drawer-button-dismiss";
 var CLASS_SHOWN3 = "is-shown";
 var DATA_HIDE2 = "data-hide";
 var DATA_TARGET3 = "data-target";
@@ -240,7 +256,7 @@ function Drawer(drawer) {
     }
   }
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
       hide();
     }
   }
@@ -318,10 +334,10 @@ menus.forEach((menu) => Menu(menu));
 
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
-var SELECTOR_BUTTON_DISMISS2 = ".notification-button-dismiss";
+var SELECTOR_BUTTON_DISMISS3 = ".notification-button-dismiss";
 function Notification(notification) {
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
+    if (event.target.closest(SELECTOR_BUTTON_DISMISS3)) {
       manage_transit_default(notification, "out").then(() => {
         notification.remove();
       });
