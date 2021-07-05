@@ -408,6 +408,7 @@ summary {
   max-width: 1240px;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
+  gap: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -421,7 +422,6 @@ summary {
   flex-shrink: 0;
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 1rem;
   fill: currentColor;
 }
 .banner-message {

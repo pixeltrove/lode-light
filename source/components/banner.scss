@@ -23,6 +23,7 @@
     max-width: $container-max-width;
     padding-right: $space-large-d;
     padding-left: $space-large-d;
+    gap: $space-regular;
     margin-right: auto;
     margin-left: auto;
 
@@ -36,7 +37,6 @@
     flex-shrink: 0;
     width: 1.5rem;
     height: 1.5rem;
-    margin-right: $space-regular;
     fill: currentColor;
   }
 
