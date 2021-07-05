@@ -17,6 +17,7 @@
   }
 
   &-inner {
+    position: relative;
     display: flex;
     align-items: flex-start;
     max-width: $container-max-width;
@@ -48,6 +49,9 @@
 
 .banner-dismissible {
   .banner-button-dismiss {
+    position: absolute;
+    top: -2px;
+    right: $space-large-b;
     padding: calc(#{$space-small-d} - #{$border-width-regular});
     border: $border-width-regular solid transparent;
     border-radius: $border-radius-regular;
