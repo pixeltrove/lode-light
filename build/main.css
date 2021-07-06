@@ -329,13 +329,10 @@ summary {
 .accordion-slat.is-activated {
   color: #1060bc;
 }
-.accordion-icon {
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
+.accordion-icon-toggle {
   transition: transform 0.14s ease-out;
 }
-.accordion-slat.is-activated .accordion-icon {
+.accordion-slat.is-activated .accordion-icon-toggle {
   transform: rotate(180deg);
 }
 
@@ -417,11 +414,6 @@ summary {
     padding-left: 2.5rem;
   }
 }
-.banner-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: currentColor;
-}
 .banner-message {
   flex: 1;
   margin-bottom: 0;
@@ -447,12 +439,6 @@ summary {
 }
 .banner-dismissible .banner-button-dismiss:active {
   background-color: #c7dffa;
-}
-.banner-dismissible .banner-icon-dismiss {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
 }
 
 .banner-positive {
@@ -545,11 +531,6 @@ summary {
 .button:disabled[class*=lean] {
   border-color: #e0e0e0;
 }
-.button-icon {
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
-}
 .button-icon-left {
   margin-right: 0.5rem;
 }
@@ -559,10 +540,6 @@ summary {
 
 .button-symbolic {
   padding: calc(0.625rem - 1px);
-}
-.button-symbolic .button-icon {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .button-lean {
@@ -1359,12 +1336,6 @@ summary {
 }
 .notification-dismissible .notification-button-dismiss:active {
   background-color: #c7dffa;
-}
-.notification-dismissible .notification-icon-dismiss {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
 }
 
 .notification-positive {
