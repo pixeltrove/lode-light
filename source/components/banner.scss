@@ -33,13 +33,13 @@
   }
 
   &-icon {
-    flex-shrink: 0;
     width: 1.5rem;
     height: 1.5rem;
     fill: currentColor;
   }
 
   &-message {
+    flex: 1;
     margin-bottom: 0;
   }
 }
