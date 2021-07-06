@@ -48,12 +48,6 @@
     }
   }
 
-  &-icon {
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
-  }
-
   &-icon-left {
     margin-right: $space-small-c;
   }
@@ -67,11 +61,6 @@
 
 .button-symbolic {
   padding: calc(#{$space-small-b} - #{$border-width-regular});
-
-  .button-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
 }
 
 // Lean and plain

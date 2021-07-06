@@ -48,10 +48,7 @@
     }
   }
 
-  &-icon {
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
+  &-icon-toggle {
     transition: transform $transition-default;
 
     @at-root .accordion-slat.is-activated & {
