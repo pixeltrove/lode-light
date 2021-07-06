@@ -1190,6 +1190,18 @@ summary {
   }
 }
 
+.icon {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.icon-large {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .link {
   color: #1060bc;
   text-decoration: underline;
