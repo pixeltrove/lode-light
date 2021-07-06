@@ -392,6 +392,122 @@ summary {
   background-color: #ebebeb;
 }
 
+.banner {
+  padding: 1rem 0 calc(1rem - 1px);
+  border-bottom: 1px solid #c7dffa;
+  color: #1060bc;
+  background-color: #ecf4fd;
+}
+.banner.is-transiting-out {
+  animation: banner-transit-out 0.14s ease-out;
+}
+.banner-inner {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1240px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  gap: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (min-width: 720px) {
+  .banner-inner {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+.banner-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+.banner-message {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.banner-dismissible .banner-button-dismiss {
+  padding: calc(0.375rem - 1px);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  margin-left: auto;
+  color: #1060bc;
+  background-color: transparent;
+  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
+}
+.banner-dismissible .banner-button-dismiss:hover {
+  background-color: #d9e9fc;
+}
+.banner-dismissible .banner-button-dismiss:focus-visible {
+  outline: 3px solid #0a82eb;
+  outline-offset: 3px;
+}
+.banner-dismissible .banner-button-dismiss:active {
+  background-color: #c7dffa;
+}
+.banner-dismissible .banner-icon-dismiss {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
+.banner-positive {
+  border-bottom-color: #bff8bf;
+  color: #0c6e0c;
+  background-color: #e3fce3;
+}
+.banner-positive .banner-button-dismiss {
+  color: #0c6e0c;
+}
+.banner-positive .banner-button-dismiss:hover {
+  background-color: #d1fad1;
+}
+.banner-positive .banner-button-dismiss:active {
+  background-color: #bff8bf;
+}
+
+.banner-negative {
+  border-bottom-color: #fbcdc5;
+  color: #b6220c;
+  background-color: #feeeec;
+}
+.banner-negative .banner-button-dismiss {
+  color: #b6220c;
+}
+.banner-negative .banner-button-dismiss:hover {
+  background-color: #fdddd9;
+}
+.banner-negative .banner-button-dismiss:active {
+  background-color: #fbcdc5;
+}
+
+.banner-neutral {
+  border-bottom-color: #e0e0e0;
+  color: #3d3d3d;
+  background-color: whitesmoke;
+}
+.banner-neutral .banner-button-dismiss {
+  color: #3d3d3d;
+}
+.banner-neutral .banner-button-dismiss:hover {
+  background-color: #ebebeb;
+}
+.banner-neutral .banner-button-dismiss:active {
+  background-color: #e0e0e0;
+}
+
+@keyframes banner-transit-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .button {
   display: inline-flex;
   justify-content: center;
