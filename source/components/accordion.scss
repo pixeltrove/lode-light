@@ -19,7 +19,6 @@
 
   &-slat {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: $space-small-a 0;
@@ -48,7 +47,8 @@
     }
   }
 
-  &-icon-toggle {
+  &-icon-chevron-down {
+    margin-left: auto;
     transition: transform $transition-default;
 
     @at-root .accordion-slat.is-activated & {

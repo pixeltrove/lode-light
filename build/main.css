@@ -303,7 +303,6 @@ summary {
 }
 .accordion-slat {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0.75rem 0;
@@ -329,10 +328,11 @@ summary {
 .accordion-slat.is-activated {
   color: #1060bc;
 }
-.accordion-icon-toggle {
+.accordion-icon-chevron-down {
+  margin-left: auto;
   transition: transform 0.14s ease-out;
 }
-.accordion-slat.is-activated .accordion-icon-toggle {
+.accordion-slat.is-activated .accordion-icon-chevron-down {
   transform: rotate(180deg);
 }
 
