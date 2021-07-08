@@ -50,7 +50,7 @@ function Accordion(accordion) {
   function handleSlatClick(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
-    if (slats.includes(targetSlat)) {
+    if (targetSlat) {
       togglePanel(targetSlat);
     }
   }
@@ -58,7 +58,7 @@ function Accordion(accordion) {
   function handleSlatKeydown(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
-    if (slats.includes(targetSlat) && navigationKeys.includes(event.key)) {
+    if (targetSlat && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, slats);
     }
