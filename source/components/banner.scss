@@ -36,12 +36,8 @@
     flex: 1;
     margin-bottom: 0;
   }
-}
 
-// Dismissible
-
-.banner-dismissible {
-  .banner-button-dismiss {
+  &-button-dismiss {
     padding: $space-small-d;
     border: 0;
     border-radius: $border-radius-regular;
