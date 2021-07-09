@@ -400,10 +400,10 @@ summary {
 .banner-inner {
   display: flex;
   align-items: flex-start;
+  gap: 1rem;
   max-width: 1240px;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
-  gap: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
