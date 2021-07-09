@@ -42,8 +42,8 @@
 
 .banner-dismissible {
   .banner-button-dismiss {
-    padding: calc(#{$space-small-d} - #{$border-width-regular});
-    border: $border-width-regular solid transparent;
+    padding: $space-small-d;
+    border: 0;
     border-radius: $border-radius-regular;
     margin-top: -2px;
     margin-bottom: -2px;
