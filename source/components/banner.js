@@ -7,7 +7,7 @@ const SELECTOR_BANNER = ".banner";
 const SELECTOR_BUTTON_DISMISS = ".banner-button-dismiss";
 
 function Banner(banner) {
-  function handleDismiss(event) {
+  function handleDismissClick(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
       manageTransit(banner, "out").then(() => {
         banner.remove();
@@ -15,7 +15,7 @@ function Banner(banner) {
     }
   }
 
-  banner.addEventListener("click", handleDismiss);
+  banner.addEventListener("click", handleDismissClick);
 }
 
 const banners = Array.from(document.querySelectorAll(SELECTOR_BANNER));

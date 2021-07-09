@@ -19,10 +19,10 @@
   &-inner {
     display: flex;
     align-items: flex-start;
+    gap: $space-regular;
     max-width: $container-max-width;
     padding-right: $space-large-d;
     padding-left: $space-large-d;
-    gap: $space-regular;
     margin-right: auto;
     margin-left: auto;
 
@@ -36,14 +36,10 @@
     flex: 1;
     margin-bottom: 0;
   }
-}
 
-// Dismissible
-
-.banner-dismissible {
-  .banner-button-dismiss {
-    padding: calc(#{$space-small-d} - #{$border-width-regular});
-    border: $border-width-regular solid transparent;
+  &-button-dismiss {
+    padding: $space-small-d;
+    border: 0;
     border-radius: $border-radius-regular;
     margin-top: -2px;
     margin-bottom: -2px;
