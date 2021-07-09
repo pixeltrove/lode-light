@@ -94,14 +94,14 @@ var manage_transit_default = manageTransit;
 var SELECTOR_BANNER = ".banner";
 var SELECTOR_BUTTON_DISMISS = ".banner-button-dismiss";
 function Banner(banner) {
-  function handleDismiss(event) {
+  function handleDismissClick(event) {
     if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
       manage_transit_default(banner, "out").then(() => {
         banner.remove();
       });
     }
   }
-  banner.addEventListener("click", handleDismiss);
+  banner.addEventListener("click", handleDismissClick);
 }
 var banners = Array.from(document.querySelectorAll(SELECTOR_BANNER));
 banners.forEach((banner) => Banner(banner));
