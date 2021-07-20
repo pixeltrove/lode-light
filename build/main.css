@@ -1624,9 +1624,3 @@ tbody .table-header {
   color: #949494;
   cursor: default;
 }
-
-.no-scroll {
-  position: fixed;
-  overflow-y: scroll;
-  width: 100%;
-}
