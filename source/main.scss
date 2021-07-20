@@ -27,9 +27,9 @@
 @use "./components/tabset";
 @use "./components/textfield";
 
-// SECTIONS
+// PARTS
 // -----------------------------------------------------------------------------
 
-@use "./sections/global-footer";
-@use "./sections/global-header";
-@use "./sections/local-navigation";
+@use "./parts/global-footer";
+@use "./parts/global-header";
+@use "./parts/local-navigation";
