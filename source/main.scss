@@ -15,12 +15,9 @@
 @use "./components/container";
 @use "./components/dialog";
 @use "./components/drawer";
-@use "./components/global-footer";
-@use "./components/global-header";
 @use "./components/grid";
 @use "./components/icon";
 @use "./components/link";
-@use "./components/local-navigation";
 @use "./components/menu";
 @use "./components/notification";
 @use "./components/popover";
@@ -29,3 +26,10 @@
 @use "./components/table";
 @use "./components/tabset";
 @use "./components/textfield";
+
+// SECTIONS
+// -----------------------------------------------------------------------------
+
+@use "./sections/global-footer";
+@use "./sections/global-header";
+@use "./sections/local-navigation";
