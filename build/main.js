@@ -107,17 +107,20 @@ var banners = Array.from(document.querySelectorAll(SELECTOR_BANNER));
 banners.forEach((banner) => Banner(banner));
 
 // source/helpers/toggle-scroll.js
-var CLASS_NO_SCROLL = "no-scroll";
 function toggleScroll() {
   if (window.innerHeight >= document.body.scrollHeight)
     return;
   const scrollPosition = window.scrollY || Math.abs(parseInt(document.body.style.top));
-  if (!document.body.classList.contains(CLASS_NO_SCROLL)) {
-    document.body.classList.add(CLASS_NO_SCROLL);
+  if (document.body.style.overflowY === "") {
+    document.body.style.position = "fixed";
     document.body.style.top = -scrollPosition + "px";
+    document.body.style.overflowY = "scroll";
+    document.body.style.width = "100%";
   } else {
-    document.body.classList.remove(CLASS_NO_SCROLL);
+    document.body.style.position = "";
     document.body.style.top = "";
+    document.body.style.overflowY = "";
+    document.body.style.width = "";
     window.scroll(0, scrollPosition);
   }
 }
