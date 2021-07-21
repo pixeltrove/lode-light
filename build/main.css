@@ -499,6 +499,18 @@ summary {
 .breadcrumb-item:not(:last-child) {
   margin-right: 0.5rem;
 }
+.breadcrumb-item:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+  vertical-align: text-bottom;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 14.2929L6 15L12.9497 8.05025L6 1.10051L5.29289 1.80761L11.5355 8.05025L5.29289 14.2929Z'/></svg>");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
 .breadcrumb-link {
   display: inline-block;
   color: #3d3d3d;
@@ -513,18 +525,6 @@ summary {
 .breadcrumb-link:focus-visible {
   outline: 3px solid #0a82eb;
   outline-offset: 3px;
-}
-.breadcrumb-item:not(:last-child) .breadcrumb-link::after {
-  content: "";
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.5rem;
-  vertical-align: text-bottom;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 14.2929L6 15L12.9497 8.05025L6 1.10051L5.29289 1.80761L11.5355 8.05025L5.29289 14.2929Z'/></svg>");
-  background-position: center;
-  background-size: 1rem;
-  background-repeat: no-repeat;
 }
 
 .button {

@@ -11,6 +11,19 @@
   &-item {
     &:not(:last-child) {
       margin-right: $space-small-c;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-left: $space-small-c;
+        vertical-align: text-bottom;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 14.2929L6 15L12.9497 8.05025L6 1.10051L5.29289 1.80761L11.5355 8.05025L5.29289 14.2929Z'/></svg>");
+        background-position: center;
+        background-size: 1rem;
+        background-repeat: no-repeat;
+      }
     }
   }
 
@@ -28,19 +41,6 @@
 
     &:focus-visible {
       @include focus-visible(default);
-    }
-
-    @at-root .breadcrumb-item:not(:last-child) &::after {
-      content: "";
-      display: inline-block;
-      width: 1rem;
-      height: 1rem;
-      margin-left: $space-small-c;
-      vertical-align: text-bottom;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 14.2929L6 15L12.9497 8.05025L6 1.10051L5.29289 1.80761L11.5355 8.05025L5.29289 14.2929Z'/></svg>");
-      background-position: center;
-      background-size: 1rem;
-      background-repeat: no-repeat;
     }
   }
 }
