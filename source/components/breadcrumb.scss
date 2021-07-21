@@ -13,15 +13,15 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-right: $space-small-c;
+      margin-right: $space-small-d;
 
       &::after {
         content: "";
-        width: 1rem;
-        height: 1rem;
-        margin-left: $space-small-c;
+        width: 0.75rem;
+        height: 0.75rem;
+        margin-left: $space-small-d;
         vertical-align: text-bottom;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 14.2929L6 15L12.9497 8.05025L6 1.10051L5.29289 1.80761L11.5355 8.05025L5.29289 14.2929Z'/></svg>");
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 12.8787L6 13.5858L11.5355 8.05025L6 2.51472L5.29289 3.22183L10.1213 8.05025L5.29289 12.8787Z'/></svg>");
         background-position: center;
         background-size: 1rem;
         background-repeat: no-repeat;
