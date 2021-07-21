@@ -1,0 +1,46 @@
+// BREADCRUMB
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+@use "../helpers/focus-visible" as *;
+
+.breadcrumb {
+  display: flex;
+  padding-left: 0;
+
+  &-item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: $space-small-d;
+
+      &::after {
+        content: "";
+        width: 0.75rem;
+        height: 0.75rem;
+        margin-left: $space-small-d;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 12.8787L6 13.5858L11.5355 8.05025L6 2.51472L5.29289 3.22183L10.1213 8.05025L5.29289 12.8787Z'/></svg>");
+        background-position: center;
+        background-size: 1rem;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &-link {
+    color: $color-neutral-regular;
+    text-decoration: underline;
+    text-decoration-color: $color-neutral-medium;
+    text-underline-offset: 0.25rem;
+    transition: text-decoration-color $transition-default, outline $transition-default;
+
+    &:hover {
+      text-decoration-color: $color-neutral-regular;
+    }
+
+    &:focus-visible {
+      @include focus-visible(default);
+    }
+  }
+}
