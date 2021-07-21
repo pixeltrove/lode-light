@@ -496,12 +496,15 @@ summary {
   display: flex;
   padding-left: 0;
 }
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
 .breadcrumb-item:not(:last-child) {
   margin-right: 0.5rem;
 }
 .breadcrumb-item:not(:last-child)::after {
   content: "";
-  display: inline-block;
   width: 1rem;
   height: 1rem;
   margin-left: 0.5rem;
@@ -512,7 +515,6 @@ summary {
   background-repeat: no-repeat;
 }
 .breadcrumb-link {
-  display: inline-block;
   color: #3d3d3d;
   text-decoration: underline;
   text-decoration-color: #949494;

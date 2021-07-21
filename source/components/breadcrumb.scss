@@ -9,12 +9,14 @@
   padding-left: 0;
 
   &-item {
+    display: flex;
+    align-items: center;
+
     &:not(:last-child) {
       margin-right: $space-small-c;
 
       &::after {
         content: "";
-        display: inline-block;
         width: 1rem;
         height: 1rem;
         margin-left: $space-small-c;
@@ -28,7 +30,6 @@
   }
 
   &-link {
-    display: inline-block;
     color: $color-neutral-regular;
     text-decoration: underline;
     text-decoration-color: $color-neutral-medium;
