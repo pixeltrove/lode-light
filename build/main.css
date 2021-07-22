@@ -532,8 +532,8 @@ summary {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: calc(0.625rem - 1px) calc(1rem - 1px);
-  border: 1px solid transparent;
+  padding: 0.625rem 1rem;
+  border: 0;
   border-radius: 4px;
   text-align: center;
   vertical-align: middle;
@@ -559,12 +559,6 @@ summary {
   background-color: #ebebeb;
   pointer-events: none;
 }
-.button:disabled[class*=lean], .button:disabled[class*=plain] {
-  background-color: transparent;
-}
-.button:disabled[class*=lean] {
-  border-color: #e0e0e0;
-}
 .button-icon-left {
   margin-right: 0.5rem;
 }
@@ -572,8 +566,18 @@ summary {
   margin-left: 0.5rem;
 }
 
-.button-symbolic {
-  padding: calc(0.625rem - 1px);
+[class*=-lean] {
+  padding: calc(0.625rem - 1px) calc(1rem - 1px);
+  border-width: 1px;
+  border-style: solid;
+}
+[class*=-lean]:disabled {
+  border-color: #e0e0e0;
+  background-color: transparent;
+}
+
+[class*=-plain]:disabled {
+  background-color: transparent;
 }
 
 .button-lean {
@@ -593,6 +597,10 @@ summary {
 .button-lean:active,
 .button-plain:active {
   background-color: #d9e9fc;
+}
+
+.button-symbolic {
+  padding: calc(0.625rem - 1px);
 }
 
 .button-positive {
