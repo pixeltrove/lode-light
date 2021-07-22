@@ -50,7 +50,7 @@
 
 // Lean common
 
-[class*="lean"] {
+[class*="-lean"] {
   padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
   border-width: $border-width-regular;
   border-style: solid;
@@ -63,7 +63,7 @@
 
 // Plain common
 
-[class*="plain"] {
+[class*="-plain"] {
   &:disabled {
     background-color: transparent;
   }

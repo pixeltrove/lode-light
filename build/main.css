@@ -566,17 +566,17 @@ summary {
   margin-left: 0.5rem;
 }
 
-[class*=lean] {
+[class*=-lean] {
   padding: calc(0.625rem - 1px) calc(1rem - 1px);
   border-width: 1px;
   border-style: solid;
 }
-[class*=lean]:disabled {
+[class*=-lean]:disabled {
   border-color: #e0e0e0;
   background-color: transparent;
 }
 
-[class*=plain]:disabled {
+[class*=-plain]:disabled {
   background-color: transparent;
 }
 
