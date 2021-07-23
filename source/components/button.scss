@@ -53,6 +53,7 @@
   padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
   border-width: $border-width-regular;
   border-style: solid;
+  background-color: transparent;
 
   &:disabled {
     border-color: $color-neutral-light-c;
@@ -63,6 +64,8 @@
 // Plain common
 
 [class*="-plain"] {
+  background-color: transparent;
+
   &:disabled {
     background-color: transparent;
   }
@@ -77,7 +80,6 @@
 .button-lean,
 .button-plain {
   color: $color-brand-regular;
-  background-color: transparent;
 
   &.is-activated,
   &:hover {
@@ -119,7 +121,6 @@
 .button-positive-lean,
 .button-positive-plain {
   color: $color-positive-regular;
-  background-color: transparent;
 
   &.is-activated,
   &:hover {
@@ -155,7 +156,6 @@
 .button-negative-lean,
 .button-negative-plain {
   color: $color-negative-regular;
-  background-color: transparent;
 
   &.is-activated,
   &:hover {
@@ -191,7 +191,6 @@
 .button-neutral-lean,
 .button-neutral-plain {
   color: $color-neutral-regular;
-  background-color: transparent;
 
   &.is-activated,
   &:hover {
