@@ -535,7 +535,6 @@ summary {
   padding: 0.625rem 1rem;
   border: 0;
   border-radius: 4px;
-  text-align: center;
   vertical-align: middle;
   font-size: 1rem;
   line-height: 1.5;
@@ -570,12 +569,16 @@ summary {
   padding: calc(0.625rem - 1px) calc(1rem - 1px);
   border-width: 1px;
   border-style: solid;
+  background-color: transparent;
 }
 [class*=-lean]:disabled {
   border-color: #e0e0e0;
   background-color: transparent;
 }
 
+[class*=-plain] {
+  background-color: transparent;
+}
 [class*=-plain]:disabled {
   background-color: transparent;
 }
@@ -587,7 +590,6 @@ summary {
 .button-lean,
 .button-plain {
   color: #1060bc;
-  background-color: transparent;
 }
 .button-lean.is-activated, .button-lean:hover,
 .button-plain.is-activated,
@@ -599,7 +601,10 @@ summary {
   background-color: #d9e9fc;
 }
 
-.button-symbolic {
+.button-iconic {
+  padding: 0.625rem;
+}
+.button-iconic[class*=-lean] {
   padding: calc(0.625rem - 1px);
 }
 
@@ -620,7 +625,6 @@ summary {
 .button-positive-lean,
 .button-positive-plain {
   color: #0c6e0c;
-  background-color: transparent;
 }
 .button-positive-lean.is-activated, .button-positive-lean:hover,
 .button-positive-plain.is-activated,
@@ -649,7 +653,6 @@ summary {
 .button-negative-lean,
 .button-negative-plain {
   color: #b6220c;
-  background-color: transparent;
 }
 .button-negative-lean.is-activated, .button-negative-lean:hover,
 .button-negative-plain.is-activated,
@@ -678,7 +681,6 @@ summary {
 .button-neutral-lean,
 .button-neutral-plain {
   color: #3d3d3d;
-  background-color: transparent;
 }
 .button-neutral-lean.is-activated, .button-neutral-lean:hover,
 .button-neutral-plain.is-activated,
