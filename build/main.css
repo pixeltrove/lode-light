@@ -602,6 +602,9 @@ summary {
 }
 
 .button-iconic {
+  padding: 0.625rem;
+}
+.button-iconic[class*=-lean] {
   padding: calc(0.625rem - 1px);
 }
 

@@ -94,7 +94,11 @@
 // Iconic
 
 .button-iconic {
-  padding: calc(#{$space-small-b} - #{$border-width-regular});
+  padding: $space-small-b;
+
+  &[class*="-lean"] {
+    padding: calc(#{$space-small-b} - #{$border-width-regular});
+  }
 }
 
 // Positive
