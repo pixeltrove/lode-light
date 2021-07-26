@@ -835,7 +835,7 @@ summary {
   inset: 0;
   z-index: 100;
   display: none;
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 .dialog-wrapper.is-shown {
   display: flex;
