@@ -48,7 +48,7 @@
   inset: 0;
   z-index: $z-index-bottom;
   display: none;
-  background-color: hsla(0, 0%, 20%, 0.56);
+  background-color: $color-neutral-regular-transparent;
 
   &.is-shown {
     display: block;
