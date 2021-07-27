@@ -141,6 +141,7 @@ var trap_focus_default = trapFocus;
 
 // source/components/dialog.js
 var SELECTOR_DIALOG = ".dialog";
+var SELECTOR_WRAPPER = ".dialog-wrapper";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
 var CLASS_SHOWN2 = "is-shown";
 var DATA_HIDE = "data-hide";
@@ -148,8 +149,8 @@ var DATA_TARGET2 = "data-target";
 function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_TARGET2}="${dialogId}"]`);
-  const wrapper = dialog.parentElement;
-  const backdrop = dialog.nextElementSibling;
+  const wrapper = dialog.closest(SELECTOR_WRAPPER);
+  const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
   function show() {
     wrapper.classList.add(CLASS_SHOWN2);
     dialog.classList.add(CLASS_SHOWN2);
