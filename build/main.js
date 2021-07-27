@@ -205,6 +205,7 @@ dialogs.forEach((dialog) => Dialog(dialog));
 
 // source/components/drawer.js
 var SELECTOR_DRAWER = ".drawer";
+var SELECTOR_WRAPPER2 = ".drawer-wrapper";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
 var SELECTOR_BUTTON_DISMISS2 = ".drawer-button-dismiss";
 var CLASS_SHOWN3 = "is-shown";
@@ -213,8 +214,8 @@ var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
   const trigger = document.querySelector(`[${DATA_TARGET3}="${drawerId}"]`);
-  const wrapper = drawer.parentElement;
-  const backdrop = drawer.nextElementSibling;
+  const wrapper = drawer.closest(SELECTOR_WRAPPER2);
+  const backdrop = wrapper.querySelector(SELECTOR_BACKDROP2);
   function show() {
     wrapper.classList.add(CLASS_SHOWN3);
     drawer.classList.add(CLASS_SHOWN3);

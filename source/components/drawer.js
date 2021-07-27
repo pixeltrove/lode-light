@@ -6,6 +6,7 @@ import toggleScroll from "../helpers/toggle-scroll";
 import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DRAWER = ".drawer";
+const SELECTOR_WRAPPER = ".drawer-wrapper";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
 const SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
 const CLASS_SHOWN = "is-shown";
@@ -15,8 +16,8 @@ const DATA_TARGET = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
   const trigger = document.querySelector(`[${DATA_TARGET}="${drawerId}"]`);
-  const wrapper = drawer.parentElement;
-  const backdrop = drawer.nextElementSibling;
+  const wrapper = drawer.closest(SELECTOR_WRAPPER);
+  const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
