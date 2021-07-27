@@ -150,7 +150,7 @@ function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_TARGET2}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
-  const backdrop = dialog.nextElementSibling;
+  const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
   function show() {
     wrapper.classList.add(CLASS_SHOWN2);
     dialog.classList.add(CLASS_SHOWN2);
