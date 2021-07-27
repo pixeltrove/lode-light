@@ -6,6 +6,7 @@ import toggleScroll from "../helpers/toggle-scroll";
 import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DIALOG = ".dialog";
+const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const CLASS_SHOWN = "is-shown";
 const DATA_HIDE = "data-hide";
@@ -14,7 +15,7 @@ const DATA_TARGET = "data-target";
 function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_TARGET}="${dialogId}"]`);
-  const wrapper = dialog.parentElement;
+  const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = dialog.nextElementSibling;
 
   function show() {
