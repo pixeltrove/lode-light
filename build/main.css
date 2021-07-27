@@ -888,6 +888,7 @@ summary {
   display: none;
   overflow: auto;
   max-width: 36rem;
+  padding: 1.5rem;
   margin-left: 3rem;
   color: #3d3d3d;
   background-color: white;
@@ -962,7 +963,6 @@ summary {
   inset: 0;
   z-index: 100;
   display: none;
-  padding: 1.25rem;
 }
 .drawer-wrapper.is-shown {
   display: block;
