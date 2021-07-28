@@ -789,6 +789,7 @@ summary {
   max-width: 36rem;
   padding: 1.5rem;
   border-radius: 4px;
+  margin: 1.5rem;
   color: #3d3d3d;
   background-color: white;
 }
@@ -835,7 +836,6 @@ summary {
   inset: 0;
   z-index: 100;
   display: none;
-  padding: 1.5rem;
 }
 .dialog-wrapper.is-shown {
   display: flex;
