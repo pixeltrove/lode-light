@@ -418,26 +418,9 @@ summary {
   flex: 1;
   margin-bottom: 0;
 }
-.banner-button-dismiss {
-  padding: 0.375rem;
-  border: 0;
-  border-radius: 4px;
-  margin-top: -2px;
-  margin-bottom: -2px;
-  margin-left: auto;
-  color: #1060bc;
-  background-color: transparent;
-  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
-}
-.banner-button-dismiss:hover {
-  background-color: #d9e9fc;
-}
-.banner-button-dismiss:focus-visible {
-  outline: 3px solid #0a82eb;
-  outline-offset: 3px;
-}
-.banner-button-dismiss:active {
-  background-color: #c7dffa;
+.banner [class*=button-dismiss] {
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
 }
 
 .banner-positive {
@@ -445,44 +428,17 @@ summary {
   color: #0c6e0c;
   background-color: #e3fce3;
 }
-.banner-positive .banner-button-dismiss {
-  color: #0c6e0c;
-}
-.banner-positive .banner-button-dismiss:hover {
-  background-color: #d1fad1;
-}
-.banner-positive .banner-button-dismiss:active {
-  background-color: #bff8bf;
-}
 
 .banner-negative {
   border-bottom-color: #fbcdc5;
   color: #b6220c;
   background-color: #feeeec;
 }
-.banner-negative .banner-button-dismiss {
-  color: #b6220c;
-}
-.banner-negative .banner-button-dismiss:hover {
-  background-color: #fdddd9;
-}
-.banner-negative .banner-button-dismiss:active {
-  background-color: #fbcdc5;
-}
 
 .banner-neutral {
   border-bottom-color: #e0e0e0;
   color: #3d3d3d;
   background-color: whitesmoke;
-}
-.banner-neutral .banner-button-dismiss {
-  color: #3d3d3d;
-}
-.banner-neutral .banner-button-dismiss:hover {
-  background-color: #ebebeb;
-}
-.banner-neutral .banner-button-dismiss:active {
-  background-color: #e0e0e0;
 }
 
 @keyframes banner-transit-out {
@@ -694,6 +650,54 @@ summary {
   background-color: #ebebeb;
 }
 
+[class*=button-dismiss] {
+  padding: 0.5rem;
+  background-color: transparent;
+}
+[class*=button-dismiss]:hover {
+  color: white;
+}
+
+.button-dismiss {
+  color: #1060bc;
+}
+.button-dismiss:hover {
+  background-color: #1060bc;
+}
+.button-dismiss:active {
+  background-color: #0f57a9;
+}
+
+.button-dismiss-positive {
+  color: #0c6e0c;
+}
+.button-dismiss-positive:hover {
+  background-color: #0c6e0c;
+}
+.button-dismiss-positive:active {
+  background-color: #0a5c0a;
+}
+
+.button-dismiss-negative {
+  color: #b6220c;
+}
+.button-dismiss-negative:hover {
+  background-color: #b6220c;
+}
+.button-dismiss-negative:active {
+  background-color: #a31f0a;
+}
+
+.button-dismiss-neutral {
+  color: #3d3d3d;
+}
+.button-dismiss-neutral:hover {
+  background-color: #3d3d3d;
+}
+.button-dismiss-neutral:active {
+  background-color: #333333;
+}
+
 .card {
   display: block;
   padding: calc(1.5rem - 1px);
@@ -784,6 +788,7 @@ summary {
 }
 
 .dialog {
+  position: relative;
   display: none;
   overflow: auto;
   max-width: 36rem;
@@ -812,6 +817,11 @@ summary {
 }
 .dialog p:last-child {
   margin-bottom: 0;
+}
+.dialog [class*=button-dismiss] {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
 }
 
 .dialog-backdrop {
@@ -913,32 +923,10 @@ summary {
 .drawer p:last-child {
   margin-bottom: 0;
 }
-.drawer .drawer-button-dismiss {
+.drawer [class*=button-dismiss] {
   position: absolute;
-  top: 1.625rem;
-  right: 1.625rem;
-  padding: calc(0.375rem - 1px);
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #3d3d3d;
-  background-color: transparent;
-  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
-}
-.drawer .drawer-button-dismiss:hover {
-  background-color: #ebebeb;
-}
-.drawer .drawer-button-dismiss:focus-visible {
-  outline: 3px solid #0a82eb;
-  outline-offset: 3px;
-}
-.drawer .drawer-button-dismiss:active {
-  background-color: #e0e0e0;
-}
-.drawer .drawer-icon-dismiss {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
+  top: 1.5rem;
+  right: 1.5rem;
 }
 
 .drawer-backdrop {
@@ -1126,68 +1114,25 @@ summary {
   position: relative;
   padding-right: 3rem;
 }
-.notification-dismissible .notification-button-dismiss {
+.notification-dismissible [class*=button-dismiss] {
   position: absolute;
-  top: 0.875rem;
-  right: 0.875rem;
-  padding: calc(0.375rem - 1px);
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #1060bc;
-  background-color: transparent;
-  transition: background-color 0.14s ease-out, outline 0.14s ease-out;
-}
-.notification-dismissible .notification-button-dismiss:hover {
-  background-color: #d9e9fc;
-}
-.notification-dismissible .notification-button-dismiss:focus-visible {
-  outline: 3px solid #0a82eb;
-  outline-offset: 3px;
-}
-.notification-dismissible .notification-button-dismiss:active {
-  background-color: #c7dffa;
+  top: 0.75rem;
+  right: 0.75rem;
 }
 
 .notification-positive {
   color: #0c6e0c;
   background-color: #e3fce3;
 }
-.notification-positive .notification-button-dismiss {
-  color: #0c6e0c;
-}
-.notification-positive .notification-button-dismiss:hover {
-  background-color: #d1fad1;
-}
-.notification-positive .notification-button-dismiss:active {
-  background-color: #bff8bf;
-}
 
 .notification-negative {
   color: #b6220c;
   background-color: #feeeec;
 }
-.notification-negative .notification-button-dismiss {
-  color: #b6220c;
-}
-.notification-negative .notification-button-dismiss:hover {
-  background-color: #fdddd9;
-}
-.notification-negative .notification-button-dismiss:active {
-  background-color: #fbcdc5;
-}
 
 .notification-neutral {
   color: #3d3d3d;
   background-color: whitesmoke;
-}
-.notification-neutral .notification-button-dismiss {
-  color: #3d3d3d;
-}
-.notification-neutral .notification-button-dismiss:hover {
-  background-color: #ebebeb;
-}
-.notification-neutral .notification-button-dismiss:active {
-  background-color: #e0e0e0;
 }
 
 @keyframes notification-transit-out {

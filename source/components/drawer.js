@@ -8,9 +8,8 @@ import trapFocus from "../helpers/trap-focus";
 const SELECTOR_DRAWER = ".drawer";
 const SELECTOR_WRAPPER = ".drawer-wrapper";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
-const SELECTOR_BUTTON_DISMISS = ".drawer-button-dismiss";
+const SELECTOR_HIDE = "[data-hide]";
 const CLASS_SHOWN = "is-shown";
-const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
 
 function Drawer(drawer) {
@@ -54,7 +53,7 @@ function Drawer(drawer) {
   }
 
   function handleHideClick(event) {
-    if (event.target.hasAttribute(DATA_HIDE)) {
+    if (event.target.closest(DATA_HIDE)) {
       hide();
     }
   }
@@ -71,8 +70,8 @@ function Drawer(drawer) {
     }
   }
 
-  function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+  function handleHide(event) {
+    if (event.target.closest(SELECTOR_HIDE)) {
       hide();
     }
   }
@@ -84,7 +83,7 @@ function Drawer(drawer) {
   }
 
   trigger.addEventListener("click", show);
-  drawer.addEventListener("click", handleDismiss);
+  drawer.addEventListener("click", handleHide);
 }
 
 const drawers = Array.from(document.querySelectorAll(SELECTOR_DRAWER));

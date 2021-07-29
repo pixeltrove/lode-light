@@ -4,11 +4,11 @@
 import manageTransit from "../helpers/manage-transit";
 
 const SELECTOR_NOTIFICATION = ".notification";
-const SELECTOR_BUTTON_DISMISS = ".notification-button-dismiss";
+const SELECTOR_DISMISS = "[data-dismiss]";
 
 function Notification(notification) {
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+    if (event.target.closest(SELECTOR_DISMISS)) {
       manageTransit(notification, "out").then(() => {
         notification.remove();
       });

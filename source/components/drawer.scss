@@ -44,35 +44,10 @@
     margin-bottom: 0;
   }
 
-  .drawer-button-dismiss {
+  [class*="button-dismiss"] {
     position: absolute;
-    top: 1.625rem;
-    right: 1.625rem;
-    padding: calc(#{$space-small-d} - #{$border-width-regular});
-    border: $border-width-regular solid transparent;
-    border-radius: $border-radius-regular;
-    color: $color-neutral-regular;
-    background-color: transparent;
-    transition: background-color $transition-default, outline $transition-default;
-
-    &:hover {
-      background-color: $color-neutral-light-b;
-    }
-
-    &:focus-visible {
-      @include focus-visible(default);
-    }
-
-    &:active {
-      background-color: $color-neutral-light-c;
-    }
-  }
-
-  .drawer-icon-dismiss {
-    display: block;
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
+    top: $space-large-d;
+    right: $space-large-d;
   }
 }
 
