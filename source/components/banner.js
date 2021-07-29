@@ -4,11 +4,11 @@
 import manageTransit from "../helpers/manage-transit";
 
 const SELECTOR_BANNER = ".banner";
-const SELECTOR_BUTTON_DISMISS = ".banner-button-dismiss";
+const SELECTOR_DISMISS = "[data-dismiss]";
 
 function Banner(banner) {
   function handleDismissClick(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+    if (event.target.closest(SELECTOR_DISMISS)) {
       manageTransit(banner, "out").then(() => {
         banner.remove();
       });

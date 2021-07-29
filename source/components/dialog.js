@@ -8,8 +8,8 @@ import trapFocus from "../helpers/trap-focus";
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
+const SELECTOR_HIDE = "[data-hide]";
 const CLASS_SHOWN = "is-shown";
-const DATA_HIDE = "data-hide";
 const DATA_TARGET = "data-target";
 
 function Dialog(dialog) {
@@ -53,7 +53,7 @@ function Dialog(dialog) {
   }
 
   function handleHideClick(event) {
-    if (event.target.hasAttribute(DATA_HIDE)) {
+    if (event.target.closest(SELECTOR_HIDE)) {
       hide();
     }
   }

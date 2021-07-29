@@ -92,10 +92,10 @@ var manage_transit_default = manageTransit;
 
 // source/components/banner.js
 var SELECTOR_BANNER = ".banner";
-var SELECTOR_BUTTON_DISMISS = ".banner-button-dismiss";
+var SELECTOR_DISMISS = "[data-dismiss]";
 function Banner(banner) {
   function handleDismissClick(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS)) {
+    if (event.target.closest(SELECTOR_DISMISS)) {
       manage_transit_default(banner, "out").then(() => {
         banner.remove();
       });
@@ -143,8 +143,8 @@ var trap_focus_default = trapFocus;
 var SELECTOR_DIALOG = ".dialog";
 var SELECTOR_WRAPPER = ".dialog-wrapper";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
+var SELECTOR_HIDE = "[data-hide]";
 var CLASS_SHOWN2 = "is-shown";
-var DATA_HIDE = "data-hide";
 var DATA_TARGET2 = "data-target";
 function Dialog(dialog) {
   const dialogId = dialog.id;
@@ -179,7 +179,7 @@ function Dialog(dialog) {
     document.removeEventListener("keydown", handleEscape);
   }
   function handleHideClick(event) {
-    if (event.target.hasAttribute(DATA_HIDE)) {
+    if (event.target.closest(SELECTOR_HIDE)) {
       hide();
     }
   }
@@ -207,9 +207,8 @@ dialogs.forEach((dialog) => Dialog(dialog));
 var SELECTOR_DRAWER = ".drawer";
 var SELECTOR_WRAPPER2 = ".drawer-wrapper";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
-var SELECTOR_BUTTON_DISMISS2 = ".drawer-button-dismiss";
+var SELECTOR_HIDE2 = "[data-hide]";
 var CLASS_SHOWN3 = "is-shown";
-var DATA_HIDE2 = "data-hide";
 var DATA_TARGET3 = "data-target";
 function Drawer(drawer) {
   const drawerId = drawer.id;
@@ -244,7 +243,7 @@ function Drawer(drawer) {
     document.removeEventListener("keydown", handleEscape);
   }
   function handleHideClick(event) {
-    if (event.target.hasAttribute(DATA_HIDE2)) {
+    if (event.target.closest(DATA_HIDE)) {
       hide();
     }
   }
@@ -258,8 +257,8 @@ function Drawer(drawer) {
       hide();
     }
   }
-  function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS2)) {
+  function handleHide(event) {
+    if (event.target.closest(SELECTOR_HIDE2)) {
       hide();
     }
   }
@@ -269,7 +268,7 @@ function Drawer(drawer) {
     }
   }
   trigger.addEventListener("click", show);
-  drawer.addEventListener("click", handleDismiss);
+  drawer.addEventListener("click", handleHide);
 }
 var drawers = Array.from(document.querySelectorAll(SELECTOR_DRAWER));
 drawers.forEach((drawer) => Drawer(drawer));
@@ -337,10 +336,10 @@ menus.forEach((menu) => Menu(menu));
 
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
-var SELECTOR_BUTTON_DISMISS3 = ".notification-button-dismiss";
+var SELECTOR_DISMISS2 = "[data-dismiss]";
 function Notification(notification) {
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_BUTTON_DISMISS3)) {
+    if (event.target.closest(SELECTOR_DISMISS2)) {
       manage_transit_default(notification, "out").then(() => {
         notification.remove();
       });

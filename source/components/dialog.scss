@@ -6,6 +6,7 @@
 @use "../helpers/focus-visible" as *;
 
 .dialog {
+  position: relative;
   display: none;
   overflow: auto;
   max-width: 36rem;
@@ -39,6 +40,12 @@
 
   p:last-child {
     margin-bottom: 0;
+  }
+
+  [class*="button-dismiss"] {
+    position: absolute;
+    top: $space-large-d;
+    right: $space-large-d;
   }
 }
 
