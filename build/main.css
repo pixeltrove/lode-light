@@ -296,7 +296,7 @@ summary {
 .accordion-segment {
   border-top: 1px solid #e0e0e0;
 }
-.accordion-segment:last-of-type {
+.accordion-segment:last-child {
   border-bottom: 1px solid #e0e0e0;
 }
 .accordion-heading {
@@ -315,7 +315,7 @@ summary {
   background-color: transparent;
   transition: color 0.14s ease-out, outline 0.14s ease-out;
 }
-.accordion-segment:last-of-type .accordion-slat {
+.accordion-segment:last-child .accordion-slat {
   margin-bottom: -1px;
 }
 
@@ -351,7 +351,7 @@ summary {
   padding-top: 0.25rem;
   padding-bottom: 1rem;
 }
-.accordion-segment:last-of-type .accordion-panel-inner {
+.accordion-segment:last-child .accordion-panel-inner {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(1rem - 1px);
 }
