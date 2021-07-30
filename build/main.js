@@ -28,7 +28,6 @@ var SELECTOR_ACCORDION = ".accordion";
 var SELECTOR_SLAT = ".accordion-slat";
 var CLASS_ACTIVATED = "is-activated";
 var CLASS_SHOWN = "is-shown";
-var CLASS_TOGGLING = "is-toggling";
 var DATA_TARGET = "data-target";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
@@ -47,13 +46,13 @@ function Accordion(accordion) {
     }
     requestAnimationFrame(() => {
       panel.style.height = !isShown ? 0 : panel.scrollHeight + "px";
-      panel.classList.add(CLASS_TOGGLING);
+      panel.style.overflowY = "hidden";
       requestAnimationFrame(() => {
         panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
       });
     });
     panel.addEventListener("transitionend", () => {
-      panel.classList.remove(CLASS_TOGGLING);
+      panel.style.overflowY = "";
       if (isShown)
         panel.classList.remove(CLASS_SHOWN);
     }, {once: true});
