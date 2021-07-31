@@ -7,7 +7,6 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TOGGLING = "is-toggling";
 const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
