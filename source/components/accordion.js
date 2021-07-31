@@ -7,7 +7,6 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TOGGLING = "is-toggling";
 const DATA_TARGET = "data-target";
 
 function Accordion(accordion) {
@@ -30,7 +29,7 @@ function Accordion(accordion) {
 
     requestAnimationFrame(() => {
       panel.style.height = !isShown ? 0 : panel.scrollHeight + "px";
-      panel.classList.add(CLASS_TOGGLING);
+      panel.style.overflowY = "hidden";
 
       requestAnimationFrame(() => {
         panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
@@ -40,7 +39,7 @@ function Accordion(accordion) {
     panel.addEventListener(
       "transitionend",
       () => {
-        panel.classList.remove(CLASS_TOGGLING);
+        panel.style.overflowY = "";
         if (isShown) panel.classList.remove(CLASS_SHOWN);
       },
       { once: true }

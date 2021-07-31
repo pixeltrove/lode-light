@@ -339,13 +339,10 @@ summary {
 
 .accordion-panel {
   display: none;
+  transition: height 0.14s ease-out;
 }
 .accordion-panel.is-shown {
   display: block;
-}
-.accordion-panel.is-toggling {
-  overflow: hidden;
-  transition: height 0.14s ease-out;
 }
 .accordion-panel-inner {
   padding-top: 0.25rem;

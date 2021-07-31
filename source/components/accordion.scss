@@ -58,14 +58,10 @@
 
   &-panel {
     display: none;
+    transition: height $transition-default;
 
     &.is-shown {
       display: block;
-    }
-
-    &.is-toggling {
-      overflow: hidden;
-      transition: height $transition-default;
     }
   }
 
