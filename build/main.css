@@ -341,16 +341,16 @@ summary {
 .accordion-panel.is-shown {
   display: block;
 }
-.accordion-panel-inner {
+.accordion-panel-inside {
   padding-top: 0.25rem;
   padding-bottom: 1rem;
 }
-.accordion-segment:last-child .accordion-panel-inner {
+.accordion-segment:last-child .accordion-panel-inside {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(1rem - 1px);
 }
 
-.accordion-panel-inner > :last-child {
+.accordion-panel-inside > :last-child {
   margin-bottom: 0;
 }
 
@@ -392,7 +392,7 @@ summary {
 .banner.is-transiting-out {
   animation: banner-transit-out 0.14s ease-out;
 }
-.banner-inner {
+.banner-inside {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
@@ -403,7 +403,7 @@ summary {
   margin-left: auto;
 }
 @media screen and (min-width: 720px) {
-  .banner-inner {
+  .banner-inside {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }

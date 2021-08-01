@@ -16,7 +16,7 @@
     animation: banner-transit-out $transition-default;
   }
 
-  &-inner {
+  &-inside {
     display: flex;
     align-items: flex-start;
     gap: $space-regular;
