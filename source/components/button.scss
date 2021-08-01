@@ -19,8 +19,8 @@
   user-select: none;
   transition: background-color $transition-default, outline $transition-default;
 
-  &.is-activated,
-  &:hover {
+  &:hover,
+  &.is-activated {
     background-color: $color-brand-dark-a;
   }
 
