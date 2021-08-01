@@ -319,15 +319,12 @@ summary {
   margin-bottom: -1px;
 }
 
-.accordion-slat:hover {
+.accordion-slat.is-activated, .accordion-slat:hover {
   color: #1060bc;
 }
 .accordion-slat:focus-visible {
   outline: 3px solid #0a82eb;
   outline-offset: 3px;
-}
-.accordion-slat.is-activated {
-  color: #1060bc;
 }
 .accordion-icon-chevron-down {
   margin-left: auto;
@@ -1310,12 +1307,11 @@ tbody .table-header {
   background-color: transparent;
   transition: border-color 0.14s ease-out, color 0.14s ease-out, outline 0.14s ease-out;
 }
-.tabset-tab.is-activated {
-  border-bottom-color: #1060bc;
+.tabset-tab.is-activated, .tabset-tab:hover {
   color: #1060bc;
 }
-.tabset-tab:hover {
-  color: #1060bc;
+.tabset-tab.is-activated {
+  border-bottom-color: #1060bc;
 }
 .tabset-tab:focus-visible {
   outline: 3px solid #0a82eb;

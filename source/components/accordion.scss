@@ -34,16 +34,13 @@
       margin-bottom: -$border-width-regular;
     }
 
+    &.is-activated,
     &:hover {
       color: $color-brand-regular;
     }
 
     &:focus-visible {
       @include focus-visible(default);
-    }
-
-    &.is-activated {
-      color: $color-brand-regular;
     }
   }
 
