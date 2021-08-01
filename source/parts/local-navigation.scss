@@ -19,8 +19,8 @@
     color: $color-neutral-regular;
     transition: color $transition-default, outline $transition-default;
 
-    &.is-activated,
-    &:hover {
+    &:hover,
+    &.is-activated {
       color: $color-brand-regular;
     }
 

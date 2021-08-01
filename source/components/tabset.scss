@@ -28,8 +28,8 @@
     background-color: transparent;
     transition: border-color $transition-default, color $transition-default, outline $transition-default;
 
-    &.is-activated,
-    &:hover {
+    &:hover,
+    &.is-activated {
       color: $color-brand-regular;
     }
 
