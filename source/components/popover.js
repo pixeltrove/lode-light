@@ -6,11 +6,11 @@ import manageTransit from "../helpers/manage-transit";
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_TOGGLE = "data-toggle";
 
 function Popover(popover) {
   const popoverId = popover.id;
-  const trigger = document.querySelector(`[${DATA_TARGET}="${popoverId}"]`);
+  const trigger = document.querySelector(`[${DATA_TOGGLE}="${popoverId}"]`);
 
   function toggle() {
     const isShown = popover.classList.contains(CLASS_SHOWN);

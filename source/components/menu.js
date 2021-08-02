@@ -8,11 +8,11 @@ const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_TOGGLE = "data-toggle";
 
 function Menu(menu) {
   const menuId = menu.id;
-  const trigger = document.querySelector(`[${DATA_TARGET}="${menuId}"]`);
+  const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
 
   function toggle() {

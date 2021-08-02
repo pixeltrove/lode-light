@@ -7,14 +7,14 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_TOGGLE = "data-toggle";
 
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
 
   function togglePanel(slat) {
-    const panelId = slat.getAttribute(DATA_TARGET);
+    const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
 
