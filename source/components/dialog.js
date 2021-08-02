@@ -10,11 +10,11 @@ const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_SHOW = "data-show";
 
 function Dialog(dialog) {
   const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_TARGET}="${dialogId}"]`);
+  const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 

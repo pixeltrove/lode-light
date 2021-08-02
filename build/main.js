@@ -28,12 +28,12 @@ var SELECTOR_ACCORDION = ".accordion";
 var SELECTOR_SLAT = ".accordion-slat";
 var CLASS_ACTIVATED = "is-activated";
 var CLASS_SHOWN = "is-shown";
-var DATA_TARGET = "data-target";
+var DATA_TOGGLE = "data-toggle";
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
   function togglePanel(slat) {
-    const panelId = slat.getAttribute(DATA_TARGET);
+    const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
     if (!isShown) {
@@ -144,10 +144,10 @@ var SELECTOR_WRAPPER = ".dialog-wrapper";
 var SELECTOR_BACKDROP = ".dialog-backdrop";
 var SELECTOR_HIDE = "[data-hide]";
 var CLASS_SHOWN2 = "is-shown";
-var DATA_TARGET2 = "data-target";
+var DATA_SHOW = "data-show";
 function Dialog(dialog) {
   const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_TARGET2}="${dialogId}"]`);
+  const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
   function show() {
@@ -208,10 +208,10 @@ var SELECTOR_WRAPPER2 = ".drawer-wrapper";
 var SELECTOR_BACKDROP2 = ".drawer-backdrop";
 var SELECTOR_HIDE2 = "[data-hide]";
 var CLASS_SHOWN3 = "is-shown";
-var DATA_TARGET3 = "data-target";
+var DATA_SHOW2 = "data-show";
 function Drawer(drawer) {
   const drawerId = drawer.id;
-  const trigger = document.querySelector(`[${DATA_TARGET3}="${drawerId}"]`);
+  const trigger = document.querySelector(`[${DATA_SHOW2}="${drawerId}"]`);
   const wrapper = drawer.closest(SELECTOR_WRAPPER2);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP2);
   function show() {
@@ -277,10 +277,10 @@ var SELECTOR_MENU = ".menu";
 var SELECTOR_LINK = ".menu-link";
 var CLASS_ACTIVATED2 = "is-activated";
 var CLASS_SHOWN4 = "is-shown";
-var DATA_TARGET4 = "data-target";
+var DATA_TOGGLE2 = "data-toggle";
 function Menu(menu) {
   const menuId = menu.id;
-  const trigger = document.querySelector(`[${DATA_TARGET4}="${menuId}"]`);
+  const trigger = document.querySelector(`[${DATA_TOGGLE2}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
   function toggle() {
     const isShown = menu.classList.contains(CLASS_SHOWN4);
@@ -353,10 +353,10 @@ notifications.forEach((notification) => Notification(notification));
 var SELECTOR_POPOVER = ".popover";
 var CLASS_ACTIVATED3 = "is-activated";
 var CLASS_SHOWN5 = "is-shown";
-var DATA_TARGET5 = "data-target";
+var DATA_TOGGLE3 = "data-toggle";
 function Popover(popover) {
   const popoverId = popover.id;
-  const trigger = document.querySelector(`[${DATA_TARGET5}="${popoverId}"]`);
+  const trigger = document.querySelector(`[${DATA_TOGGLE3}="${popoverId}"]`);
   function toggle() {
     const isShown = popover.classList.contains(CLASS_SHOWN5);
     trigger.classList.toggle(CLASS_ACTIVATED3);
@@ -412,12 +412,12 @@ var SELECTOR_TAB = ".tabset-tab";
 var SELECTOR_PANEL = ".tabset-panel";
 var CLASS_ACTIVATED4 = "is-activated";
 var CLASS_SHOWN6 = "is-shown";
-var DATA_TARGET6 = "data-target";
+var DATA_SHOW3 = "data-show";
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
-  function activateTab(currentTab) {
-    const panelId = currentTab.getAttribute(DATA_TARGET6);
+  function showPanel(currentTab) {
+    const panelId = currentTab.getAttribute(DATA_SHOW3);
     tabs.forEach((tab) => {
       if (tab === currentTab) {
         currentTab.classList.add(CLASS_ACTIVATED4);
@@ -438,7 +438,7 @@ function Tabset(tabset) {
   }
   function handleTabClick(event) {
     if (event.target.closest(SELECTOR_TAB)) {
-      activateTab(event.target.closest(SELECTOR_TAB));
+      showPanel(event.target.closest(SELECTOR_TAB));
     }
   }
   function handleTabKeydown(event) {

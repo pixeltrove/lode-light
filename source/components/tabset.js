@@ -9,14 +9,14 @@ const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
 
-  function activateTab(currentTab) {
-    const panelId = currentTab.getAttribute(DATA_TARGET);
+  function showPanel(currentTab) {
+    const panelId = currentTab.getAttribute(DATA_SHOW);
 
     tabs.forEach((tab) => {
       if (tab === currentTab) {
@@ -41,7 +41,7 @@ function Tabset(tabset) {
 
   function handleTabClick(event) {
     if (event.target.closest(SELECTOR_TAB)) {
-      activateTab(event.target.closest(SELECTOR_TAB));
+      showPanel(event.target.closest(SELECTOR_TAB));
     }
   }
 

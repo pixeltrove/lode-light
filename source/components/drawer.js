@@ -10,11 +10,11 @@ const SELECTOR_WRAPPER = ".drawer-wrapper";
 const SELECTOR_BACKDROP = ".drawer-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
 const CLASS_SHOWN = "is-shown";
-const DATA_TARGET = "data-target";
+const DATA_SHOW = "data-show";
 
 function Drawer(drawer) {
   const drawerId = drawer.id;
-  const trigger = document.querySelector(`[${DATA_TARGET}="${drawerId}"]`);
+  const trigger = document.querySelector(`[${DATA_SHOW}="${drawerId}"]`);
   const wrapper = drawer.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
