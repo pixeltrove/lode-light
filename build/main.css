@@ -373,6 +373,11 @@ summary {
   background-color: #d1fad1;
 }
 
+.badge-tentative {
+  color: #865c09;
+  background-color: #fdf1d9;
+}
+
 .badge-negative {
   color: #b6220c;
   background-color: #fdddd9;
