@@ -36,19 +36,19 @@ function Accordion(accordion) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
-    if (!isShown) {
+    if (isShown) {
+      slat.classList.remove(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", "false");
+    } else {
       slat.classList.add(CLASS_ACTIVATED);
       slat.setAttribute("aria-expanded", "true");
       panel.classList.add(CLASS_SHOWN);
-    } else {
-      slat.classList.remove(CLASS_ACTIVATED);
-      slat.setAttribute("aria-expanded", "false");
     }
     requestAnimationFrame(() => {
-      panel.style.height = !isShown ? 0 : panel.scrollHeight + "px";
+      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
       panel.style.overflowY = "hidden";
       requestAnimationFrame(() => {
-        panel.style.height = !isShown ? panel.scrollHeight + "px" : 0;
+        panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
       });
     });
     panel.addEventListener("transitionend", () => {
