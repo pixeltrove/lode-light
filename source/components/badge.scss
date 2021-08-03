@@ -4,8 +4,7 @@
 @use "../settings" as *;
 
 .badge {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   padding: $space-small-d $space-small-b;
   border-radius: $border-radius-full;
   vertical-align: top;
