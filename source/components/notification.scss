@@ -26,19 +26,6 @@
   }
 }
 
-// Dismissible
-
-.notification-dismissible {
-  position: relative;
-  padding-right: $space-large-a;
-
-  [class*="button-dismiss"] {
-    position: absolute;
-    top: $space-small-a;
-    right: $space-small-a;
-  }
-}
-
 // Positive
 
 .notification-positive {

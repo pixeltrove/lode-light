@@ -41,12 +41,6 @@
   p:last-child {
     margin-bottom: 0;
   }
-
-  [class*="button-dismiss"] {
-    position: absolute;
-    top: $space-large-d;
-    right: $space-large-d;
-  }
 }
 
 // Backdrop
