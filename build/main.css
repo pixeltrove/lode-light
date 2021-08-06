@@ -416,10 +416,6 @@ summary {
   flex: 1;
   margin-bottom: 0;
 }
-.banner [class*=button-dismiss] {
-  margin-top: -0.25rem;
-  margin-bottom: -0.25rem;
-}
 
 .banner-positive {
   border-bottom-color: #bff8bf;
@@ -648,54 +644,6 @@ summary {
   background-color: #ebebeb;
 }
 
-[class*=button-dismiss] {
-  padding: 0.5rem;
-  background-color: transparent;
-}
-[class*=button-dismiss]:hover {
-  color: white;
-}
-
-.button-dismiss {
-  color: #1060bc;
-}
-.button-dismiss:hover {
-  background-color: #1060bc;
-}
-.button-dismiss:active {
-  background-color: #0f57a9;
-}
-
-.button-dismiss-positive {
-  color: #0c6e0c;
-}
-.button-dismiss-positive:hover {
-  background-color: #0c6e0c;
-}
-.button-dismiss-positive:active {
-  background-color: #0a5c0a;
-}
-
-.button-dismiss-negative {
-  color: #b6220c;
-}
-.button-dismiss-negative:hover {
-  background-color: #b6220c;
-}
-.button-dismiss-negative:active {
-  background-color: #a31f0a;
-}
-
-.button-dismiss-neutral {
-  color: #3d3d3d;
-}
-.button-dismiss-neutral:hover {
-  background-color: #3d3d3d;
-}
-.button-dismiss-neutral:active {
-  background-color: #333333;
-}
-
 .card {
   display: block;
   padding: calc(1.5rem - 1px);
@@ -786,7 +734,6 @@ summary {
 }
 
 .dialog {
-  position: relative;
   display: none;
   overflow: auto;
   max-width: 36rem;
@@ -815,11 +762,6 @@ summary {
 }
 .dialog p:last-child {
   margin-bottom: 0;
-}
-.dialog [class*=button-dismiss] {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
 }
 
 .dialog-backdrop {
@@ -920,11 +862,6 @@ summary {
 }
 .drawer p:last-child {
   margin-bottom: 0;
-}
-.drawer [class*=button-dismiss] {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
 }
 
 .drawer-backdrop {
@@ -1106,16 +1043,6 @@ summary {
 }
 .notification p:last-child {
   margin-bottom: 0;
-}
-
-.notification-dismissible {
-  position: relative;
-  padding-right: 3rem;
-}
-.notification-dismissible [class*=button-dismiss] {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
 }
 
 .notification-positive {
