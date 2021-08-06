@@ -734,7 +734,6 @@ summary {
 }
 
 .dialog {
-  position: relative;
   display: none;
   overflow: auto;
   max-width: 36rem;
