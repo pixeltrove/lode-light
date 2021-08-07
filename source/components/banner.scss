@@ -7,10 +7,9 @@
 @use "../helpers/set-breakpoint" as *;
 
 .banner {
-  padding: $space-regular 0 calc(#{$space-regular} - #{$border-width-regular});
-  border-bottom: $border-width-regular solid $color-brand-light-c;
-  color: $color-brand-regular;
-  background-color: $color-brand-light-a;
+  padding: $space-regular 0;
+  color: $color-white-regular;
+  background-color: $color-brand-regular;
 
   &.is-transiting-out {
     animation: banner-transit-out $transition-default;
@@ -41,25 +40,19 @@
 // Positive
 
 .banner-positive {
-  border-bottom-color: $color-positive-light-c;
-  color: $color-positive-regular;
-  background-color: $color-positive-light-a;
+  background-color: $color-positive-regular;
 }
 
 // Negative
 
 .banner-negative {
-  border-bottom-color: $color-negative-light-c;
-  color: $color-negative-regular;
-  background-color: $color-negative-light-a;
+  background-color: $color-negative-regular;
 }
 
 // Neutral
 
 .banner-neutral {
-  border-bottom-color: $color-neutral-light-c;
-  color: $color-neutral-regular;
-  background-color: $color-neutral-light-a;
+  background-color: $color-neutral-regular;
 }
 
 // Keyframes
