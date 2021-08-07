@@ -89,6 +89,22 @@ function manageTransit(element, phase) {
 }
 var manage_transit_default = manageTransit;
 
+// source/components/banner.js
+var SELECTOR_BANNER = ".banner";
+var SELECTOR_DISMISS = "[data-dismiss]";
+function Banner(banner) {
+  function handleDismissClick(event) {
+    if (event.target.closest(SELECTOR_DISMISS)) {
+      manage_transit_default(banner, "out").then(() => {
+        banner.remove();
+      });
+    }
+  }
+  banner.addEventListener("click", handleDismissClick);
+}
+var banners = Array.from(document.querySelectorAll(SELECTOR_BANNER));
+banners.forEach((banner) => Banner(banner));
+
 // source/helpers/toggle-scroll.js
 function toggleScroll() {
   if (window.innerHeight >= document.body.scrollHeight)
@@ -319,10 +335,10 @@ menus.forEach((menu) => Menu(menu));
 
 // source/components/notification.js
 var SELECTOR_NOTIFICATION = ".notification";
-var SELECTOR_DISMISS = "[data-dismiss]";
+var SELECTOR_DISMISS2 = "[data-dismiss]";
 function Notification(notification) {
   function handleDismiss(event) {
-    if (event.target.closest(SELECTOR_DISMISS)) {
+    if (event.target.closest(SELECTOR_DISMISS2)) {
       manage_transit_default(notification, "out").then(() => {
         notification.remove();
       });
