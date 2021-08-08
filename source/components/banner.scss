@@ -18,7 +18,6 @@
   &-inside {
     display: flex;
     align-items: flex-start;
-    gap: $space-regular;
     max-width: $container-max-width;
     padding-right: $space-large-d;
     padding-left: $space-large-d;
@@ -34,6 +33,14 @@
   &-message {
     flex: 1;
     margin-bottom: 0;
+
+    &:not(:first-child) {
+      margin-left: $space-regular;
+    }
+
+    &:not(:last-child) {
+      margin-right: $space-regular;
+    }
   }
 }
 

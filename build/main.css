@@ -398,7 +398,6 @@ summary {
 .banner-inside {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
   max-width: 1240px;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
@@ -414,6 +413,12 @@ summary {
 .banner-message {
   flex: 1;
   margin-bottom: 0;
+}
+.banner-message:not(:first-child) {
+  margin-left: 1rem;
+}
+.banner-message:not(:last-child) {
+  margin-right: 1rem;
 }
 
 .banner-positive {
