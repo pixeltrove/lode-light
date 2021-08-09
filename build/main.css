@@ -388,7 +388,8 @@ summary {
 }
 
 .banner {
-  padding: 1rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   color: white;
   background-color: #1060bc;
 }

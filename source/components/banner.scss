@@ -7,7 +7,8 @@
 @use "../helpers/set-breakpoint" as *;
 
 .banner {
-  padding: $space-regular 0;
+  padding-top: $space-regular;
+  padding-bottom: $space-regular;
   color: $color-white-regular;
   background-color: $color-brand-regular;
 
