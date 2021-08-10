@@ -390,8 +390,9 @@ summary {
 .banner {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: white;
-  background-color: #1060bc;
+  border-bottom: 4px solid #c7dffa;
+  color: #1060bc;
+  background-color: #ecf4fd;
 }
 .banner.is-transiting-out {
   animation: banner-transit-out 0.14s ease-out;
@@ -423,19 +424,27 @@ summary {
 }
 
 .banner-positive {
-  background-color: #0c6e0c;
+  border-color: #bff8bf;
+  color: #0c6e0c;
+  background-color: #e3fce3;
 }
 
 .banner-attentive {
-  background-color: #906309;
+  border-color: #fbe6bc;
+  color: #906309;
+  background-color: #fdf4e2;
 }
 
 .banner-negative {
-  background-color: #b6220c;
+  border-color: #fbcdc5;
+  color: #b6220c;
+  background-color: #feeeec;
 }
 
 .banner-neutral {
-  background-color: #3d3d3d;
+  border-color: #e0e0e0;
+  color: #3d3d3d;
+  background-color: whitesmoke;
 }
 
 @keyframes banner-transit-out {
