@@ -9,8 +9,9 @@
 .banner {
   padding-top: $space-regular;
   padding-bottom: $space-regular;
-  color: $color-white-regular;
-  background-color: $color-brand-regular;
+  border-bottom: $border-width-thick solid $color-brand-light-c;
+  color: $color-brand-regular;
+  background-color: $color-brand-light-a;
 
   &.is-transiting-out {
     animation: banner-transit-out $transition-default;
@@ -48,25 +49,33 @@
 // Positive
 
 .banner-positive {
-  background-color: $color-positive-regular;
+  border-color: $color-positive-light-c;
+  color: $color-positive-regular;
+  background-color: $color-positive-light-a;
 }
 
 // Attentive
 
 .banner-attentive {
-  background-color: $color-attentive-regular;
+  border-color: $color-attentive-light-c;
+  color: $color-attentive-regular;
+  background-color: $color-attentive-light-a;
 }
 
 // Negative
 
 .banner-negative {
-  background-color: $color-negative-regular;
+  border-color: $color-negative-light-c;
+  color: $color-negative-regular;
+  background-color: $color-negative-light-a;
 }
 
 // Neutral
 
 .banner-neutral {
-  background-color: $color-neutral-regular;
+  border-color: $color-neutral-light-c;
+  color: $color-neutral-regular;
+  background-color: $color-neutral-light-a;
 }
 
 // Keyframes
