@@ -57,7 +57,7 @@
     }
   }
 
-  &-button {
+  .banner-button {
     @include set-breakpoint(tablet) {
       margin-top: -$space-small-d;
       margin-bottom: -$space-small-d;
