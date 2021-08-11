@@ -32,8 +32,14 @@
     }
   }
 
+  &-icon {
+    margin-top: $space-small-d;
+    margin-bottom: $space-small-d;
+  }
+
   &-message {
-    margin-bottom: 0;
+    margin-top: $space-small-d;
+    margin-bottom: $space-small-d;
 
     &:not(:first-child) {
       margin-left: $space-regular;
@@ -45,8 +51,8 @@
   }
 
   &-button {
-    margin-top: -$space-small-d;
-    margin-bottom: -$space-small-d;
+    margin-top: -$space-small-e;
+    margin-bottom: -$space-small-e;
   }
 }
 
