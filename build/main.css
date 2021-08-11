@@ -413,7 +413,6 @@ summary {
   }
 }
 .banner-message {
-  flex: 1;
   margin-bottom: 0;
 }
 .banner-message:not(:first-child) {
