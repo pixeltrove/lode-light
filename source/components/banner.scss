@@ -44,6 +44,11 @@
       margin-right: $space-regular;
     }
   }
+
+  &-button {
+    margin-top: -$space-small-d;
+    margin-bottom: -$space-small-d;
+  }
 }
 
 // Positive
