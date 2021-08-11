@@ -19,6 +19,7 @@
 
   &-inside {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     max-width: $container-max-width;
     padding-right: $space-large-d;
@@ -27,21 +28,39 @@
     margin-left: auto;
 
     @include set-breakpoint(tablet) {
+      flex-direction: row;
       padding-right: $space-large-b;
       padding-left: $space-large-b;
     }
   }
 
+  &-icon {
+    flex-shrink: 0;
+    margin-top: $space-small-e;
+    margin-bottom: $space-small-e;
+  }
+
   &-message {
-    flex: 1;
-    margin-bottom: 0;
+    margin-top: $space-small-e;
+    margin-bottom: $space-small-a;
 
-    &:not(:first-child) {
-      margin-left: $space-regular;
+    @include set-breakpoint(tablet) {
+      margin-bottom: $space-small-e;
+
+      &:not(:first-child) {
+        margin-left: $space-regular;
+      }
+
+      &:not(:last-child) {
+        margin-right: $space-regular;
+      }
     }
+  }
 
-    &:not(:last-child) {
-      margin-right: $space-regular;
+  .banner-button {
+    @include set-breakpoint(tablet) {
+      margin-top: -$space-small-d;
+      margin-bottom: -$space-small-d;
     }
   }
 }
