@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
@@ -12,10 +11,6 @@
   border-bottom: $border-width-thick solid $color-brand-light-c;
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
-
-  &.is-transiting-out {
-    animation: banner-transit-out $transition-default;
-  }
 
   &-inside {
     display: flex;
@@ -96,7 +91,3 @@
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
 }
-
-// Keyframes
-
-@include animate-transit(banner, "fade", "out");
