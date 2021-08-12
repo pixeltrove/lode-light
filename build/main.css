@@ -394,9 +394,6 @@ summary {
   color: #1060bc;
   background-color: #ecf4fd;
 }
-.banner.is-transiting-out {
-  animation: banner-transit-out 0.14s ease-out;
-}
 .banner-inside {
   display: flex;
   flex-direction: column;
@@ -465,14 +462,6 @@ summary {
   background-color: whitesmoke;
 }
 
-@keyframes banner-transit-out {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
