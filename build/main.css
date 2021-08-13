@@ -406,9 +406,13 @@ summary {
 }
 @media screen and (min-width: 720px) {
   .banner-inside {
-    flex-direction: row;
     padding-right: 2.5rem;
     padding-left: 2.5rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  .banner-inside {
+    flex-direction: row;
   }
 }
 .banner-icon {

@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/define-container" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
@@ -16,16 +17,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: $container-max-width;
-    padding-right: $space-large-d;
-    padding-left: $space-large-d;
-    margin-right: auto;
-    margin-left: auto;
 
+    @include define-container();
     @include set-breakpoint(tablet) {
       flex-direction: row;
-      padding-right: $space-large-b;
-      padding-left: $space-large-b;
     }
   }
 
