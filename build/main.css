@@ -387,85 +387,6 @@ summary {
   background-color: #ebebeb;
 }
 
-.banner {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 4px solid #c7dffa;
-  color: #1060bc;
-  background-color: #ecf4fd;
-}
-.banner-inside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 1240px;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media screen and (min-width: 720px) {
-  .banner-inside {
-    padding-right: 2.5rem;
-    padding-left: 2.5rem;
-  }
-}
-@media screen and (min-width: 720px) {
-  .banner-inside {
-    flex-direction: row;
-  }
-}
-.banner-icon {
-  flex-shrink: 0;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-.banner-message {
-  margin-top: 0.25rem;
-  margin-bottom: 0.75rem;
-}
-@media screen and (min-width: 720px) {
-  .banner-message {
-    margin-bottom: 0.25rem;
-  }
-  .banner-message:not(:first-child) {
-    margin-left: 1rem;
-  }
-  .banner-message:not(:last-child) {
-    margin-right: 1rem;
-  }
-}
-@media screen and (min-width: 720px) {
-  .banner .banner-button {
-    margin-top: -0.375rem;
-    margin-bottom: -0.375rem;
-  }
-}
-
-.banner-positive {
-  border-color: #bff8bf;
-  color: #0c6e0c;
-  background-color: #e3fce3;
-}
-
-.banner-attentive {
-  border-color: #fbe6bc;
-  color: #906309;
-  background-color: #fdf4e2;
-}
-
-.banner-negative {
-  border-color: #fbcdc5;
-  color: #b6220c;
-  background-color: #feeeec;
-}
-
-.banner-neutral {
-  border-color: #e0e0e0;
-  color: #3d3d3d;
-  background-color: whitesmoke;
-}
-
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -1436,6 +1357,85 @@ tbody .table-header {
   .laptop\:grid-column-12 {
     grid-column: span 12;
   }
+}
+
+.global-banner {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid #c7dffa;
+  color: #1060bc;
+  background-color: #ecf4fd;
+}
+.global-banner-inside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 1240px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (min-width: 720px) {
+  .global-banner-inside {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  .global-banner-inside {
+    flex-direction: row;
+  }
+}
+.global-banner-icon {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.global-banner-message {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+@media screen and (min-width: 720px) {
+  .global-banner-message {
+    margin-bottom: 0.25rem;
+  }
+  .global-banner-message:not(:first-child) {
+    margin-left: 1rem;
+  }
+  .global-banner-message:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+@media screen and (min-width: 720px) {
+  .global-banner .global-banner-button {
+    margin-top: -0.375rem;
+    margin-bottom: -0.375rem;
+  }
+}
+
+.global-banner-positive {
+  border-color: #bff8bf;
+  color: #0c6e0c;
+  background-color: #e3fce3;
+}
+
+.global-banner-attentive {
+  border-color: #fbe6bc;
+  color: #906309;
+  background-color: #fdf4e2;
+}
+
+.global-banner-negative {
+  border-color: #fbcdc5;
+  color: #b6220c;
+  background-color: #feeeec;
+}
+
+.global-banner-neutral {
+  border-color: #e0e0e0;
+  color: #3d3d3d;
+  background-color: whitesmoke;
 }
 
 .global-footer {
