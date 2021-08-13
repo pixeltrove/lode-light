@@ -8,7 +8,6 @@
 
 @use "./components/accordion";
 @use "./components/badge";
-@use "./components/banner";
 @use "./components/breadcrumb";
 @use "./components/button";
 @use "./components/card";
@@ -35,6 +34,7 @@
 // PARTS
 // -----------------------------------------------------------------------------
 
+@use "./parts/global-banner";
 @use "./parts/global-footer";
 @use "./parts/global-header";
 @use "./parts/local-navigation";

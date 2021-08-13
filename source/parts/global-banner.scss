@@ -1,4 +1,4 @@
-// BANNER
+// GLOBAL BANNER
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
@@ -6,7 +6,7 @@
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
-.banner {
+.global-banner {
   padding-top: $space-regular;
   padding-bottom: $space-regular;
   border-bottom: $border-width-thick solid $color-brand-light-c;
@@ -47,7 +47,7 @@
     }
   }
 
-  .banner-button {
+  .global-banner-button {
     @include set-breakpoint(tablet) {
       margin-top: -$space-small-d;
       margin-bottom: -$space-small-d;
@@ -57,7 +57,7 @@
 
 // Positive
 
-.banner-positive {
+.global-banner-positive {
   border-color: $color-positive-light-c;
   color: $color-positive-regular;
   background-color: $color-positive-light-a;
@@ -65,7 +65,7 @@
 
 // Attentive
 
-.banner-attentive {
+.global-banner-attentive {
   border-color: $color-attentive-light-c;
   color: $color-attentive-regular;
   background-color: $color-attentive-light-a;
@@ -73,7 +73,7 @@
 
 // Negative
 
-.banner-negative {
+.global-banner-negative {
   border-color: $color-negative-light-c;
   color: $color-negative-regular;
   background-color: $color-negative-light-a;
@@ -81,7 +81,7 @@
 
 // Neutral
 
-.banner-neutral {
+.global-banner-neutral {
   border-color: $color-neutral-light-c;
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
