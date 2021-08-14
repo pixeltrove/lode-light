@@ -388,12 +388,10 @@ summary {
 }
 
 .breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
   padding-left: 0;
 }
 .breadcrumb-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 .breadcrumb-item:not(:last-child) {

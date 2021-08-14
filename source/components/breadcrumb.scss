@@ -5,12 +5,10 @@
 @use "../helpers/focus-visible" as *;
 
 .breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
   padding-left: 0;
 
   &-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     &:not(:last-child) {
