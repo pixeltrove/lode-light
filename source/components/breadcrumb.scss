@@ -5,20 +5,19 @@
 @use "../helpers/focus-visible" as *;
 
 .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-small-d;
   padding-left: 0;
 
   &-item {
-    display: inline-flex;
-    align-items: center;
-
     &:not(:last-child) {
-      margin-right: $space-small-d;
-
       &::after {
         content: "";
+        display: inline-block;
         width: 0.75rem;
         height: 0.75rem;
-        margin-left: $space-small-d;
+        margin-left: $space-small-e;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 12.8787L6 13.5858L11.5355 8.05025L6 2.51472L5.29289 3.22183L10.1213 8.05025L5.29289 12.8787Z'/></svg>");
         background-position: center;
         background-size: 1rem;
