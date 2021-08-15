@@ -5,6 +5,9 @@
 @use "../helpers/focus-visible" as *;
 
 .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-small-d;
   padding-left: 0;
 
   &-item {
@@ -12,8 +15,6 @@
     align-items: center;
 
     &:not(:last-child) {
-      margin-right: $space-small-d;
-
       &::after {
         content: "";
         width: 0.75rem;
