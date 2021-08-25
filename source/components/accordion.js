@@ -40,7 +40,12 @@ function Accordion(accordion) {
       "transitionend",
       () => {
         panel.style.overflowY = "";
-        if (isShown) panel.classList.remove(CLASS_SHOWN);
+
+        if (isShown) {
+          panel.classList.remove(CLASS_SHOWN);
+        } else {
+          panel.style.height = "auto";
+        }
       },
       { once: true }
     );

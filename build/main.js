@@ -53,8 +53,11 @@ function Accordion(accordion) {
     });
     panel.addEventListener("transitionend", () => {
       panel.style.overflowY = "";
-      if (isShown)
+      if (isShown) {
         panel.classList.remove(CLASS_SHOWN);
+      } else {
+        panel.style.height = "auto";
+      }
     }, {once: true});
   }
   function handleSlatClick(event) {
