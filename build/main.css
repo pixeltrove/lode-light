@@ -393,15 +393,17 @@ summary {
   gap: 0.375rem;
   padding-left: 0;
 }
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
 .breadcrumb-item:not(:last-child)::after {
   content: "";
-  display: inline-block;
   width: 0.75rem;
   height: 0.75rem;
-  margin-left: 0.25rem;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M5.29289 12.8787L6 13.5858L11.5355 8.05025L6 2.51472L5.29289 3.22183L10.1213 8.05025L5.29289 12.8787Z'/></svg>");
+  margin-left: 0.375rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3.79289 10.2929L4.5 11L9.44975 6.05025L4.5 1.10051L3.79289 1.80761L8.03553 6.05025L3.79289 10.2929Z'/></svg>");
   background-position: center;
-  background-size: 1rem;
   background-repeat: no-repeat;
 }
 .breadcrumb-link {
