@@ -136,6 +136,41 @@
   }
 }
 
+// Attentive
+
+.button-attentive {
+  background-color: $color-attentive-regular;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-attentive-dark-a;
+  }
+
+  &:active {
+    background-color: $color-attentive-dark-b;
+  }
+}
+
+// Attentive lean and plain
+
+.button-attentive-lean {
+  border-color: $color-attentive-medium;
+}
+
+.button-attentive-lean,
+.button-attentive-plain {
+  color: $color-attentive-regular;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-attentive-light-a;
+  }
+
+  &:active {
+    background-color: $color-attentive-light-b;
+  }
+}
+
 // Negative
 
 .button-negative {

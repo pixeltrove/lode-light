@@ -529,6 +529,34 @@ summary {
   background-color: #d1fad1;
 }
 
+.button-attentive {
+  background-color: #906309;
+}
+.button-attentive.is-activated, .button-attentive:hover {
+  background-color: #7d5608;
+}
+.button-attentive:active {
+  background-color: #694907;
+}
+
+.button-attentive-lean {
+  border-color: #c19233;
+}
+
+.button-attentive-lean,
+.button-attentive-plain {
+  color: #906309;
+}
+.button-attentive-lean.is-activated, .button-attentive-lean:hover,
+.button-attentive-plain.is-activated,
+.button-attentive-plain:hover {
+  background-color: #fdf4e2;
+}
+.button-attentive-lean:active,
+.button-attentive-plain:active {
+  background-color: #fcedcf;
+}
+
 .button-negative {
   background-color: #b6220c;
 }
