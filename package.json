@@ -8,7 +8,6 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "npm run build:css && npm run build:js",
     "build:css": "sass --style=compressed --no-source-map source/main.scss build/main.css",
     "build:js": "esbuild --bundle --minify --format=esm source/main.js --outfile=build/main.js",
     "watch:css": "sass --watch --style=compressed --no-source-map source/main.scss build/main.css",
