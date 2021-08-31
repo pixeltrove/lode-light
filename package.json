@@ -9,14 +9,8 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run build:css && npm run build:js",
-    "build:css": "npm run compile:css && npm run minify:css",
-    "build:js": "npm run compile:js && npm run minify:js",
-    "compile": "npm run compile:css && npm run compile:js",
-    "compile:css": "sass --no-source-map source/main.scss build/main.css",
-    "compile:js": "esbuild --bundle --format=esm source/main.js --outfile=build/main.js",
-    "minify": "npm run minify:css && npm run minify:js",
-    "minify:css": "sass --style=compressed --no-source-map build/main.css build/main.min.css",
-    "minify:js": "esbuild --bundle --minify --format=esm build/main.js --outfile=build/main.min.js",
+    "build:css": "sass --style=compressed --no-source-map source/main.scss build/main.css",
+    "build:js": "esbuild --bundle --minify --format=esm source/main.js --outfile=build/main.js",
     "watch": "nodemon --watch source/ --ext scss,js --exec \"npm run build\"",
     "watch:css": "nodemon --watch source/ --ext scss --exec \"npm run build:css\"",
     "watch:js": "nodemon --watch source/ --ext js --exec \"npm run build:js\""
