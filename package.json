@@ -11,13 +11,13 @@
     "build": "npm run build:css && npm run build:js",
     "build:css": "sass --style=compressed --no-source-map source/main.scss build/main.css",
     "build:js": "esbuild --bundle --minify --format=esm source/main.js --outfile=build/main.js",
-    "watch": "nodemon --watch source/ --ext scss,js --exec \"npm run build\"",
-    "watch:css": "nodemon --watch source/ --ext scss --exec \"npm run build:css\"",
-    "watch:js": "nodemon --watch source/ --ext js --exec \"npm run build:js\""
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
+    "watch:css": "sass --watch --style=compressed --no-source-map source/main.scss build/main.css",
+    "watch:js": "esbuild --watch --bundle --minify --format=esm source/main.js --outfile=build/main.js"
   },
   "devDependencies": {
+    "concurrently": "^6.2.1",
     "esbuild": "^0.11.20",
-    "nodemon": "^2.0.7",
     "sass": "^1.32.12"
   }
 }
