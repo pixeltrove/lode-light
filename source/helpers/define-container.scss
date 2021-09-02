@@ -5,7 +5,7 @@
 @use "../helpers/set-breakpoint" as *;
 
 @mixin define-container() {
-  max-width: $content-max-width;
+  max-width: $container-max-width;
   padding-right: $space-large-d;
   padding-left: $space-large-d;
   margin-right: auto;
