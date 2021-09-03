@@ -17,7 +17,7 @@
   color: $color-white-regular;
   background-color: $color-brand-regular;
   user-select: none;
-  transition: background-color $transition-default, outline $transition-default;
+  transition: background-color $transition-regular, outline $transition-regular;
 
   &:hover,
   &.is-activated {

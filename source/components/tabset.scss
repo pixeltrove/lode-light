@@ -26,7 +26,7 @@
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
-    transition: border-color $transition-default, color $transition-default, outline $transition-default;
+    transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
 
     &:hover,
     &.is-activated {

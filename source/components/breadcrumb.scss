@@ -32,7 +32,7 @@
     text-decoration: underline;
     text-decoration-color: $color-neutral-medium;
     text-underline-offset: 0.25rem;
-    transition: text-decoration-color $transition-default, outline $transition-default;
+    transition: text-decoration-color $transition-regular, outline $transition-regular;
 
     &:hover {
       text-decoration-color: $color-neutral-regular;

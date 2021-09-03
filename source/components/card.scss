@@ -18,7 +18,7 @@
     margin-right: -$space-large-d;
     margin-bottom: $space-large-e;
     margin-left: -$space-large-d;
-    transition: outline $transition-default;
+    transition: outline $transition-regular;
 
     &:first-child {
       border-top-left-radius: inherit;
@@ -49,7 +49,7 @@
 // Interactive
 
 .card-interactive {
-  transition: background-color $transition-default, outline $transition-default;
+  transition: background-color $transition-regular, outline $transition-regular;
 
   &:hover {
     background-color: $color-neutral-light-a;

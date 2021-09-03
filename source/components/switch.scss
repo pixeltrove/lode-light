@@ -15,7 +15,7 @@
   background-size: 1.5rem;
   background-repeat: no-repeat;
   background-color: $color-white-regular;
-  transition: border-color $transition-default, background-position $transition-default, background-color $transition-default, outline $transition-default;
+  transition: border-color $transition-regular, background-position $transition-regular, background-color $transition-regular, outline $transition-regular;
 
   cursor: pointer;
   -webkit-appearance: none;

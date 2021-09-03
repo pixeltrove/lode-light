@@ -18,11 +18,11 @@
   background-color: $color-white-regular;
 
   &.is-transiting-in {
-    animation: popover-transit-in $transition-default;
+    animation: popover-transit-in $transition-regular;
   }
 
   &.is-transiting-out {
-    animation: popover-transit-out $transition-default;
+    animation: popover-transit-out $transition-regular;
   }
 
   &.is-shown {
