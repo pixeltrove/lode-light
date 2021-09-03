@@ -17,11 +17,11 @@
   background-color: $color-white-regular;
 
   &.is-transiting-in {
-    animation: menu-transit-in $transition-default;
+    animation: menu-transit-in $transition-regular;
   }
 
   &.is-transiting-out {
-    animation: menu-transit-out $transition-default;
+    animation: menu-transit-out $transition-regular;
   }
 
   &.is-shown {
@@ -36,7 +36,7 @@
     line-height: $line-height-regular;
     white-space: nowrap;
     color: $color-neutral-regular;
-    transition: color $transition-default, outline $transition-default;
+    transition: color $transition-regular, outline $transition-regular;
 
     &:hover {
       color: $color-brand-regular;

@@ -17,7 +17,7 @@
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     color: $color-neutral-regular;
-    transition: color $transition-default, outline $transition-default;
+    transition: color $transition-regular, outline $transition-regular;
 
     &:hover,
     &.is-activated {
