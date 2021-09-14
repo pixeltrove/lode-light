@@ -7,20 +7,47 @@
 
 .grid {
   display: grid;
+  gap: $gap-regular;
 
-  @each $breakpoint, $description in $grid-regular {
-    $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
-    $column-count: map.get($description, "column-count");
-    $gap: map.get($description, "gap");
+  @include set-breakpoint(laptop) {
+    gap: $gap-laptop;
+  }
+}
 
-    @include set-breakpoint($breakpoint) {
-      grid-template-columns: repeat($column-count, 1fr);
-      @for $i from 1 through $column-count {
-        @at-root .#{$prefix}grid-column-#{$i} {
-          grid-column: span #{$i};
-        }
-      }
-      gap: $gap;
+.grid-#{$column-count-regular} {
+  grid-template-columns: repeat($column-count-regular, 1fr);
+}
+
+@for $i from 1 through $column-count-regular {
+  .grid-span-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+@include set-breakpoint(tablet) {
+  .tablet\:grid-#{$column-count-tablet} {
+    grid-template-columns: repeat($column-count-tablet, 1fr);
+  }
+}
+
+@include set-breakpoint(tablet) {
+  @for $i from 1 through $column-count-tablet {
+    .tablet\:grid-span-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+@include set-breakpoint(laptop) {
+  .laptop\:grid-#{$column-count-laptop} {
+    grid-template-columns: repeat($column-count-laptop, 1fr);
+  }
+}
+
+@include set-breakpoint(laptop) {
+  @for $i from 1 through $column-count-laptop {
+    .laptop\:grid-span-#{$i} {
+      grid-column: span #{$i};
     }
   }
 }
