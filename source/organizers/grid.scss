@@ -7,31 +7,31 @@
 
 .grid {
   display: grid;
-  gap: $gap-regular;
+  gap: $phone-gap;
 
   @include set-breakpoint(laptop) {
-    gap: $gap-laptop;
+    gap: $laptop-gap;
   }
 }
 
-.grid-#{$column-count-regular} {
-  grid-template-columns: repeat($column-count-regular, 1fr);
+.grid-#{$phone-column-count} {
+  grid-template-columns: repeat($phone-column-count, 1fr);
 }
 
-@for $i from 1 through $column-count-regular {
+@for $i from 1 through $phone-column-count {
   .grid-span-#{$i} {
     grid-column: span #{$i};
   }
 }
 
 @include set-breakpoint(tablet) {
-  .tablet\:grid-#{$column-count-tablet} {
-    grid-template-columns: repeat($column-count-tablet, 1fr);
+  .tablet\:grid-#{$tablet-column-count} {
+    grid-template-columns: repeat($tablet-column-count, 1fr);
   }
 }
 
 @include set-breakpoint(tablet) {
-  @for $i from 1 through $column-count-tablet {
+  @for $i from 1 through $tablet-column-count {
     .tablet\:grid-span-#{$i} {
       grid-column: span #{$i};
     }
@@ -39,13 +39,13 @@
 }
 
 @include set-breakpoint(laptop) {
-  .laptop\:grid-#{$column-count-laptop} {
-    grid-template-columns: repeat($column-count-laptop, 1fr);
+  .laptop\:grid-#{$laptop-column-count} {
+    grid-template-columns: repeat($laptop-column-count, 1fr);
   }
 }
 
 @include set-breakpoint(laptop) {
-  @for $i from 1 through $column-count-laptop {
+  @for $i from 1 through $laptop-column-count {
     .laptop\:grid-span-#{$i} {
       grid-column: span #{$i};
     }
