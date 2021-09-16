@@ -8,8 +8,8 @@ $container-max-width: 1240px;
 // Grid
 
 $phone-column-count: 2;
-$tablet-column-count: 6;
-$laptop-column-count: 12;
+$tablet-column-count: (2, 3);
+$laptop-column-count: (2, 3, 4, 6);
 
 $phone-gap: 1.25rem;
 $laptop-gap: 2.5rem;
