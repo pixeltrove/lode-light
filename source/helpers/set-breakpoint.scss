@@ -5,7 +5,7 @@
 @use "../settings" as *;
 
 @mixin set-breakpoint($name) {
-  @if ($name == "default") {
+  @if ($name == "phone") {
     @content;
   } @else if map.has-key($breakpoints, $name) {
     @media screen and (min-width: map.get($breakpoints, $name)) {

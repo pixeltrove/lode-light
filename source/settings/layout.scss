@@ -7,9 +7,19 @@ $container-max-width: 1240px;
 
 // Grid
 
-$phone-column-count: 2;
-$tablet-column-count: (2, 3);
-$laptop-column-count: (2, 3, 4, 6);
+$column-count-regular: (
+  phone: 2,
+  tablet: (
+    2,
+    3,
+  ),
+  laptop: (
+    2,
+    3,
+    4,
+    6,
+  ),
+);
 
 $phone-gap: 1.25rem;
 $laptop-gap: 2.5rem;

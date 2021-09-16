@@ -14,62 +14,26 @@
   }
 }
 
-@each $column-count in $phone-column-count {
-  .grid-#{$column-count} {
-    grid-template-columns: repeat($column-count, 1fr);
-  }
+@each $breakpoint, $column-count-list in $column-count-regular {
+  $prefix: if($breakpoint != "phone", #{$breakpoint}\:, null);
 
-  $count-start: 1;
-
-  @if list.index($phone-column-count, $column-count) > 1 {
-    $index: list.index($phone-column-count, $column-count) - 1;
-    $count-start: list.nth($phone-column-count, $index) + 1;
-  }
-
-  @for $i from $count-start through $column-count {
-    .grid-span-#{$i} {
-      grid-column: span #{$i};
-    }
-  }
-}
-
-@include set-breakpoint(tablet) {
-  @each $column-count in $tablet-column-count {
-    .tablet\:grid-#{$column-count} {
-      grid-template-columns: repeat($column-count, 1fr);
-    }
-
-    $count-start: 1;
-
-    @if list.index($tablet-column-count, $column-count) > 1 {
-      $index: list.index($tablet-column-count, $column-count) - 1;
-      $count-start: list.nth($tablet-column-count, $index) + 1;
-    }
-
-    @for $i from $count-start through $column-count {
-      .tablet\:grid-span-#{$i} {
-        grid-column: span #{$i};
+  @include set-breakpoint($breakpoint) {
+    @each $column-count in $column-count-list {
+      .#{$prefix}grid-#{$column-count} {
+        grid-template-columns: repeat($column-count, 1fr);
       }
-    }
-  }
-}
 
-@include set-breakpoint(laptop) {
-  @each $column-count in $laptop-column-count {
-    .laptop\:grid-#{$column-count} {
-      grid-template-columns: repeat($column-count, 1fr);
-    }
+      $count-start: 1;
 
-    $count-start: 1;
+      @if list.index($column-count-list, $column-count) > 1 {
+        $index: list.index($column-count-list, $column-count) - 1;
+        $count-start: list.nth($column-count-list, $index) + 1;
+      }
 
-    @if list.index($laptop-column-count, $column-count) > 1 {
-      $index: list.index($laptop-column-count, $column-count) - 1;
-      $count-start: list.nth($laptop-column-count, $index) + 1;
-    }
-
-    @for $i from $count-start through $column-count {
-      .laptop\:grid-span-#{$i} {
-        grid-column: span #{$i};
+      @for $i from $count-start through $column-count {
+        .#{$prefix}grid-span-#{$i} {
+          grid-column: span #{$i};
+        }
       }
     }
   }
