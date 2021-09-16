@@ -2,15 +2,16 @@
 // -----------------------------------------------------------------------------
 
 @use "sass:list";
+@use "sass:map";
 @use "../settings" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .grid {
   display: grid;
-  gap: $phone-gap;
+  gap: map.get($gap-regular, "phone");
 
   @include set-breakpoint(laptop) {
-    gap: $laptop-gap;
+    gap: map.get($gap-regular, "laptop");
   }
 }
 

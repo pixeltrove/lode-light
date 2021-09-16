@@ -21,8 +21,10 @@ $column-count-regular: (
   ),
 );
 
-$phone-gap: 1.25rem;
-$laptop-gap: 2.5rem;
+$gap-regular: (
+  phone: 1.25rem,
+  laptop: 2.5rem,
+);
 
 // Z-index
 
