@@ -8,7 +8,7 @@
 
 .grid {
   display: grid;
-  gap: map.get($gap-regular, "phone");
+  gap: map.get($gap-regular, "default");
 
   @include set-breakpoint(laptop) {
     gap: map.get($gap-regular, "laptop");
@@ -16,7 +16,7 @@
 }
 
 @each $breakpoint, $column-count-list in $column-count-regular {
-  $prefix: if($breakpoint != "phone", #{$breakpoint}\:, null);
+  $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
 
   @include set-breakpoint($breakpoint) {
     @each $column-count in $column-count-list {

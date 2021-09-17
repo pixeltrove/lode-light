@@ -8,7 +8,7 @@ $container-max-width: 1240px;
 // Grid
 
 $column-count-regular: (
-  phone: 2,
+  default: 2,
   tablet: (
     2,
     3,
@@ -22,7 +22,7 @@ $column-count-regular: (
 );
 
 $gap-regular: (
-  phone: 1.25rem,
+  default: 1.25rem,
   laptop: 2.5rem,
 );
 
