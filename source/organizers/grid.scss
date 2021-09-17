@@ -8,14 +8,14 @@
 
 .grid {
   display: grid;
-  gap: map.get($gap-regular, "default");
+  gap: map.get($grid-gap, "default");
 
   @include set-breakpoint(laptop) {
-    gap: map.get($gap-regular, "laptop");
+    gap: map.get($grid-gap, "laptop");
   }
 }
 
-@each $breakpoint, $column-count-list in $column-count-regular {
+@each $breakpoint, $column-count-list in $grid-column-count {
   $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
 
   @include set-breakpoint($breakpoint) {
