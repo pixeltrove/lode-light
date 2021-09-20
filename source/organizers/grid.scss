@@ -8,26 +8,26 @@
 
 .grid {
   display: grid;
-  gap: map.get($grid-gap, "default");
+  gap: map.get($grid-gaps, "default");
 
   @include set-breakpoint(laptop) {
-    gap: map.get($grid-gap, "laptop");
+    gap: map.get($grid-gaps, "laptop");
   }
 }
 
-@each $breakpoint, $column-count-list in $grid-column-count {
+@each $breakpoint, $column-totals in $grid-columns {
   $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
 
   @include set-breakpoint($breakpoint) {
-    @each $column-count in $column-count-list {
-      $index: list.index($column-count-list, $column-count);
-      $count-start: if($index > 1, list.nth($column-count-list, $index - 1) + 1, 1);
+    @each $column-total in $column-totals {
+      $previous-index: list.index($column-totals, $column-total) - 1;
+      $count-start: if($previous-index != 0, list.nth($column-totals, $previous-index) + 1, 1);
 
-      .#{$prefix}grid-#{$column-count} {
-        grid-template-columns: repeat($column-count, 1fr);
+      .#{$prefix}grid-#{$column-total} {
+        grid-template-columns: repeat($column-total, 1fr);
       }
 
-      @for $i from $count-start through $column-count {
+      @for $i from $count-start through $column-total {
         .#{$prefix}grid-column-#{$i} {
           grid-column: span #{$i};
         }
