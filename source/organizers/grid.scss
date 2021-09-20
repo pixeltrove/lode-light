@@ -20,19 +20,15 @@
 
   @include set-breakpoint($breakpoint) {
     @each $column-count in $column-count-list {
+      $index: list.index($column-count-list, $column-count);
+      $count-start: if($index > 1, list.nth($column-count-list, $index - 1) + 1, 1);
+
       .#{$prefix}grid-#{$column-count} {
         grid-template-columns: repeat($column-count, 1fr);
       }
 
-      $count-start: 1;
-
-      @if list.index($column-count-list, $column-count) > 1 {
-        $index: list.index($column-count-list, $column-count) - 1;
-        $count-start: list.nth($column-count-list, $index) + 1;
-      }
-
       @for $i from $count-start through $column-count {
-        .#{$prefix}grid-span-#{$i} {
+        .#{$prefix}grid-column-#{$i} {
           grid-column: span #{$i};
         }
       }
