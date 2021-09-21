@@ -20,8 +20,8 @@
 
   @include set-breakpoint($breakpoint) {
     @each $column-total in $column-totals {
-      $previous-index: list.index($column-totals, $column-total) - 1;
-      $count-start: if($previous-index != 0, list.nth($column-totals, $previous-index) + 1, 1);
+      $total-index: list.index($column-totals, $column-total);
+      $count-start: if($total-index > 1, list.nth($column-totals, $total-index - 1) + 1, 1);
 
       .#{$prefix}grid-#{$column-total} {
         grid-template-columns: repeat($column-total, 1fr);
