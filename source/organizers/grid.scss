@@ -1,26 +1,37 @@
 // GRID
 // -----------------------------------------------------------------------------
 
+@use "sass:list";
 @use "sass:map";
 @use "../settings" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .grid {
   display: grid;
+  gap: map.get($grid-gaps, "default");
 
-  @each $breakpoint, $description in $grid-regular {
-    $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
-    $column-count: map.get($description, "column-count");
-    $gap: map.get($description, "gap");
+  @include set-breakpoint(laptop) {
+    gap: map.get($grid-gaps, "laptop");
+  }
+}
 
-    @include set-breakpoint($breakpoint) {
-      grid-template-columns: repeat($column-count, 1fr);
-      @for $i from 1 through $column-count {
-        @at-root .#{$prefix}grid-column-#{$i} {
+@each $breakpoint, $column-totals in $grid-columns {
+  $prefix: if($breakpoint != "default", #{$breakpoint}\:, null);
+
+  @include set-breakpoint($breakpoint) {
+    @each $column-total in $column-totals {
+      $total-index: list.index($column-totals, $column-total);
+      $count-start: if($total-index > 1, list.nth($column-totals, $total-index - 1) + 1, 1);
+
+      .#{$prefix}grid-#{$column-total} {
+        grid-template-columns: repeat($column-total, 1fr);
+      }
+
+      @for $i from $count-start through $column-total {
+        .#{$prefix}grid-column-#{$i} {
           grid-column: span #{$i};
         }
       }
-      gap: $gap;
     }
   }
 }
