@@ -4,21 +4,21 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin animate-transit($item, $styles: ("fade", "slide"), $phases: ("in", "out"), $translate-axis: "Y", $translate-length: -1rem) {
-  @if ($styles != ("fade", "slide") and $styles != "fade" and $styles != "slide") {
+@mixin animate-transit($item, $method: ("fade", "slide"), $phasing: ("in", "out"), $translate-axis: "Y", $translate-length: -1rem) {
+  @if ($method != ("fade", "slide") and $method != "fade" and $method != "slide") {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
-  } @else if ($phases != ("in", "out") and $phases != "in" and $phases != "out") {
+  } @else if ($phasing != ("in", "out") and $phasing != "in" and $phasing != "out") {
     @error "Invalid transit animation phase name. Check spelling or review helper definition.";
   }
 
-  $opacity-change: if(list.index($styles, "fade"), true, false);
+  $opacity-change: if(list.index($method, "fade"), true, false);
   $opacity-start: 0;
   $opacity-end: 1;
-  $transform-change: if(list.index($styles, "slide"), true, false);
+  $transform-change: if(list.index($method, "slide"), true, false);
   $transform-start: translate#{$translate-axis}(#{$translate-length});
   $transform-end: translate#{$translate-axis}(0);
 
-  @each $phase in $phases {
+  @each $phase in $phasing {
     @if ($phase == "out") {
       $opacity-start: 1;
       $opacity-end: 0;
