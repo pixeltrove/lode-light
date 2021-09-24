@@ -2,13 +2,26 @@
 // -----------------------------------------------------------------------------
 
 @use "sass:list";
+@use "sass:math";
 @use "../settings" as *;
 
 @mixin animate-transit($item, $method: ("fade", "slide"), $phasing: ("in", "out"), $translate-axis: "Y", $translate-length: -1rem) {
-  @if ($method != ("fade", "slide") and $method != "fade" and $method != "slide") {
+  $valid-methods: ("fade", "slide");
+  $valid-phasings: ("in", "out");
+  $valid-translate-axes: ("X", "Y");
+  $valid-translate-units: ("rem", "em", "vw", "vh", "px", "%");
+
+  @if ($valid-methods != $method and list.index($valid-methods, $method) == null) {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
-  } @else if ($phasing != ("in", "out") and $phasing != "in" and $phasing != "out") {
+  } 
+  @if ($valid-phasings != $phasing and list.index($valid-phasings, $phasing) == null) {
     @error "Invalid transit animation phase name. Check spelling or review helper definition.";
+  } 
+  @if (list.index($valid-translate-axes, $translate-axis) == null) {
+    @error "Invalid translate axis name. Check spelling or review helper definition.";
+  } 
+  @if (list.index($valid-translate-units, math.unit($translate-length)) == null) {
+    @error "Invalid translate length unit. Check spelling or review helper definition.";
   }
 
   $opacity-change: if(list.index($method, "fade"), true, false);
