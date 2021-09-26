@@ -9,7 +9,7 @@
   $valid-effects: ("fade", "slide");
   $valid-phases: ("in", "out");
   $valid-translate-axes: ("X", "Y");
-  $valid-translate-units: ("rem", "em", "vw", "vh", "px", "%");
+  $valid-translate-units: ("px", "em", "rem", "vw", "vh", "%");
 
   @if not ($valid-effects == $effects or list.index($valid-effects, $effects)) {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
