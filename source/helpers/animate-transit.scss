@@ -11,16 +11,20 @@
   $valid-translate-axes: ("X", "Y");
   $valid-translate-units: ("px", "em", "rem", "vw", "vh", "%");
 
-  @if not ($valid-effects == $effects or list.index($valid-effects, $effects)) {
-    @error "Invalid transit animation style name. Check spelling or review helper definition.";
-  } 
-  @if ($valid-phases != $phases and list.index($valid-phases, $phases) == null) {
-    @error "Invalid transit animation phase name. Check spelling or review helper definition.";
-  } 
-  @if (list.index($valid-translate-axes, $translate-axis) == null) {
+  @each $effect in $effects {
+    @if not (list.index($valid-effects, $effect)) {
+      @error "Invalid transit animation effect name. Check spelling or review helper definition.";
+    }
+  }
+  @each $phase in $phases {
+    @if not (list.index($valid-phases, $phase)) {
+      @error "Invalid transit animation phase name. Check spelling or review helper definition.";
+    }
+  }
+  @if not (list.index($valid-translate-axes, $translate-axis)) {
     @error "Invalid translate axis name. Check spelling or review helper definition.";
-  } 
-  @if (list.index($valid-translate-units, math.unit($translate-length)) == null) {
+  }
+  @if not (list.index($valid-translate-units, math.unit($translate-length))) {
     @error "Invalid translate length unit. Check spelling or review helper definition.";
   }
 
