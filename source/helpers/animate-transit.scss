@@ -29,7 +29,7 @@
   @return $phases;
 }
 
-@function validate-translate-axes($translate-axis) {
+@function validate-translate-axis($translate-axis) {
   $translate-axes-valid: ("X", "Y");
 
   @if not (list.index($translate-axes-valid, $translate-axis)) {
