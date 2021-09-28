@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .popover {
@@ -17,19 +16,7 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
-  &.is-transiting-in {
-    animation: popover-transit-in $transition-regular;
-  }
-
-  &.is-transiting-out {
-    animation: popover-transit-out $transition-regular;
-  }
-
   &.is-shown {
     display: block;
   }
 }
-
-// Keyframes
-
-@include animate-transit(popover);

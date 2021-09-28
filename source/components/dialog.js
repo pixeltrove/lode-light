@@ -1,7 +1,6 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
 import toggleScroll from "../helpers/toggle-scroll";
 import trapFocus from "../helpers/trap-focus";
 
@@ -23,9 +22,6 @@ function Dialog(dialog) {
     dialog.classList.add(CLASS_SHOWN);
     backdrop.classList.add(CLASS_SHOWN);
 
-    manageTransit(dialog, "in");
-    manageTransit(backdrop, "in");
-
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -37,13 +33,7 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    Promise.all([manageTransit(dialog, "out"), manageTransit(backdrop, "out")]).then((elements) => {
-      elements.forEach((element) => {
-        element.classList.remove(CLASS_SHOWN);
-      });
-      wrapper.classList.remove(CLASS_SHOWN);
-    });
-
+    wrapper.classList.remove(CLASS_SHOWN);
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);

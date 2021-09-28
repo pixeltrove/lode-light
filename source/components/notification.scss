@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .notification {
@@ -10,10 +9,6 @@
   border-radius: $border-radius-regular;
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
-
-  &.is-transiting-out {
-    animation: notification-transit-out $transition-regular;
-  }
 
   &-heading {
     margin-bottom: $space-small-c;
@@ -46,7 +41,3 @@
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
 }
-
-// Keyframes
-
-@include animate-transit(notification, "fade", "out");

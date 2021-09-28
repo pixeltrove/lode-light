@@ -1,7 +1,6 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_MENU = ".menu";
@@ -24,17 +23,13 @@ function Menu(menu) {
     if (!isShown) {
       menu.classList.add(CLASS_SHOWN);
 
-      manageTransit(menu, "in");
-
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
       trigger.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      manageTransit(menu, "out").then(() => {
-        menu.classList.remove(CLASS_SHOWN);
-      });
+      menu.classList.remove(CLASS_SHOWN);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

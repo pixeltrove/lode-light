@@ -1,7 +1,6 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_TABSET = ".tabset";
@@ -31,8 +30,6 @@ function Tabset(tabset) {
     panels.forEach((panel) => {
       if (panel.id === panelId) {
         panel.classList.add(CLASS_SHOWN);
-
-        manageTransit(panel, "in");
       } else {
         panel.classList.remove(CLASS_SHOWN);
       }

@@ -1,8 +1,6 @@
 // POPOVER
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
-
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
@@ -21,7 +19,6 @@ function Popover(popover) {
     if (!isShown) {
       popover.classList.add(CLASS_SHOWN);
 
-      manageTransit(popover, "in");
       position();
 
       window.addEventListener("resize", position);
@@ -30,9 +27,7 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      manageTransit(popover, "out").then(() => {
-        popover.classList.remove(CLASS_SHOWN);
-      });
+      popover.classList.remove(CLASS_SHOWN);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
