@@ -8,6 +8,7 @@ const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
+const CLASS_ANIMATING = "is-animating";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -19,8 +20,20 @@ function Dialog(dialog) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    dialog.classList.add(CLASS_SHOWN);
-    backdrop.classList.add(CLASS_SHOWN);
+    dialog.classList.add(CLASS_ANIMATING);
+    backdrop.classList.add(CLASS_ANIMATING);
+    requestAnimationFrame(() => {
+      dialog.classList.add(CLASS_SHOWN);
+      backdrop.classList.add(CLASS_SHOWN);
+    });
+    backdrop.addEventListener(
+      "transitionend",
+      () => {
+        dialog.classList.add(CLASS_ANIMATING);
+        backdrop.classList.remove(CLASS_ANIMATING);
+      },
+      { once: true }
+    );
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -33,7 +46,21 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    wrapper.classList.remove(CLASS_SHOWN);
+    dialog.classList.add(CLASS_ANIMATING);
+    backdrop.classList.add(CLASS_ANIMATING);
+    requestAnimationFrame(() => {
+      dialog.classList.remove(CLASS_SHOWN);
+      backdrop.classList.remove(CLASS_SHOWN);
+    });
+    backdrop.addEventListener(
+      "transitionend",
+      () => {
+        backdrop.classList.remove(CLASS_ANIMATING);
+        wrapper.classList.remove(CLASS_SHOWN);
+      },
+      { once: true }
+    );
+
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);

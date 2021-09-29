@@ -3,6 +3,7 @@
 
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_ANIMATING = "is-animating";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -17,7 +18,17 @@ function Popover(popover) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      popover.classList.add(CLASS_SHOWN);
+      popover.classList.add(CLASS_ANIMATING);
+      requestAnimationFrame(() => {
+        popover.classList.add(CLASS_SHOWN);
+      });
+      popover.addEventListener(
+        "transitionend",
+        () => {
+          popover.classList.remove(CLASS_ANIMATING);
+        },
+        { once: true }
+      );
 
       position();
 
@@ -27,7 +38,17 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      popover.classList.remove(CLASS_SHOWN);
+      popover.classList.add(CLASS_ANIMATING);
+      requestAnimationFrame(() => {
+        popover.classList.remove(CLASS_SHOWN);
+      });
+      popover.addEventListener(
+        "transitionend",
+        () => {
+          popover.classList.remove(CLASS_ANIMATING);
+        },
+        { once: true }
+      );
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

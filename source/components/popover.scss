@@ -16,7 +16,16 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
+  &.is-animating {
+    display: block;
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: opacity $transition-regular, transform $transition-regular;
+  }
+
   &.is-shown {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 }

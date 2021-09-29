@@ -7,6 +7,7 @@ const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_ANIMATING = "is-animating";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -29,7 +30,17 @@ function Tabset(tabset) {
 
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        panel.classList.add(CLASS_SHOWN);
+        panel.classList.add(CLASS_ANIMATING);
+        requestAnimationFrame(() => {
+          panel.classList.add(CLASS_SHOWN);
+        });
+        panel.addEventListener(
+          "transitionend",
+          () => {
+            panel.classList.remove(CLASS_ANIMATING);
+          },
+          { once: true }
+        );
       } else {
         panel.classList.remove(CLASS_SHOWN);
       }

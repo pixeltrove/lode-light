@@ -46,8 +46,15 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
+    &.is-animating {
+      display: block;
+      opacity: 0;
+      transition: opacity $transition-regular;
+    }
+
     &.is-shown {
       display: block;
+      opacity: 1;
     }
 
     p:last-child {

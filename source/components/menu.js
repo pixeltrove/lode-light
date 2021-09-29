@@ -6,6 +6,7 @@ import moveFocus from "../helpers/move-focus";
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_ANIMATING = "is-animating";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -21,7 +22,17 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      menu.classList.add(CLASS_SHOWN);
+      menu.classList.add(CLASS_ANIMATING);
+      requestAnimationFrame(() => {
+        menu.classList.add(CLASS_SHOWN);
+      });
+      menu.addEventListener(
+        "transitionend",
+        () => {
+          menu.classList.remove(CLASS_ANIMATING);
+        },
+        { once: true }
+      );
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -29,7 +40,17 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      menu.classList.remove(CLASS_SHOWN);
+      menu.classList.add(CLASS_ANIMATING);
+      requestAnimationFrame(() => {
+        menu.classList.remove(CLASS_SHOWN);
+      });
+      menu.addEventListener(
+        "transitionend",
+        () => {
+          menu.classList.remove(CLASS_ANIMATING);
+        },
+        { once: true }
+      );
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
