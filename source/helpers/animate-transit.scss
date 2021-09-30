@@ -6,8 +6,6 @@
 // Fade
 
 @mixin fade {
-  opacity: 0;
-
   &.is-animating {
     opacity: 0;
     transition: opacity $transition-slow;
@@ -21,8 +19,6 @@
 // Slide
 
 @mixin slide {
-  opacity: 0;
-
   &.is-animating {
     opacity: 0;
     transform: translateY(-1rem);
