@@ -29,7 +29,7 @@ function Dialog(dialog) {
     backdrop.addEventListener(
       "transitionend",
       () => {
-        dialog.classList.add(CLASS_ANIMATING);
+        dialog.classList.remove(CLASS_ANIMATING);
         backdrop.classList.remove(CLASS_ANIMATING);
       },
       { once: true }
@@ -55,6 +55,7 @@ function Dialog(dialog) {
     backdrop.addEventListener(
       "transitionend",
       () => {
+        dialog.classList.remove(CLASS_ANIMATING);
         backdrop.classList.remove(CLASS_ANIMATING);
         wrapper.classList.remove(CLASS_SHOWN);
       },
