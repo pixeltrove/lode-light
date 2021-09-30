@@ -6,7 +6,6 @@
 @use "../helpers/focus-visible" as *;
 
 .dialog {
-  @include slide;
   display: none;
   overflow: auto;
   max-width: 36rem;
@@ -24,6 +23,7 @@
   &.is-shown {
     display: block;
   }
+  @include slide;
 
   &-heading {
     margin-bottom: $space-regular;
@@ -39,7 +39,6 @@
 // Backdrop
 
 .dialog-backdrop {
-  @include fade;
   position: fixed;
   inset: 0;
   z-index: $z-index-bottom;
@@ -50,6 +49,7 @@
   &.is-shown {
     display: block;
   }
+  @include fade;
 }
 
 // Wrapper

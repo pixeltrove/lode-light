@@ -43,7 +43,6 @@
   }
 
   &-panel {
-    @include fade;
     display: none;
     padding-top: $space-regular;
     padding-bottom: $space-regular;
@@ -52,6 +51,7 @@
     &.is-shown {
       display: block;
     }
+    @include fade;
 
     p:last-child {
       margin-bottom: 0;

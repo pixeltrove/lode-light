@@ -6,7 +6,6 @@
 @use "../helpers/focus-visible" as *;
 
 .popover {
-  @include slide;
   position: absolute;
   z-index: $z-index-top;
   display: none;
@@ -22,4 +21,5 @@
   &.is-shown {
     display: block;
   }
+  @include slide;
 }
