@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .tabset {
@@ -42,20 +43,10 @@
   }
 
   &-panel {
+    @include fade;
     display: none;
     padding-top: $space-regular;
     padding-bottom: $space-regular;
-
-    &.is-animating {
-      display: block;
-      opacity: 0;
-      transition: opacity $transition-regular;
-    }
-
-    &.is-shown {
-      display: block;
-      opacity: 1;
-    }
 
     p:last-child {
       margin-bottom: 0;

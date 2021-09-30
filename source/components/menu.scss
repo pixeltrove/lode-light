@@ -2,9 +2,11 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
+  @include slide;
   position: absolute;
   z-index: $z-index-top;
   display: none;
@@ -14,19 +16,6 @@
   margin-top: $space-small-e;
   margin-bottom: 0;
   background-color: $color-white-regular;
-
-  &.is-animating {
-    display: block;
-    opacity: 0;
-    transform: translateY(-1rem);
-    transition: opacity $transition-regular, transform $transition-regular;
-  }
-
-  &.is-shown {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   &-link {
     display: inline-block;
