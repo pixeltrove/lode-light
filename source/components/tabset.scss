@@ -47,11 +47,11 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
-    &.is-animating,
+    &.is-transiting,
     &.is-shown {
       display: block;
     }
-    @include fade;
+    @include fade-transit;
 
     p:last-child {
       margin-bottom: 0;

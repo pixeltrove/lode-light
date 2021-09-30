@@ -17,9 +17,9 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
-  &.is-animating,
+  &.is-transiting,
   &.is-shown {
     display: block;
   }
-  @include slide;
+  @include slide-transit;
 }

@@ -19,11 +19,11 @@
     outline: 0;
   }
 
-  &.is-animating,
+  &.is-transiting,
   &.is-shown {
     display: block;
   }
-  @include slide;
+  @include slide-transit;
 
   &-heading {
     margin-bottom: $space-regular;
@@ -45,11 +45,11 @@
   display: none;
   background-color: $color-black-transparent;
 
-  &.is-animating,
+  &.is-transiting,
   &.is-shown {
     display: block;
   }
-  @include fade;
+  @include fade-transit;
 }
 
 // Wrapper

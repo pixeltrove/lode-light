@@ -3,10 +3,10 @@
 
 @use "../settings" as *;
 
-// Fade
+// Fade transit
 
-@mixin fade {
-  &.is-animating {
+@mixin fade-transit {
+  &.is-transiting {
     opacity: 0;
     transition: opacity $transition-slow;
   }
@@ -16,10 +16,10 @@
   }
 }
 
-// Slide
+// Slide transit
 
-@mixin slide {
-  &.is-animating {
+@mixin slide-transit {
+  &.is-transiting {
     opacity: 0;
     transform: translateY(-1rem);
     transition: opacity $transition-regular, transform $transition-regular;
