@@ -17,6 +17,11 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
+  &.is-animating,
+  &.is-shown {
+    display: block;
+  }
+
   &-link {
     display: inline-block;
     padding-top: $space-small-e;

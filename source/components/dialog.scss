@@ -20,6 +20,11 @@
     outline: 0;
   }
 
+  &.is-animating,
+  &.is-shown {
+    display: block;
+  }
+
   &-heading {
     margin-bottom: $space-regular;
     font-size: $font-size-large-c;
@@ -40,6 +45,11 @@
   z-index: $z-index-bottom;
   display: none;
   background-color: $color-black-transparent;
+
+  &.is-animating,
+  &.is-shown {
+    display: block;
+  }
 }
 
 // Wrapper
