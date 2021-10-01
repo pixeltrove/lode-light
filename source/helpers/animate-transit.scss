@@ -5,10 +5,15 @@
 
 // Fade transit
 
-@mixin fade-transit {
+@mixin fade-transit($duration: "regular") {
+  $timing: $transition-regular;
+  @if ($duration == "slow") {
+    $timing: $transition-slow;
+  }
+
   &.is-transiting {
     opacity: 0;
-    transition: opacity $transition-slow;
+    transition: opacity $timing;
   }
 
   &.is-shown {
@@ -18,11 +23,16 @@
 
 // Slide transit
 
-@mixin slide-transit {
+@mixin slide-transit($duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
+  $timing: $transition-regular;
+  @if ($duration == "slow") {
+    $timing: $transition-slow;
+  }
+
   &.is-transiting {
     opacity: 0;
-    transform: translateY(-1rem);
-    transition: opacity $transition-regular, transform $transition-regular;
+    transform: translate#{$translate-axis}(#{$translate-start});
+    transition: opacity $timing, transform $timing;
   }
 
   &.is-shown {
