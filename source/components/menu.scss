@@ -20,7 +20,7 @@
   &.is-shown {
     display: block;
   }
-  @include slide-transit;
+  @include animate-transit;
 
   &-link {
     display: inline-block;

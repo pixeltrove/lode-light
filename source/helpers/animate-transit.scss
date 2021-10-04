@@ -3,9 +3,9 @@
 
 @use "../settings" as *;
 
-// Fade transit
+// Animate transit
 
-@mixin fade-transit($duration: "regular") {
+@mixin animate-transit($type: "slide", $duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
   $timing: $transition-regular;
   @if ($duration == "slow") {
     $timing: $transition-slow;
@@ -13,30 +13,18 @@
 
   &.is-transiting {
     opacity: 0;
-    transition: opacity $timing;
+    @if ($type == "slide") {
+      transform: translate#{$translate-axis}(#{$translate-start});
+      transition: opacity $timing, transform $timing;
+    } @else if ($type == "fade") {
+      transition: opacity $timing;
+    }
   }
 
   &.is-shown {
     opacity: 1;
-  }
-}
-
-// Slide transit
-
-@mixin slide-transit($duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
-  $timing: $transition-regular;
-  @if ($duration == "slow") {
-    $timing: $transition-slow;
-  }
-
-  &.is-transiting {
-    opacity: 0;
-    transform: translate#{$translate-axis}(#{$translate-start});
-    transition: opacity $timing, transform $timing;
-  }
-
-  &.is-shown {
-    opacity: 1;
-    transform: translateY(0);
+    @if ($type == "slide") {
+      transform: translateY(0);
+    }
   }
 }

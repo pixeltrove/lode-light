@@ -23,7 +23,7 @@
   &.is-shown {
     display: block;
   }
-  @include slide-transit;
+  @include animate-transit;
 
   &-heading {
     margin-bottom: $space-regular;
@@ -49,7 +49,7 @@
   &.is-shown {
     display: block;
   }
-  @include fade-transit;
+  @include animate-transit("fade");
 }
 
 // Wrapper
