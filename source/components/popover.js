@@ -1,9 +1,10 @@
 // POPOVER
 // -----------------------------------------------------------------------------
 
+import animateTransit from "../helpers/animate-transit";
+
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_TRANSITING = "is-transiting";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -18,17 +19,7 @@ function Popover(popover) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      popover.classList.add(CLASS_TRANSITING);
-      requestAnimationFrame(() => {
-        popover.classList.add(CLASS_SHOWN);
-      });
-      popover.addEventListener(
-        "transitionend",
-        () => {
-          popover.classList.remove(CLASS_TRANSITING);
-        },
-        { once: true }
-      );
+      animateTransit("in", popover);
 
       position();
 
@@ -38,17 +29,7 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      popover.classList.add(CLASS_TRANSITING);
-      requestAnimationFrame(() => {
-        popover.classList.remove(CLASS_SHOWN);
-      });
-      popover.addEventListener(
-        "transitionend",
-        () => {
-          popover.classList.remove(CLASS_TRANSITING);
-        },
-        { once: true }
-      );
+      animateTransit("out", popover);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

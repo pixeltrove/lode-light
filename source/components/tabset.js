@@ -1,13 +1,13 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
+import animateTransit from "../helpers/animate-transit";
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_TRANSITING = "is-transiting";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -30,17 +30,7 @@ function Tabset(tabset) {
 
     panels.forEach((panel) => {
       if (panel.id === panelId) {
-        panel.classList.add(CLASS_TRANSITING);
-        requestAnimationFrame(() => {
-          panel.classList.add(CLASS_SHOWN);
-        });
-        panel.addEventListener(
-          "transitionend",
-          () => {
-            panel.classList.remove(CLASS_TRANSITING);
-          },
-          { once: true }
-        );
+        animateTransit("in", panel);
       } else {
         panel.classList.remove(CLASS_SHOWN);
       }

@@ -1,6 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
+import animateTransit from "../helpers/animate-transit";
 import toggleScroll from "../helpers/toggle-scroll";
 import trapFocus from "../helpers/trap-focus";
 
@@ -8,7 +9,6 @@ const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
-const CLASS_TRANSITING = "is-transiting";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -20,20 +20,7 @@ function Dialog(dialog) {
 
   function show() {
     wrapper.classList.add(CLASS_SHOWN);
-    dialog.classList.add(CLASS_TRANSITING);
-    backdrop.classList.add(CLASS_TRANSITING);
-    requestAnimationFrame(() => {
-      dialog.classList.add(CLASS_SHOWN);
-      backdrop.classList.add(CLASS_SHOWN);
-    });
-    dialog.addEventListener(
-      "transitionend",
-      () => {
-        dialog.classList.remove(CLASS_TRANSITING);
-        backdrop.classList.remove(CLASS_TRANSITING);
-      },
-      { once: true }
-    );
+    animateTransit("in", dialog, backdrop);
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -46,17 +33,11 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    dialog.classList.add(CLASS_TRANSITING);
-    backdrop.classList.add(CLASS_TRANSITING);
-    requestAnimationFrame(() => {
-      dialog.classList.remove(CLASS_SHOWN);
-      backdrop.classList.remove(CLASS_SHOWN);
-    });
+    animateTransit("out", dialog, backdrop);
+
     dialog.addEventListener(
       "transitionend",
       () => {
-        dialog.classList.remove(CLASS_TRANSITING);
-        backdrop.classList.remove(CLASS_TRANSITING);
         wrapper.classList.remove(CLASS_SHOWN);
       },
       { once: true }
