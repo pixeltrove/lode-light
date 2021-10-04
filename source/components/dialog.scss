@@ -60,6 +60,7 @@
   z-index: $z-index-top;
   display: none;
 
+  &.is-transiting,
   &.is-shown {
     display: flex;
     flex-direction: column;

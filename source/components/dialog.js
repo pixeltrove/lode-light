@@ -9,7 +9,6 @@ const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
-const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
 function Dialog(dialog) {
@@ -19,12 +18,11 @@ function Dialog(dialog) {
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    wrapper.classList.add(CLASS_SHOWN);
-    animateTransit("in", dialog, backdrop);
+    animateTransit("in", dialog, backdrop, wrapper);
+    toggleScroll();
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
 
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
@@ -33,16 +31,7 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    animateTransit("out", dialog, backdrop);
-
-    dialog.addEventListener(
-      "transitionend",
-      () => {
-        wrapper.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
-
+    animateTransit("out", dialog, backdrop, wrapper);
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);

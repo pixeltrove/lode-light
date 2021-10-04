@@ -20,7 +20,6 @@ function Popover(popover) {
 
     if (!isShown) {
       animateTransit("in", popover);
-
       position();
 
       window.addEventListener("resize", position);
