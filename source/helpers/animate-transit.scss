@@ -1,11 +1,23 @@
 // ANIMATE TRANSIT
 // -----------------------------------------------------------------------------
 
+@use "sass:list";
+@use "sass:math";
 @use "../settings" as *;
 
 // Animate transit
 
 @mixin animate-transit($type: "slide", $duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
+  @if not (list.index(("fade", "slide"), $type)) {
+    @error "Invalid transit animation style name. Check spelling or review helper definition.";
+  } @else if not (list.index(("regular", "slow"), $duration)) {
+    @error "Invalid transit animation duration name. Check spelling or review helper definition.";
+  } @else if not (list.index(("X", "Y"), $translate-axis)) {
+    @error "Invalid translate axis name. Check spelling or review helper definition.";
+  } @else if not (list.index(("px", "em", "rem", "vw", "vh", "%"), math.unit($translate-start))) {
+    @error "Invalid translate start name. Check spelling or review helper definition.";
+  }
+
   $timing: $transition-regular;
   @if ($duration == "slow") {
     $timing: $transition-slow;
