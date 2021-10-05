@@ -7,20 +7,20 @@
 
 // Animate transit
 
-@mixin animate-transit($type: "slide", $duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
-  $types: ("fade", "slide");
+@mixin animate-transit($effect: "slide", $duration: "regular", $axis: "Y", $origin: -1rem) {
+  $effects: ("fade", "slide");
   $durations: ("regular", "slow");
-  $translate-axes: ("X", "Y");
-  $translate-units: ("px", "em", "rem", "%", "vw", "vh");
+  $axes: ("X", "Y");
+  $units: ("px", "em", "rem", "%", "vw", "vh");
 
-  @if not (list.index($types, $type)) {
+  @if not (list.index($effects, $effect)) {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
   } @else if not (list.index($durations, $duration)) {
     @error "Invalid transit animation duration name. Check spelling or review helper definition.";
-  } @else if not (list.index($translate-axes, $translate-axis)) {
-    @error "Invalid translate axis name. Check spelling or review helper definition.";
-  } @else if not (list.index($translate-units, math.unit($translate-start))) {
-    @error "Invalid translate start name. Check spelling or review helper definition.";
+  } @else if not (list.index($axes, $axis)) {
+    @error "Invalid axis name. Check spelling or review helper definition.";
+  } @else if not (list.index($units, math.unit($origin))) {
+    @error "Invalid translate origin name. Check spelling or review helper definition.";
   }
 
   $timing: $transition-regular;
@@ -30,17 +30,17 @@
 
   &.is-transiting {
     opacity: 0;
-    @if ($type == "slide") {
-      transform: translate#{$translate-axis}(#{$translate-start});
+    @if ($effect == "slide") {
+      transform: translate#{$axis}(#{$origin});
       transition: opacity $timing, transform $timing;
-    } @else if ($type == "fade") {
+    } @else if ($effect == "fade") {
       transition: opacity $timing;
     }
   }
 
   &.is-shown {
     opacity: 1;
-    @if ($type == "slide") {
+    @if ($effect == "slide") {
       transform: translateY(0);
     }
   }
