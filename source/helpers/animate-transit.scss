@@ -8,13 +8,18 @@
 // Animate transit
 
 @mixin animate-transit($type: "slide", $duration: "regular", $translate-axis: "Y", $translate-start: -1rem) {
-  @if not (list.index(("fade", "slide"), $type)) {
+  $types: ("fade", "slide");
+  $durations: ("regular", "slow");
+  $translate-axes: ("X", "Y");
+  $translate-units: ("px", "em", "rem", "%", "vw", "vh");
+
+  @if not (list.index($types, $type)) {
     @error "Invalid transit animation style name. Check spelling or review helper definition.";
-  } @else if not (list.index(("regular", "slow"), $duration)) {
+  } @else if not (list.index($durations, $duration)) {
     @error "Invalid transit animation duration name. Check spelling or review helper definition.";
-  } @else if not (list.index(("X", "Y"), $translate-axis)) {
+  } @else if not (list.index($translate-axes, $translate-axis)) {
     @error "Invalid translate axis name. Check spelling or review helper definition.";
-  } @else if not (list.index(("px", "em", "rem", "vw", "vh", "%"), math.unit($translate-start))) {
+  } @else if not (list.index($translate-units, math.unit($translate-start))) {
     @error "Invalid translate start name. Check spelling or review helper definition.";
   }
 
