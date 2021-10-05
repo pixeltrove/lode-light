@@ -14,13 +14,13 @@
   $units: ("px", "em", "rem", "%", "vw", "vh");
 
   @if not (list.index($effects, $effect)) {
-    @error "Invalid transit animation style name. Check spelling or review helper definition.";
+    @error "Invalid transit animation effect name. Check spelling or review helper definition.";
   } @else if not (list.index($durations, $duration)) {
     @error "Invalid transit animation duration name. Check spelling or review helper definition.";
   } @else if not (list.index($axes, $axis)) {
-    @error "Invalid axis name. Check spelling or review helper definition.";
+    @error "Invalid transit animation axis name. Check spelling or review helper definition.";
   } @else if not (list.index($units, math.unit($origin))) {
-    @error "Invalid translate origin name. Check spelling or review helper definition.";
+    @error "Invalid transit animation origin name. Check spelling or review helper definition.";
   }
 
   $timing: $transition-regular;
