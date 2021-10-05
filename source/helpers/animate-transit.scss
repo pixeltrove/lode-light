@@ -6,18 +6,18 @@
 @use "../settings" as *;
 
 @mixin animate-transit($effect: "slide", $duration: "regular", $axis: "Y", $origin: -1rem) {
-  $effects: ("fade", "slide");
-  $durations: ("regular", "slow");
-  $axes: ("X", "Y");
-  $units: ("px", "em", "rem", "%", "vw", "vh");
+  $valid-effects: ("fade", "slide");
+  $valid-durations: ("regular", "slow");
+  $valid-axes: ("X", "Y");
+  $valid-units: ("px", "em", "rem", "%", "vw", "vh");
 
-  @if not (list.index($effects, $effect)) {
+  @if not (list.index($valid-effects, $effect)) {
     @error "Invalid transit animation effect name. Check spelling or review helper definition.";
-  } @else if not (list.index($durations, $duration)) {
+  } @else if not (list.index($valid-durations, $duration)) {
     @error "Invalid transit animation duration name. Check spelling or review helper definition.";
-  } @else if not (list.index($axes, $axis)) {
+  } @else if not (list.index($valid-axes, $axis)) {
     @error "Invalid transit animation axis name. Check spelling or review helper definition.";
-  } @else if not (list.index($units, math.unit($origin))) {
+  } @else if not (list.index($valid-units, math.unit($origin))) {
     @error "Invalid transit animation origin name. Check spelling or review helper definition.";
   }
 
