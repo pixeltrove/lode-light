@@ -1,6 +1,7 @@
 // CARD
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -18,7 +19,7 @@
     margin-right: -$space-large-d;
     margin-bottom: $space-large-e;
     margin-left: -$space-large-d;
-    transition: outline $transition-regular;
+    transition: outline map.get($transitions, "regular");
 
     &:first-child {
       border-top-left-radius: inherit;
@@ -49,7 +50,7 @@
 // Interactive
 
 .card-interactive {
-  transition: background-color $transition-regular, outline $transition-regular;
+  transition: background-color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
   &:hover {
     background-color: $color-neutral-light-a;

@@ -1,6 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
@@ -26,7 +27,7 @@
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
-    transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
+    transition: border-color map.get($transitions, "regular"), color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
     &:hover,
     &.is-activated {

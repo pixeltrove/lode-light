@@ -1,7 +1,9 @@
 // ANIMATION
 // -----------------------------------------------------------------------------
 
-// Transition
+// Transitions
 
-$transition-regular: 0.14s ease-out;
-$transition-slow: 0.28s ease-out;
+$transitions: (
+  regular: 0.14s ease-out,
+  slow: 0.28s ease-out,
+);

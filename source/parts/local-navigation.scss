@@ -1,6 +1,7 @@
 // LOCAL NAVIGATION
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -17,7 +18,7 @@
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
     &:hover,
     &.is-activated {

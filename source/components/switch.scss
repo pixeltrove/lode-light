@@ -1,6 +1,7 @@
 // SWITCH
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -15,7 +16,7 @@
   background-size: 1.5rem;
   background-repeat: no-repeat;
   background-color: $color-white-regular;
-  transition: border-color $transition-regular, background-position $transition-regular, background-color $transition-regular, outline $transition-regular;
+  transition: border-color map.get($transitions, "regular"), background-position map.get($transitions, "regular"), background-color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
   cursor: pointer;
   -webkit-appearance: none;

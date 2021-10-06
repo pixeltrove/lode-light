@@ -1,6 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
@@ -30,7 +31,7 @@
     line-height: $line-height-regular;
     white-space: nowrap;
     color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
     &:hover {
       color: $color-brand-regular;

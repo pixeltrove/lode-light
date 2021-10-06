@@ -1,6 +1,7 @@
 // GLOBAL FOOTER
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
@@ -37,7 +38,7 @@
   &-link {
     display: inline-block;
     color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
     &:hover {
       color: $color-brand-regular;

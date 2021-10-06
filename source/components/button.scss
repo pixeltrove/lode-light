@@ -1,6 +1,7 @@
 // BUTTON
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -17,7 +18,7 @@
   color: $color-white-regular;
   background-color: $color-brand-regular;
   user-select: none;
-  transition: background-color $transition-regular, outline $transition-regular;
+  transition: background-color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
   &:hover,
   &.is-activated {

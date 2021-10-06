@@ -2,18 +2,19 @@
 // -----------------------------------------------------------------------------
 
 @use "sass:list";
+@use "sass:map";
 @use "sass:math";
 @use "../settings" as *;
 
-@mixin animate-transit($effect: "slide", $duration: "regular", $axis: "Y", $origin: -1rem) {
+@mixin animate-transit($effect: "slide", $transition: "regular", $axis: "Y", $origin: -1rem) {
   $valid-effects: ("fade", "slide");
-  $valid-durations: ("regular", "slow");
+  $valid-transitions: ("regular", "slow");
   $valid-axes: ("X", "Y");
   $valid-units: ("px", "em", "rem", "%", "vw", "vh");
 
   @if not (list.index($valid-effects, $effect)) {
     @error "Invalid transit animation effect name. Check spelling or review helper definition.";
-  } @else if not (list.index($valid-durations, $duration)) {
+  } @else if not (list.index($valid-transitions, $transition)) {
     @error "Invalid transit animation duration name. Check spelling or review helper definition.";
   } @else if not (list.index($valid-axes, $axis)) {
     @error "Invalid transit animation axis name. Check spelling or review helper definition.";
@@ -21,18 +22,13 @@
     @error "Invalid transit animation origin name. Check spelling or review helper definition.";
   }
 
-  $timing: $transition-regular;
-  @if ($duration == "slow") {
-    $timing: $transition-slow;
-  }
-
   &.is-transiting {
     opacity: 0;
     @if ($effect == "slide") {
       transform: translate#{$axis}(#{$origin});
-      transition: opacity $timing, transform $timing;
+      transition: opacity map.get($transitions, $transition), transform map.get($transitions, $transition);
     } @else if ($effect == "fade") {
-      transition: opacity $timing;
+      transition: opacity map.get($transitions, $transition);
     }
   }
 

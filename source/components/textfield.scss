@@ -1,6 +1,7 @@
 // TEXTFIELD
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -14,7 +15,7 @@
   line-height: $line-height-regular;
   color: $color-neutral-regular;
   background-color: $color-white-regular;
-  transition: outline $transition-regular, border-color $transition-regular;
+  transition: outline map.get($transitions, "regular"), border-color map.get($transitions, "regular");
 
   &:focus-visible {
     @include focus-visible(default);

@@ -1,6 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -28,7 +29,7 @@
     line-height: $line-height-small-a;
     color: $color-neutral-regular;
     background-color: transparent;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
     @at-root .accordion-segment:last-child & {
       margin-bottom: -$border-width-regular;
@@ -46,7 +47,7 @@
 
   &-icon-chevron-down {
     margin-left: auto;
-    transition: transform $transition-regular;
+    transition: transform map.get($transitions, "regular");
 
     @at-root .accordion-slat.is-activated & {
       transform: rotate(180deg);
@@ -55,7 +56,7 @@
 
   &-panel {
     display: none;
-    transition: height $transition-regular;
+    transition: height map.get($transitions, "regular");
 
     &.is-shown {
       display: block;

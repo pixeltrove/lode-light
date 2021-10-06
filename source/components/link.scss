@@ -1,6 +1,7 @@
 // LINK
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -9,7 +10,7 @@
   text-decoration: underline;
   text-decoration-color: $color-brand-medium;
   text-underline-offset: 0.25rem;
-  transition: text-decoration-color $transition-regular, outline $transition-regular;
+  transition: text-decoration-color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
   &:hover {
     text-decoration-color: $color-brand-regular;

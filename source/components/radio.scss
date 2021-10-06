@@ -1,6 +1,7 @@
 // RADIO
 // -----------------------------------------------------------------------------
 
+@use "sass:map" ;
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
@@ -13,7 +14,7 @@
   background-color: $color-white-regular;
   cursor: pointer;
   -webkit-appearance: none;
-  transition: border-color $transition-regular, background-color $transition-regular, outline $transition-regular;
+  transition: border-color map.get($transitions, "regular"), background-color map.get($transitions, "regular"), outline map.get($transitions, "regular");
 
   &:checked {
     border-color: $color-brand-regular;
