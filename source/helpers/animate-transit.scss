@@ -9,7 +9,7 @@
 @mixin animate-transit($effect: "slide", $transition: "regular", $axis: "Y", $origin: -1rem) {
   $valid-effects: ("fade", "slide");
   $valid-transitions: map.keys($transitions);
-  $valid-axes: ("X", "Y");
+  $valid-axes: ("X", "Y", "");
   $valid-units: ("px", "em", "rem", "%", "vw", "vh");
 
   @if not (list.index($valid-effects, $effect)) {
