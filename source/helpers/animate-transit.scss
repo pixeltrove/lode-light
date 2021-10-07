@@ -15,7 +15,7 @@
   @if not (list.index($valid-effects, $effect)) {
     @error "Invalid transit animation effect name. Check spelling or review helper definition.";
   } @else if not (list.index($valid-transitions, $transition)) {
-    @error "Invalid transit animation duration name. Check spelling or review helper definition.";
+    @error "Invalid transit animation transition name. Check spelling or review helper definition.";
   } @else if not (list.index($valid-axes, $axis)) {
     @error "Invalid transit animation axis name. Check spelling or review helper definition.";
   } @else if not (list.index($valid-units, math.unit($origin))) {
