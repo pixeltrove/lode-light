@@ -37,3 +37,9 @@
 @use "./parts/global-footer";
 @use "./parts/global-header";
 @use "./parts/local-navigation";
+
+// ANIMATIONS
+// -----------------------------------------------------------------------------
+
+@use "./animations/fade";
+@use "./animations/slide";

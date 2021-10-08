@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
@@ -24,11 +23,11 @@
   }
 
   &.is-transiting-in {
-    animation: dialog-transit-in $transition-slow;
+    animation: slide-in $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: dialog-transit-out $transition-slow;
+    animation: slide-out $transition-slow;
   }
 
   &-heading {
@@ -56,11 +55,11 @@
   }
 
   &.is-transiting-in {
-    animation: dialog-backdrop-transit-in $transition-slow;
+    animation: fade-in $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: dialog-backdrop-transit-out $transition-slow;
+    animation: fade-out $transition-slow;
   }
 }
 
@@ -79,8 +78,3 @@
     align-items: center;
   }
 }
-
-// Keyframes
-
-@include animate-transit(dialog-backdrop, "fade");
-@include animate-transit(dialog);

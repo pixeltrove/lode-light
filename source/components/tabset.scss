@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .tabset {
@@ -48,7 +47,7 @@
     padding-bottom: $space-regular;
 
     &.is-transiting-in {
-      animation: tabset-panel-transit-in $transition-slow;
+      animation: fade-in $transition-slow;
     }
 
     &.is-shown {
@@ -60,7 +59,3 @@
     }
   }
 }
-
-// Keyframes
-
-@include animate-transit(tabset-panel, "fade", "in");
