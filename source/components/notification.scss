@@ -11,7 +11,7 @@
   background-color: $color-brand-light-a;
 
   &.is-transiting-out {
-    animation: fade-out $transition-regular;
+    animation: fade-out-regular $transition-regular;
   }
 
   &-heading {

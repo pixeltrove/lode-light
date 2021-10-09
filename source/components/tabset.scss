@@ -47,7 +47,7 @@
     padding-bottom: $space-regular;
 
     &.is-transiting-in {
-      animation: fade-in $transition-slow;
+      animation: fade-in-regular $transition-slow;
     }
 
     &.is-shown {

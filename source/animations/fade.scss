@@ -1,7 +1,7 @@
 // FADE
 // -----------------------------------------------------------------------------
 
-@keyframes fade-in {
+@keyframes fade-in-regular {
   0% {
     opacity: 0;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes fade-out {
+@keyframes fade-out-regular {
   0% {
     opacity: 1;
   }

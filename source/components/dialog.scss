@@ -23,11 +23,11 @@
   }
 
   &.is-transiting-in {
-    animation: slide-in $transition-slow;
+    animation: slide-in-regular $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: slide-out $transition-slow;
+    animation: slide-out-regular $transition-slow;
   }
 
   &-heading {
@@ -55,11 +55,11 @@
   }
 
   &.is-transiting-in {
-    animation: fade-in $transition-slow;
+    animation: fade-in-regular $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: fade-out $transition-slow;
+    animation: fade-out-regular $transition-slow;
   }
 }
 
