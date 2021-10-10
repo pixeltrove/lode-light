@@ -1,10 +1,12 @@
 // SLIDE
 // -----------------------------------------------------------------------------
 
+@use "../settings" as *;
+
 @keyframes slide-in-regular {
   from {
     opacity: 0;
-    transform: translateY(-1rem);
+    transform: translateY(-$translate-distance-regular);
   }
   to {
     opacity: 1;
@@ -19,6 +21,6 @@
   }
   to {
     opacity: 0;
-    transform: translateY(-1rem);
+    transform: translateY(-$translate-distance-regular);
   }
 }
