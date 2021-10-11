@@ -18,6 +18,8 @@
     outline: 0;
   }
 
+  &.is-transiting-in,
+  &.is-transiting-out,
   &.is-shown {
     display: block;
   }
@@ -50,6 +52,8 @@
   display: none;
   background-color: $color-black-transparent;
 
+  &.is-transiting-in,
+  &.is-transiting-out,
   &.is-shown {
     display: block;
   }
@@ -71,6 +75,8 @@
   z-index: $z-index-top;
   display: none;
 
+  &.is-transiting-in,
+  &.is-transiting-out,
   &.is-shown {
     display: flex;
     flex-direction: column;

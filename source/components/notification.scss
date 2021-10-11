@@ -11,6 +11,7 @@
   background-color: $color-brand-light-a;
 
   &.is-transiting-out {
+    display: block;
     animation: fade-out-regular $transition-regular;
   }
 
@@ -45,4 +46,3 @@
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
 }
-
