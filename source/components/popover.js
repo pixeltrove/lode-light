@@ -19,7 +19,7 @@ function Popover(popover) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      manageTransit("in", popover);
+      manageTransit(popover);
       position();
 
       window.addEventListener("resize", position);
@@ -28,7 +28,7 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      manageTransit("out", popover);
+      manageTransit(popover);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

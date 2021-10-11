@@ -22,7 +22,7 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      manageTransit("in", menu);
+      manageTransit(menu);
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -30,7 +30,7 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      manageTransit("out", menu);
+      manageTransit(menu);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

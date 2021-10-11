@@ -18,7 +18,7 @@ function Dialog(dialog) {
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    manageTransit("in", dialog, backdrop, wrapper);
+    manageTransit(dialog, backdrop, wrapper);
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -31,7 +31,7 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    manageTransit("out", dialog, backdrop, wrapper);
+    manageTransit(dialog, backdrop, wrapper);
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);

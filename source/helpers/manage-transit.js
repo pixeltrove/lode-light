@@ -3,8 +3,9 @@
 
 const CLASS_SHOWN = "is-shown";
 
-function manageTransit(phase, item, ...auxiliaries) {
-  const phaseClass = "is-transiting-" + `${phase}`;
+function manageTransit(item, ...auxiliaries) {
+  const isShown = item.classList.contains(CLASS_SHOWN);
+  const phaseClass = isShown ? "is-transiting-out" : "is-transiting-in";
 
   item.classList.add(phaseClass);
   auxiliaries.forEach((auxiliary) => {
@@ -12,15 +13,15 @@ function manageTransit(phase, item, ...auxiliaries) {
   });
 
   requestAnimationFrame(() => {
-    if (phase === "in") {
-      item.classList.add(CLASS_SHOWN);
-      auxiliaries.forEach((auxiliary) => {
-        auxiliary.classList.add(CLASS_SHOWN);
-      });
-    } else if (phase === "out") {
+    if (isShown) {
       item.classList.remove(CLASS_SHOWN);
       auxiliaries.forEach((auxiliary) => {
         auxiliary.classList.remove(CLASS_SHOWN);
+      });
+    } else if (!isShown) {
+      item.classList.add(CLASS_SHOWN);
+      auxiliaries.forEach((auxiliary) => {
+        auxiliary.classList.add(CLASS_SHOWN);
       });
     }
   });
