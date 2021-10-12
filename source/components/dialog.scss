@@ -18,9 +18,9 @@
     outline: 0;
   }
 
+  &.is-shown,
   &.is-transiting-in,
-  &.is-transiting-out,
-  &.is-shown {
+  &.is-transiting-out {
     display: block;
   }
 
@@ -52,9 +52,9 @@
   display: none;
   background-color: $color-black-transparent;
 
+  &.is-shown,
   &.is-transiting-in,
-  &.is-transiting-out,
-  &.is-shown {
+  &.is-transiting-out {
     display: block;
   }
 
@@ -75,9 +75,9 @@
   z-index: $z-index-top;
   display: none;
 
+  &.is-shown,
   &.is-transiting-in,
-  &.is-transiting-out,
-  &.is-shown {
+  &.is-transiting-out {
     display: flex;
     flex-direction: column;
     justify-content: center;

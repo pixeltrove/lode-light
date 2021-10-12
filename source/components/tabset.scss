@@ -46,8 +46,8 @@
     padding-top: $space-regular;
     padding-bottom: $space-regular;
 
-    &.is-transiting-in,
-    &.is-shown {
+    &.is-shown,
+    &.is-transiting-in {
       display: block;
     }
 

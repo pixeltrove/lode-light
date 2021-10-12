@@ -16,9 +16,9 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
+  &.is-shown,
   &.is-transiting-in,
-  &.is-transiting-out,
-  &.is-shown {
+  &.is-transiting-out {
     display: block;
   }
 
