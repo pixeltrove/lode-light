@@ -29,11 +29,9 @@ function Tabset(tabset) {
     });
 
     panels.forEach((panel) => {
-      if (panel.id === panelId) {
-        panel.classList.add(CLASS_SHOWN);
-
-        manageTransit(panel, "in");
-      } else {
+      if (panel.id === panelId && !panel.classList.contains(CLASS_SHOWN)) {
+        manageTransit(panel);
+      } else if (panel.id !== panelId) {
         panel.classList.remove(CLASS_SHOWN);
       }
     });

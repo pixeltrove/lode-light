@@ -9,9 +9,7 @@ const SELECTOR_DISMISS = "[data-dismiss]";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_DISMISS)) {
-      manageTransit(notification, "out").then(() => {
-        notification.remove();
-      });
+      manageTransit(notification);
     }
   }
 

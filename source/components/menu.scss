@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
@@ -16,16 +15,18 @@
   margin-bottom: 0;
   background-color: $color-white-regular;
 
+  &.is-shown,
+  &.is-transiting-in,
+  &.is-transiting-out {
+    display: block;
+  }
+
   &.is-transiting-in {
-    animation: menu-transit-in $transition-regular;
+    animation: slide-in-regular $transition-regular;
   }
 
   &.is-transiting-out {
-    animation: menu-transit-out $transition-regular;
-  }
-
-  &.is-shown {
-    display: block;
+    animation: slide-out-regular $transition-regular;
   }
 
   &-link {
@@ -59,7 +60,3 @@
   position: relative;
   display: inline-block;
 }
-
-// Keyframes
-
-@include animate-transit(menu);

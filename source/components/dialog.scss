@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
@@ -19,16 +18,18 @@
     outline: 0;
   }
 
-  &.is-shown {
+  &.is-shown,
+  &.is-transiting-in,
+  &.is-transiting-out {
     display: block;
   }
 
   &.is-transiting-in {
-    animation: dialog-transit-in $transition-slow;
+    animation: slide-in-regular $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: dialog-transit-out $transition-slow;
+    animation: slide-out-regular $transition-slow;
   }
 
   &-heading {
@@ -51,16 +52,18 @@
   display: none;
   background-color: $color-black-transparent;
 
-  &.is-shown {
+  &.is-shown,
+  &.is-transiting-in,
+  &.is-transiting-out {
     display: block;
   }
 
   &.is-transiting-in {
-    animation: dialog-backdrop-transit-in $transition-slow;
+    animation: fade-in-regular $transition-slow;
   }
 
   &.is-transiting-out {
-    animation: dialog-backdrop-transit-out $transition-slow;
+    animation: fade-out-regular $transition-slow;
   }
 }
 
@@ -72,15 +75,12 @@
   z-index: $z-index-top;
   display: none;
 
-  &.is-shown {
+  &.is-shown,
+  &.is-transiting-in,
+  &.is-transiting-out {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 }
-
-// Keyframes
-
-@include animate-transit(dialog-backdrop, "fade");
-@include animate-transit(dialog);
