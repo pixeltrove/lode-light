@@ -10,18 +10,13 @@ function manageTransit(...items) {
     const isShown = item.classList.contains(CLASS_SHOWN);
     const phaseClass = isShown ? CLASS_TRANSITING_OUT : CLASS_TRANSITING_IN;
 
-    if (!isShown) {
-      item.classList.add(CLASS_SHOWN);
-    }
     item.classList.add(phaseClass);
 
     item.addEventListener(
       "animationend",
       () => {
-        if (isShown) {
-          item.classList.remove(CLASS_SHOWN);
-        }
         item.classList.remove(phaseClass);
+        item.classList.toggle(CLASS_SHOWN);
       },
       { once: true }
     );
