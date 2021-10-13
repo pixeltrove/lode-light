@@ -8,12 +8,12 @@ $container-max-width-regular: 1240px;
 // Grid
 
 $grid-columns-regular: (
-  default: 2,
-  tablet: (
+  "default": 2,
+  "tablet": (
     2,
     3,
   ),
-  laptop: (
+  "laptop": (
     2,
     3,
     4,
@@ -22,8 +22,8 @@ $grid-columns-regular: (
 );
 
 $grid-gaps-regular: (
-  default: 1.25rem,
-  laptop: 2.5rem,
+  "default": 1.25rem,
+  "laptop": 2.5rem,
 );
 
 // Z-index
