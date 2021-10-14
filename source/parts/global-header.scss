@@ -25,7 +25,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible(default);
+      @include focus-visible;
     }
   }
 
@@ -53,7 +53,7 @@
       }
 
       &:focus-visible {
-        @include focus-visible(default);
+        @include focus-visible;
       }
     }
   }

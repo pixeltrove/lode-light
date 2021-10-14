@@ -186,7 +186,7 @@ video {
 audio[controls],
 video[controls] {
   &:focus-visible {
-    @include focus-visible(default);
+    @include focus-visible;
   }
 }
 
@@ -352,6 +352,6 @@ summary {
 
 [contenteditable] {
   &:focus-visible {
-    @include focus-visible(default);
+    @include focus-visible;
   }
 }
