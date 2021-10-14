@@ -4,6 +4,6 @@
 @use "../settings" as *;
 
 @mixin focus-visible {
-  outline: 3px solid $color-focal-regular;
-  outline-offset: 3px;
+  outline: 2px solid $color-focal-regular;
+  outline-offset: 2px;
 }
