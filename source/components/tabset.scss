@@ -37,7 +37,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible("regular");
+      @include focus-visible("regular", "regular");
     }
   }
 
