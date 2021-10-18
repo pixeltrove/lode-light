@@ -2,11 +2,9 @@
 // -----------------------------------------------------------------------------
 
 function toggleScroll() {
-  if (window.innerHeight >= document.body.scrollHeight) return;
-
   const scrollPosition = window.scrollY || Math.abs(parseInt(document.body.style.top));
 
-  if (document.body.style.overflowY === "") {
+  if (window.innerHeight < document.documentElement.scrollHeight && document.body.style.overflowY === "") {
     document.body.style.position = "fixed";
     document.body.style.top = -scrollPosition + "px";
     document.body.style.overflowY = "scroll";
