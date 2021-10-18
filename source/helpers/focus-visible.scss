@@ -4,36 +4,7 @@
 @use "../settings" as *;
 @use "sass:list";
 
-@mixin focus-visible($radii...) {
-  $radius: "implicit";
-  $border-radius: 0;
-
-  @if (list.length($radii) >= 2) {
-    $corners: ("top-left", "top-right", "bottom-right", "bottom-left");
-
-    @for $i from 1 through list.length($radii) {
-      $radius: list.nth($radii, $i);
-      $corner: list.nth($corners, $i);
-
-      @if $radius == "regular" {
-        $border-radius: $border-radius-regular;
-      } @else if $radius == "small" {
-        $border-radius: $border-radius-small;
-      }
-
-      border-#{$corner}-radius: $border-radius;
-    }
-  } @else if (list.length($radii) == 1) {
-    $radius: list.nth($radii, 1);
-    @if $radius == "regular" {
-      $border-radius: $border-radius-regular;
-    } @else if $radius == "small" {
-      $border-radius: $border-radius-small;
-    }
-
-    border-radius: $border-radius;
-  }
-
+@mixin focus-visible {
   outline: 2px solid $color-focal-regular;
   outline-offset: 2px;
 }
