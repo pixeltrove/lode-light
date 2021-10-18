@@ -44,8 +44,8 @@
     }
 
     &:focus-visible {
-      @include focus-visible(default);
-      border-radius: $border-radius-regular;
+      @include focus-visible;
+      border-radius: $border-radius-small;
     }
   }
 

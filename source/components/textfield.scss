@@ -17,7 +17,7 @@
   transition: outline $transition-regular, border-color $transition-regular;
 
   &:focus-visible {
-    @include focus-visible(default);
+    @include focus-visible;
   }
 
   &:disabled {

@@ -3,11 +3,7 @@
 
 @use "../settings" as *;
 
-@mixin focus-visible($style) {
-  @if ($style == "default") {
-    outline: 3px solid $color-focal-regular;
-    outline-offset: 3px;
-  } @else {
-    @error "Invalid visible focus style. Check spelling or review helper definition.";
-  }
+@mixin focus-visible {
+  outline: 2px solid $color-focal-regular;
+  outline-offset: 2px;
 }

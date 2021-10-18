@@ -25,7 +25,8 @@
     }
 
     &:focus-visible {
-      @include focus-visible(default);
+      @include focus-visible;
+      border-radius: $border-radius-small;
     }
   }
 }
