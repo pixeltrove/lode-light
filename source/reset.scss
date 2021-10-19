@@ -12,18 +12,6 @@
   box-sizing: border-box;
 }
 
-// Root
-
-:root {
-  font-size: $root-font-size;
-}
-
-// Focus
-
-:focus:not(:focus-visible) {
-  outline: 0;
-}
-
 // Body
 
 body {
