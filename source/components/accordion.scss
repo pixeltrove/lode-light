@@ -58,7 +58,8 @@
     display: none;
     transition: height $transition-regular;
 
-    &.is-shown {
+    &.is-shown,
+    &.is-transiting {
       display: block;
     }
   }

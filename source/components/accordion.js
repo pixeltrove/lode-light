@@ -7,6 +7,7 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
+const CLASS_TRANSITING = "is-transiting";
 const DATA_TOGGLE = "data-toggle";
 
 function Accordion(accordion) {
@@ -18,34 +19,23 @@ function Accordion(accordion) {
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
 
-    if (isShown) {
-      slat.classList.remove(CLASS_ACTIVATED);
-      slat.setAttribute("aria-expanded", "false");
-    } else {
-      slat.classList.add(CLASS_ACTIVATED);
-      slat.setAttribute("aria-expanded", "true");
-      panel.classList.add(CLASS_SHOWN);
-    }
+    slat.classList.toggle(CLASS_ACTIVATED);
+    slat.setAttribute("aria-expanded", isShown ? "false" : "true");
+    panel.classList.add(CLASS_TRANSITING);
+    panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+    panel.style.overflowY = "hidden";
 
-    requestAnimationFrame(() => {
-      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
-      panel.style.overflowY = "hidden";
-
-      requestAnimationFrame(() => {
-        panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
-      });
-    });
+    setTimeout(() => {
+      panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
+    }, 1);
 
     panel.addEventListener(
       "transitionend",
       () => {
+        panel.classList.remove(CLASS_TRANSITING);
+        panel.classList.toggle(CLASS_SHOWN);
         panel.style.overflowY = "";
-
-        if (isShown) {
-          panel.classList.remove(CLASS_SHOWN);
-        } else {
-          panel.style.height = "auto";
-        }
+        panel.style.height = "";
       },
       { once: true }
     );
