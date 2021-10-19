@@ -12,12 +12,6 @@
   box-sizing: border-box;
 }
 
-// Focus
-
-:focus:not(:focus-visible) {
-  outline: 0;
-}
-
 // Body
 
 body {
