@@ -28,22 +28,25 @@ function Accordion(accordion) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
+    const isToggling = panel.classList.contains(CLASS_TOGGLING);
 
-    slat.classList.toggle(CLASS_ACTIVATED);
-    slat.setAttribute("aria-expanded", isShown ? "false" : "true");
-    panel.classList.add(CLASS_TOGGLING);
-    panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
-    panel.style.overflowY = "hidden";
+    if (!isToggling) {
+      slat.classList.toggle(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", isShown ? "false" : "true");
+      panel.classList.add(CLASS_TOGGLING);
+      panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
+      panel.style.overflowY = "hidden";
 
-    panel.addEventListener(
-      "transitionend",
-      () => {
-        panel.classList.remove(CLASS_TOGGLING);
-        panel.classList.toggle(CLASS_SHOWN);
-        panel.style.overflowY = "";
-      },
-      { once: true }
-    );
+      panel.addEventListener(
+        "transitionend",
+        () => {
+          panel.classList.remove(CLASS_TOGGLING);
+          panel.classList.toggle(CLASS_SHOWN);
+          panel.style.overflowY = "";
+        },
+        { once: true }
+      );
+    }
   }
 
   function handleSlatClick(event) {
