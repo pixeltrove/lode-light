@@ -16,6 +16,14 @@ function Accordion(accordion) {
   const panels = Array.from(accordion.querySelectorAll(SELECTOR_PANEL));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
 
+  function setPanelHeight() {
+    panels.forEach((panel) => {
+      const isShown = panel.classList.contains(CLASS_SHOWN);
+
+      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+    });
+  }
+
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
@@ -36,16 +44,6 @@ function Accordion(accordion) {
       },
       { once: true }
     );
-  }
-
-  function setPanelHeight() {
-    panels.forEach((panel) => {
-      if (panel.classList.contains(CLASS_SHOWN)) {
-        panel.style.height = panel.scrollHeight + "px";
-      } else {
-        panel.style.height = 0;
-      }
-    });
   }
 
   function handleSlatClick(event) {
