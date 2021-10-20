@@ -8,7 +8,7 @@ const SELECTOR_PANEL = ".accordion-panel";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITING = "is-transiting";
+const CLASS_TOGGLING = "is-toggling";
 const DATA_TOGGLE = "data-toggle";
 
 function Accordion(accordion) {
@@ -31,14 +31,14 @@ function Accordion(accordion) {
 
     slat.classList.toggle(CLASS_ACTIVATED);
     slat.setAttribute("aria-expanded", isShown ? "false" : "true");
-    panel.classList.add(CLASS_TRANSITING);
+    panel.classList.add(CLASS_TOGGLING);
     panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
     panel.style.overflowY = "hidden";
 
     panel.addEventListener(
       "transitionend",
       () => {
-        panel.classList.remove(CLASS_TRANSITING);
+        panel.classList.remove(CLASS_TOGGLING);
         panel.classList.toggle(CLASS_SHOWN);
         panel.style.overflowY = "";
       },
