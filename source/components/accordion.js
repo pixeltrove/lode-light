@@ -38,6 +38,16 @@ function Accordion(accordion) {
     );
   }
 
+  function setPanelHeight() {
+    panels.forEach((panel) => {
+      if (panel.classList.contains(CLASS_SHOWN)) {
+        panel.style.height = panel.scrollHeight + "px";
+      } else {
+        panel.style.height = 0;
+      }
+    });
+  }
+
   function handleSlatClick(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
@@ -55,11 +65,7 @@ function Accordion(accordion) {
     }
   }
 
-  panels.forEach((panel) => {
-    if (panel.classList.contains(CLASS_SHOWN)) {
-      panel.style.height = panel.scrollHeight + "px";
-    }
-  });
+  setPanelHeight();
 
   accordion.addEventListener("click", handleSlatClick);
   accordion.addEventListener("keydown", handleSlatKeydown);
