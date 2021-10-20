@@ -4,51 +4,49 @@
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_ACCORDION = ".accordion";
+const SELECTOR_PANEL = ".accordion-panel";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
+const CLASS_TOGGLING = "is-toggling";
 const DATA_TOGGLE = "data-toggle";
 
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
+  const panels = Array.from(accordion.querySelectorAll(SELECTOR_PANEL));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
+
+  function setPanelHeight() {
+    panels.forEach((panel) => {
+      const isShown = panel.classList.contains(CLASS_SHOWN);
+
+      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+    });
+  }
 
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
     const panel = document.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
+    const isToggling = panel.classList.contains(CLASS_TOGGLING);
 
-    if (isShown) {
-      slat.classList.remove(CLASS_ACTIVATED);
-      slat.setAttribute("aria-expanded", "false");
-    } else {
-      slat.classList.add(CLASS_ACTIVATED);
-      slat.setAttribute("aria-expanded", "true");
-      panel.classList.add(CLASS_SHOWN);
-    }
-
-    requestAnimationFrame(() => {
-      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+    if (!isToggling) {
+      slat.classList.toggle(CLASS_ACTIVATED);
+      slat.setAttribute("aria-expanded", isShown ? "false" : "true");
+      panel.classList.add(CLASS_TOGGLING);
+      panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
       panel.style.overflowY = "hidden";
 
-      requestAnimationFrame(() => {
-        panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
-      });
-    });
-
-    panel.addEventListener(
-      "transitionend",
-      () => {
-        panel.style.overflowY = "";
-
-        if (isShown) {
-          panel.classList.remove(CLASS_SHOWN);
-        } else {
-          panel.style.height = "auto";
-        }
-      },
-      { once: true }
-    );
+      panel.addEventListener(
+        "transitionend",
+        () => {
+          panel.classList.remove(CLASS_TOGGLING);
+          panel.classList.toggle(CLASS_SHOWN);
+          panel.style.overflowY = "";
+        },
+        { once: true }
+      );
+    }
   }
 
   function handleSlatClick(event) {
@@ -67,6 +65,8 @@ function Accordion(accordion) {
       moveFocus(event.key, slats);
     }
   }
+
+  setPanelHeight();
 
   accordion.addEventListener("click", handleSlatClick);
   accordion.addEventListener("keydown", handleSlatKeydown);
