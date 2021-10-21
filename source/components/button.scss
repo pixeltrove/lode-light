@@ -47,39 +47,13 @@
   }
 }
 
-// Lean common
-
-[class*="-lean"] {
-  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
-  border-width: $border-width-regular;
-  border-style: solid;
-  background-color: transparent;
-
-  &:disabled {
-    border-color: $color-neutral-light-c;
-    background-color: transparent;
-  }
-}
-
-// Plain common
-
-[class*="-plain"] {
-  background-color: transparent;
-
-  &:disabled {
-    background-color: transparent;
-  }
-}
-
-// Lean and plain
+// Lean
 
 .button-lean {
-  border-color: $color-brand-medium;
-}
-
-.button-lean,
-.button-plain {
+  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
+  border: $border-width-regular solid $color-brand-medium;
   color: $color-brand-regular;
+  background-color: transparent;
 
   &.is-activated,
   &:hover {
@@ -89,6 +63,31 @@
   &:active {
     background-color: $color-brand-light-b;
   }
+
+  &:disabled {
+    border-color: $color-neutral-light-c;
+    background-color: transparent;
+  }
+}
+
+// Plain
+
+.button-plain {
+  color: $color-brand-regular;
+  background-color: transparent;
+
+  &.is-activated,
+  &:hover {
+    background-color: $color-brand-light-a;
+  }
+
+  &:active {
+    background-color: $color-brand-light-b;
+  }
+
+  &:disabled {
+    background-color: transparent;
+  }
 }
 
 // Iconic
@@ -96,7 +95,7 @@
 .button-iconic {
   padding: $space-small-b;
 
-  &[class*="-lean"] {
+  &.button-lean {
     padding: calc(#{$space-small-b} - #{$border-width-regular});
   }
 }
@@ -114,25 +113,24 @@
   &:active {
     background-color: $color-positive-dark-b;
   }
-}
 
-// Positive lean and plain
+  &.button-lean,
+  &.button-plain {
+    color: $color-positive-regular;
+    background-color: transparent;
 
-.button-positive-lean {
-  border-color: $color-positive-medium;
-}
+    &.is-activated,
+    &:hover {
+      background-color: $color-positive-light-a;
+    }
 
-.button-positive-lean,
-.button-positive-plain {
-  color: $color-positive-regular;
-
-  &.is-activated,
-  &:hover {
-    background-color: $color-positive-light-a;
+    &:active {
+      background-color: $color-positive-light-b;
+    }
   }
 
-  &:active {
-    background-color: $color-positive-light-b;
+  &.button-lean {
+    border-color: $color-positive-medium;
   }
 }
 
@@ -149,25 +147,24 @@
   &:active {
     background-color: $color-attentive-dark-b;
   }
-}
 
-// Attentive lean and plain
+  &.button-lean,
+  &.button-plain {
+    color: $color-attentive-regular;
+    background-color: transparent;
 
-.button-attentive-lean {
-  border-color: $color-attentive-medium;
-}
+    &.is-activated,
+    &:hover {
+      background-color: $color-attentive-light-a;
+    }
 
-.button-attentive-lean,
-.button-attentive-plain {
-  color: $color-attentive-regular;
-
-  &.is-activated,
-  &:hover {
-    background-color: $color-attentive-light-a;
+    &:active {
+      background-color: $color-attentive-light-b;
+    }
   }
 
-  &:active {
-    background-color: $color-attentive-light-b;
+  &.button-lean {
+    border-color: $color-attentive-medium;
   }
 }
 
@@ -184,25 +181,24 @@
   &:active {
     background-color: $color-negative-dark-b;
   }
-}
 
-// Negative lean and plain
+  &.button-lean,
+  &.button-plain {
+    color: $color-negative-regular;
+    background-color: transparent;
 
-.button-negative-lean {
-  border-color: $color-negative-medium;
-}
+    &.is-activated,
+    &:hover {
+      background-color: $color-negative-light-a;
+    }
 
-.button-negative-lean,
-.button-negative-plain {
-  color: $color-negative-regular;
-
-  &.is-activated,
-  &:hover {
-    background-color: $color-negative-light-a;
+    &:active {
+      background-color: $color-negative-light-b;
+    }
   }
 
-  &:active {
-    background-color: $color-negative-light-b;
+  &.button-lean {
+    border-color: $color-negative-medium;
   }
 }
 
@@ -219,24 +215,23 @@
   &:active {
     background-color: $color-neutral-dark-b;
   }
-}
 
-// Neutral lean and plain
+  &.button-lean,
+  &.button-plain {
+    color: $color-neutral-regular;
+    background-color: transparent;
 
-.button-neutral-lean {
-  border-color: $color-neutral-medium;
-}
+    &.is-activated,
+    &:hover {
+      background-color: $color-neutral-light-a;
+    }
 
-.button-neutral-lean,
-.button-neutral-plain {
-  color: $color-neutral-regular;
-
-  &.is-activated,
-  &:hover {
-    background-color: $color-neutral-light-a;
+    &:active {
+      background-color: $color-neutral-light-b;
+    }
   }
 
-  &:active {
-    background-color: $color-neutral-light-b;
+  &.button-lean {
+    border-color: $color-neutral-medium;
   }
 }
