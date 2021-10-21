@@ -47,31 +47,9 @@
   }
 }
 
-// Lean
+// Lean and plain
 
-.button-lean {
-  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
-  border: $border-width-regular solid $color-brand-medium;
-  color: $color-brand-regular;
-  background-color: transparent;
-
-  &.is-activated,
-  &:hover {
-    background-color: $color-brand-light-a;
-  }
-
-  &:active {
-    background-color: $color-brand-light-b;
-  }
-
-  &:disabled {
-    border-color: $color-neutral-light-c;
-    background-color: transparent;
-  }
-}
-
-// Plain
-
+.button-lean,
 .button-plain {
   color: $color-brand-regular;
   background-color: transparent;
@@ -87,6 +65,15 @@
 
   &:disabled {
     background-color: transparent;
+  }
+}
+
+.button-lean {
+  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
+  border: $border-width-regular solid $color-brand-medium;
+
+  &:disabled {
+    border-color: $color-neutral-light-c;
   }
 }
 
