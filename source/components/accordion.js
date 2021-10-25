@@ -66,10 +66,20 @@ function Accordion(accordion) {
     }
   }
 
+  function handleViewportResize() {
+    panels.forEach((panel) => {
+      const isShown = panel.classList.contains(CLASS_SHOWN);
+
+      panel.style.height = isShown ? "auto" : 0;
+      setPanelHeight();
+    });
+  }
+
   setPanelHeight();
 
   accordion.addEventListener("click", handleSlatClick);
   accordion.addEventListener("keydown", handleSlatKeydown);
+  window.addEventListener("resize", handleViewportResize);
 }
 
 const accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
