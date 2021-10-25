@@ -4,7 +4,6 @@
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_ACCORDION = ".accordion";
-const SELECTOR_PANEL = ".accordion-panel";
 const SELECTOR_SLAT = ".accordion-slat";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
@@ -13,16 +12,7 @@ const DATA_TOGGLE = "data-toggle";
 
 function Accordion(accordion) {
   const slats = Array.from(accordion.querySelectorAll(SELECTOR_SLAT));
-  const panels = Array.from(accordion.querySelectorAll(SELECTOR_PANEL));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
-
-  function setPanelHeight() {
-    panels.forEach((panel) => {
-      const isShown = panel.classList.contains(CLASS_SHOWN);
-
-      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
-    });
-  }
 
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
@@ -34,8 +24,12 @@ function Accordion(accordion) {
       slat.classList.toggle(CLASS_ACTIVATED);
       slat.setAttribute("aria-expanded", isShown ? "false" : "true");
       panel.classList.add(CLASS_TOGGLING);
-      panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
       panel.style.overflowY = "hidden";
+      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+
+      requestAnimationFrame(() => {
+        panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
+      });
 
       panel.addEventListener(
         "transitionend",
@@ -43,6 +37,7 @@ function Accordion(accordion) {
           panel.classList.remove(CLASS_TOGGLING);
           panel.classList.toggle(CLASS_SHOWN);
           panel.style.overflowY = "";
+          panel.style.height = isShown ? 0 : "auto";
         },
         { once: true }
       );
@@ -65,8 +60,6 @@ function Accordion(accordion) {
       moveFocus(event.key, slats);
     }
   }
-
-  setPanelHeight();
 
   accordion.addEventListener("click", handleSlatClick);
   accordion.addEventListener("keydown", handleSlatKeydown);
