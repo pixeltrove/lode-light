@@ -16,7 +16,7 @@ function Accordion(accordion) {
 
   function togglePanel(slat) {
     const panelId = slat.getAttribute(DATA_TOGGLE);
-    const panel = document.querySelector(`#${panelId}`);
+    const panel = accordion.querySelector(`#${panelId}`);
     const isShown = panel.classList.contains(CLASS_SHOWN);
     const isToggling = panel.classList.contains(CLASS_TOGGLING);
 
