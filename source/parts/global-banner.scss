@@ -24,8 +24,11 @@
 
   &-icon {
     flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
     margin-top: $space-small-e;
     margin-bottom: $space-small-e;
+    fill: currentColor;
   }
 
   &-message {
