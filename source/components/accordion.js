@@ -25,10 +25,13 @@ function Accordion(accordion) {
       slat.setAttribute("aria-expanded", isShown ? "false" : "true");
       panel.classList.add(CLASS_TOGGLING);
       panel.style.overflowY = "hidden";
-      panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
 
       requestAnimationFrame(() => {
-        panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
+        panel.style.height = isShown ? panel.scrollHeight + "px" : 0;
+
+        requestAnimationFrame(() => {
+          panel.style.height = isShown ? 0 : panel.scrollHeight + "px";
+        });
       });
 
       panel.addEventListener(
