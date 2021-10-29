@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import moveFocus from "../helpers/move-focus";
-import manageToggle from "../helpers/manage-toggle";
+import manageResize from "../helpers/manage-resize";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
@@ -15,7 +15,7 @@ function Accordion(accordion) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
     if (targetSlat) {
-      manageToggle(targetSlat);
+      manageResize(targetSlat);
     }
   }
 
