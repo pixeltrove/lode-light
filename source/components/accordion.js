@@ -12,17 +12,17 @@ function Accordion(accordion) {
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
 
   function handleSlatClick(event) {
-    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    const pressedSlat = event.target.closest(SELECTOR_SLAT);
 
-    if (targetSlat) {
-      toggleConvertible(targetSlat);
+    if (pressedSlat) {
+      toggleConvertible(pressedSlat);
     }
   }
 
   function handleSlatKeydown(event) {
-    const targetSlat = event.target.closest(SELECTOR_SLAT);
+    const pressedSlat = event.target.closest(SELECTOR_SLAT);
 
-    if (targetSlat && navigationKeys.includes(event.key)) {
+    if (pressedSlat && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, slats);
     }
