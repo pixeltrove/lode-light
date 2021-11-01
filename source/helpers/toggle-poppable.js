@@ -1,14 +1,14 @@
-// MANAGE TRANSIT
+// TOGGLE POPPABLE
 // -----------------------------------------------------------------------------
 
 const CLASS_SHOWN = "is-shown";
-const CLASS_TRANSITING_IN = "is-transiting-in";
-const CLASS_TRANSITING_OUT = "is-transiting-out";
+const CLASS_POPPING_IN = "is-popping-in";
+const CLASS_POPPING_OUT = "is-popping-out";
 
-function manageTransit(...items) {
+function togglePoppable(...items) {
   items.forEach((item) => {
     const isShown = item.classList.contains(CLASS_SHOWN);
-    const phaseClass = isShown ? CLASS_TRANSITING_OUT : CLASS_TRANSITING_IN;
+    const phaseClass = isShown ? CLASS_POPPING_OUT : CLASS_POPPING_IN;
 
     item.classList.add(phaseClass);
 
@@ -23,4 +23,4 @@ function manageTransit(...items) {
   });
 }
 
-export default manageTransit;
+export default togglePoppable;

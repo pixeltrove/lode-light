@@ -1,18 +1,18 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
+import togglePoppable from "../helpers/toggle-poppable";
 import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TOGGLE = "data-toggle";
+const DATA_POP = "data-pop";
 
 function Menu(menu) {
   const menuId = menu.id;
-  const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
+  const trigger = document.querySelector(`[${DATA_POP}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
 
   function toggle() {
@@ -22,7 +22,7 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      manageTransit(menu);
+      togglePoppable(menu);
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -30,7 +30,7 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      manageTransit(menu);
+      togglePoppable(menu);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
