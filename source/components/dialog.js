@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import togglePoppable from "../helpers/toggle-poppable";
-import toggleScroll from "../helpers/toggle-scroll";
+import lockScroll from "../helpers/lock-scroll";
 import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DIALOG = ".dialog";
@@ -22,7 +22,7 @@ function Dialog(dialog) {
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
+    lockScroll();
 
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
@@ -32,7 +32,7 @@ function Dialog(dialog) {
 
   function hide() {
     togglePoppable(dialog, backdrop, wrapper);
-    toggleScroll();
+    lockScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);
