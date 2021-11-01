@@ -1,28 +1,28 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
-import toggleScroll from "../helpers/toggle-scroll";
+import togglePoppable from "../helpers/toggle-poppable";
+import lockScroll from "../helpers/lock-scroll";
 import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
-const DATA_SHOW = "data-show";
+const DATA_POP = "data-pop";
 
 function Dialog(dialog) {
   const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
+  const trigger = document.querySelector(`[${DATA_POP}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    manageTransit(dialog, backdrop, wrapper);
+    togglePoppable(dialog, backdrop, wrapper);
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
+    lockScroll();
 
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
@@ -31,8 +31,8 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    manageTransit(dialog, backdrop, wrapper);
-    toggleScroll();
+    togglePoppable(dialog, backdrop, wrapper);
+    lockScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);

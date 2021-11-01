@@ -19,16 +19,16 @@
   }
 
   &.is-shown,
-  &.is-transiting-in,
-  &.is-transiting-out {
+  &.is-popping-in,
+  &.is-popping-out {
     display: block;
   }
 
-  &.is-transiting-in {
+  &.is-popping-in {
     animation: slide-in-regular $transition-slow;
   }
 
-  &.is-transiting-out {
+  &.is-popping-out {
     animation: slide-out-regular $transition-slow;
   }
 
@@ -53,16 +53,16 @@
   background-color: $color-black-transparent;
 
   &.is-shown,
-  &.is-transiting-in,
-  &.is-transiting-out {
+  &.is-popping-in,
+  &.is-popping-out {
     display: block;
   }
 
-  &.is-transiting-in {
+  &.is-popping-in {
     animation: fade-in-regular $transition-slow;
   }
 
-  &.is-transiting-out {
+  &.is-popping-out {
     animation: fade-out-regular $transition-slow;
   }
 }
@@ -76,8 +76,8 @@
   display: none;
 
   &.is-shown,
-  &.is-transiting-in,
-  &.is-transiting-out {
+  &.is-popping-in,
+  &.is-popping-out {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -16,16 +16,16 @@
   background-color: $color-white-regular;
 
   &.is-shown,
-  &.is-transiting-in,
-  &.is-transiting-out {
+  &.is-popping-in,
+  &.is-popping-out {
     display: block;
   }
 
-  &.is-transiting-in {
+  &.is-popping-in {
     animation: slide-in-regular $transition-regular;
   }
 
-  &.is-transiting-out {
+  &.is-popping-out {
     animation: slide-out-regular $transition-regular;
   }
 

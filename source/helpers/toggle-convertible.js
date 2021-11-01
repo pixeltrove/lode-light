@@ -1,21 +1,21 @@
-// MANAGE RESIZE
+// TOGGLE CONVERTIBLE
 // -----------------------------------------------------------------------------
 
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const CLASS_RESIZING = "is-resizing";
-const DATA_RESIZE = "data-resize";
+const CLASS_CONVERTING = "is-converting";
+const DATA_CONVERT = "data-convert";
 
-function manageResize(trigger) {
-  const targetId = trigger.getAttribute(DATA_RESIZE);
+function toggleConvertible(trigger) {
+  const targetId = trigger.getAttribute(DATA_CONVERT);
   const target = document.querySelector(`#${targetId}`);
   const isShown = target.classList.contains(CLASS_SHOWN);
-  const isToggling = target.classList.contains(CLASS_RESIZING);
+  const isConverting = target.classList.contains(CLASS_CONVERTING);
 
-  if (!isToggling) {
+  if (!isConverting) {
     trigger.classList.toggle(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", isShown ? "false" : "true");
-    target.classList.add(CLASS_RESIZING);
+    target.classList.add(CLASS_CONVERTING);
     target.style.overflowY = "hidden";
 
     requestAnimationFrame(() => {
@@ -29,7 +29,7 @@ function manageResize(trigger) {
     target.addEventListener(
       "transitionend",
       () => {
-        target.classList.remove(CLASS_RESIZING);
+        target.classList.remove(CLASS_CONVERTING);
         target.classList.toggle(CLASS_SHOWN);
         target.style.overflowY = "";
         target.style.height = isShown ? 0 : "auto";
@@ -39,4 +39,4 @@ function manageResize(trigger) {
   }
 }
 
-export default manageResize;
+export default toggleConvertible;

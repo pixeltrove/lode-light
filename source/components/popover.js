@@ -1,16 +1,16 @@
 // POPOVER
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
+import togglePoppable from "../helpers/toggle-poppable";
 
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TOGGLE = "data-toggle";
+const DATA_POP = "data-pop";
 
 function Popover(popover) {
   const popoverId = popover.id;
-  const trigger = document.querySelector(`[${DATA_TOGGLE}="${popoverId}"]`);
+  const trigger = document.querySelector(`[${DATA_POP}="${popoverId}"]`);
 
   function toggle() {
     const isShown = popover.classList.contains(CLASS_SHOWN);
@@ -19,7 +19,7 @@ function Popover(popover) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      manageTransit(popover);
+      togglePoppable(popover);
       position();
 
       window.addEventListener("resize", position);
@@ -28,7 +28,7 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      manageTransit(popover);
+      togglePoppable(popover);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

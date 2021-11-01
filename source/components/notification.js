@@ -1,7 +1,7 @@
 // NOTIFICATION
 // -----------------------------------------------------------------------------
 
-import manageTransit from "../helpers/manage-transit";
+import togglePoppable from "../helpers/toggle-poppable";
 
 const SELECTOR_NOTIFICATION = ".notification";
 const SELECTOR_DISMISS = "[data-dismiss]";
@@ -9,7 +9,7 @@ const SELECTOR_DISMISS = "[data-dismiss]";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_DISMISS)) {
-      manageTransit(notification);
+      togglePoppable(notification);
     }
   }
 

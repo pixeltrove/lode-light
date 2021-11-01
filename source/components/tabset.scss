@@ -49,11 +49,11 @@
     padding-bottom: $space-regular;
 
     &.is-shown,
-    &.is-transiting-in {
+    &.is-popping-in {
       display: block;
     }
 
-    &.is-transiting-in {
+    &.is-popping-in {
       animation: fade-in-regular $transition-slow;
     }
 

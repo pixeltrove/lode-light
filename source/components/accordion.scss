@@ -59,7 +59,7 @@
     transition: height $transition-regular;
 
     &.is-shown,
-    &.is-resizing {
+    &.is-converting {
       display: block;
     }
   }

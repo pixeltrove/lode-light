@@ -1,7 +1,7 @@
-// TOGGLE SCROLL
+// LOCK SCROLL
 // -----------------------------------------------------------------------------
 
-function toggleScroll() {
+function lockScroll() {
   const scrollPosition = window.scrollY || Math.abs(parseInt(document.body.style.top));
 
   if (window.innerHeight < document.documentElement.scrollHeight) {
@@ -16,4 +16,4 @@ function toggleScroll() {
   }
 }
 
-export default toggleScroll;
+export default lockScroll;
