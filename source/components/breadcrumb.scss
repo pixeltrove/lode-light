@@ -13,18 +13,6 @@
   &-item {
     display: flex;
     align-items: center;
-
-    &:not(:last-child) {
-      &::after {
-        content: "";
-        width: 0.75rem;
-        height: 0.75rem;
-        margin-left: $space-small-d;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3.79289 10.2929L4.5 11L9.44975 6.05025L4.5 1.10051L3.79289 1.80761L8.03553 6.05025L3.79289 10.2929Z'/></svg>");
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-    }
   }
 
   &-link {
@@ -42,5 +30,9 @@
       @include focus-visible;
       border-radius: $border-radius-small;
     }
+  }
+
+  &-icon-separator {
+    margin-left: $space-small-d;
   }
 }
