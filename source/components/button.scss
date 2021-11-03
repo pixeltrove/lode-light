@@ -33,8 +33,7 @@
   }
 
   &:disabled {
-    color: $color-neutral-medium !important;
-    background-color: $color-neutral-light-b !important;
+    opacity: 0.5;
     pointer-events: none;
   }
 
@@ -62,19 +61,11 @@
   &:active {
     background-color: $color-brand-light-b;
   }
-
-  &:disabled {
-    background-color: transparent !important;
-  }
 }
 
 .button-lean {
   padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
   border: $border-width-regular solid $color-brand-medium;
-
-  &:disabled {
-    border-color: $color-neutral-light-c !important;
-  }
 }
 
 // Iconic
