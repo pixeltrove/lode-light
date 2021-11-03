@@ -21,7 +21,7 @@
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: $opacity-medium;
   }
 
   &.is-invalid {
@@ -43,7 +43,7 @@
   cursor: pointer;
 
   &.is-disabled {
-    opacity: 0.5;
+    opacity: $opacity-medium;
     cursor: default;
   }
 }
