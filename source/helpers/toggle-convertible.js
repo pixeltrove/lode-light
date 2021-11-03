@@ -16,7 +16,6 @@ function toggleConvertible(trigger) {
     trigger.classList.toggle(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", isShown ? "false" : "true");
     convertible.classList.add(CLASS_CONVERTING);
-    convertible.style.overflowY = "hidden";
 
     requestAnimationFrame(() => {
       convertible.style.height = isShown ? convertible.scrollHeight + "px" : 0;
@@ -31,7 +30,6 @@ function toggleConvertible(trigger) {
       () => {
         convertible.classList.remove(CLASS_CONVERTING);
         convertible.classList.toggle(CLASS_SHOWN);
-        convertible.style.overflowY = "";
         convertible.style.height = isShown ? 0 : "auto";
       },
       { once: true }
