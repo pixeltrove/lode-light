@@ -54,6 +54,4 @@ function Tabset(tabset) {
   tabset.addEventListener("keydown", handleTabKeydown);
 }
 
-const tabsets = Array.from(document.querySelectorAll(SELECTOR_TABSET));
-
-tabsets.forEach((tabset) => Tabset(tabset));
+Array.from(document.querySelectorAll(SELECTOR_TABSET)).forEach((tabset) => Tabset(tabset));
