@@ -65,6 +65,4 @@ function Popover(popover) {
   trigger.addEventListener("click", toggle);
 }
 
-const popovers = Array.from(document.querySelectorAll(SELECTOR_POPOVER));
-
-popovers.forEach((popover) => Popover(popover));
+Array.from(document.querySelectorAll(SELECTOR_POPOVER)).forEach((popover) => Popover(popover));

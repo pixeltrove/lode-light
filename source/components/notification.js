@@ -16,6 +16,4 @@ function Notification(notification) {
   notification.addEventListener("click", handleDismiss);
 }
 
-const notifications = Array.from(document.querySelectorAll(SELECTOR_NOTIFICATION));
-
-notifications.forEach((notification) => Notification(notification));
+Array.from(document.querySelectorAll(SELECTOR_NOTIFICATION)).forEach((notification) => Notification(notification));
