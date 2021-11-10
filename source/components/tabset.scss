@@ -19,9 +19,9 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-regular calc(#{$space-small-b} - #{$border-width-regular});
+    padding: $space-small-b $space-regular calc(#{$space-small-b} - #{$border-width-thick-b});
     border: 0 solid transparent;
-    border-bottom-width: $border-width-regular;
+    border-bottom-width: $border-width-thick-b;
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
