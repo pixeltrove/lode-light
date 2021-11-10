@@ -12,6 +12,8 @@
   transition: text-decoration-color $transition-regular, outline $transition-regular;
 
   &:hover {
+    color: $color-brand-dark-a;
+    text-decoration-thickness: 0.125rem;
     text-decoration-color: $color-brand-regular;
   }
 
@@ -28,6 +30,7 @@
   text-decoration-color: $color-neutral-medium;
 
   &:hover {
+    color: $color-neutral-dark-a;
     text-decoration-color: $color-neutral-regular;
   }
 }
