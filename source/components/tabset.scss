@@ -27,12 +27,12 @@
     background-color: transparent;
     transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
 
-    &:hover,
-    &.is-activated {
-      color: $color-brand-regular;
+    &:hover {
+      color: $color-brand-dark-a;
     }
 
     &.is-activated {
+      color: $color-brand-regular;
       border-bottom-color: $color-brand-regular;
     }
 
