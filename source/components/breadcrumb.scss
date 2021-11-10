@@ -23,7 +23,9 @@
     transition: text-decoration-color $transition-regular, outline $transition-regular;
 
     &:hover {
-      text-decoration-color: $color-neutral-regular;
+      color: $color-neutral-dark-a;
+      text-decoration-thickness: 0.125rem;
+      text-decoration-color: $color-neutral-dark-a;
     }
 
     &:focus-visible {
