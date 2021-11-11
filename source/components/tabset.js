@@ -1,8 +1,8 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import moveFocus from "../helpers/accessibility/move-focus";
-import togglePoppable from "../helpers/miscellaneous/toggle-poppable";
+import moveFocus from "../helpers/move-focus";
+import togglePoppable from "../helpers/toggle-poppable";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";

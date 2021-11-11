@@ -1,8 +1,8 @@
 // DEFINE CONTAINER
 // -----------------------------------------------------------------------------
 
-@use "../../settings" as *;
-@use "../helpers/set-breakpoint" as *;
+@use "../settings" as *;
+@use "../set-breakpoint" as *;
 
 @mixin define-container {
   max-width: $container-max-width-regular;

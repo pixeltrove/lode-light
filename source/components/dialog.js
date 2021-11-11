@@ -1,9 +1,9 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import trapFocus from "../helpers/accessibility/trap-focus";
-import lockScroll from "../helpers/miscellaneous/lock-scroll";
-import togglePoppable from "../helpers/miscellaneous/toggle-poppable";
+import lockScroll from "../helpers/lock-scroll";
+import togglePoppable from "../helpers/toggle-poppable";
+import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";

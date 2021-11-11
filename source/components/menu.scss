@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/accessibility/focus-visible" as *;
-@use "../helpers/animation/slide" as *;
+@use "../helpers/animate-slide" as *;
+@use "../helpers/focus-visible" as *;
 
 .menu {
   position: absolute;

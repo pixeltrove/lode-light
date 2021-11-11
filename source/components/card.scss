@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/accessibility/focus-visible" as *;
+@use "../helpers/focus-visible" as *;
 
 .card {
   display: block;

@@ -1,8 +1,8 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import moveFocus from "../helpers/accessibility/move-focus";
-import toggleConvertible from "../helpers/miscellaneous/toggle-convertible";
+import moveFocus from "../helpers/move-focus";
+import toggleConvertible from "../helpers/toggle-convertible";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";

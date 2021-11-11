@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/accessibility/focus-visible" as *;
-@use "../helpers/layout/set-breakpoint" as *;
+@use "../helpers/focus-visible" as *;
+@use "../helpers/set-breakpoint" as *;
 
 .global-header {
   display: flex;

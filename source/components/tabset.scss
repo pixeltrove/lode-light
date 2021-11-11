@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/accessibility/focus-visible" as *;
-@use "../helpers/animation/fade" as *;
+@use "../helpers/animate-fade" as *;
+@use "../helpers/focus-visible" as *;
 
 .tabset {
   color: $color-neutral-regular;

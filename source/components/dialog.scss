@@ -2,9 +2,9 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/accessibility/focus-visible" as *;
-@use "../helpers/animation/fade" as *;
-@use "../helpers/animation/slide" as *;
+@use "../helpers/animate-fade" as *;
+@use "../helpers/animate-slide" as *;
+@use "../helpers/focus-visible" as *;
 
 .dialog {
   display: none;

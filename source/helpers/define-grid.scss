@@ -3,8 +3,8 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "../../settings" as *;
-@use "../helpers/set-breakpoint" as *;
+@use "../settings" as *;
+@use "../set-breakpoint" as *;
 
 @mixin define-grid {
   display: grid;
