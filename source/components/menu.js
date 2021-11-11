@@ -1,8 +1,8 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import togglePoppable from "../helpers/toggle-poppable";
-import moveFocus from "../helpers/move-focus";
+import moveFocus from "../helpers/accessibility/move-focus";
+import togglePoppable from "../helpers/miscellaneous/toggle-poppable";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";

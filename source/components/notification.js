@@ -1,7 +1,7 @@
 // NOTIFICATION
 // -----------------------------------------------------------------------------
 
-import togglePoppable from "../helpers/toggle-poppable";
+import togglePoppable from "../helpers/miscellaneous/toggle-poppable";
 
 const SELECTOR_NOTIFICATION = ".notification";
 const SELECTOR_DISMISS = "[data-dismiss]";

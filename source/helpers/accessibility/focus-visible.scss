@@ -1,7 +1,7 @@
 // FOCUS VISIBLE
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
+@use "../../settings" as *;
 
 @mixin focus-visible {
   outline: 2px solid $color-focal-regular;

@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "sass:map";
-@use "../settings" as *;
+@use "../../settings" as *;
 
 @mixin set-breakpoint($name) {
   @if ($name == "default") {
