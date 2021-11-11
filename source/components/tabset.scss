@@ -28,7 +28,7 @@
     transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-regular;
     }
 
     &.is-activated {
