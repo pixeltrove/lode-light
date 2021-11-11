@@ -1,12 +1,12 @@
-// GRID
+// DEFINE GRID
 // -----------------------------------------------------------------------------
 
 @use "sass:list";
 @use "sass:map";
-@use "../settings" as *;
+@use "../../settings" as *;
 @use "../helpers/set-breakpoint" as *;
 
-.grid {
+@mixin define-grid {
   display: grid;
   gap: map.get($grid-gaps-regular, "default");
 
