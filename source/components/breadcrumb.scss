@@ -17,13 +17,12 @@
 
   &-link {
     color: $color-neutral-regular;
-    text-decoration: underline;
-    text-decoration-color: $color-neutral-medium;
+    text-decoration: $border-width-regular underline $color-neutral-medium;
     text-underline-offset: 0.25rem;
-    transition: text-decoration-color $transition-regular, outline $transition-regular;
+    transition: text-decoration $transition-regular, outline $transition-regular;
 
     &:hover {
-      text-decoration-thickness: 0.125rem;
+      text-decoration-thickness: $border-width-thick-b;
       text-decoration-color: $color-neutral-regular;
     }
 

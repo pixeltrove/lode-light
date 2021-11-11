@@ -6,13 +6,12 @@
 
 .link {
   color: $color-brand-regular;
-  text-decoration: underline;
-  text-decoration-color: $color-brand-medium;
+  text-decoration: $border-width-regular underline $color-brand-medium;
   text-underline-offset: 0.25rem;
-  transition: text-decoration-color $transition-regular, outline $transition-regular;
+  transition: text-decoration $transition-regular, outline $transition-regular;
 
   &:hover {
-    text-decoration-thickness: 0.125rem;
+    text-decoration-thickness: $border-width-thick-b;
     text-decoration-color: $color-brand-regular;
   }
 
