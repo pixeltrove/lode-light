@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/animation/fade" as *;
 @use "../helpers/focus-visible" as *;
 
 .tabset {

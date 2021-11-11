@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/animation/slide" as *;
 @use "../helpers/focus-visible" as *;
 
 .popover {
