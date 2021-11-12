@@ -1,8 +1,8 @@
 // MENU
 // -----------------------------------------------------------------------------
 
+import focusKeyable from "../helpers/focus-keyable";
 import togglePoppable from "../helpers/toggle-poppable";
-import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
@@ -63,7 +63,7 @@ function Menu(menu) {
   function handleLinkKeydown(event) {
     if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key, links);
+      focusKeyable(event.key, links);
     }
   }
 

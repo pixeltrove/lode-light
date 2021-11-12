@@ -1,8 +1,8 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
+import focusKeyable from "../helpers/focus-keyable";
 import togglePoppable from "../helpers/toggle-poppable";
-import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
@@ -46,7 +46,7 @@ function Tabset(tabset) {
   function handleTabKeydown(event) {
     if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key, tabs);
+      focusKeyable(event.key, tabs);
     }
   }
 

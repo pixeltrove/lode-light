@@ -1,9 +1,9 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import togglePoppable from "../helpers/toggle-poppable";
+import focusInside from "../helpers/focus-inside";
 import lockScroll from "../helpers/lock-scroll";
-import trapFocus from "../helpers/trap-focus";
+import togglePoppable from "../helpers/toggle-poppable";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
@@ -60,7 +60,7 @@ function Dialog(dialog) {
 
   function handleFocusTrap(event) {
     if (event.key === "Tab") {
-      trapFocus(event, dialog);
+      focusInside(event, dialog);
     }
   }
 

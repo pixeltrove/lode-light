@@ -24,12 +24,6 @@
 @use "./components/tabset";
 @use "./components/textfield";
 
-// ORGANIZERS
-// -----------------------------------------------------------------------------
-
-@use "./organizers/container";
-@use "./organizers/grid";
-
 // PARTS
 // -----------------------------------------------------------------------------
 
@@ -37,9 +31,3 @@
 @use "./parts/global-footer";
 @use "./parts/global-header";
 @use "./parts/local-navigation";
-
-// ANIMATIONS
-// -----------------------------------------------------------------------------
-
-@use "./animations/fade";
-@use "./animations/slide";

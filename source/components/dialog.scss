@@ -2,6 +2,8 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/animate-fade" as *;
+@use "../helpers/animate-slide" as *;
 @use "../helpers/focus-visible" as *;
 
 .dialog {
