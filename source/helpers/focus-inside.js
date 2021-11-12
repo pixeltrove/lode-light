@@ -1,7 +1,7 @@
-// TRAP FOCUS
+// FOCUS INSIDE
 // -----------------------------------------------------------------------------
 
-function trapFocus(event, element) {
+function focusInside(event, element) {
   const focusableElements = Array.from(element.querySelectorAll("a[href], audio[controls], button:not([disabled]), input:not([disabled]), select:not([disabled]), summary, textarea:not([disabled]), video[controls], [contenteditable]"));
   const lastIndex = focusableElements.length - 1;
   const focusIndex = focusableElements.indexOf(document.activeElement);
@@ -15,4 +15,4 @@ function trapFocus(event, element) {
   }
 }
 
-export default trapFocus;
+export default focusInside;
