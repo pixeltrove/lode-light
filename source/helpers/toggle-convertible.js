@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_SHOWN = "is-shown";
 const CLASS_CONVERTING = "is-converting";
+const CLASS_SHOWN = "is-shown";
 const DATA_CONVERT = "data-convert";
 
 function toggleConvertible(trigger) {
