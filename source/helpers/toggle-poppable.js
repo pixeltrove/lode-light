@@ -1,9 +1,9 @@
 // TOGGLE POPPABLE
 // -----------------------------------------------------------------------------
 
-const CLASS_SHOWN = "is-shown";
 const CLASS_POPPING_IN = "is-popping-in";
 const CLASS_POPPING_OUT = "is-popping-out";
+const CLASS_SHOWN = "is-shown";
 
 function togglePoppable(...items) {
   items.forEach((item) => {
