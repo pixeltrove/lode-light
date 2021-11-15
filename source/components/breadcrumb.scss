@@ -33,6 +33,9 @@
   }
 
   &-icon-separator {
+    width: 0.75rem;
+    height: 0.75rem;
     margin-left: $space-small-d;
+    fill: currentColor;
   }
 }

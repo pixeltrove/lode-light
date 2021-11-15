@@ -45,7 +45,10 @@
   }
 
   &-icon-indicator {
+    width: 1rem;
+    height: 1rem;
     margin-left: auto;
+    fill: currentColor;
     transition: transform $transition-regular;
 
     @at-root .accordion-slat.is-activated & {
