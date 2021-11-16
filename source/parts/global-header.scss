@@ -7,12 +7,17 @@
 @use "../helpers/set-breakpoint" as *;
 
 .global-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
   &-container {
     @include define-container;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include set-breakpoint(tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: stretch;
+    }
   }
 
   &-brand {
@@ -63,11 +68,5 @@
         border-radius: $border-radius-regular;
       }
     }
-  }
-
-  @include set-breakpoint(tablet) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
   }
 }
