@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/define-container" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
@@ -12,7 +13,8 @@
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
-  &-inside {
+  &-container {
+    @include define-container;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
