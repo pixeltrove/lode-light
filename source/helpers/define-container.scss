@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../set-breakpoint" as *;
+@use "set-breakpoint" as *;
 
 @mixin define-container {
   max-width: $container-max-width-regular;

@@ -2,12 +2,17 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
+@use "../helpers/define-container" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .global-footer {
   padding-top: $space-large-a;
   padding-bottom: $space-large-a;
+
+  &-container {
+    @include define-container;
+  }
 
   &-list {
     display: flex;
