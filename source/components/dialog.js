@@ -3,22 +3,22 @@
 
 import focusInside from "../helpers/focus-inside";
 import lockScroll from "../helpers/lock-scroll";
-import togglePoppable from "../helpers/toggle-poppable";
+import toggleModal from "../helpers/toggle-modal";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
-const DATA_POP = "data-pop";
+const DATA_REVEAL = "data-reveal";
 
 function Dialog(dialog) {
   const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_POP}="${dialogId}"]`);
+  const revealer = document.querySelector(`[${DATA_REVEAL}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    togglePoppable(dialog, backdrop, wrapper);
+    toggleModal(dialog, backdrop, wrapper);
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
@@ -31,7 +31,7 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    togglePoppable(dialog, backdrop, wrapper);
+    toggleModal(dialog, backdrop, wrapper);
     lockScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
@@ -64,7 +64,7 @@ function Dialog(dialog) {
     }
   }
 
-  trigger.addEventListener("click", show);
+  revealer.addEventListener("click", show);
 }
 
 Array.from(document.querySelectorAll(SELECTOR_DIALOG)).forEach((dialog) => Dialog(dialog));
