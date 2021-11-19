@@ -10,9 +10,9 @@ function toggleConvertible(trigger) {
   const convertibleId = trigger.getAttribute(DATA_CONVERT);
   const convertible = document.querySelector(`#${convertibleId}`);
   const isShown = convertible.classList.contains(CLASS_SHOWN);
-  const isConverting = convertible.classList.contains(CLASS_PHASING);
+  const isPhasing = convertible.classList.contains(CLASS_PHASING);
 
-  if (!isConverting) {
+  if (!isPhasing) {
     trigger.classList.toggle(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", isShown ? "false" : "true");
     convertible.classList.add(CLASS_PHASING);

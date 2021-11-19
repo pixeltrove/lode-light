@@ -8,14 +8,14 @@ const CLASS_SHOWN = "is-shown";
 function togglePoppable(...items) {
   items.forEach((item) => {
     const isShown = item.classList.contains(CLASS_SHOWN);
-    const phaseClass = isShown ? CLASS_PHASING_OUT : CLASS_PHASING_IN;
+    const phasingClass = isShown ? CLASS_PHASING_OUT : CLASS_PHASING_IN;
 
-    item.classList.add(phaseClass);
+    item.classList.add(phasingClass);
 
     item.addEventListener(
       "animationend",
       () => {
-        item.classList.remove(phaseClass);
+        item.classList.remove(phasingClass);
         item.classList.toggle(CLASS_SHOWN);
       },
       { once: true }
