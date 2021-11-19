@@ -61,7 +61,7 @@
     transition: height $transition-regular;
 
     &.is-shown,
-    &.is-converting {
+    &.is-phasing {
       display: block;
     }
   }

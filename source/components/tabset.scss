@@ -50,11 +50,11 @@
     padding-bottom: $space-regular;
 
     &.is-shown,
-    &.is-popping-in {
+    &.is-phasing-in {
       display: block;
     }
 
-    &.is-popping-in {
+    &.is-phasing-in {
       animation: fade-in-regular $transition-slow;
     }
 

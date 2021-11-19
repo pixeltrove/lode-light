@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_CONVERTING = "is-converting";
+const CLASS_PHASING = "is-phasing";
 const CLASS_SHOWN = "is-shown";
 const DATA_CONVERT = "data-convert";
 
@@ -10,12 +10,12 @@ function toggleConvertible(trigger) {
   const convertibleId = trigger.getAttribute(DATA_CONVERT);
   const convertible = document.querySelector(`#${convertibleId}`);
   const isShown = convertible.classList.contains(CLASS_SHOWN);
-  const isConverting = convertible.classList.contains(CLASS_CONVERTING);
+  const isConverting = convertible.classList.contains(CLASS_PHASING);
 
   if (!isConverting) {
     trigger.classList.toggle(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", isShown ? "false" : "true");
-    convertible.classList.add(CLASS_CONVERTING);
+    convertible.classList.add(CLASS_PHASING);
     convertible.style.overflowY = "hidden";
 
     requestAnimationFrame(() => {
@@ -29,7 +29,7 @@ function toggleConvertible(trigger) {
     convertible.addEventListener(
       "transitionend",
       () => {
-        convertible.classList.remove(CLASS_CONVERTING);
+        convertible.classList.remove(CLASS_PHASING);
         convertible.classList.toggle(CLASS_SHOWN);
         convertible.style.overflowY = "";
         convertible.style.height = isShown ? 0 : "auto";

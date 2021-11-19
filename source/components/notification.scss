@@ -10,7 +10,7 @@
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
-  &.is-popping-out {
+  &.is-phasing-out {
     display: block;
     animation: fade-out-regular $transition-regular;
   }
