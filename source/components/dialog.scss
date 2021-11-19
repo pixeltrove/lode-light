@@ -21,16 +21,16 @@
   }
 
   &.is-shown,
-  &.is-popping-in,
-  &.is-popping-out {
+  &.is-phasing-in,
+  &.is-phasing-out {
     display: block;
   }
 
-  &.is-popping-in {
+  &.is-phasing-in {
     animation: slide-in-regular $transition-slow;
   }
 
-  &.is-popping-out {
+  &.is-phasing-out {
     animation: slide-out-regular $transition-slow;
   }
 
@@ -55,16 +55,16 @@
   background-color: $color-black-transparent;
 
   &.is-shown,
-  &.is-popping-in,
-  &.is-popping-out {
+  &.is-phasing-in,
+  &.is-phasing-out {
     display: block;
   }
 
-  &.is-popping-in {
+  &.is-phasing-in {
     animation: fade-in-regular $transition-slow;
   }
 
-  &.is-popping-out {
+  &.is-phasing-out {
     animation: fade-out-regular $transition-slow;
   }
 }
@@ -78,8 +78,8 @@
   display: none;
 
   &.is-shown,
-  &.is-popping-in,
-  &.is-popping-out {
+  &.is-phasing-in,
+  &.is-phasing-out {
     display: flex;
     flex-direction: column;
     justify-content: center;

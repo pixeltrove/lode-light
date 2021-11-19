@@ -1,21 +1,21 @@
 // TOGGLE POPPABLE
 // -----------------------------------------------------------------------------
 
-const CLASS_POPPING_IN = "is-popping-in";
-const CLASS_POPPING_OUT = "is-popping-out";
+const CLASS_PHASING_IN = "is-phasing-in";
+const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 
 function togglePoppable(...items) {
   items.forEach((item) => {
     const isShown = item.classList.contains(CLASS_SHOWN);
-    const phaseClass = isShown ? CLASS_POPPING_OUT : CLASS_POPPING_IN;
+    const phasingClass = isShown ? CLASS_PHASING_OUT : CLASS_PHASING_IN;
 
-    item.classList.add(phaseClass);
+    item.classList.add(phasingClass);
 
     item.addEventListener(
       "animationend",
       () => {
-        item.classList.remove(phaseClass);
+        item.classList.remove(phasingClass);
         item.classList.toggle(CLASS_SHOWN);
       },
       { once: true }
