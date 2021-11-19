@@ -9,11 +9,11 @@ const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
 const SELECTOR_HIDE = "[data-hide]";
-const DATA_POP = "data-pop";
+const DATA_SHOW = "data-show";
 
 function Dialog(dialog) {
   const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_POP}="${dialogId}"]`);
+  const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 

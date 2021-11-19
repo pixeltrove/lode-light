@@ -4,10 +4,10 @@
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_PHASING = "is-phasing";
 const CLASS_SHOWN = "is-shown";
-const DATA_CONVERT = "data-convert";
+const DATA_TOGGLE = "data-toggle";
 
 function toggleConvertible(trigger) {
-  const convertibleId = trigger.getAttribute(DATA_CONVERT);
+  const convertibleId = trigger.getAttribute(DATA_TOGGLE);
   const convertible = document.querySelector(`#${convertibleId}`);
   const isShown = convertible.classList.contains(CLASS_SHOWN);
   const isPhasing = convertible.classList.contains(CLASS_PHASING);

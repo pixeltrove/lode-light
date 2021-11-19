@@ -6,11 +6,11 @@ import togglePoppable from "../helpers/toggle-poppable";
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_POP = "data-pop";
+const DATA_TOGGLE = "data-toggle";
 
 function Popover(popover) {
   const popoverId = popover.id;
-  const trigger = document.querySelector(`[${DATA_POP}="${popoverId}"]`);
+  const trigger = document.querySelector(`[${DATA_TOGGLE}="${popoverId}"]`);
 
   function toggle() {
     const isShown = popover.classList.contains(CLASS_SHOWN);
