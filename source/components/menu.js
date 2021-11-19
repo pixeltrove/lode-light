@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import focusKeyable from "../helpers/focus-keyable";
-import togglePoppable from "../helpers/toggle-poppable";
+import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
@@ -22,7 +22,7 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      togglePoppable(menu);
+      managePhasing(menu);
 
       document.addEventListener("click", handleOutsideClick);
       document.addEventListener("keydown", handleEscape);
@@ -30,7 +30,7 @@ function Menu(menu) {
       menu.addEventListener("keydown", handleTab);
       menu.addEventListener("keydown", handleLinkKeydown);
     } else {
-      togglePoppable(menu);
+      managePhasing(menu);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);

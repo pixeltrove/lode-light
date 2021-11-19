@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import focusKeyable from "../helpers/focus-keyable";
-import toggleConvertible from "../helpers/toggle-convertible";
+import toggleCollapsible from "../helpers/toggle-collapsible";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
@@ -15,7 +15,7 @@ function Accordion(accordion) {
     const pressedSlat = event.target.closest(SELECTOR_SLAT);
 
     if (pressedSlat) {
-      toggleConvertible(pressedSlat);
+      toggleCollapsible(pressedSlat);
     }
   }
 

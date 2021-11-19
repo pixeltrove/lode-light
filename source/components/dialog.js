@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 import focusInside from "../helpers/focus-inside";
-import lockScroll from "../helpers/lock-scroll";
-import togglePoppable from "../helpers/toggle-poppable";
+import managePhasing from "../helpers/manage-phasing";
+import toggleScroll from "../helpers/toggle-scroll";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
@@ -18,11 +18,11 @@ function Dialog(dialog) {
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    togglePoppable(dialog, backdrop, wrapper);
+    managePhasing(dialog, backdrop, wrapper);
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    lockScroll();
+    toggleScroll();
 
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
@@ -31,8 +31,8 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    togglePoppable(dialog, backdrop, wrapper);
-    lockScroll();
+    managePhasing(dialog, backdrop, wrapper);
+    toggleScroll();
 
     dialog.removeEventListener("keydown", handleFocusTrap);
     dialog.removeEventListener("click", handleHideClick);

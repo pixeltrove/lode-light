@@ -1,7 +1,7 @@
 // NOTIFICATION
 // -----------------------------------------------------------------------------
 
-import togglePoppable from "../helpers/toggle-poppable";
+import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_NOTIFICATION = ".notification";
 const SELECTOR_DISMISS = "[data-dismiss]";
@@ -9,7 +9,7 @@ const SELECTOR_DISMISS = "[data-dismiss]";
 function Notification(notification) {
   function handleDismiss(event) {
     if (event.target.closest(SELECTOR_DISMISS)) {
-      togglePoppable(notification);
+      managePhasing(notification);
     }
   }
 
