@@ -1,11 +1,11 @@
-// TOGGLE POPPABLE
+// MANAGE PHASING
 // -----------------------------------------------------------------------------
 
 const CLASS_PHASING_IN = "is-phasing-in";
 const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 
-function togglePoppable(...items) {
+function managePhasing(...items) {
   items.forEach((item) => {
     const isShown = item.classList.contains(CLASS_SHOWN);
     const phasingClass = isShown ? CLASS_PHASING_OUT : CLASS_PHASING_IN;
@@ -23,4 +23,4 @@ function togglePoppable(...items) {
   });
 }
 
-export default togglePoppable;
+export default managePhasing;

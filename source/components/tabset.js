@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 import focusKeyable from "../helpers/focus-keyable";
-import togglePoppable from "../helpers/toggle-poppable";
+import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
@@ -30,7 +30,7 @@ function Tabset(tabset) {
 
     panels.forEach((panel) => {
       if (panel.id === panelId && !panel.classList.contains(CLASS_SHOWN)) {
-        togglePoppable(panel);
+        managePhasing(panel);
       } else if (panel.id !== panelId) {
         panel.classList.remove(CLASS_SHOWN);
       }

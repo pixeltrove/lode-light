@@ -1,7 +1,7 @@
 // POPOVER
 // -----------------------------------------------------------------------------
 
-import togglePoppable from "../helpers/toggle-poppable";
+import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_POPOVER = ".popover";
 const CLASS_ACTIVATED = "is-activated";
@@ -19,7 +19,7 @@ function Popover(popover) {
     trigger.setAttribute("aria-expanded", !isShown);
 
     if (!isShown) {
-      togglePoppable(popover);
+      managePhasing(popover);
       position();
 
       window.addEventListener("resize", position);
@@ -28,7 +28,7 @@ function Popover(popover) {
       trigger.addEventListener("keydown", handleTab);
       popover.addEventListener("keydown", handleTab);
     } else {
-      togglePoppable(popover);
+      managePhasing(popover);
 
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("keydown", handleEscape);
