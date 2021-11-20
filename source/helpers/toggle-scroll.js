@@ -2,18 +2,14 @@
 // -----------------------------------------------------------------------------
 
 function toggleScroll() {
+  const isScrollable = window.innerHeight < document.documentElement.scrollHeight;
   const scrollPosition = window.scrollY || Math.abs(parseInt(document.body.style.top));
 
-  if (window.innerHeight < document.documentElement.scrollHeight) {
-    document.body.style.position = "fixed";
-    document.body.style.top = -scrollPosition + "px";
-    document.body.style.overflowY = "scroll";
-  } else {
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.overflowY = "";
-    window.scroll(0, scrollPosition);
-  }
+  document.body.style.position = isScrollable ? "fixed" : "";
+  document.body.style.top = isScrollable ? -scrollPosition + "px" : "";
+  document.body.style.overflowY = isScrollable ? "scroll" : "";
+
+  window.scroll(0, scrollPosition);
 }
 
 export default toggleScroll;
