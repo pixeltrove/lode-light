@@ -48,7 +48,7 @@
 // Backdrop
 
 .dialog-backdrop {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: $z-index-bottom;
   display: none;
