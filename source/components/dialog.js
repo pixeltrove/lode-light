@@ -34,6 +34,7 @@ function Dialog(dialog) {
     managePhasing(dialog, backdrop, wrapper);
     toggleScroll();
 
+    dialog.removeAttribute("tabindex");
     trigger.focus();
 
     dialog.removeEventListener("keydown", handleTabKeydown);
