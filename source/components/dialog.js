@@ -19,10 +19,10 @@ function Dialog(dialog) {
 
   function show() {
     managePhasing(dialog, backdrop, wrapper);
+    toggleScroll();
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
 
     dialog.addEventListener("keydown", handleFocusTrap);
     dialog.addEventListener("click", handleHideClick);
