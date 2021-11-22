@@ -24,20 +24,20 @@ function Dialog(dialog) {
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
 
-    dialog.addEventListener("keydown", handleFocusTrap);
+    dialog.addEventListener("keydown", handleTabKeydown);
     dialog.addEventListener("click", handleHideClick);
     backdrop.addEventListener("click", handleBackdropClick);
-    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleEscapeKeydown);
   }
 
   function hide() {
     managePhasing(dialog, backdrop, wrapper);
     toggleScroll();
 
-    dialog.removeEventListener("keydown", handleFocusTrap);
+    dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
-    document.removeEventListener("keydown", handleEscape);
+    document.removeEventListener("keydown", handleEscapeKeydown);
   }
 
   function handleHideClick(event) {
@@ -52,13 +52,13 @@ function Dialog(dialog) {
     }
   }
 
-  function handleEscape(event) {
+  function handleEscapeKeydown(event) {
     if (event.key === "Escape") {
       hide();
     }
   }
 
-  function handleFocusTrap(event) {
+  function handleTabKeydown(event) {
     if (event.key === "Tab") {
       focusInside(event, dialog);
     }
