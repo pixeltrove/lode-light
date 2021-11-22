@@ -34,9 +34,7 @@ function Dialog(dialog) {
     managePhasing(dialog, backdrop, wrapper);
     toggleScroll();
 
-    if (trigger) {
-      trigger.focus();
-    }
+    trigger.focus();
 
     dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
