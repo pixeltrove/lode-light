@@ -33,34 +33,33 @@ function Dialog(dialog) {
   function hide() {
     managePhasing(dialog, backdrop, wrapper);
     toggleScroll();
-
-    dialog.removeEventListener("keydown", handleTabKeydown);
-    dialog.removeEventListener("click", handleHideClick);
-    backdrop.removeEventListener("click", handleBackdropClick);
-    document.removeEventListener("keydown", handleEscapeKeydown);
   }
 
   function handleHideClick(event) {
     if (event.target.closest(SELECTOR_HIDE)) {
       hide();
+      dialog.removeEventListener("click", handleHideClick);
     }
   }
 
   function handleBackdropClick(event) {
     if (event.target.matches(SELECTOR_BACKDROP)) {
       hide();
+      backdrop.removeEventListener("click", handleBackdropClick);
     }
   }
 
   function handleEscapeKeydown(event) {
     if (event.key === "Escape") {
       hide();
+      document.removeEventListener("keydown", handleEscapeKeydown);
     }
   }
 
   function handleTabKeydown(event) {
     if (event.key === "Tab") {
       focusInside(event, dialog);
+      dialog.removeEventListener("keydown", handleTabKeydown);
     }
   }
 
