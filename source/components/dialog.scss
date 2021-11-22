@@ -76,13 +76,13 @@
   inset: 0;
   z-index: $z-index-top;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &.is-shown,
   &.is-phasing-in,
   &.is-phasing-out {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }
