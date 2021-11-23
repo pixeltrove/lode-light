@@ -41,7 +41,7 @@
     line-height: $line-height-small-a;
   }
 
-  > :last-child {
+  p:last-child {
     margin-bottom: 0;
   }
 }

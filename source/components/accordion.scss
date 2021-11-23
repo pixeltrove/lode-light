@@ -75,7 +75,7 @@
       padding-bottom: calc(#{$space-regular} - #{$border-width-regular});
     }
 
-    > :last-child {
+    p:last-child {
       margin-bottom: 0;
     }
   }
