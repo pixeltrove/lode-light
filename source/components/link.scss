@@ -5,6 +5,7 @@
 @use "../helpers/focus-visible" as *;
 
 .link {
+  display: inline-flex;
   color: $color-brand-regular;
   text-decoration: $border-width-regular underline $color-brand-medium;
   text-underline-offset: 0.25rem;
