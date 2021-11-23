@@ -40,7 +40,7 @@
     line-height: $line-height-small-a;
   }
 
-  p:last-child {
+  > :last-child {
     margin-bottom: 0;
   }
 }
@@ -48,7 +48,7 @@
 // Backdrop
 
 .dialog-backdrop {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: $z-index-bottom;
   display: none;
@@ -76,13 +76,13 @@
   inset: 0;
   z-index: $z-index-top;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &.is-shown,
   &.is-phasing-in,
   &.is-phasing-out {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }

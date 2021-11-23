@@ -19,46 +19,53 @@ function Dialog(dialog) {
 
   function show() {
     managePhasing(dialog, backdrop, wrapper);
+    toggleScroll();
 
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
-    toggleScroll();
 
-    dialog.addEventListener("keydown", handleFocusTrap);
+    dialog.addEventListener("keydown", handleTabKeydown);
     dialog.addEventListener("click", handleHideClick);
     backdrop.addEventListener("click", handleBackdropClick);
-    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleEscapeKeydown);
   }
 
   function hide() {
     managePhasing(dialog, backdrop, wrapper);
     toggleScroll();
 
-    dialog.removeEventListener("keydown", handleFocusTrap);
+    dialog.removeAttribute("tabindex");
+    trigger.focus();
+
+    dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
     backdrop.removeEventListener("click", handleBackdropClick);
-    document.removeEventListener("keydown", handleEscape);
+    document.removeEventListener("keydown", handleEscapeKeydown);
   }
 
   function handleHideClick(event) {
-    if (event.target.closest(SELECTOR_HIDE)) {
+    const pressedHide = event.target.closest(SELECTOR_HIDE);
+
+    if (pressedHide) {
       hide();
     }
   }
 
   function handleBackdropClick(event) {
-    if (event.target.matches(SELECTOR_BACKDROP)) {
+    const pressedBackdrop = event.target.matches(SELECTOR_BACKDROP);
+
+    if (pressedBackdrop) {
       hide();
     }
   }
 
-  function handleEscape(event) {
+  function handleEscapeKeydown(event) {
     if (event.key === "Escape") {
       hide();
     }
   }
 
-  function handleFocusTrap(event) {
+  function handleTabKeydown(event) {
     if (event.key === "Tab") {
       focusInside(event, dialog);
     }
