@@ -16,6 +16,7 @@ function Menu(menu) {
   const menuId = menu.id;
   const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
+  const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
 
   function toggle() {
     const isPhasing = menu.classList.contains(CLASS_PHASING_IN) || menu.classList.contains(CLASS_PHASING_OUT);
@@ -73,7 +74,9 @@ function Menu(menu) {
   }
 
   function handleLinkKeydown(event) {
-    if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+    const pressedLink = event.target.closest(SELECTOR_LINK);
+
+    if (pressedLink && navigationKeys.includes(event.key)) {
       event.preventDefault();
       focusKeyable(event.key, links);
     }
