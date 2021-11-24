@@ -34,9 +34,9 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", true);
 
     document.addEventListener("click", handleOutsideClick);
-    document.addEventListener("keydown", handleEscape);
-    trigger.addEventListener("keydown", handleTab);
-    menu.addEventListener("keydown", handleTab);
+    document.addEventListener("keydown", handleEscapeKeydown);
+    trigger.addEventListener("keydown", handleTabKeydown);
+    menu.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleLinkKeydown);
   }
 
@@ -47,9 +47,9 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", false);
 
     document.removeEventListener("click", handleOutsideClick);
-    document.removeEventListener("keydown", handleEscape);
-    trigger.removeEventListener("keydown", handleTab);
-    menu.removeEventListener("keydown", handleTab);
+    document.removeEventListener("keydown", handleEscapeKeydown);
+    trigger.removeEventListener("keydown", handleTabKeydown);
+    menu.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleLinkKeydown);
   }
 
@@ -59,13 +59,13 @@ function Menu(menu) {
     }
   }
 
-  function handleEscape(event) {
+  function handleEscapeKeydown(event) {
     if (event.key === "Escape") {
       hide();
     }
   }
 
-  function handleTab(event) {
+  function handleTabKeydown(event) {
     const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
     if ((event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey) || (event.key === "Tab" && document.activeElement === trigger && event.shiftKey)) {
