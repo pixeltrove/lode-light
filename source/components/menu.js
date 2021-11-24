@@ -18,11 +18,7 @@ function Menu(menu) {
   function toggle() {
     const isShown = menu.classList.contains(CLASS_SHOWN);
 
-    if (isShown) {
-      hide();
-    } else {
-      show();
-    }
+    isShown ? hide() : show();
   }
 
   function show() {
