@@ -7,6 +7,8 @@ import managePhasing from "../helpers/manage-phasing";
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_PHASING_IN = "is-phasing-in";
+const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -16,9 +18,12 @@ function Menu(menu) {
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
 
   function toggle() {
+    const isPhasing = menu.classList.contains(CLASS_PHASING_IN) || menu.classList.contains(CLASS_PHASING_OUT);
     const isShown = menu.classList.contains(CLASS_SHOWN);
 
-    isShown ? hide() : show();
+    if (!isPhasing) {
+      isShown ? hide() : show();
+    }
   }
 
   function show() {
