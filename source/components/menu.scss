@@ -63,12 +63,12 @@
       background-color: $color-neutral-light-a;
     }
 
-    &:active {
-      background-color: $color-neutral-light-b;
-    }
-
     &:focus-visible {
       @include focus-visible;
+    }
+
+    &:active {
+      background-color: $color-neutral-light-b;
     }
   }
 }
