@@ -18,37 +18,48 @@ function Menu(menu) {
   function toggle() {
     const isShown = menu.classList.contains(CLASS_SHOWN);
 
-    trigger.classList.toggle(CLASS_ACTIVATED);
-    trigger.setAttribute("aria-expanded", !isShown);
-
-    if (!isShown) {
-      managePhasing(menu);
-
-      document.addEventListener("click", handleOutsideClick);
-      document.addEventListener("keydown", handleEscape);
-      trigger.addEventListener("keydown", handleTab);
-      menu.addEventListener("keydown", handleTab);
-      menu.addEventListener("keydown", handleLinkKeydown);
+    if (isShown) {
+      hide();
     } else {
-      managePhasing(menu);
-
-      document.removeEventListener("click", handleOutsideClick);
-      document.removeEventListener("keydown", handleEscape);
-      trigger.removeEventListener("keydown", handleTab);
-      menu.removeEventListener("keydown", handleTab);
-      menu.removeEventListener("keydown", handleLinkKeydown);
+      show();
     }
+  }
+
+  function show() {
+    managePhasing(menu);
+
+    trigger.classList.add(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", true);
+
+    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("keydown", handleEscape);
+    trigger.addEventListener("keydown", handleTab);
+    menu.addEventListener("keydown", handleTab);
+    menu.addEventListener("keydown", handleLinkKeydown);
+  }
+
+  function hide() {
+    managePhasing(menu);
+
+    trigger.classList.remove(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", false);
+
+    document.removeEventListener("click", handleOutsideClick);
+    document.removeEventListener("keydown", handleEscape);
+    trigger.removeEventListener("keydown", handleTab);
+    menu.removeEventListener("keydown", handleTab);
+    menu.removeEventListener("keydown", handleLinkKeydown);
   }
 
   function handleOutsideClick(event) {
     if (!trigger.contains(event.target) && !menu.contains(event.target)) {
-      toggle();
+      hide();
     }
   }
 
   function handleEscape(event) {
     if (event.key === "Escape") {
-      toggle();
+      hide();
     }
   }
 
@@ -56,7 +67,7 @@ function Menu(menu) {
     const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
     const lastFocusableElement = focusableElements[focusableElements.length - 1];
     if ((event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey) || (event.key === "Tab" && document.activeElement === trigger && event.shiftKey)) {
-      toggle();
+      hide();
     }
   }
 
