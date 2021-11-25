@@ -7,6 +7,8 @@ import managePhasing from "../helpers/manage-phasing";
 const SELECTOR_MENU = ".menu";
 const SELECTOR_LINK = ".menu-link";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_PHASING_IN = "is-phasing-in";
+const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -14,54 +16,67 @@ function Menu(menu) {
   const menuId = menu.id;
   const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
+  const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
+  const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   function toggle() {
+    const isPhasing = menu.classList.contains(CLASS_PHASING_IN) || menu.classList.contains(CLASS_PHASING_OUT);
     const isShown = menu.classList.contains(CLASS_SHOWN);
 
-    trigger.classList.toggle(CLASS_ACTIVATED);
-    trigger.setAttribute("aria-expanded", !isShown);
-
-    if (!isShown) {
-      managePhasing(menu);
-
-      document.addEventListener("click", handleOutsideClick);
-      document.addEventListener("keydown", handleEscape);
-      trigger.addEventListener("keydown", handleTab);
-      menu.addEventListener("keydown", handleTab);
-      menu.addEventListener("keydown", handleLinkKeydown);
-    } else {
-      managePhasing(menu);
-
-      document.removeEventListener("click", handleOutsideClick);
-      document.removeEventListener("keydown", handleEscape);
-      trigger.removeEventListener("keydown", handleTab);
-      menu.removeEventListener("keydown", handleTab);
-      menu.removeEventListener("keydown", handleLinkKeydown);
+    if (!isPhasing) {
+      isShown ? hide() : show();
     }
+  }
+
+  function show() {
+    managePhasing(menu);
+
+    trigger.classList.add(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", true);
+
+    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("keydown", handleEscapeKeydown);
+    trigger.addEventListener("keydown", handleTabKeydown);
+    menu.addEventListener("keydown", handleTabKeydown);
+    menu.addEventListener("keydown", handleLinkKeydown);
+  }
+
+  function hide() {
+    managePhasing(menu);
+
+    trigger.classList.remove(CLASS_ACTIVATED);
+    trigger.setAttribute("aria-expanded", false);
+
+    document.removeEventListener("click", handleOutsideClick);
+    document.removeEventListener("keydown", handleEscapeKeydown);
+    trigger.removeEventListener("keydown", handleTabKeydown);
+    menu.removeEventListener("keydown", handleTabKeydown);
+    menu.removeEventListener("keydown", handleLinkKeydown);
   }
 
   function handleOutsideClick(event) {
     if (!trigger.contains(event.target) && !menu.contains(event.target)) {
-      toggle();
+      hide();
     }
   }
 
-  function handleEscape(event) {
+  function handleEscapeKeydown(event) {
     if (event.key === "Escape") {
-      toggle();
+      hide();
     }
   }
 
-  function handleTab(event) {
-    const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if ((event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey) || (event.key === "Tab" && document.activeElement === trigger && event.shiftKey)) {
-      toggle();
+  function handleTabKeydown(event) {
+    if ((event.key === "Tab" && !event.shiftKey && document.activeElement === lastFocusableElement) || (event.key === "Tab" && event.shiftKey && document.activeElement === trigger)) {
+      hide();
     }
   }
 
   function handleLinkKeydown(event) {
-    if (event.target.closest(SELECTOR_LINK) && ["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+    const pressedLink = event.target.closest(SELECTOR_LINK);
+
+    if (pressedLink && navigationKeys.includes(event.key)) {
       event.preventDefault();
       focusKeyable(event.key, links);
     }

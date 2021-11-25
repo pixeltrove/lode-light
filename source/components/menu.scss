@@ -9,7 +9,7 @@
   position: absolute;
   z-index: $z-index-top;
   display: none;
-  padding: calc(#{$space-small-c} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
+  padding-left: 0;
   border: $border-width-regular solid $color-neutral-light-c;
   border-radius: $border-radius-regular;
   margin-top: $space-small-e;
@@ -30,10 +30,29 @@
     animation: slide-out-regular $transition-regular;
   }
 
+  &-item {
+    padding-right: calc(#{$space-small-c} - #{$border-width-regular});
+    padding-left: calc(#{$space-small-c} - #{$border-width-regular});
+
+    &:first-child {
+      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
+    }
+
+    &:last-child {
+      padding-bottom: calc(#{$space-small-c} - #{$border-width-regular});
+    }
+
+    &-separator {
+      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
+      border-top: $border-width-regular solid $color-neutral-light-c;
+      margin-top: $space-small-c;
+    }
+  }
+
   &-link {
-    display: inline-block;
-    padding-top: $space-small-e;
-    padding-bottom: $space-small-e;
+    display: flex;
+    padding: $space-small-d $space-small-c;
+    border-radius: $border-radius-regular;
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     white-space: nowrap;
@@ -41,19 +60,16 @@
     transition: color $transition-regular, outline $transition-regular;
 
     &:hover {
-      color: $color-brand-regular;
+      background-color: $color-neutral-light-a;
     }
 
     &:focus-visible {
       @include focus-visible;
-      border-radius: $border-radius-small;
     }
-  }
 
-  &-separator {
-    border-top: $border-width-regular solid $color-neutral-light-c;
-    margin-top: calc(#{$space-small-c} - #{$border-width-regular});
-    margin-bottom: $space-small-c;
+    &:active {
+      background-color: $color-neutral-light-b;
+    }
   }
 }
 
