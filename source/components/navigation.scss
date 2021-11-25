@@ -1,10 +1,10 @@
-// LOCAL NAVIGATION
+// NAVIGATION
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
 @use "../helpers/focus-visible" as *;
 
-.local-navigation {
+.navigation {
   display: flex;
   flex-direction: column;
   padding-left: 0;

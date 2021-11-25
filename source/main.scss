@@ -15,6 +15,7 @@
 @use "./components/dialog";
 @use "./components/link";
 @use "./components/menu";
+@use "./components/navigation";
 @use "./components/notification";
 @use "./components/popover";
 @use "./components/radio";
@@ -29,4 +30,3 @@
 @use "./parts/global-banner";
 @use "./parts/global-footer";
 @use "./parts/global-header";
-@use "./parts/local-navigation";
