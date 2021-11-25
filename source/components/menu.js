@@ -17,6 +17,8 @@ function Menu(menu) {
   const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
   const links = Array.from(menu.querySelectorAll(SELECTOR_LINK));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
+  const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   function toggle() {
     const isPhasing = menu.classList.contains(CLASS_PHASING_IN) || menu.classList.contains(CLASS_PHASING_OUT);
@@ -66,9 +68,7 @@ function Menu(menu) {
   }
 
   function handleTabKeydown(event) {
-    const focusableElements = Array.from(menu.querySelectorAll("a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled])"));
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-    if ((event.key === "Tab" && document.activeElement === lastFocusableElement && !event.shiftKey) || (event.key === "Tab" && document.activeElement === trigger && event.shiftKey)) {
+    if ((event.key === "Tab" && !event.shiftKey && document.activeElement === lastFocusableElement) || (event.key === "Tab" && event.shiftKey && document.activeElement === trigger)) {
       hide();
     }
   }
