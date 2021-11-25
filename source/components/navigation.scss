@@ -7,26 +7,39 @@
 .navigation {
   display: flex;
   flex-direction: column;
+  max-width: 10rem;
   padding-left: 0;
+  border-left: $border-width-regular solid $color-neutral-light-c;
   margin-bottom: 0;
 
+  &-item {
+    margin-bottom: $space-small-e;
+  }
+
   &-link {
-    display: inline-block;
+    display: flex;
     padding-top: $space-small-e;
     padding-bottom: $space-small-e;
+    padding-left: $space-large-e;
+    margin-left: -$border-width-regular;
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     color: $color-neutral-regular;
     transition: color $transition-regular, outline $transition-regular;
 
-    &:hover,
-    &.is-activated {
+    &:hover {
       color: $color-brand-regular;
     }
 
     &:focus-visible {
       @include focus-visible;
       border-radius: $border-radius-small;
+    }
+
+    &.is-activated {
+      padding-left: calc(#{$space-large-e} - #{$border-width-thick-b});
+      border-left: $border-width-thick-b solid $color-brand-regular;
+      color: $color-brand-regular;
     }
   }
 }
