@@ -6,8 +6,8 @@ import managePhasing from "../helpers/manage-phasing";
 import toggleScroll from "../helpers/toggle-scroll";
 
 const SELECTOR_DIALOG = ".dialog";
-const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_BACKDROP = ".dialog-backdrop";
+const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
 const DATA_SHOW = "data-show";
 

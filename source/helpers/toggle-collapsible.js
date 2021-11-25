@@ -9,8 +9,8 @@ const DATA_TOGGLE = "data-toggle";
 function toggleCollapsible(trigger) {
   const collapsibleId = trigger.getAttribute(DATA_TOGGLE);
   const collapsible = document.querySelector(`#${collapsibleId}`);
-  const isShown = collapsible.classList.contains(CLASS_SHOWN);
   const isPhasing = collapsible.classList.contains(CLASS_PHASING);
+  const isShown = collapsible.classList.contains(CLASS_SHOWN);
 
   if (!isPhasing) {
     trigger.classList.toggle(CLASS_ACTIVATED);
