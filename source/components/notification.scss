@@ -10,11 +10,6 @@
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
-  &.is-phasing-out {
-    display: block;
-    animation: fade-out-regular $transition-regular;
-  }
-
   &-heading {
     margin-bottom: $space-small-c;
     font-size: $font-size-large-e;
