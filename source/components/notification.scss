@@ -5,8 +5,8 @@
 @use "../helpers/focus-visible" as *;
 
 .notification {
-  padding: $space-regular $space-large-d;
-  border-radius: $border-radius-regular;
+  padding: $space-regular $space-large-d $space-regular calc(#{$space-large-d} - #{$border-width-thick-a});
+  border-left: $border-width-thick-a solid $color-brand-light-c;
   color: $color-brand-regular;
   background-color: $color-brand-light-a;
 
@@ -29,6 +29,7 @@
 // Positive
 
 .notification-positive {
+  border-color: $color-positive-light-c;
   color: $color-positive-regular;
   background-color: $color-positive-light-a;
 }
@@ -36,6 +37,7 @@
 // Negative
 
 .notification-negative {
+  border-color: $color-negative-light-c;
   color: $color-negative-regular;
   background-color: $color-negative-light-a;
 }
@@ -43,6 +45,7 @@
 // Neutral
 
 .notification-neutral {
+  border-color: $color-neutral-light-c;
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
 }
