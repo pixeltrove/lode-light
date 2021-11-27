@@ -6,8 +6,6 @@
 @use "../helpers/focus-visible" as *;
 
 .tabset {
-  color: $color-neutral-regular;
-
   &-navigation {
     display: flex;
     padding-left: 0;
