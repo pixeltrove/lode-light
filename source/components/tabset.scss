@@ -15,7 +15,7 @@
   }
 
   &-tab {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: $space-small-b $space-regular calc(#{$space-small-b} - #{$border-width-thick-b});
