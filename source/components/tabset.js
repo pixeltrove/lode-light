@@ -15,12 +15,12 @@ function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
 
-  function showPanel(currentTab) {
-    const panelId = currentTab.getAttribute(DATA_SHOW);
+  function showPanel(pressedTab) {
+    const panelId = pressedTab.getAttribute(DATA_SHOW);
 
     tabs.forEach((tab) => {
-      if (tab === currentTab) {
-        currentTab.classList.add(CLASS_ACTIVATED);
+      if (tab === pressedTab) {
+        pressedTab.classList.add(CLASS_ACTIVATED);
         tab.removeAttribute("tabIndex");
       } else if (tab.classList.contains(CLASS_ACTIVATED)) {
         tab.classList.remove(CLASS_ACTIVATED);
