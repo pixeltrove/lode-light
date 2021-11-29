@@ -18,9 +18,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-regular calc(#{$space-small-b} - #{$border-width-thick-b});
-    border: 0 solid transparent;
-    border-bottom-width: $border-width-thick-b;
+    padding: $space-small-b $space-regular;
+    border: 0;
     margin-bottom: -#{$border-width-regular};
     color: $color-neutral-regular;
     background-color: transparent;
@@ -32,7 +31,8 @@
 
     &.is-activated {
       color: $color-brand-regular;
-      border-bottom-color: $color-brand-regular;
+      padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
+      border-bottom: $border-width-thick-b solid $color-brand-regular;
     }
 
     &:focus-visible {
