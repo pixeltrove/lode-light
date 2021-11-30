@@ -17,24 +17,20 @@ function Tabset(tabset) {
 
   function showPanel(pressedTab) {
     const panelId = pressedTab.getAttribute(DATA_SHOW);
+    const targetPanel = document.querySelector(`#${panelId}`);
 
     tabs.forEach((tab) => {
-      if (tab === pressedTab) {
-        pressedTab.classList.add(CLASS_ACTIVATED);
-        tab.removeAttribute("tabIndex");
-      } else if (tab.classList.contains(CLASS_ACTIVATED)) {
-        tab.classList.remove(CLASS_ACTIVATED);
-        tab.setAttribute("tabIndex", "-1");
-      }
+      tab.classList.remove(CLASS_ACTIVATED);
+      tab.setAttribute("tabIndex", "-1");
     });
 
     panels.forEach((panel) => {
-      if (panel.id === panelId && !panel.classList.contains(CLASS_SHOWN)) {
-        managePhasing(panel);
-      } else if (panel.id !== panelId) {
-        panel.classList.remove(CLASS_SHOWN);
-      }
+      panel.classList.remove(CLASS_SHOWN);
     });
+
+    pressedTab.classList.add(CLASS_ACTIVATED);
+    pressedTab.removeAttribute("tabIndex");
+    managePhasing(targetPanel);
   }
 
   function handleTabClick(event) {
