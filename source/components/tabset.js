@@ -15,7 +15,7 @@ function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
 
-  function showPanel(pressedTab) {
+  function swapPanel(pressedTab) {
     const panelId = pressedTab.getAttribute(DATA_SHOW);
     const targetPanel = document.querySelector(`#${panelId}`);
 
@@ -35,7 +35,7 @@ function Tabset(tabset) {
 
   function handleTabClick(event) {
     if (event.target.closest(SELECTOR_TAB)) {
-      showPanel(event.target.closest(SELECTOR_TAB));
+      swapPanel(event.target.closest(SELECTOR_TAB));
     }
   }
 
