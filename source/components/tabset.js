@@ -8,6 +8,7 @@ const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
+
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -19,18 +20,20 @@ function Tabset(tabset) {
     const panelId = pressedTab.getAttribute(DATA_SHOW);
     const targetPanel = document.querySelector(`#${panelId}`);
 
-    tabs.forEach((tab) => {
-      tab.classList.remove(CLASS_ACTIVATED);
-      tab.setAttribute("tabIndex", "-1");
-    });
+    if (!pressedTab.classList.contains(CLASS_ACTIVATED)) {
+      tabs.forEach((tab) => {
+        tab.classList.remove(CLASS_ACTIVATED);
+        tab.setAttribute("tabIndex", "-1");
+      });
 
-    panels.forEach((panel) => {
-      panel.classList.remove(CLASS_SHOWN);
-    });
+      panels.forEach((panel) => {
+        panel.classList.remove(CLASS_SHOWN);
+      });
 
-    pressedTab.classList.add(CLASS_ACTIVATED);
-    pressedTab.removeAttribute("tabIndex");
-    managePhasing(targetPanel);
+      pressedTab.classList.add(CLASS_ACTIVATED);
+      pressedTab.removeAttribute("tabIndex");
+      managePhasing(targetPanel);
+    }
   }
 
   function handleTabClick(event) {
