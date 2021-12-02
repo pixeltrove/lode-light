@@ -38,13 +38,17 @@ function Tabset(tabset) {
   }
 
   function handleTabClick(event) {
-    if (event.target.closest(SELECTOR_TAB)) {
-      swapPanel(event.target.closest(SELECTOR_TAB));
+    const pressedTab = event.target.closest(SELECTOR_TAB);
+
+    if (pressedTab) {
+      swapPanel(pressedTab);
     }
   }
 
   function handleTabKeydown(event) {
-    if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+    const pressedTab = event.target.closest(SELECTOR_TAB);
+
+    if (pressedTab && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
       event.preventDefault();
       focusKeyable(event.key, tabs);
     }
