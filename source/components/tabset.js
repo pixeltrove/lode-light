@@ -6,33 +6,32 @@ import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
-const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
-
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
-  const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
 
   function swapPanel(pressedTab) {
-    const panelId = pressedTab.getAttribute(DATA_SHOW);
-    const targetPanel = document.querySelector(`#${panelId}`);
+    const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
+    const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
 
     if (!pressedTab.classList.contains(CLASS_ACTIVATED)) {
       tabs.forEach((tab) => {
-        tab.classList.remove(CLASS_ACTIVATED);
-        tab.setAttribute("tabIndex", "-1");
-      });
+        if (tab.classList.contains(CLASS_ACTIVATED)) {
+          const currentPanelId = tab.getAttribute(DATA_SHOW);
+          const currentPanel = document.querySelector(`#${currentPanelId}`);
 
-      panels.forEach((panel) => {
-        panel.classList.remove(CLASS_SHOWN);
+          tab.classList.remove(CLASS_ACTIVATED);
+          tab.setAttribute("tabIndex", "-1");
+          currentPanel.classList.remove(CLASS_SHOWN);
+        }
       });
 
       pressedTab.classList.add(CLASS_ACTIVATED);
       pressedTab.removeAttribute("tabIndex");
-      managePhasing(targetPanel);
+      managePhasing(upcomingPanel);
     }
   }
 
