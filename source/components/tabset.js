@@ -13,6 +13,7 @@ const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
+  const navigationKeys = ["ArrowLeft", "ArrowRight", "Home", "End"];
 
   function swapPanel(pressedTab) {
     const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
@@ -48,7 +49,7 @@ function Tabset(tabset) {
   function handleTabKeydown(event) {
     const pressedTab = event.target.closest(SELECTOR_TAB);
 
-    if (pressedTab && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+    if (pressedTab && navigationKeys.includes(event.key)) {
       event.preventDefault();
       focusKeyable(event.key, tabs);
     }
