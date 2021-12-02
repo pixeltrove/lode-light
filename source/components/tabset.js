@@ -7,6 +7,7 @@ import managePhasing from "../helpers/manage-phasing";
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_PHASING_IN = "is-phasing-in";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
@@ -25,6 +26,7 @@ function Tabset(tabset) {
 
           tab.classList.remove(CLASS_ACTIVATED);
           tab.setAttribute("tabIndex", "-1");
+          currentPanel.classList.remove(CLASS_PHASING_IN);
           currentPanel.classList.remove(CLASS_SHOWN);
         }
       });
