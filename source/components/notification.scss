@@ -16,6 +16,15 @@
     line-height: $line-height-small-a;
   }
 
+  &-link {
+    color: currentColor;
+    text-decoration-color: currentColor;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+
   p:last-child {
     margin-bottom: 0;
   }
