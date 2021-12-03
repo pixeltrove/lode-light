@@ -18,25 +18,17 @@ function Tabset(tabset) {
   const navigationKeys = ["ArrowLeft", "ArrowRight", "Home", "End"];
 
   function swapPanel(pressedTab) {
+    const currentTab = tabs.filter((tab) => tab.classList.contains(CLASS_ACTIVATED))[0];
+    const currentPanel = panels.filter((panel) => panel.classList.contains(CLASS_SHOWN))[0];
     const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
     const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
     const isPhasing = panels.filter((panel) => panel.classList.contains(CLASS_PHASING_IN))[0];
 
     if (!isPhasing) {
-      tabs.forEach((tab) => {
-        if (tab.classList.contains(CLASS_ACTIVATED)) {
-          tab.classList.remove(CLASS_ACTIVATED);
-          tab.setAttribute("tabIndex", "-1");
-        }
-      });
-
-      panels.forEach((panel) => {
-        if (panel.classList.contains(CLASS_SHOWN)) {
-          panel.classList.remove(CLASS_PHASING_IN);
-          panel.classList.remove(CLASS_SHOWN);
-        }
-      });
-
+      currentTab.classList.remove(CLASS_ACTIVATED);
+      currentTab.setAttribute("tabIndex", "-1");
+      currentPanel.classList.remove(CLASS_PHASING_IN);
+      currentPanel.classList.remove(CLASS_SHOWN);
       pressedTab.classList.add(CLASS_ACTIVATED);
       pressedTab.removeAttribute("tabIndex");
       managePhasing(upcomingPanel);
