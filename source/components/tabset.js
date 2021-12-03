@@ -8,43 +8,45 @@ const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const SELECTOR_PANEL = ".tabset-panel";
 const CLASS_ACTIVATED = "is-activated";
+const CLASS_PHASING_IN = "is-phasing-in";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const panels = Array.from(tabset.querySelectorAll(SELECTOR_PANEL));
+  const navigationKeys = ["ArrowLeft", "ArrowRight", "Home", "End"];
 
-  function showPanel(currentTab) {
-    const panelId = currentTab.getAttribute(DATA_SHOW);
+  function swapPanel(pressedTab) {
+    const currentTab = tabs.filter((tab) => tab.classList.contains(CLASS_ACTIVATED))[0];
+    const currentPanel = panels.filter((panel) => panel.classList.contains(CLASS_SHOWN))[0];
+    const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
+    const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
+    const isPhasing = panels.filter((panel) => panel.classList.contains(CLASS_PHASING_IN))[0];
 
-    tabs.forEach((tab) => {
-      if (tab === currentTab) {
-        currentTab.classList.add(CLASS_ACTIVATED);
-        tab.removeAttribute("tabIndex");
-      } else if (tab.classList.contains(CLASS_ACTIVATED)) {
-        tab.classList.remove(CLASS_ACTIVATED);
-        tab.setAttribute("tabIndex", "-1");
-      }
-    });
-
-    panels.forEach((panel) => {
-      if (panel.id === panelId && !panel.classList.contains(CLASS_SHOWN)) {
-        managePhasing(panel);
-      } else if (panel.id !== panelId) {
-        panel.classList.remove(CLASS_SHOWN);
-      }
-    });
+    if (!isPhasing) {
+      currentTab.classList.remove(CLASS_ACTIVATED);
+      currentTab.setAttribute("tabIndex", "-1");
+      currentPanel.classList.remove(CLASS_PHASING_IN);
+      currentPanel.classList.remove(CLASS_SHOWN);
+      pressedTab.classList.add(CLASS_ACTIVATED);
+      pressedTab.removeAttribute("tabIndex");
+      managePhasing(upcomingPanel);
+    }
   }
 
   function handleTabClick(event) {
-    if (event.target.closest(SELECTOR_TAB)) {
-      showPanel(event.target.closest(SELECTOR_TAB));
+    const pressedTab = event.target.closest(SELECTOR_TAB);
+
+    if (pressedTab) {
+      swapPanel(pressedTab);
     }
   }
 
   function handleTabKeydown(event) {
-    if (event.target.closest(SELECTOR_TAB) && ["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+    const pressedTab = event.target.closest(SELECTOR_TAB);
+
+    if (pressedTab && navigationKeys.includes(event.key)) {
       event.preventDefault();
       focusKeyable(event.key, tabs);
     }
