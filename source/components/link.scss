@@ -22,17 +22,6 @@
   }
 }
 
-// Neutral
-
-.link-neutral {
-  color: $color-neutral-regular;
-  text-decoration-color: $color-neutral-medium;
-
-  &:hover {
-    text-decoration-color: $color-neutral-regular;
-  }
-}
-
 // Adaptive
 
 .link-adaptive {
