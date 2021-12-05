@@ -17,16 +17,16 @@ function Tabset(tabset) {
 
   function swapPanel(pressedTab) {
     const activatedTab = tabs.find((tab) => tab.classList.contains(CLASS_ACTIVATED));
+    const activatedPanelId = activatedTab.getAttribute(DATA_SHOW);
+    const activatedPanel = document.querySelector(`#${activatedPanelId}`);
     const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
     const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
-    const panelId = activatedTab.getAttribute(DATA_SHOW);
-    const panel = document.querySelector(`#${panelId}`);
 
-    if (!panel.classList.contains(CLASS_PHASING_IN)) {
+    if (!activatedPanel.classList.contains(CLASS_PHASING_IN)) {
       activatedTab.classList.remove(CLASS_ACTIVATED);
       activatedTab.setAttribute("tabIndex", "-1");
-      panel.classList.remove(CLASS_PHASING_IN);
-      panel.classList.remove(CLASS_SHOWN);
+      activatedPanel.classList.remove(CLASS_PHASING_IN);
+      activatedPanel.classList.remove(CLASS_SHOWN);
       pressedTab.classList.add(CLASS_ACTIVATED);
       pressedTab.removeAttribute("tabIndex");
       managePhasing(upcomingPanel);
