@@ -23,7 +23,7 @@ function Tabset(tabset) {
     const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
     const isPhasingIn = activatedPanel.classList.contains(CLASS_PHASING_IN);
 
-    if (!isPhasingIn) {
+    if (!isPhasingIn && activatedTab !== pressedTab) {
       activatedTab.classList.remove(CLASS_ACTIVATED);
       activatedTab.setAttribute("tabIndex", "-1");
       activatedPanel.classList.remove(CLASS_PHASING_IN);
