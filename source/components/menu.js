@@ -30,10 +30,9 @@ function Menu(menu) {
   }
 
   function show() {
-    managePhasing(menu);
-
     trigger.classList.add(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", true);
+    managePhasing(menu);
 
     document.addEventListener("click", handleOutsideClick);
     document.addEventListener("keydown", handleEscapeKeydown);
@@ -43,10 +42,9 @@ function Menu(menu) {
   }
 
   function hide() {
-    managePhasing(menu);
-
     trigger.classList.remove(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", false);
+    managePhasing(menu);
 
     document.removeEventListener("click", handleOutsideClick);
     document.removeEventListener("keydown", handleEscapeKeydown);
