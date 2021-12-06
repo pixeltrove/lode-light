@@ -1,7 +1,7 @@
 // DEFINE CONTAINER
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
+@use "../tokens" as *;
 @use "set-breakpoint" as *;
 
 @mixin define-container {
