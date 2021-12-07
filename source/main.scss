@@ -13,6 +13,9 @@
 @use "./components/card";
 @use "./components/checkbox";
 @use "./components/dialog";
+@use "./components/global-banner";
+@use "./components/global-footer";
+@use "./components/global-header";
 @use "./components/link";
 @use "./components/menu";
 @use "./components/navigation";
@@ -22,10 +25,3 @@
 @use "./components/table";
 @use "./components/tabset";
 @use "./components/textfield";
-
-// PARTS
-// -----------------------------------------------------------------------------
-
-@use "./parts/global-banner";
-@use "./parts/global-footer";
-@use "./parts/global-header";

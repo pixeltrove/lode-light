@@ -1,7 +1,7 @@
 // GLOBAL BANNER
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
+@use "../tokens" as *;
 @use "../helpers/define-container" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
