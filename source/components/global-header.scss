@@ -2,13 +2,11 @@
 // -----------------------------------------------------------------------------
 
 @use "../tokens" as *;
-@use "../helpers/define-container" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .global-header {
   &-container {
-    @include define-container;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
