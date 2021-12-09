@@ -55,6 +55,10 @@
       background-color: $color-white-transparent-a;
     }
 
+    &:focus-visible {
+      outline-color: $color-white-regular;
+    }
+
     &:active {
       background-color: $color-white-transparent-b;
     }
