@@ -8,9 +8,8 @@
 .global-banner {
   padding-top: $space-regular;
   padding-bottom: $space-regular;
-  border-bottom: $border-width-thick-a solid $color-brand-light-c;
-  color: $color-brand-regular;
-  background-color: $color-brand-light-a;
+  color: $color-white-regular;
+  background-color: $color-brand-regular;
 
   &-container {
     display: flex;
@@ -49,6 +48,17 @@
   }
 
   .global-banner-button {
+    color: $color-brand-regular;
+    background-color: $color-white-regular;
+
+    &:hover {
+      background-color: $color-white-transparent-a;
+    }
+
+    &:active {
+      background-color: $color-white-transparent-b;
+    }
+
     @include set-breakpoint(tablet) {
       margin-top: -$space-small-d;
       margin-bottom: -$space-small-d;
@@ -59,31 +69,39 @@
 // Positive
 
 .global-banner-positive {
-  border-color: $color-positive-light-c;
-  color: $color-positive-regular;
-  background-color: $color-positive-light-a;
+  background-color: $color-positive-regular;
+
+  .global-banner-button {
+    color: $color-positive-regular;
+  }
 }
 
 // Attentive
 
 .global-banner-attentive {
-  border-color: $color-attentive-light-c;
-  color: $color-attentive-regular;
-  background-color: $color-attentive-light-a;
+  background-color: $color-attentive-regular;
+
+  .global-banner-button {
+    color: $color-attentive-regular;
+  }
 }
 
 // Negative
 
 .global-banner-negative {
-  border-color: $color-negative-light-c;
-  color: $color-negative-regular;
-  background-color: $color-negative-light-a;
+  background-color: $color-negative-regular;
+
+  .global-banner-button {
+    color: $color-negative-regular;
+  }
 }
 
 // Neutral
 
 .global-banner-neutral {
-  border-color: $color-neutral-light-c;
-  color: $color-neutral-regular;
-  background-color: $color-neutral-light-a;
+  background-color: $color-neutral-regular;
+
+  .global-banner-button {
+    color: $color-neutral-regular;
+  }
 }
