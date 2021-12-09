@@ -68,6 +68,12 @@
       margin-bottom: -$space-small-d;
     }
   }
+
+  .global-banner-link {
+    &:focus-visible {
+      outline-color: $color-white-regular;
+    }
+  }
 }
 
 // Positive
