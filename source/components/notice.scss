@@ -1,10 +1,10 @@
-// NOTIFICATION
+// NOTICE
 // -----------------------------------------------------------------------------
 
 @use "../tokens" as *;
 @use "../helpers/focus-visible" as *;
 
-.notification {
+.notice {
   padding: $space-regular $space-large-d;
   border-radius: $border-radius-regular;
   color: $color-brand-regular;
@@ -23,7 +23,7 @@
 
 // Positive
 
-.notification-positive {
+.notice-positive {
   border-color: $color-positive-light-c;
   color: $color-positive-regular;
   background-color: $color-positive-light-a;
@@ -31,7 +31,7 @@
 
 // Attentive
 
-.notification-attentive {
+.notice-attentive {
   border-color: $color-attentive-light-c;
   color: $color-attentive-regular;
   background-color: $color-attentive-light-a;
@@ -39,7 +39,7 @@
 
 // Negative
 
-.notification-negative {
+.notice-negative {
   border-color: $color-negative-light-c;
   color: $color-negative-regular;
   background-color: $color-negative-light-a;
@@ -47,7 +47,7 @@
 
 // Neutral
 
-.notification-neutral {
+.notice-neutral {
   border-color: $color-neutral-light-c;
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
