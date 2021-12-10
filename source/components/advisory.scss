@@ -1,11 +1,11 @@
-// GLOBAL BANNER
+// ADVISORY
 // -----------------------------------------------------------------------------
 
 @use "../tokens" as *;
 @use "../helpers/focus-visible" as *;
 @use "../helpers/set-breakpoint" as *;
 
-.global-banner {
+.advisory {
   padding-top: $space-regular;
   padding-bottom: $space-regular;
   color: $color-white-regular;
@@ -47,7 +47,7 @@
     }
   }
 
-  .global-banner-button {
+  .advisory-button {
     color: $color-brand-regular;
     background-color: $color-white-regular;
 
@@ -69,7 +69,7 @@
     }
   }
 
-  .global-banner-link {
+  .advisory-link {
     &:focus-visible {
       outline-color: $color-white-regular;
     }
@@ -78,40 +78,40 @@
 
 // Positive
 
-.global-banner-positive {
+.advisory-positive {
   background-color: $color-positive-regular;
 
-  .global-banner-button {
+  .advisory-button {
     color: $color-positive-regular;
   }
 }
 
 // Attentive
 
-.global-banner-attentive {
+.advisory-attentive {
   background-color: $color-attentive-regular;
 
-  .global-banner-button {
+  .advisory-button {
     color: $color-attentive-regular;
   }
 }
 
 // Negative
 
-.global-banner-negative {
+.advisory-negative {
   background-color: $color-negative-regular;
 
-  .global-banner-button {
+  .advisory-button {
     color: $color-negative-regular;
   }
 }
 
 // Neutral
 
-.global-banner-neutral {
+.advisory-neutral {
   background-color: $color-neutral-regular;
 
-  .global-banner-button {
+  .advisory-button {
     color: $color-neutral-regular;
   }
 }
