@@ -18,12 +18,10 @@ function Dialog(dialog) {
   const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
 
   function show() {
-    dialog.focus();
-    dialog.setAttribute("tabindex", -1);
-
-    toggleScroll();
-
     managePhasing(dialog, backdrop, wrapper);
+    dialog.setAttribute("tabindex", -1);
+    dialog.focus();
+    toggleScroll();
 
     dialog.addEventListener("keydown", handleTabKeydown);
     dialog.addEventListener("click", handleHideClick);
@@ -32,12 +30,10 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    trigger.focus();
-    dialog.removeAttribute("tabindex");
-
-    toggleScroll();
-
     managePhasing(dialog, backdrop, wrapper);
+    dialog.removeAttribute("tabindex");
+    trigger.focus();
+    toggleScroll();
 
     dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
