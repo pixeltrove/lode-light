@@ -1,10 +1,10 @@
 {
-  "name": "lode-vanilla",
+  "name": "lode-light",
   "version": "1.0.0",
   "description": "A large assortment of interface building blocks made using Sass and plain JavaScript.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixeltrove/lode-vanilla.git"
+    "url": "https://github.com/pixeltrove/lode-light.git"
   },
   "license": "MIT",
   "scripts": {
