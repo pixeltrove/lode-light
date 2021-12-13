@@ -40,7 +40,6 @@
 
     &:focus-visible {
       @include focus-visible;
-      border-radius: $border-radius-regular;
     }
   }
 

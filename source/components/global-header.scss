@@ -34,7 +34,6 @@
 
     &:focus-visible {
       @include focus-visible;
-      border-radius: $border-radius-regular;
     }
   }
 
@@ -63,7 +62,6 @@
 
       &:focus-visible {
         @include focus-visible;
-        border-radius: $border-radius-regular;
       }
 
       &.is-activated {
