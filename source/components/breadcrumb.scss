@@ -27,8 +27,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible;
-      border-radius: $border-radius-small;
+      @include focus-visible(rounded);
     }
   }
 

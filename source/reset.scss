@@ -174,8 +174,7 @@ video {
 audio[controls],
 video[controls] {
   &:focus-visible {
-    @include focus-visible;
-    border-radius: $border-radius-regular;
+    @include focus-visible(rounded);
   }
 }
 
@@ -341,7 +340,6 @@ summary {
 
 [contenteditable] {
   &:focus-visible {
-    @include focus-visible;
-    border-radius: $border-radius-regular;
+    @include focus-visible(rounded);
   }
 }
