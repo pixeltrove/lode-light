@@ -27,7 +27,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible;
+      @include focus-visible(rounded);
     }
   }
 

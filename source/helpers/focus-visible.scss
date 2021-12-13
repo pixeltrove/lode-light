@@ -3,7 +3,11 @@
 
 @use "../tokens" as *;
 
-@mixin focus-visible {
+@mixin focus-visible($style: "contour") {
   outline: 2px solid $color-focal-regular;
   outline-offset: 2px;
+
+  @if $style == "rounded" {
+    border-radius: $border-radius-small;
+  }
 }

@@ -33,7 +33,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible;
+      @include focus-visible(rounded);
     }
   }
 
@@ -61,7 +61,7 @@
       }
 
       &:focus-visible {
-        @include focus-visible;
+        @include focus-visible(rounded);
       }
 
       &.is-activated {
