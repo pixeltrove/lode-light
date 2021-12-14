@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 @use "../tokens" as *;
-@use "../helpers/focus-visible" as *;
 
 .notice {
   padding: $space-regular $space-large-d;
@@ -24,7 +23,6 @@
 // Positive
 
 .notice-positive {
-  border-color: $color-positive-light-c;
   color: $color-positive-regular;
   background-color: $color-positive-light-a;
 }
@@ -32,7 +30,6 @@
 // Attentive
 
 .notice-attentive {
-  border-color: $color-attentive-light-c;
   color: $color-attentive-regular;
   background-color: $color-attentive-light-a;
 }
@@ -40,7 +37,6 @@
 // Negative
 
 .notice-negative {
-  border-color: $color-negative-light-c;
   color: $color-negative-regular;
   background-color: $color-negative-light-a;
 }
@@ -48,7 +44,6 @@
 // Neutral
 
 .notice-neutral {
-  border-color: $color-neutral-light-c;
   color: $color-neutral-regular;
   background-color: $color-neutral-light-a;
 }
