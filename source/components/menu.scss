@@ -23,11 +23,11 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-regular $transition-regular;
+    animation: slide-in-regular $transition-standard;
   }
 
   &.is-phasing-out {
-    animation: slide-out-regular $transition-regular;
+    animation: slide-out-regular $transition-standard;
   }
 
   &-item {
@@ -57,7 +57,7 @@
     line-height: $line-height-regular;
     white-space: nowrap;
     color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
       background-color: $color-neutral-light-a;

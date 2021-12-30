@@ -14,7 +14,7 @@
   line-height: $line-height-regular;
   color: $color-neutral-regular;
   background-color: $color-white-regular;
-  transition: outline $transition-regular, border-color $transition-regular;
+  transition: outline $transition-standard, border-color $transition-standard;
 
   &:focus-visible {
     @include focus-visible;

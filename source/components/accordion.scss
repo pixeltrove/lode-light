@@ -28,7 +28,7 @@
     line-height: $line-height-small-a;
     color: $color-neutral-regular;
     background-color: transparent;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color $transition-standard, outline $transition-standard;
 
     @at-root .accordion-segment:last-child & {
       margin-bottom: -$border-width-regular;
@@ -48,7 +48,7 @@
     height: 1rem;
     margin-left: auto;
     fill: currentColor;
-    transition: transform $transition-regular;
+    transition: transform $transition-standard;
 
     @at-root .accordion-slat.is-activated & {
       transform: rotate(180deg);
@@ -57,7 +57,7 @@
 
   &-panel {
     display: none;
-    transition: height $transition-regular;
+    transition: height $transition-standard;
 
     &.is-shown,
     &.is-phasing {

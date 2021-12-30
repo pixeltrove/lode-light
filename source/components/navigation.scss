@@ -23,7 +23,7 @@
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
       color: $color-brand-regular;
