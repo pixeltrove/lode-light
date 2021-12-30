@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "sass:map";
-@use "../tokens" as *;
+@use "../settings" as *;
 
 @mixin set-breakpoint($name) {
   @if ($name == "default") {
@@ -12,6 +12,6 @@
       @content;
     }
   } @else {
-    @error "Invalid breakpoint name. Check spelling or review viewport breakpoint tokens.";
+    @error "Invalid breakpoint name. Check spelling or review viewport breakpoint settings.";
   }
 }
