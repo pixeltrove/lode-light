@@ -6,7 +6,7 @@
 .notice {
   padding: $space-regular $space-large-d;
   border-radius: $border-radius-regular;
-  color: $color-brand-regular;
+  color: $color-brand-dark-a;
   background-color: $color-brand-light-a;
 
   &-heading {
@@ -23,27 +23,27 @@
 // Positive
 
 .notice-positive {
-  color: $color-positive-regular;
+  color: $color-positive-dark-a;
   background-color: $color-positive-light-a;
 }
 
 // Attentive
 
 .notice-attentive {
-  color: $color-attentive-regular;
+  color: $color-attentive-dark-a;
   background-color: $color-attentive-light-a;
 }
 
 // Negative
 
 .notice-negative {
-  color: $color-negative-regular;
+  color: $color-negative-dark-a;
   background-color: $color-negative-light-a;
 }
 
 // Neutral
 
 .notice-neutral {
-  color: $color-neutral-regular;
+  color: $color-neutral-dark-a;
   background-color: $color-neutral-light-a;
 }

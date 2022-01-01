@@ -36,11 +36,11 @@
 
   &-link {
     display: inline-block;
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {

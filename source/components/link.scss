@@ -6,14 +6,14 @@
 
 .link {
   display: inline-flex;
-  color: $color-brand-regular;
+  color: $color-brand-dark-a;
   text-decoration: $border-width-regular underline $color-brand-medium;
   text-underline-offset: 0.25rem;
   transition: text-decoration $transition-standard, outline $transition-standard;
 
   &:hover {
     text-decoration-thickness: $border-width-thick-b;
-    text-decoration-color: $color-brand-regular;
+    text-decoration-color: $color-brand-dark-a;
   }
 
   &:focus-visible {

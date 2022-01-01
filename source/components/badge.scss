@@ -11,7 +11,7 @@
   font-size: $font-size-small;
   line-height: 1;
   font-weight: $font-weight-bold-b;
-  color: $color-brand-regular;
+  color: $color-brand-dark-a;
   text-transform: uppercase;
   background-color: $color-brand-light-b;
 }
@@ -19,27 +19,27 @@
 // Positive
 
 .badge-positive {
-  color: $color-positive-regular;
+  color: $color-positive-dark-a;
   background-color: $color-positive-light-b;
 }
 
 // Attentive
 
 .badge-attentive {
-  color: $color-attentive-regular;
+  color: $color-attentive-dark-a;
   background-color: $color-attentive-light-b;
 }
 
 // Negative
 
 .badge-negative {
-  color: $color-negative-regular;
+  color: $color-negative-dark-a;
   background-color: $color-negative-light-b;
 }
 
 // Neutral
 
 .badge-neutral {
-  color: $color-neutral-regular;
+  color: $color-neutral-dark-a;
   background-color: $color-neutral-light-b;
 }

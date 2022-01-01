@@ -26,7 +26,7 @@
     margin-top: -$border-width-regular;
     font-size: $font-size-large-e;
     line-height: $line-height-small-a;
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     background-color: transparent;
     transition: color $transition-standard, outline $transition-standard;
 
@@ -35,7 +35,7 @@
     }
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {

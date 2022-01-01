@@ -9,8 +9,8 @@
   padding: calc(#{$space-large-d} - #{$border-width-regular});
   border: $border-width-regular solid $color-neutral-light-c;
   border-radius: $border-radius-regular;
-  color: $color-neutral-regular;
-  background-color: $color-white-regular;
+  color: $color-neutral-dark-a;
+  background-color: $color-white;
 
   &-media {
     display: block;

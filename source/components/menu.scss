@@ -14,7 +14,7 @@
   border-radius: $border-radius-regular;
   margin-top: $space-small-e;
   margin-bottom: 0;
-  background-color: $color-white-regular;
+  background-color: $color-white;
 
   &.is-shown,
   &.is-phasing-in,
@@ -56,7 +56,7 @@
     font-size: $font-size-regular;
     line-height: $line-height-regular;
     white-space: nowrap;
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     transition: color $transition-standard, outline $transition-standard;
 
     &:hover {

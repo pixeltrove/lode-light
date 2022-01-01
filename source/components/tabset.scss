@@ -21,12 +21,12 @@
     padding: $space-small-b $space-regular;
     border: 0;
     margin-bottom: -#{$border-width-regular};
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     background-color: transparent;
     transition: border-color $transition-standard, color $transition-standard, outline $transition-standard;
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {
@@ -34,9 +34,9 @@
     }
 
     &.is-activated {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
       padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-      border-bottom: $border-width-thick-b solid $color-brand-regular;
+      border-bottom: $border-width-thick-b solid $color-brand-dark-a;
     }
   }
 

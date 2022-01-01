@@ -16,14 +16,14 @@
   }
 
   &-link {
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     text-decoration: $border-width-regular underline $color-neutral-medium;
     text-underline-offset: 0.25rem;
     transition: text-decoration $transition-standard, outline $transition-standard;
 
     &:hover {
       text-decoration-thickness: $border-width-thick-b;
-      text-decoration-color: $color-neutral-regular;
+      text-decoration-color: $color-neutral-dark-a;
     }
 
     &:focus-visible {

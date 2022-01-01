@@ -12,8 +12,8 @@
   border-radius: $border-radius-regular;
   font-size: $font-size-regular;
   line-height: $line-height-regular;
-  color: $color-neutral-regular;
-  background-color: $color-white-regular;
+  color: $color-neutral-dark-a;
+  background-color: $color-white;
   transition: outline $transition-standard, border-color $transition-standard;
 
   &:focus-visible {
