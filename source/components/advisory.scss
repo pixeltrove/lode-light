@@ -6,8 +6,8 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-regular;
-  padding-bottom: $space-regular;
+  padding-top: $space-standard;
+  padding-bottom: $space-standard;
   color: $color-white;
   background-color: $color-brand-dark-a;
 
@@ -38,11 +38,11 @@
       margin-bottom: $space-small-e;
 
       &:not(:first-child) {
-        margin-left: $space-regular;
+        margin-left: $space-standard;
       }
 
       &:not(:last-child) {
-        margin-right: $space-regular;
+        margin-right: $space-standard;
       }
     }
   }

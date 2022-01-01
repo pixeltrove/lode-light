@@ -8,7 +8,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: $space-small-b $space-regular;
+  padding: $space-small-b $space-standard;
   border: 0;
   border-radius: $border-radius-standard;
   vertical-align: middle;
@@ -71,7 +71,7 @@
 }
 
 .button-lean {
-  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-regular} - #{$border-width-standard});
+  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-standard} - #{$border-width-standard});
   border: $border-width-standard solid $color-brand-medium;
 }
 

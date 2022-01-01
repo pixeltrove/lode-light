@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-regular;
+    padding: $space-small-b $space-standard;
     border: 0;
     margin-bottom: -#{$border-width-standard};
     color: $color-neutral-dark-a;
@@ -42,8 +42,8 @@
 
   &-panel {
     display: none;
-    padding-top: $space-regular;
-    padding-bottom: $space-regular;
+    padding-top: $space-standard;
+    padding-bottom: $space-standard;
 
     &.is-shown,
     &.is-phasing-in {

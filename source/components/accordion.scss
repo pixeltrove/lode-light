@@ -67,11 +67,11 @@
 
   &-panel-inside {
     padding-top: $space-small-e;
-    padding-bottom: $space-regular;
+    padding-bottom: $space-standard;
 
     @at-root .accordion-segment:last-child & {
       padding-top: calc(#{$space-small-e} + #{$border-width-standard});
-      padding-bottom: calc(#{$space-regular} - #{$border-width-standard});
+      padding-bottom: calc(#{$space-standard} - #{$border-width-standard});
     }
 
     p:last-child {
