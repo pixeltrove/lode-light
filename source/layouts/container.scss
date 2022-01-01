@@ -5,7 +5,7 @@
 @use "../helpers/set-breakpoint" as *;
 
 .container {
-  max-width: $container-max-width-regular;
+  max-width: $container-max-width-standard;
   padding-right: $space-large-d;
   padding-left: $space-large-d;
   margin-right: auto;
