@@ -10,7 +10,7 @@
   align-items: center;
   padding: $space-small-b $space-regular;
   border: 0;
-  border-radius: $border-radius-regular;
+  border-radius: $border-radius-standard;
   vertical-align: middle;
   font-size: $font-size-regular;
   line-height: $line-height-regular;
@@ -71,8 +71,8 @@
 }
 
 .button-lean {
-  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
-  border: $border-width-regular solid $color-brand-medium;
+  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-regular} - #{$border-width-standard});
+  border: $border-width-standard solid $color-brand-medium;
 }
 
 // Iconic
@@ -81,7 +81,7 @@
   padding: $space-small-b;
 
   &.button-lean {
-    padding: calc(#{$space-small-b} - #{$border-width-regular});
+    padding: calc(#{$space-small-b} - #{$border-width-standard});
   }
 
   .button-icon-lead {

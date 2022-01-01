@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-regular solid $color-neutral-light-c;
+    border-bottom: $border-width-standard solid $color-neutral-light-c;
     margin-bottom: 0;
     list-style: none;
   }
@@ -20,7 +20,7 @@
     align-items: center;
     padding: $space-small-b $space-regular;
     border: 0;
-    margin-bottom: -#{$border-width-regular};
+    margin-bottom: -#{$border-width-standard};
     color: $color-neutral-dark-a;
     background-color: transparent;
     transition: border-color $transition-standard, color $transition-standard, outline $transition-standard;

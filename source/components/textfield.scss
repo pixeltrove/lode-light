@@ -7,9 +7,9 @@
 .textfield {
   display: block;
   width: 100%;
-  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-small-a} - #{$border-width-regular});
-  border: $border-width-regular solid $color-neutral-medium;
-  border-radius: $border-radius-regular;
+  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-small-a} - #{$border-width-standard});
+  border: $border-width-standard solid $color-neutral-medium;
+  border-radius: $border-radius-standard;
   font-size: $font-size-regular;
   line-height: $line-height-regular;
   color: $color-neutral-dark-a;

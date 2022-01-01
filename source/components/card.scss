@@ -6,9 +6,9 @@
 
 .card {
   display: block;
-  padding: calc(#{$space-large-d} - #{$border-width-regular});
-  border: $border-width-regular solid $color-neutral-light-c;
-  border-radius: $border-radius-regular;
+  padding: calc(#{$space-large-d} - #{$border-width-standard});
+  border: $border-width-standard solid $color-neutral-light-c;
+  border-radius: $border-radius-standard;
   color: $color-neutral-dark-a;
   background-color: $color-white;
 

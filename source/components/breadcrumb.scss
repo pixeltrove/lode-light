@@ -17,7 +17,7 @@
 
   &-link {
     color: $color-neutral-dark-a;
-    text-decoration: $border-width-regular underline $color-neutral-medium;
+    text-decoration: $border-width-standard underline $color-neutral-medium;
     text-underline-offset: 0.25rem;
     transition: text-decoration $transition-standard, outline $transition-standard;
 
