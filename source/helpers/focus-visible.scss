@@ -4,7 +4,7 @@
 @use "../settings" as *;
 
 @mixin focus-visible($style: "contour") {
-  outline: 2px solid $color-focal-regular;
+  outline: 2px solid $color-focal-medium;
   outline-offset: 2px;
 
   @if $style == "rounded" {

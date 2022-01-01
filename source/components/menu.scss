@@ -10,11 +10,11 @@
   z-index: $z-index-top;
   display: none;
   padding-left: 0;
-  border: $border-width-regular solid $color-neutral-light-c;
-  border-radius: $border-radius-regular;
+  border: $border-width-standard solid $color-neutral-light-c;
+  border-radius: $border-radius-standard;
   margin-top: $space-small-e;
   margin-bottom: 0;
-  background-color: $color-white-regular;
+  background-color: $color-white;
 
   &.is-shown,
   &.is-phasing-in,
@@ -23,28 +23,28 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-regular $transition-regular;
+    animation: slide-in-regular $transition-standard;
   }
 
   &.is-phasing-out {
-    animation: slide-out-regular $transition-regular;
+    animation: slide-out-regular $transition-standard;
   }
 
   &-item {
-    padding-right: calc(#{$space-small-c} - #{$border-width-regular});
-    padding-left: calc(#{$space-small-c} - #{$border-width-regular});
+    padding-right: calc(#{$space-small-c} - #{$border-width-standard});
+    padding-left: calc(#{$space-small-c} - #{$border-width-standard});
 
     &:first-child {
-      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
+      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
     }
 
     &:last-child {
-      padding-bottom: calc(#{$space-small-c} - #{$border-width-regular});
+      padding-bottom: calc(#{$space-small-c} - #{$border-width-standard});
     }
 
     &-separator {
-      padding-top: calc(#{$space-small-c} - #{$border-width-regular});
-      border-top: $border-width-regular solid $color-neutral-light-c;
+      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
+      border-top: $border-width-standard solid $color-neutral-light-c;
       margin-top: $space-small-c;
     }
   }
@@ -52,12 +52,12 @@
   &-link {
     display: flex;
     padding: $space-small-d $space-small-c;
-    border-radius: $border-radius-regular;
-    font-size: $font-size-regular;
-    line-height: $line-height-regular;
+    border-radius: $border-radius-standard;
+    font-size: $font-size-standard;
+    line-height: $line-height-standard;
     white-space: nowrap;
-    color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    color: $color-neutral-dark-a;
+    transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
       background-color: $color-neutral-light-a;

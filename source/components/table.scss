@@ -7,15 +7,15 @@
   width: 100%;
 
   &-caption {
-    padding: $space-small-a $space-regular;
+    padding: $space-small-a $space-standard;
     text-align: left;
     font-weight: $font-weight-bold-a;
   }
 
   &-header,
   &-data {
-    padding: $space-small-a $space-regular calc(#{$space-small-a} - #{$border-width-regular});
-    border-bottom: $border-width-regular solid $color-neutral-light-c;
+    padding: $space-small-a $space-standard calc(#{$space-small-a} - #{$border-width-standard});
+    border-bottom: $border-width-standard solid $color-neutral-light-c;
     vertical-align: top;
   }
 
@@ -27,7 +27,7 @@
     }
 
     tbody & {
-      border-right: $border-width-regular solid $color-neutral-medium;
+      border-right: $border-width-standard solid $color-neutral-medium;
     }
   }
 }

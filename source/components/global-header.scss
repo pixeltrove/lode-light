@@ -25,11 +25,11 @@
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
     font-weight: $font-weight-bold-a;
-    color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    color: $color-neutral-dark-a;
+    transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {
@@ -53,11 +53,11 @@
       display: inline-block;
       padding-top: $space-small-b;
       padding-bottom: $space-small-b;
-      color: $color-neutral-regular;
-      transition: color $transition-regular, outline $transition-regular;
+      color: $color-neutral-dark-a;
+      transition: color $transition-standard, outline $transition-standard;
 
       &:hover {
-        color: $color-brand-regular;
+        color: $color-brand-dark-a;
       }
 
       &:focus-visible {
@@ -66,8 +66,8 @@
 
       &.is-activated {
         padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-        border-bottom: $border-width-thick-b solid $color-brand-regular;
-        color: $color-brand-regular;
+        border-bottom: $border-width-thick-b solid $color-brand-dark-a;
+        color: $color-brand-dark-a;
       }
     }
   }

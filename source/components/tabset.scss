@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-regular solid $color-neutral-light-c;
+    border-bottom: $border-width-standard solid $color-neutral-light-c;
     margin-bottom: 0;
     list-style: none;
   }
@@ -18,15 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-regular;
+    padding: $space-small-b $space-standard;
     border: 0;
-    margin-bottom: -#{$border-width-regular};
-    color: $color-neutral-regular;
+    margin-bottom: -#{$border-width-standard};
+    color: $color-neutral-dark-a;
     background-color: transparent;
-    transition: border-color $transition-regular, color $transition-regular, outline $transition-regular;
+    transition: border-color $transition-standard, color $transition-standard, outline $transition-standard;
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {
@@ -34,16 +34,16 @@
     }
 
     &.is-activated {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
       padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-      border-bottom: $border-width-thick-b solid $color-brand-regular;
+      border-bottom: $border-width-thick-b solid $color-brand-dark-a;
     }
   }
 
   &-panel {
     display: none;
-    padding-top: $space-regular;
-    padding-bottom: $space-regular;
+    padding-top: $space-standard;
+    padding-bottom: $space-standard;
 
     &.is-shown,
     &.is-phasing-in {

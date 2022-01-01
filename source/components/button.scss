@@ -8,20 +8,20 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: $space-small-b $space-regular;
+  padding: $space-small-b $space-standard;
   border: 0;
-  border-radius: $border-radius-regular;
+  border-radius: $border-radius-standard;
   vertical-align: middle;
-  font-size: $font-size-regular;
-  line-height: $line-height-regular;
-  color: $color-white-regular;
-  background-color: $color-brand-regular;
+  font-size: $font-size-standard;
+  line-height: $line-height-standard;
+  color: $color-white;
+  background-color: $color-brand-dark-a;
   user-select: none;
-  transition: background-color $transition-regular, outline $transition-regular;
+  transition: background-color $transition-standard, outline $transition-standard;
 
   &:hover,
   &.is-activated {
-    background-color: $color-brand-dark-a;
+    background-color: $color-brand-dark-b;
   }
 
   &:focus-visible {
@@ -29,7 +29,7 @@
   }
 
   &:active {
-    background-color: $color-brand-dark-b;
+    background-color: $color-brand-dark-c;
   }
 
   &:disabled {
@@ -57,7 +57,7 @@
 
 .button-lean,
 .button-plain {
-  color: $color-brand-regular;
+  color: $color-brand-dark-a;
   background-color: transparent;
 
   &.is-activated,
@@ -71,8 +71,8 @@
 }
 
 .button-lean {
-  padding: calc(#{$space-small-b} - #{$border-width-regular}) calc(#{$space-regular} - #{$border-width-regular});
-  border: $border-width-regular solid $color-brand-medium;
+  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-standard} - #{$border-width-standard});
+  border: $border-width-standard solid $color-brand-medium;
 }
 
 // Iconic
@@ -81,7 +81,7 @@
   padding: $space-small-b;
 
   &.button-lean {
-    padding: calc(#{$space-small-b} - #{$border-width-regular});
+    padding: calc(#{$space-small-b} - #{$border-width-standard});
   }
 
   .button-icon-lead {
@@ -94,20 +94,20 @@
 // Positive
 
 .button-positive {
-  background-color: $color-positive-regular;
+  background-color: $color-positive-dark-a;
 
   &.is-activated,
   &:hover {
-    background-color: $color-positive-dark-a;
+    background-color: $color-positive-dark-b;
   }
 
   &:active {
-    background-color: $color-positive-dark-b;
+    background-color: $color-positive-dark-c;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-positive-regular;
+    color: $color-positive-dark-a;
     background-color: transparent;
 
     &.is-activated,
@@ -128,20 +128,20 @@
 // Attentive
 
 .button-attentive {
-  background-color: $color-attentive-regular;
+  background-color: $color-attentive-dark-a;
 
   &.is-activated,
   &:hover {
-    background-color: $color-attentive-dark-a;
+    background-color: $color-attentive-dark-b;
   }
 
   &:active {
-    background-color: $color-attentive-dark-b;
+    background-color: $color-attentive-dark-c;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-attentive-regular;
+    color: $color-attentive-dark-a;
     background-color: transparent;
 
     &.is-activated,
@@ -162,20 +162,20 @@
 // Negative
 
 .button-negative {
-  background-color: $color-negative-regular;
+  background-color: $color-negative-dark-a;
 
   &.is-activated,
   &:hover {
-    background-color: $color-negative-dark-a;
+    background-color: $color-negative-dark-b;
   }
 
   &:active {
-    background-color: $color-negative-dark-b;
+    background-color: $color-negative-dark-c;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-negative-regular;
+    color: $color-negative-dark-a;
     background-color: transparent;
 
     &.is-activated,
@@ -196,20 +196,20 @@
 // Neutral
 
 .button-neutral {
-  background-color: $color-neutral-regular;
+  background-color: $color-neutral-dark-a;
 
   &.is-activated,
   &:hover {
-    background-color: $color-neutral-dark-a;
+    background-color: $color-neutral-dark-b;
   }
 
   &:active {
-    background-color: $color-neutral-dark-b;
+    background-color: $color-neutral-dark-c;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
     background-color: transparent;
 
     &.is-activated,

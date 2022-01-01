@@ -29,18 +29,18 @@
       padding-bottom: 0;
 
       &:not(:last-of-type) {
-        margin-right: $space-regular;
+        margin-right: $space-standard;
       }
     }
   }
 
   &-link {
     display: inline-block;
-    color: $color-neutral-regular;
-    transition: color $transition-regular, outline $transition-regular;
+    color: $color-neutral-dark-a;
+    transition: color $transition-standard, outline $transition-standard;
 
     &:hover {
-      color: $color-brand-regular;
+      color: $color-brand-dark-a;
     }
 
     &:focus-visible {

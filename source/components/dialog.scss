@@ -11,10 +11,10 @@
   overflow: auto;
   max-width: 36rem;
   padding: $space-large-d;
-  border-radius: $border-radius-regular;
+  border-radius: $border-radius-standard;
   margin: $space-large-d;
-  color: $color-neutral-regular;
-  background-color: $color-white-regular;
+  color: $color-neutral-dark-a;
+  background-color: $color-white;
 
   &:focus-visible {
     outline: 0;
@@ -35,7 +35,7 @@
   }
 
   &-heading {
-    margin-bottom: $space-regular;
+    margin-bottom: $space-standard;
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
   }

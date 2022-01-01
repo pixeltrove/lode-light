@@ -6,10 +6,10 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-regular;
-  padding-bottom: $space-regular;
-  color: $color-white-regular;
-  background-color: $color-brand-regular;
+  padding-top: $space-standard;
+  padding-bottom: $space-standard;
+  color: $color-white;
+  background-color: $color-brand-dark-a;
 
   &-container {
     display: flex;
@@ -38,25 +38,25 @@
       margin-bottom: $space-small-e;
 
       &:not(:first-child) {
-        margin-left: $space-regular;
+        margin-left: $space-standard;
       }
 
       &:not(:last-child) {
-        margin-right: $space-regular;
+        margin-right: $space-standard;
       }
     }
   }
 
   .advisory-button {
-    color: $color-brand-regular;
-    background-color: $color-white-regular;
+    color: $color-brand-dark-a;
+    background-color: $color-white;
 
     &:hover {
       background-color: $color-white-transparent-a;
     }
 
     &:focus-visible {
-      outline-color: $color-white-regular;
+      outline-color: $color-white;
     }
 
     &:active {
@@ -71,7 +71,7 @@
 
   .advisory-link {
     &:focus-visible {
-      outline-color: $color-white-regular;
+      outline-color: $color-white;
     }
   }
 }
@@ -79,39 +79,39 @@
 // Positive
 
 .advisory-positive {
-  background-color: $color-positive-regular;
+  background-color: $color-positive-dark-a;
 
   .advisory-button {
-    color: $color-positive-regular;
+    color: $color-positive-dark-a;
   }
 }
 
 // Attentive
 
 .advisory-attentive {
-  background-color: $color-attentive-regular;
+  background-color: $color-attentive-dark-a;
 
   .advisory-button {
-    color: $color-attentive-regular;
+    color: $color-attentive-dark-a;
   }
 }
 
 // Negative
 
 .advisory-negative {
-  background-color: $color-negative-regular;
+  background-color: $color-negative-dark-a;
 
   .advisory-button {
-    color: $color-negative-regular;
+    color: $color-negative-dark-a;
   }
 }
 
 // Neutral
 
 .advisory-neutral {
-  background-color: $color-neutral-regular;
+  background-color: $color-neutral-dark-a;
 
   .advisory-button {
-    color: $color-neutral-regular;
+    color: $color-neutral-dark-a;
   }
 }

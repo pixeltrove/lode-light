@@ -18,12 +18,12 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  font-family: $font-family-regular;
-  font-size: $font-size-regular;
-  line-height: $line-height-regular;
-  font-weight: $font-weight-regular;
-  color: $color-neutral-regular;
-  background-color: $color-white-regular;
+  font-family: $font-family-standard;
+  font-size: $font-size-standard;
+  line-height: $line-height-standard;
+  font-weight: $font-weight-standard;
+  color: $color-neutral-dark-a;
+  background-color: $color-white;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -115,8 +115,8 @@ h5 {
 }
 
 h6 {
-  font-size: $font-size-regular;
-  line-height: $line-height-regular;
+  font-size: $font-size-standard;
+  line-height: $line-height-standard;
 }
 
 // Thematic break
