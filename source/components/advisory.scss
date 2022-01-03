@@ -56,7 +56,7 @@
     }
 
     &:focus-visible {
-      outline-color: $color-white;
+      outline-color: $color-focal-light;
     }
 
     &:active {
@@ -71,7 +71,7 @@
 
   .advisory-link {
     &:focus-visible {
-      outline-color: $color-white;
+      outline-color: $color-focal-light;
     }
   }
 }
