@@ -1,7 +1,7 @@
 // ANIMATE FADE
 // -----------------------------------------------------------------------------
 
-@keyframes fade-in-regular {
+@keyframes fade-in-standard {
   from {
     opacity: 0;
   }
@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes fade-out-regular {
+@keyframes fade-out-standard {
   from {
     opacity: 1;
   }

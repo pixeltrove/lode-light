@@ -23,11 +23,11 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-regular $transition-standard;
+    animation: slide-in-standard $transition-standard;
   }
 
   &.is-phasing-out {
-    animation: slide-out-regular $transition-standard;
+    animation: slide-out-standard $transition-standard;
   }
 
   &-item {
