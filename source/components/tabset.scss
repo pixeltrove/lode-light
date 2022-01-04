@@ -51,7 +51,7 @@
     }
 
     &.is-phasing-in {
-      animation: fade-in-regular $transition-slow;
+      animation: fade-in-standard $transition-slow;
     }
 
     p:last-child {

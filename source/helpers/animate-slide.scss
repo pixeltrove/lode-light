@@ -3,7 +3,7 @@
 
 @use "../settings" as *;
 
-@keyframes slide-in-regular {
+@keyframes slide-in-standard {
   from {
     opacity: 0;
     transform: translateY(-$translate-distance-standard);
@@ -14,7 +14,7 @@
   }
 }
 
-@keyframes slide-out-regular {
+@keyframes slide-out-standard {
   from {
     opacity: 1;
     transform: translateY(0);
