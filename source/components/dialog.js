@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import focusInside from "../helpers/focus-inside";
+import trapFocus from "../helpers/trap-focus";
 import managePhasing from "../helpers/manage-phasing";
 import toggleScroll from "../helpers/toggle-scroll";
 
@@ -65,7 +65,7 @@ function Dialog(dialog) {
 
   function handleTabKeydown(event) {
     if (event.key === "Tab") {
-      focusInside(event, dialog);
+      trapFocus(event, dialog);
     }
   }
 

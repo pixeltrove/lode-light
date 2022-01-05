@@ -1,7 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import focusKeyable from "../helpers/focus-keyable";
+import moveFocus from "../helpers/move-focus";
 import toggleCollapsible from "../helpers/toggle-collapsible";
 
 const SELECTOR_ACCORDION = ".accordion";
@@ -24,7 +24,7 @@ function Accordion(accordion) {
 
     if (pressedSlat && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      focusKeyable(event.key, slats);
+      moveFocus(event.key, slats);
     }
   }
 
