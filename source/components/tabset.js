@@ -1,7 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import focusKeyable from "../helpers/focus-keyable";
+import moveFocus from "../helpers/move-focus";
 import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_TABSET = ".tabset";
@@ -47,7 +47,7 @@ function Tabset(tabset) {
 
     if (pressedTab && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      focusKeyable(event.key, tabs);
+      moveFocus(event.key, tabs);
     }
   }
 

@@ -1,7 +1,7 @@
-// FOCUS KEYABLE
+// MOVE FOCUS
 // -----------------------------------------------------------------------------
 
-function focusKeyable(key, elements) {
+function moveFocus(key, elements) {
   const currentIndex = elements.indexOf(document.activeElement);
   const lastIndex = elements.length - 1;
   let upcomingIndex;
@@ -26,4 +26,4 @@ function focusKeyable(key, elements) {
   elements[upcomingIndex].focus();
 }
 
-export default focusKeyable;
+export default moveFocus;

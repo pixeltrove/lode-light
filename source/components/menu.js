@@ -1,7 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import focusKeyable from "../helpers/focus-keyable";
+import moveFocus from "../helpers/move-focus";
 import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_MENU = ".menu";
@@ -76,7 +76,7 @@ function Menu(menu) {
 
     if (pressedLink && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      focusKeyable(event.key, links);
+      moveFocus(event.key, links);
     }
   }
 
