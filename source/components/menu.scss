@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/animate-transit" as *;
+@use "../helpers/animate-phasing" as *;
 @use "../helpers/focus-visible" as *;
 
 .menu {
