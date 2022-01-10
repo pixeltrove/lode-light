@@ -22,9 +22,7 @@ function toggleCollapsible(trigger) {
       collapsible.style.height = isShown ? collapsible.scrollHeight + "px" : 0;
 
       requestAnimationFrame(() => {
-        collapsible.style.height = isShown
-          ? 0
-          : collapsible.scrollHeight + "px";
+        collapsible.style.height = isShown ? 0 : collapsible.scrollHeight + "px";
       });
     });
 
