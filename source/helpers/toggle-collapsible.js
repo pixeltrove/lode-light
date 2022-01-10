@@ -8,7 +8,7 @@ const DATA_TOGGLE = "data-toggle";
 
 function toggleCollapsible(trigger) {
   const collapsibleId = trigger.getAttribute(DATA_TOGGLE);
-  const collapsible = document.querySelector(`#${collapsibleId}`);
+  const collapsible = document.getElementById(collapsibleId);
   const isPhasing = collapsible.classList.contains(CLASS_PHASING);
   const isShown = collapsible.classList.contains(CLASS_SHOWN);
 
@@ -22,7 +22,9 @@ function toggleCollapsible(trigger) {
       collapsible.style.height = isShown ? collapsible.scrollHeight + "px" : 0;
 
       requestAnimationFrame(() => {
-        collapsible.style.height = isShown ? 0 : collapsible.scrollHeight + "px";
+        collapsible.style.height = isShown
+          ? 0
+          : collapsible.scrollHeight + "px";
       });
     });
 
