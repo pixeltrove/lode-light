@@ -23,8 +23,7 @@
     margin-bottom: -#{$border-width-standard};
     color: $color-neutral-dark-a;
     background-color: transparent;
-    transition: border-color $transition-standard, color $transition-standard,
-      outline $transition-standard;
+    transition: border-color $transition-standard, color $transition-standard, outline $transition-standard;
 
     &:hover {
       color: $color-brand-dark-a;
