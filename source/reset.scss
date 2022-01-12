@@ -206,10 +206,6 @@ button,
 [type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
-
-  &::-moz-focus-inner {
-    border: 0;
-  }
 }
 
 ::-webkit-file-upload-button {
