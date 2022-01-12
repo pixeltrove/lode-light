@@ -57,10 +57,7 @@ ul {
 ol,
 ul {
   padding-left: 2rem;
-
-  &[class] {
-    list-style: none;
-  }
+  list-style: none;
 
   & ol,
   & ul {
