@@ -43,6 +43,7 @@ address {
 
 blockquote {
   margin: 0 0 1rem;
+  overflow-wrap: break-word;
 }
 
 // Definition, ordered, and unordered list
@@ -59,6 +60,10 @@ ul {
   padding-left: 2rem;
   list-style: none;
 
+  li {
+    overflow-wrap: break-word;
+  }
+
   & ol,
   & ul {
     margin-bottom: 0;
@@ -67,10 +72,12 @@ ul {
 
 dt {
   font-weight: $font-weight-bold-a;
+  overflow-wrap: break-word;
 }
 
 dd {
   margin-left: 0;
+  overflow-wrap: break-word;
 }
 
 // Figure
@@ -90,6 +97,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: $font-weight-bold-a;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -138,6 +146,7 @@ hr {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  overflow-wrap: break-word;
 }
 
 // Preformatted text
