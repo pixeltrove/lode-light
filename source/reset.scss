@@ -215,10 +215,6 @@ button,
 [type="search"] {
   -webkit-appearance: textfield;
 
-  &:focus {
-    outline-offset: -2px;
-  }
-
   &::-webkit-search-decoration {
     -webkit-appearance: none;
   }
