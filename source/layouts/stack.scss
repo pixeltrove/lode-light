@@ -1,0 +1,10 @@
+// STACK
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+.stack {
+  > *:not(:last-child) {
+    margin-bottom: $space-standard;
+  }
+}
