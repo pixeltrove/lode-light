@@ -12,11 +12,17 @@
   box-sizing: border-box;
 }
 
+// Root
+
+html {
+  height: 100%;
+}
+
 // Body
 
 body {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   margin: 0;
   font-family: $font-family-standard;
   font-size: $font-size-standard;
@@ -37,6 +43,7 @@ address {
 
 blockquote {
   margin: 0 0 1rem;
+  overflow-wrap: break-word;
 }
 
 // Definition, ordered, and unordered list
@@ -51,9 +58,10 @@ ul {
 ol,
 ul {
   padding-left: 2rem;
+  list-style: none;
 
-  &[class] {
-    list-style: none;
+  li {
+    overflow-wrap: break-word;
   }
 
   & ol,
@@ -64,10 +72,12 @@ ul {
 
 dt {
   font-weight: $font-weight-bold-a;
+  overflow-wrap: break-word;
 }
 
 dd {
   margin-left: 0;
+  overflow-wrap: break-word;
 }
 
 // Figure
@@ -87,6 +97,7 @@ h6 {
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: $font-weight-bold-a;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -135,6 +146,7 @@ hr {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  overflow-wrap: break-word;
 }
 
 // Preformatted text
@@ -164,10 +176,6 @@ iframe,
 img,
 video {
   display: block;
-}
-
-img,
-video {
   max-width: 100%;
 }
 
@@ -198,10 +206,6 @@ button,
 [type="submit"] {
   cursor: pointer;
   -webkit-appearance: button;
-
-  &::-moz-focus-inner {
-    border: 0;
-  }
 }
 
 ::-webkit-file-upload-button {
@@ -210,10 +214,6 @@ button,
 
 [type="search"] {
   -webkit-appearance: textfield;
-
-  &:focus {
-    outline-offset: -2px;
-  }
 
   &::-webkit-search-decoration {
     -webkit-appearance: none;
@@ -245,21 +245,6 @@ legend {
 
 label {
   display: inline-block;
-}
-
-// Meter and progress
-
-meter,
-progress {
-  height: 1rem;
-}
-
-meter {
-  width: 5rem;
-}
-
-progress {
-  width: 10rem;
 }
 
 // Anchor
@@ -321,12 +306,6 @@ sub {
 
 sup {
   top: -0.5em;
-}
-
-// Dialog
-
-dialog {
-  padding: 1rem;
 }
 
 // Summary
