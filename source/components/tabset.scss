@@ -53,9 +53,5 @@
     &.is-phasing-in {
       animation: fade-in-standard $transition-slow;
     }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
   }
 }

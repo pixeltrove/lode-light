@@ -42,7 +42,7 @@ address {
 // Blockquote
 
 blockquote {
-  margin: 0 0 1rem;
+  margin: 0;
   overflow-wrap: break-word;
 }
 
@@ -52,7 +52,7 @@ dl,
 ol,
 ul {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 ol,
@@ -62,11 +62,6 @@ ul {
 
   li {
     overflow-wrap: break-word;
-  }
-
-  & ol,
-  & ul {
-    margin-bottom: 0;
   }
 }
 
@@ -83,7 +78,7 @@ dd {
 // Figure
 
 figure {
-  margin: 0 0 1rem;
+  margin: 0;
 }
 
 // Heading
@@ -95,7 +90,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-weight: $font-weight-bold-a;
   overflow-wrap: break-word;
 }
@@ -136,8 +131,8 @@ hr {
   overflow: visible;
   height: 0.125rem;
   border: 0;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
   background-color: $color-neutral-light-c;
 }
 
@@ -145,7 +140,7 @@ hr {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   overflow-wrap: break-word;
 }
 
@@ -154,7 +149,7 @@ p {
 pre {
   overflow: auto;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-family: $font-family-monospace;
 
   code {
