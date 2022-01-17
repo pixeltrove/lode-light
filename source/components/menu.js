@@ -72,9 +72,9 @@ function Menu(menu) {
   }
 
   function handleLinkKeydown(event) {
-    const pressedLink = event.target.closest(SELECTOR_LINK);
+    const targetLink = event.target.closest(SELECTOR_LINK);
 
-    if (pressedLink && navigationKeys.includes(event.key)) {
+    if (targetLink && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, links);
     }
