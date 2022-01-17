@@ -6,7 +6,7 @@ const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 
 function managePhasing(...items) {
-  for (const item of items) {
+  items.forEach((item) => {
     const isShown = item.classList.contains(CLASS_SHOWN);
     const phasingClass = isShown ? CLASS_PHASING_OUT : CLASS_PHASING_IN;
 
@@ -20,7 +20,7 @@ function managePhasing(...items) {
       },
       { once: true }
     );
-  }
+  });
 }
 
 export default managePhasing;
