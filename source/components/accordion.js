@@ -32,4 +32,6 @@ function Accordion(accordion) {
   accordion.addEventListener("keydown", handleSlatKeydown);
 }
 
-Array.from(document.querySelectorAll(SELECTOR_ACCORDION)).forEach((accordion) => Accordion(accordion));
+const accordions = Array.from(document.querySelectorAll(SELECTOR_ACCORDION));
+
+accordions.forEach((accordion) => Accordion(accordion));
