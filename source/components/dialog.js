@@ -42,17 +42,17 @@ function Dialog(dialog) {
   }
 
   function handleHideClick(event) {
-    const pressedHide = event.target.closest(SELECTOR_HIDE);
+    const targetHide = event.target.closest(SELECTOR_HIDE);
 
-    if (pressedHide) {
+    if (targetHide) {
       hide();
     }
   }
 
   function handleBackdropClick(event) {
-    const pressedBackdrop = event.target.matches(SELECTOR_BACKDROP);
+    const targetBackdrop = event.target.matches(SELECTOR_BACKDROP);
 
-    if (pressedBackdrop) {
+    if (targetBackdrop) {
       hide();
     }
   }

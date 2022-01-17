@@ -15,37 +15,37 @@ function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
   const navigationKeys = ["ArrowLeft", "ArrowRight", "Home", "End"];
 
-  function swapPanel(pressedTab) {
+  function swapPanel(targetTab) {
     const activatedTab = tabs.find((tab) => tab.classList.contains(CLASS_ACTIVATED));
     const activatedPanelId = activatedTab.getAttribute(DATA_SHOW);
     const activatedPanel = document.querySelector(`#${activatedPanelId}`);
-    const upcomingPanelId = pressedTab.getAttribute(DATA_SHOW);
+    const upcomingPanelId = targetTab.getAttribute(DATA_SHOW);
     const upcomingPanel = document.querySelector(`#${upcomingPanelId}`);
     const isPhasingIn = activatedPanel.classList.contains(CLASS_PHASING_IN);
 
-    if (!isPhasingIn && activatedTab !== pressedTab) {
+    if (!isPhasingIn && activatedTab !== targetTab) {
       activatedTab.classList.remove(CLASS_ACTIVATED);
       activatedTab.setAttribute("tabIndex", "-1");
       activatedPanel.classList.remove(CLASS_PHASING_IN);
       activatedPanel.classList.remove(CLASS_SHOWN);
-      pressedTab.classList.add(CLASS_ACTIVATED);
-      pressedTab.removeAttribute("tabIndex");
+      targetTab.classList.add(CLASS_ACTIVATED);
+      targetTab.removeAttribute("tabIndex");
       managePhasing(upcomingPanel);
     }
   }
 
   function handleTabClick(event) {
-    const pressedTab = event.target.closest(SELECTOR_TAB);
+    const targetTab = event.target.closest(SELECTOR_TAB);
 
-    if (pressedTab) {
-      swapPanel(pressedTab);
+    if (targetTab) {
+      swapPanel(targetTab);
     }
   }
 
   function handleTabKeydown(event) {
-    const pressedTab = event.target.closest(SELECTOR_TAB);
+    const targetTab = event.target.closest(SELECTOR_TAB);
 
-    if (pressedTab && navigationKeys.includes(event.key)) {
+    if (targetTab && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, tabs);
     }
