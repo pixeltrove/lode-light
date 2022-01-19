@@ -11,7 +11,7 @@
     @error "Invalid visible focus style. Check spelling or review helper definition.";
   }
 
-  outline: 2px solid $color-focal-medium;
+  outline: 2px solid $color-brand-dark-a;
   outline-offset: 2px;
 
   @if $style == "rounded" {
