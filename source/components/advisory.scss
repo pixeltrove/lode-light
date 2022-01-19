@@ -6,15 +6,16 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-standard;
-  padding-bottom: $space-standard;
+  padding-top: $space-small-b;
+  padding-bottom: $space-small-b;
   color: $color-white;
   background-color: $color-brand-dark-a;
 
-  &-container {
+  &-inner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: start;
+    gap: $space-standard;
 
     @include set-breakpoint(medium) {
       flex-direction: row;
@@ -24,27 +25,15 @@
   &-icon-lead {
     width: 1.5rem;
     height: 1.5rem;
-    flex-shrink: 0;
-    margin-top: $space-small-e;
-    margin-bottom: $space-small-e;
     fill: currentColor;
+
+    @include set-breakpoint(medium) {
+      align-self: center;
+    }
   }
 
   &-message {
-    margin-top: $space-small-e;
-    margin-bottom: $space-small-a;
-
-    @include set-breakpoint(medium) {
-      margin-bottom: $space-small-e;
-
-      &:not(:first-child) {
-        margin-left: $space-standard;
-      }
-
-      &:not(:last-child) {
-        margin-right: $space-standard;
-      }
-    }
+    align-self: center;
   }
 
   .advisory-button {
@@ -61,11 +50,6 @@
 
     &:active {
       background-color: $color-white-transparent-b;
-    }
-
-    @include set-breakpoint(medium) {
-      margin-top: -$space-small-d;
-      margin-bottom: -$space-small-d;
     }
   }
 
