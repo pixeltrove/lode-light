@@ -226,3 +226,57 @@
     border-color: $color-neutral-medium;
   }
 }
+
+// Inverse
+
+.button-inverse {
+  color: $color-brand-dark-a;
+  background-color: $color-white;
+
+  &:hover {
+    background-color: $color-white-transparent-a;
+  }
+
+  &:focus-visible {
+    outline-color: $color-focal-light;
+  }
+
+  &:active {
+    background-color: $color-white-transparent-b;
+  }
+
+  &.button-positive {
+    color: $color-positive-dark-a;
+  }
+
+  &.button-attentive {
+    color: $color-attentive-dark-a;
+  }
+
+  &.button-negative {
+    color: $color-negative-dark-a;
+  }
+
+  &.button-neutral {
+    color: $color-neutral-dark-a;
+  }
+
+  &.button-lean,
+  &.button-plain {
+    color: $color-white;
+    background-color: transparent;
+
+    &.is-activated,
+    &:hover {
+      background-color: $color-white-transparent-d;
+    }
+
+    &:active {
+      background-color: $color-white-transparent-c;
+    }
+  }
+
+  &.button-lean {
+    border-color: $color-white;
+  }
+}
