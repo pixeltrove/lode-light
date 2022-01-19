@@ -245,10 +245,6 @@
     background-color: $color-white-transparent-b;
   }
 
-  &.button-lean {
-    border-color: $color-white;
-  }
-
   &.button-positive {
     color: $color-positive-dark-a;
   }
@@ -278,5 +274,9 @@
     &:active {
       background-color: $color-white-transparent-c;
     }
+  }
+
+  &.button-lean {
+    border-color: $color-white;
   }
 }
