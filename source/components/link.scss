@@ -21,13 +21,17 @@
   }
 }
 
-// Adaptive
+// Inverse
 
-.link-adaptive {
-  color: currentColor;
-  text-decoration-color: currentColor;
+.link-inverse {
+  color: $color-white;
+  text-decoration-color: $color-white;
 
   &:hover {
-    text-decoration-color: currentColor;
+    text-decoration-color: $color-white;
+  }
+
+  &:focus-visible {
+    outline-color: $color-white;
   }
 }
