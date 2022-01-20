@@ -4,17 +4,17 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin focus-visible($style: "contour") {
-  $valid-styles: ("contour", "rounded");
+@mixin focus-visible($shape: "contour") {
+  $valid-shapes: ("contour", "rounded");
 
-  @if list.index($valid-styles, $style) == null {
-    @error "Invalid visible focus style. Check spelling or review helper definition.";
+  @if list.index($valid-shapes, $shape) == null {
+    @error "Invalid visible focus shape. Check spelling or review helper definition.";
   }
 
   outline: 2px solid $color-brand-dark-a;
   outline-offset: 2px;
 
-  @if $style == "rounded" {
+  @if $shape == "rounded" {
     border-radius: $border-radius-small;
   }
 }
