@@ -32,6 +32,6 @@
   }
 
   &:focus-visible {
-    @include focus-visible(inverse);
+    outline-color: $color-white;
   }
 }
