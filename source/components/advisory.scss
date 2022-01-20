@@ -35,29 +35,6 @@
   &-message {
     align-self: center;
   }
-
-  .advisory-button {
-    color: $color-brand-dark-a;
-    background-color: $color-white;
-
-    &:hover {
-      background-color: $color-white-transparent-a;
-    }
-
-    &:focus-visible {
-      outline-color: $color-white;
-    }
-
-    &:active {
-      background-color: $color-white-transparent-b;
-    }
-  }
-
-  .advisory-link {
-    &:focus-visible {
-      outline-color: $color-white;
-    }
-  }
 }
 
 // Positive
@@ -74,28 +51,16 @@
 
 .advisory-attentive {
   background-color: $color-attentive-dark-a;
-
-  .advisory-button {
-    color: $color-attentive-dark-a;
-  }
 }
 
 // Negative
 
 .advisory-negative {
   background-color: $color-negative-dark-a;
-
-  .advisory-button {
-    color: $color-negative-dark-a;
-  }
 }
 
 // Neutral
 
 .advisory-neutral {
   background-color: $color-neutral-dark-a;
-
-  .advisory-button {
-    color: $color-neutral-dark-a;
-  }
 }
