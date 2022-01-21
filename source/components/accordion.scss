@@ -69,5 +69,9 @@
       padding-top: calc(#{$space-small-e} + #{$border-width-standard});
       padding-bottom: calc(#{$space-standard} - #{$border-width-standard});
     }
+
+    > *:not(:last-child) {
+      margin-bottom: $space-standard;
+    }
   }
 }
