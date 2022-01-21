@@ -21,6 +21,17 @@
   }
 }
 
+// Adaptive
+
+.link-adaptive {
+  color: currentColor;
+  text-decoration-color: currentColor;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
 // Inverse
 
 .link-inverse {
