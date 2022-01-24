@@ -163,12 +163,13 @@ table {
   border-collapse: collapse;
 }
 
-// Audio, canvas, iframe, image, and video
+// Audio, canvas, iframe, image, scalable vector graphics, and video
 
 audio,
 canvas,
 iframe,
 img,
+svg,
 video {
   display: block;
   max-width: 100%;
