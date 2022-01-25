@@ -33,7 +33,7 @@
     fill: currentColor;
 
     @include set-breakpoint(medium) {
-      align-self: center;
+      margin-top: $space-small-b;
     }
   }
 
