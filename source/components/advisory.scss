@@ -6,10 +6,15 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-small-b;
-  padding-bottom: $space-small-b;
+  padding-top: $space-large-e;
+  padding-bottom: $space-large-e;
   color: $color-white;
   background-color: $color-brand-dark-a;
+
+  @include set-breakpoint(medium) {
+    padding-top: $space-small-b;
+    padding-bottom: $space-small-b;
+  }
 
   &-inner {
     display: flex;
@@ -23,12 +28,13 @@
   }
 
   &-icon-lead {
+    flex-shrink: 0;
     width: 1.5rem;
     height: 1.5rem;
     fill: currentColor;
 
     @include set-breakpoint(medium) {
-      align-self: center;
+      margin-top: $space-small-b;
     }
   }
 
