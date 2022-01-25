@@ -3,7 +3,7 @@
 
 @use "../settings" as *;
 
-.stack {
+.lay-stack {
   > *:not(:last-child) {
     margin-bottom: $space-standard;
   }

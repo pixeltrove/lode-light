@@ -6,7 +6,7 @@
 @use "../settings" as *;
 @use "../helpers/set-breakpoint" as *;
 
-.grid {
+.lay-grid {
   display: grid;
   gap: map.get($grid-gaps-standard, "small");
 
@@ -23,12 +23,12 @@
       $total-index: list.index($column-totals, $column-total);
       $count-start: if($total-index > 1, list.nth($column-totals, $total-index - 1) + 1, 1);
 
-      .#{$prefix}grid-#{$column-total} {
+      .#{$prefix}lay-grid-#{$column-total} {
         grid-template-columns: repeat($column-total, 1fr);
       }
 
       @for $i from $count-start through $column-total {
-        .#{$prefix}grid-column-#{$i} {
+        .#{$prefix}lay-grid-column-#{$i} {
           grid-column: span #{$i};
         }
       }
