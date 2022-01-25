@@ -6,10 +6,15 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-small-b;
-  padding-bottom: $space-small-b;
+  padding-top: $space-large-e;
+  padding-bottom: $space-large-e;
   color: $color-white;
   background-color: $color-brand-dark-a;
+
+  @include set-breakpoint(medium) {
+    padding-top: $space-small-b;
+    padding-bottom: $space-small-b;
+  }
 
   &-inner {
     display: flex;
