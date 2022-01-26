@@ -6,24 +6,21 @@
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {
-  padding-top: $space-large-e;
-  padding-bottom: $space-large-e;
   color: $color-white;
   background-color: $color-brand-dark-a;
-
-  @include set-breakpoint(medium) {
-    padding-top: $space-small-b;
-    padding-bottom: $space-small-b;
-  }
 
   &-inner {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: $space-standard;
+    padding-top: $space-large-e;
+    padding-bottom: $space-large-e;
 
     @include set-breakpoint(medium) {
       flex-direction: row;
+      padding-top: $space-small-b;
+      padding-bottom: $space-small-b;
     }
   }
 
