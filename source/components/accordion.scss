@@ -66,8 +66,8 @@
     padding-bottom: $space-standard;
 
     @at-root .accordion-segment:last-child & {
-      margin-top: $border-width-standard;
       padding-bottom: calc(#{$space-standard} - #{$border-width-standard});
+      margin-top: $border-width-standard;
     }
   }
 }
