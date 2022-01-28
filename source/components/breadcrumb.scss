@@ -17,13 +17,12 @@
 
   &-link {
     color: $color-neutral-dark-a;
-    text-decoration: $border-width-standard underline $color-neutral-medium;
+    text-decoration: $border-width-standard underline currentColor;
     text-underline-offset: 0.25rem;
     transition: text-decoration $transition-standard, outline $transition-standard;
 
     &:hover {
       text-decoration-thickness: $border-width-thick-b;
-      text-decoration-color: $color-neutral-dark-a;
     }
 
     &:focus-visible {
