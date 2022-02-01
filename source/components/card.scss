@@ -5,7 +5,9 @@
 @use "../helpers/focus-visible" as *;
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: $space-standard;
   padding: calc(#{$space-large-d} - #{$border-width-standard});
   border: $border-width-standard solid $color-neutral-light-c;
   border-radius: $border-radius-standard;
@@ -16,7 +18,6 @@
     display: block;
     max-width: calc(100% + 2 * #{$space-large-d});
     margin-right: -$space-large-d;
-    margin-bottom: $space-large-e;
     margin-left: -$space-large-d;
     transition: outline $transition-standard;
 
@@ -36,7 +37,6 @@
   }
 
   &-heading {
-    margin-bottom: $space-standard;
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
   }
