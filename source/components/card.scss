@@ -14,7 +14,7 @@
   color: $color-neutral-dark-a;
   background-color: $color-white;
 
-  &-media {
+  &-cover {
     display: block;
     max-width: calc(100% + 2 * #{$space-large-d});
     margin-right: -$space-large-d;
