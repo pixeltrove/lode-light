@@ -5,7 +5,7 @@
 @use "../settings" as *;
 
 @mixin focus-visible($shape: "contour") {
-  $valid-shapes: ("contour", "rounded");
+  $valid-shapes: ("contour", "rounded-standard", "rounded-small");
 
   @if list.index($valid-shapes, $shape) == null {
     @error "Invalid visible focus shape. Check spelling or review helper definition.";
@@ -14,7 +14,9 @@
   outline: 2px solid $color-brand-dark-a;
   outline-offset: 2px;
 
-  @if $shape == "rounded" {
+  @if $shape == "rounded-standard" {
+    border-radius: $border-radius-standard;
+  } @else if $shape == "rounded-small" {
     border-radius: $border-radius-small;
   }
 }
