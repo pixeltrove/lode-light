@@ -39,12 +39,6 @@
     }
   }
 
-  &-body {
-    display: flex;
-    flex-direction: column;
-    gap: $space-standard;
-  }
-
   &-heading {
     font-size: $font-size-large-d;
     line-height: $line-height-small-a;
