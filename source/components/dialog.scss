@@ -41,9 +41,9 @@
   }
 }
 
-// Backdrop
+// Scrim
 
-.dialog-backdrop {
+.dialog-scrim {
   position: absolute;
   inset: 0;
   z-index: $z-index-bottom;

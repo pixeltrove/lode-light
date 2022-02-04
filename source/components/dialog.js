@@ -6,7 +6,7 @@ import managePhasing from "../helpers/manage-phasing";
 import toggleScroll from "../helpers/toggle-scroll";
 
 const SELECTOR_DIALOG = ".dialog";
-const SELECTOR_BACKDROP = ".dialog-backdrop";
+const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
 const DATA_SHOW = "data-show";
@@ -15,29 +15,29 @@ function Dialog(dialog) {
   const dialogId = dialog.id;
   const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
-  const backdrop = wrapper.querySelector(SELECTOR_BACKDROP);
+  const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
   function show() {
-    managePhasing(dialog, backdrop, wrapper);
+    managePhasing(dialog, scrim, wrapper);
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
 
     dialog.addEventListener("keydown", handleTabKeydown);
     dialog.addEventListener("click", handleHideClick);
-    backdrop.addEventListener("click", handleBackdropClick);
+    scrim.addEventListener("click", handleScrimClick);
     document.addEventListener("keydown", handleEscapeKeydown);
   }
 
   function hide() {
-    managePhasing(dialog, backdrop, wrapper);
+    managePhasing(dialog, scrim, wrapper);
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();
 
     dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
-    backdrop.removeEventListener("click", handleBackdropClick);
+    scrim.removeEventListener("click", handleScrimClick);
     document.removeEventListener("keydown", handleEscapeKeydown);
   }
 
@@ -49,10 +49,10 @@ function Dialog(dialog) {
     }
   }
 
-  function handleBackdropClick(event) {
-    const targetBackdrop = event.target.matches(SELECTOR_BACKDROP);
+  function handleScrimClick(event) {
+    const targetScrim = event.target.matches(SELECTOR_SCRIM);
 
-    if (targetBackdrop) {
+    if (targetScrim) {
       hide();
     }
   }
