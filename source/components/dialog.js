@@ -1,9 +1,9 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import trapFocus from "../helpers/trap-focus";
 import managePhasing from "../helpers/manage-phasing";
 import toggleScroll from "../helpers/toggle-scroll";
+import trapFocus from "../helpers/trap-focus";
 
 const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_SCRIM = ".dialog-scrim";
