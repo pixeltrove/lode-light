@@ -7,6 +7,8 @@
 
 .dialog {
   display: none;
+  flex-direction: column;
+  gap: $space-standard;
   overflow: auto;
   max-width: 36rem;
   padding: $space-large-d;
@@ -22,7 +24,7 @@
   &.is-shown,
   &.is-phasing-in,
   &.is-phasing-out {
-    display: block;
+    display: flex;
   }
 
   &.is-phasing-in {
@@ -34,15 +36,14 @@
   }
 
   &-heading {
-    margin-bottom: $space-standard;
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
   }
 }
 
-// Backdrop
+// Scrim
 
-.dialog-backdrop {
+.dialog-scrim {
   position: absolute;
   inset: 0;
   z-index: $z-index-bottom;
