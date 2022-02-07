@@ -7,13 +7,12 @@
 .link {
   display: inline-flex;
   color: $color-brand-dark-a;
-  text-decoration: $border-width-standard underline $color-brand-medium;
+  text-decoration: $border-width-standard underline currentColor;
   text-underline-offset: 0.25rem;
   transition: text-decoration $transition-standard, outline $transition-standard;
 
   &:hover {
     text-decoration-thickness: $border-width-thick-b;
-    text-decoration-color: $color-brand-dark-a;
   }
 
   &:focus-visible {
@@ -25,11 +24,6 @@
 
 .link-adaptive {
   color: currentColor;
-  text-decoration-color: currentColor;
-
-  &:hover {
-    text-decoration-color: currentColor;
-  }
 }
 
 // Inverse
@@ -37,10 +31,6 @@
 .link-inverse {
   color: $color-white;
   text-decoration-color: $color-white;
-
-  &:hover {
-    text-decoration-color: $color-white;
-  }
 
   &:focus-visible {
     outline-color: $color-white;
