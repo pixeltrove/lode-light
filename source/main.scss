@@ -14,8 +14,6 @@
 @use "./components/card";
 @use "./components/checkbox";
 @use "./components/dialog";
-@use "./components/global-footer";
-@use "./components/global-header";
 @use "./components/link";
 @use "./components/menu";
 @use "./components/navigation";
@@ -32,3 +30,9 @@
 @use "./layouts/container";
 @use "./layouts/grid";
 @use "./layouts/stack";
+
+// PARTS
+// -----------------------------------------------------------------------------
+
+@use "./parts/global-footer";
+@use "./parts/global-header";
