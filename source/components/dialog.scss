@@ -39,6 +39,12 @@
     font-size: $font-size-large-c;
     line-height: $line-height-small-a;
   }
+
+  &-footer {
+    display: flex;
+    justify-content: end;
+    gap: $space-small-c;
+  }
 }
 
 // Scrim
