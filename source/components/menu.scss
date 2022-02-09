@@ -9,7 +9,7 @@
   position: absolute;
   z-index: $z-index-top;
   display: none;
-  padding-left: 0;
+  padding: calc(#{$space-small-c} - #{$border-width-standard});
   border: $border-width-standard solid $color-neutral-light-c;
   border-radius: $border-radius-standard;
   margin-top: $space-small-e;
@@ -28,25 +28,6 @@
 
   &.is-phasing-out {
     animation: slide-out-standard $transition-standard;
-  }
-
-  &-item {
-    padding-right: calc(#{$space-small-c} - #{$border-width-standard});
-    padding-left: calc(#{$space-small-c} - #{$border-width-standard});
-
-    &:first-child {
-      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
-    }
-
-    &:last-child {
-      padding-bottom: calc(#{$space-small-c} - #{$border-width-standard});
-    }
-
-    &-separator {
-      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
-      border-top: $border-width-standard solid $color-neutral-light-c;
-      margin-top: $space-small-c;
-    }
   }
 
   &-link {
