@@ -52,6 +52,12 @@
       background-color: $color-neutral-light-b;
     }
   }
+
+  &-separator {
+    height: $border-width-standard;
+    margin-top: $space-small-c;
+    margin-bottom: $space-small-c;
+  }
 }
 
 .menu-wrapper {
