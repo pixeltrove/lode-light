@@ -9,17 +9,17 @@
   position: absolute;
   z-index: $z-index-top;
   display: none;
-  padding-left: 0;
+  flex-direction: column;
+  padding: calc(#{$space-small-c} - #{$border-width-standard});
   border: $border-width-standard solid $color-neutral-light-c;
   border-radius: $border-radius-standard;
   margin-top: $space-small-e;
-  margin-bottom: 0;
   background-color: $color-white;
 
   &.is-shown,
   &.is-phasing-in,
   &.is-phasing-out {
-    display: block;
+    display: flex;
   }
 
   &.is-phasing-in {
@@ -30,26 +30,7 @@
     animation: slide-out-standard $transition-standard;
   }
 
-  &-item {
-    padding-right: calc(#{$space-small-c} - #{$border-width-standard});
-    padding-left: calc(#{$space-small-c} - #{$border-width-standard});
-
-    &:first-child {
-      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
-    }
-
-    &:last-child {
-      padding-bottom: calc(#{$space-small-c} - #{$border-width-standard});
-    }
-
-    &-separator {
-      padding-top: calc(#{$space-small-c} - #{$border-width-standard});
-      border-top: $border-width-standard solid $color-neutral-light-c;
-      margin-top: $space-small-c;
-    }
-  }
-
-  &-link {
+  &-action {
     display: flex;
     padding: $space-small-d $space-small-c;
     border-radius: $border-radius-standard;
@@ -70,6 +51,12 @@
     &:active {
       background-color: $color-neutral-light-b;
     }
+  }
+
+  &-separator {
+    height: $border-width-standard;
+    margin-top: $space-small-c;
+    margin-bottom: $space-small-c;
   }
 }
 
