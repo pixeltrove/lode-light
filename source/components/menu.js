@@ -1,8 +1,8 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import moveFocus from "../helpers/move-focus";
 import managePhasing from "../helpers/manage-phasing";
+import moveFocus from "../helpers/move-focus";
 
 const SELECTOR_MENU = ".menu";
 const SELECTOR_ACTION = ".menu-action";
