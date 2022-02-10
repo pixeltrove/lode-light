@@ -9,6 +9,7 @@
   position: absolute;
   z-index: $z-index-top;
   display: none;
+  flex-direction: column;
   padding: calc(#{$space-small-c} - #{$border-width-standard});
   border: $border-width-standard solid $color-neutral-light-c;
   border-radius: $border-radius-standard;
@@ -18,7 +19,7 @@
   &.is-shown,
   &.is-phasing-in,
   &.is-phasing-out {
-    display: block;
+    display: flex;
   }
 
   &.is-phasing-in {
