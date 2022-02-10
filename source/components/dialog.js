@@ -23,8 +23,8 @@ function Dialog(dialog) {
     dialog.focus();
     toggleScroll();
 
-    dialog.addEventListener("keydown", handleTabKeydown);
     dialog.addEventListener("click", handleHideClick);
+    dialog.addEventListener("keydown", handleTabKeydown);
     scrim.addEventListener("click", handleScrimClick);
     document.addEventListener("keydown", handleEscapeKeydown);
   }
@@ -35,8 +35,8 @@ function Dialog(dialog) {
     trigger.focus();
     toggleScroll();
 
-    dialog.removeEventListener("keydown", handleTabKeydown);
     dialog.removeEventListener("click", handleHideClick);
+    dialog.removeEventListener("keydown", handleTabKeydown);
     scrim.removeEventListener("click", handleScrimClick);
     document.removeEventListener("keydown", handleEscapeKeydown);
   }
