@@ -7,12 +7,9 @@
 .navigation {
   display: flex;
   flex-direction: column;
+  gap: $space-small-e;
   max-width: 16.25rem;
   padding-left: 0;
-
-  &-item {
-    margin-bottom: $space-small-e;
-  }
 
   &-link {
     display: flex;
