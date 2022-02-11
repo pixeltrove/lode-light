@@ -60,7 +60,7 @@ function Menu(menu) {
   }
 
   function handleTabKeydown(event) {
-    if ((event.key === "Tab" && !event.shiftKey && document.activeElement === lastFocusableElement) || (event.key === "Tab" && event.shiftKey && document.activeElement === trigger)) {
+    if (event.key === "Tab" && ((event.shiftKey && document.activeElement === trigger) || document.activeElement === lastFocusableElement)) {
       hide();
     }
   }
