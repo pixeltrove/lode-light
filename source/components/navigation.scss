@@ -15,24 +15,18 @@
     display: flex;
     padding-top: $space-small-e;
     padding-bottom: $space-small-e;
-    padding-left: $space-large-e;
     font-size: $font-size-standard;
     line-height: $line-height-standard;
     color: $color-neutral-dark-a;
     transition: color $transition-standard, outline $transition-standard;
 
-    &:hover {
+    &:hover,
+    &.is-activated {
       color: $color-brand-dark-a;
     }
 
     &:focus-visible {
       @include focus-visible(rounded-small);
-    }
-
-    &.is-activated {
-      padding-left: calc(#{$space-large-e} - #{$border-width-thick-b});
-      border-left: $border-width-thick-b solid $color-brand-dark-a;
-      color: $color-brand-dark-a;
     }
   }
 }
