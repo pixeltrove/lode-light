@@ -36,7 +36,7 @@ function Menu(menu) {
 
     trigger.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleTabKeydown);
-    menu.addEventListener("keydown", handleLinkKeydown);
+    menu.addEventListener("keydown", handleActionKeydown);
     document.addEventListener("click", handleOutsideClick);
     document.addEventListener("keydown", handleEscapeKeydown);
   }
@@ -48,7 +48,7 @@ function Menu(menu) {
 
     trigger.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleTabKeydown);
-    menu.removeEventListener("keydown", handleLinkKeydown);
+    menu.removeEventListener("keydown", handleActionKeydown);
     document.removeEventListener("click", handleOutsideClick);
     document.removeEventListener("keydown", handleEscapeKeydown);
   }
@@ -65,10 +65,10 @@ function Menu(menu) {
     }
   }
 
-  function handleLinkKeydown(event) {
-    const targetLink = event.target.closest(SELECTOR_ACTION);
+  function handleActionKeydown(event) {
+    const targetAction = event.target.closest(SELECTOR_ACTION);
 
-    if (targetLink && navigationKeys.includes(event.key)) {
+    if (targetAction && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, actions);
     }
