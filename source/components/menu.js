@@ -59,6 +59,12 @@ function Menu(menu) {
     }
   }
 
+  function handleEscapeKeydown(event) {
+    if (event.key === "Escape") {
+      hide();
+    }
+  }
+
   function handleTabKeydown(event) {
     if (event.key === "Tab" && ((event.shiftKey && document.activeElement === trigger) || (!event.shiftKey && document.activeElement === lastFocusableElement))) {
       hide();
@@ -71,12 +77,6 @@ function Menu(menu) {
     if (targetAction && navigationKeys.includes(event.key)) {
       event.preventDefault();
       moveFocus(event.key, actions);
-    }
-  }
-
-  function handleEscapeKeydown(event) {
-    if (event.key === "Escape") {
-      hide();
     }
   }
 
