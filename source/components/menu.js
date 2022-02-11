@@ -34,11 +34,11 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", true);
     managePhasing(menu);
 
-    document.addEventListener("click", handleOutsideClick);
-    document.addEventListener("keydown", handleEscapeKeydown);
     trigger.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleLinkKeydown);
+    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("keydown", handleEscapeKeydown);
   }
 
   function hide() {
@@ -46,11 +46,11 @@ function Menu(menu) {
     trigger.setAttribute("aria-expanded", false);
     managePhasing(menu);
 
-    document.removeEventListener("click", handleOutsideClick);
-    document.removeEventListener("keydown", handleEscapeKeydown);
     trigger.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleLinkKeydown);
+    document.removeEventListener("click", handleOutsideClick);
+    document.removeEventListener("keydown", handleEscapeKeydown);
   }
 
   function handleOutsideClick(event) {
