@@ -84,6 +84,16 @@
   }
 }
 
+// Small
+
+.button-small {
+  padding: $space-small-d $space-small-a;
+
+  &.button-lean {
+    padding: calc(#{$space-small-d} - #{$border-width-standard}) calc(#{$space-small-a} - #{$border-width-standard});
+  }
+}
+
 // Positive
 
 .button-positive {
