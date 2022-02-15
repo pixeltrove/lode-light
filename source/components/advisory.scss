@@ -37,7 +37,9 @@
   }
 
   &-message {
-    align-self: center;
+    @include set-breakpoint(medium) {
+      margin-top: $space-small-d;
+    }
   }
 }
 
