@@ -13,12 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: $space-standard;
-    padding-top: $space-large-e;
-    padding-bottom: $space-large-e;
+    gap: $space-small-a;
+    padding-top: $space-standard;
+    padding-bottom: $space-standard;
 
     @include set-breakpoint(medium) {
       flex-direction: row;
+      gap: $space-standard;
       padding-top: $space-small-b;
       padding-bottom: $space-small-b;
     }
@@ -31,12 +32,14 @@
     fill: currentColor;
 
     @include set-breakpoint(medium) {
-      margin-top: $space-small-b;
+      margin-top: $space-small-d;
     }
   }
 
   &-message {
-    align-self: center;
+    @include set-breakpoint(medium) {
+      margin-top: $space-small-d;
+    }
   }
 }
 
