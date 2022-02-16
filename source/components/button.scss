@@ -22,13 +22,13 @@
   user-select: none;
   transition: background-color $transition-standard, outline $transition-standard;
 
+  &:focus-visible {
+    @include focus-visible;
+  }
+
   &:hover,
   &.is-activated {
     background-color: $color-brand-dark-b;
-  }
-
-  &:focus-visible {
-    @include focus-visible;
   }
 
   &:active {
@@ -236,12 +236,12 @@
   color: $color-brand-dark-a;
   background-color: $color-white;
 
-  &:hover {
-    background-color: $color-white-transparent-a;
-  }
-
   &:focus-visible {
     outline-color: $color-white;
+  }
+
+  &:hover {
+    background-color: $color-white-transparent-a;
   }
 
   &:active {

@@ -40,12 +40,12 @@
     color: $color-neutral-dark-a;
     transition: color $transition-standard, background-color $transition-standard, outline $transition-standard;
 
-    &:hover {
-      background-color: $color-neutral-light-a;
-    }
-
     &:focus-visible {
       @include focus-visible;
+    }
+
+    &:hover {
+      background-color: $color-neutral-light-a;
     }
 
     &:active {

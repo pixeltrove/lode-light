@@ -21,12 +21,12 @@
     text-underline-offset: 0.25rem;
     transition: text-decoration $transition-standard, outline $transition-standard;
 
-    &:hover {
-      text-decoration-thickness: $border-width-thick-b;
-    }
-
     &:focus-visible {
       @include focus-visible(rounded-small);
+    }
+
+    &:hover {
+      text-decoration-thickness: $border-width-thick-b;
     }
   }
 

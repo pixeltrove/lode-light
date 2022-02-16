@@ -30,12 +30,12 @@
       margin-bottom: -$border-width-standard;
     }
 
-    &:hover {
-      color: $color-brand-dark-a;
-    }
-
     &:focus-visible {
       @include focus-visible(rounded-small);
+    }
+
+    &:hover {
+      color: $color-brand-dark-a;
     }
   }
 
