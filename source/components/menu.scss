@@ -16,9 +16,9 @@
   margin-top: $space-small-e;
   background-color: $color-white;
 
-  &.is-shown,
   &.is-phasing-in,
-  &.is-phasing-out {
+  &.is-phasing-out,
+  &.is-shown {
     display: flex;
   }
 

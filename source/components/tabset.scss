@@ -45,8 +45,8 @@
     padding-top: $space-standard;
     padding-bottom: $space-standard;
 
-    &.is-shown,
-    &.is-phasing-in {
+    &.is-phasing-in,
+    &.is-shown {
       display: block;
     }
 

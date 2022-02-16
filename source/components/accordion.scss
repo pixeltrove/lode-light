@@ -55,8 +55,8 @@
     display: none;
     transition: height $transition-standard;
 
-    &.is-shown,
-    &.is-phasing {
+    &.is-phasing,
+    &.is-shown {
       display: block;
     }
   }
