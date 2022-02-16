@@ -20,13 +20,13 @@
     color: $color-neutral-dark-a;
     transition: color $transition-standard, outline $transition-standard;
 
+    &:focus-visible {
+      @include focus-visible(rounded-small);
+    }
+
     &:hover,
     &.is-activated {
       color: $color-brand-dark-a;
-    }
-
-    &:focus-visible {
-      @include focus-visible(rounded-small);
     }
   }
 }

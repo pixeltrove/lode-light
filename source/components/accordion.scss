@@ -30,12 +30,12 @@
       margin-bottom: -$border-width-standard;
     }
 
-    &:hover {
-      color: $color-brand-dark-a;
-    }
-
     &:focus-visible {
       @include focus-visible(rounded-small);
+    }
+
+    &:hover {
+      color: $color-brand-dark-a;
     }
   }
 
@@ -55,8 +55,8 @@
     display: none;
     transition: height $transition-standard;
 
-    &.is-shown,
-    &.is-phasing {
+    &.is-phasing,
+    &.is-shown {
       display: block;
     }
   }

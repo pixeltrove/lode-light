@@ -16,9 +16,9 @@
   margin-top: $space-small-e;
   background-color: $color-white;
 
-  &.is-shown,
   &.is-phasing-in,
-  &.is-phasing-out {
+  &.is-phasing-out,
+  &.is-shown {
     display: flex;
   }
 
@@ -40,12 +40,12 @@
     color: $color-neutral-dark-a;
     transition: color $transition-standard, background-color $transition-standard, outline $transition-standard;
 
-    &:hover {
-      background-color: $color-neutral-light-a;
-    }
-
     &:focus-visible {
       @include focus-visible;
+    }
+
+    &:hover {
+      background-color: $color-neutral-light-a;
     }
 
     &:active {

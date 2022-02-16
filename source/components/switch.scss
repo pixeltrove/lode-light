@@ -19,15 +19,15 @@
   -webkit-appearance: none;
   transition: border-color $transition-standard, background-position $transition-standard, background-color $transition-standard, outline $transition-standard;
 
+  &:focus-visible {
+    @include focus-visible;
+  }
+
   &:checked {
     border-color: $color-brand-dark-a;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='%23fff'/></svg>");
     background-position: right center;
     background-color: $color-brand-dark-a;
-  }
-
-  &:focus-visible {
-    @include focus-visible;
   }
 
   &:disabled {

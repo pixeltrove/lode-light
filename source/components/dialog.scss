@@ -21,9 +21,9 @@
     outline: 0;
   }
 
-  &.is-shown,
   &.is-phasing-in,
-  &.is-phasing-out {
+  &.is-phasing-out,
+  &.is-shown {
     display: flex;
   }
 
@@ -56,9 +56,9 @@
   display: none;
   background-color: $color-black-transparent;
 
-  &.is-shown,
   &.is-phasing-in,
-  &.is-phasing-out {
+  &.is-phasing-out,
+  &.is-shown {
     display: block;
   }
 
@@ -82,9 +82,9 @@
   justify-content: center;
   align-items: center;
 
-  &.is-shown,
   &.is-phasing-in,
-  &.is-phasing-out {
+  &.is-phasing-out,
+  &.is-shown {
     display: flex;
   }
 }
