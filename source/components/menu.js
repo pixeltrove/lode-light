@@ -17,7 +17,7 @@ function Menu(menu) {
   const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
   const actions = Array.from(menu.querySelectorAll(SELECTOR_ACTION));
   const navigationKeys = ["ArrowUp", "ArrowDown", "Home", "End"];
-  const focusableElements = Array.from(menu.querySelectorAll(":where(a[href], button:not([disabled]), input:not([disabled])):not([tabindex^='-'])"));
+  const focusableElements = Array.from(menu.querySelectorAll(":where(a[href], button, input):not([tabindex^='-'], [disabled])"));
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   function toggle() {
