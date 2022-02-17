@@ -72,6 +72,4 @@ function Dialog(dialog) {
   trigger.addEventListener("click", show);
 }
 
-const dialogs = Array.from(document.querySelectorAll(SELECTOR_DIALOG));
-
-dialogs.forEach((dialog) => Dialog(dialog));
+Array.from(document.querySelectorAll(SELECTOR_DIALOG)).forEach((dialog) => Dialog(dialog));
