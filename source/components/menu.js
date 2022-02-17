@@ -83,6 +83,4 @@ function Menu(menu) {
   trigger.addEventListener("click", toggle);
 }
 
-const menus = Array.from(document.querySelectorAll(SELECTOR_MENU));
-
-menus.forEach((menu) => Menu(menu));
+Array.from(document.querySelectorAll(SELECTOR_MENU)).forEach((menu) => Menu(menu));
