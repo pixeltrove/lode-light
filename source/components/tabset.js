@@ -56,3 +56,5 @@ function Tabset(tabset) {
 }
 
 Array.from(document.querySelectorAll(SELECTOR_TABSET)).forEach((tabset) => Tabset(tabset));
+
+export default Tabset;

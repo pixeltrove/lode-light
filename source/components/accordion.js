@@ -33,3 +33,5 @@ function Accordion(accordion) {
 }
 
 Array.from(document.querySelectorAll(SELECTOR_ACCORDION)).forEach((accordion) => Accordion(accordion));
+
+export default Accordion;

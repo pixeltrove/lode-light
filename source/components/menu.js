@@ -84,3 +84,5 @@ function Menu(menu) {
 }
 
 Array.from(document.querySelectorAll(SELECTOR_MENU)).forEach((menu) => Menu(menu));
+
+export default Menu;
