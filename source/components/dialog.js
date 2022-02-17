@@ -73,3 +73,5 @@ function Dialog(dialog) {
 }
 
 Array.from(document.querySelectorAll(SELECTOR_DIALOG)).forEach((dialog) => Dialog(dialog));
+
+export default Dialog;
