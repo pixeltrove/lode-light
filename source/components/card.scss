@@ -28,7 +28,7 @@
   }
 
   &-link-cover {
-    transition: outline $transition-standard;
+    transition: outline $transition-ease-out-100;
 
     &:focus-visible {
       @include focus-visible(rounded-standard);
@@ -48,7 +48,7 @@
 // Interactive
 
 .card-interactive {
-  transition: background-color $transition-standard, outline $transition-standard;
+  transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
   &:focus-visible {
     @include focus-visible;

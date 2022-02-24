@@ -9,7 +9,7 @@
   color: $color-brand-dark-a;
   text-decoration: $border-width-standard underline currentColor;
   text-underline-offset: 0.25rem;
-  transition: text-decoration $transition-standard, outline $transition-standard;
+  transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
 
   &:focus-visible {
     @include focus-visible(rounded-small);

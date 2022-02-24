@@ -17,7 +17,7 @@
   background-color: $color-white;
   cursor: pointer;
   -webkit-appearance: none;
-  transition: border-color $transition-standard, background-position $transition-standard, background-color $transition-standard, outline $transition-standard;
+  transition: border-color $transition-ease-out-100, background-position $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
   &:focus-visible {
     @include focus-visible;
