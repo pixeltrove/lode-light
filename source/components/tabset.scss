@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-standard solid $color-neutral-light-c;
+    border-bottom: $border-width-standard solid $color-neutral-150;
     margin-bottom: 0;
     list-style: none;
   }
@@ -21,7 +21,7 @@
     padding: $space-small-b $space-standard;
     border: 0;
     margin-bottom: -#{$border-width-standard};
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     background-color: transparent;
     transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -30,13 +30,13 @@
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-650;
     }
 
     &.is-activated {
-      color: $color-brand-dark-a;
+      color: $color-brand-650;
       padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-      border-bottom: $border-width-thick-b solid $color-brand-dark-a;
+      border-bottom: $border-width-thick-b solid $color-brand-650;
     }
   }
 

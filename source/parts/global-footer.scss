@@ -36,7 +36,7 @@
 
   &-link {
     display: inline-block;
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
@@ -44,7 +44,7 @@
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-650;
     }
   }
 

@@ -11,7 +11,7 @@
   display: none;
   flex-direction: column;
   padding: calc(#{$space-small-c} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-light-c;
+  border: $border-width-standard solid $color-neutral-150;
   border-radius: $border-radius-standard;
   margin-top: $space-small-e;
   background-color: $color-white;
@@ -37,7 +37,7 @@
     font-size: $font-size-standard;
     line-height: $line-height-standard;
     white-space: nowrap;
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     transition: color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
@@ -45,11 +45,11 @@
     }
 
     &:hover {
-      background-color: $color-neutral-light-a;
+      background-color: $color-neutral-50;
     }
 
     &:active {
-      background-color: $color-neutral-light-b;
+      background-color: $color-neutral-100;
     }
   }
 

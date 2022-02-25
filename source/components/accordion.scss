@@ -6,10 +6,10 @@
 
 .accordion {
   &-segment {
-    border-top: $border-width-standard solid $color-neutral-light-c;
+    border-top: $border-width-standard solid $color-neutral-150;
 
     &:last-child {
-      border-bottom: $border-width-standard solid $color-neutral-light-c;
+      border-bottom: $border-width-standard solid $color-neutral-150;
     }
   }
 
@@ -22,7 +22,7 @@
     margin-top: -$border-width-standard;
     font-size: $font-size-large-e;
     line-height: $line-height-small-a;
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     background-color: transparent;
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -35,7 +35,7 @@
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-650;
     }
   }
 

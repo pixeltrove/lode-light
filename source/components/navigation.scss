@@ -17,7 +17,7 @@
     padding-bottom: $space-small-e;
     font-size: $font-size-standard;
     line-height: $line-height-standard;
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
@@ -26,7 +26,7 @@
 
     &:hover,
     &.is-activated {
-      color: $color-brand-dark-a;
+      color: $color-brand-650;
     }
   }
 }

@@ -7,7 +7,7 @@
 .switch {
   width: 2.5rem;
   height: 1.5rem;
-  border: $border-width-standard solid $color-neutral-medium;
+  border: $border-width-standard solid $color-neutral-500;
   border-radius: $border-radius-full;
   vertical-align: middle;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='%233d3d3d'/></svg>");
@@ -24,10 +24,10 @@
   }
 
   &:checked {
-    border-color: $color-brand-dark-a;
+    border-color: $color-brand-650;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='5' fill='%23fff'/></svg>");
     background-position: right center;
-    background-color: $color-brand-dark-a;
+    background-color: $color-brand-650;
   }
 
   &:disabled {

@@ -7,7 +7,7 @@
 
 .advisory {
   color: $color-white;
-  background-color: $color-brand-dark-a;
+  background-color: $color-brand-650;
 
   &-inner {
     display: flex;
@@ -46,23 +46,23 @@
 // Positive
 
 .advisory-positive {
-  background-color: $color-positive-dark-a;
+  background-color: $color-positive-650;
 }
 
 // Attentive
 
 .advisory-attentive {
-  background-color: $color-attentive-dark-a;
+  background-color: $color-attentive-650;
 }
 
 // Negative
 
 .advisory-negative {
-  background-color: $color-negative-dark-a;
+  background-color: $color-negative-650;
 }
 
 // Neutral
 
 .advisory-neutral {
-  background-color: $color-neutral-dark-a;
+  background-color: $color-neutral-650;
 }

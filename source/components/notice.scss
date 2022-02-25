@@ -6,8 +6,8 @@
 .notice {
   padding: $space-standard $space-large-d;
   border-radius: $border-radius-standard;
-  color: $color-brand-dark-a;
-  background-color: $color-brand-light-a;
+  color: $color-brand-650;
+  background-color: $color-brand-50;
 
   &-heading {
     margin-bottom: $space-small-c;
@@ -19,27 +19,27 @@
 // Positive
 
 .notice-positive {
-  color: $color-positive-dark-a;
-  background-color: $color-positive-light-a;
+  color: $color-positive-650;
+  background-color: $color-positive-50;
 }
 
 // Attentive
 
 .notice-attentive {
-  color: $color-attentive-dark-a;
-  background-color: $color-attentive-light-a;
+  color: $color-attentive-650;
+  background-color: $color-attentive-50;
 }
 
 // Negative
 
 .notice-negative {
-  color: $color-negative-dark-a;
-  background-color: $color-negative-light-a;
+  color: $color-negative-650;
+  background-color: $color-negative-50;
 }
 
 // Neutral
 
 .notice-neutral {
-  color: $color-neutral-dark-a;
-  background-color: $color-neutral-light-a;
+  color: $color-neutral-650;
+  background-color: $color-neutral-50;
 }

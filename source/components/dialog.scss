@@ -14,7 +14,7 @@
   padding: $space-large-d;
   border-radius: $border-radius-standard;
   margin: $space-large-d;
-  color: $color-neutral-dark-a;
+  color: $color-neutral-650;
   background-color: $color-white;
 
   &:focus-visible {
@@ -54,7 +54,7 @@
   inset: 0;
   z-index: $z-index-bottom;
   display: none;
-  background-color: $color-black-transparent;
+  background-color: $color-white-transparent-700;
 
   &.is-phasing-in,
   &.is-phasing-out,

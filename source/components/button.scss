@@ -18,7 +18,7 @@
   line-height: $line-height-standard;
   font-weight: $font-weight-bold-b;
   color: $color-white;
-  background-color: $color-brand-dark-a;
+  background-color: $color-brand-650;
   user-select: none;
   transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -28,11 +28,11 @@
 
   &:hover,
   &.is-activated {
-    background-color: $color-brand-dark-b;
+    background-color: $color-brand-700;
   }
 
   &:active {
-    background-color: $color-brand-dark-c;
+    background-color: $color-brand-750;
   }
 
   &:disabled {
@@ -51,22 +51,22 @@
 
 .button-lean,
 .button-plain {
-  color: $color-brand-dark-a;
+  color: $color-brand-650;
   background-color: transparent;
 
   &.is-activated,
   &:hover {
-    background-color: $color-brand-light-a;
+    background-color: $color-brand-50;
   }
 
   &:active {
-    background-color: $color-brand-light-b;
+    background-color: $color-brand-100;
   }
 }
 
 .button-lean {
   padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-standard} - #{$border-width-standard});
-  border: $border-width-standard solid $color-brand-medium;
+  border: $border-width-standard solid $color-brand-500;
 }
 
 // Iconic
@@ -97,143 +97,143 @@
 // Positive
 
 .button-positive {
-  background-color: $color-positive-dark-a;
+  background-color: $color-positive-650;
 
   &.is-activated,
   &:hover {
-    background-color: $color-positive-dark-b;
+    background-color: $color-positive-700;
   }
 
   &:active {
-    background-color: $color-positive-dark-c;
+    background-color: $color-positive-750;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-positive-dark-a;
+    color: $color-positive-650;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-positive-light-a;
+      background-color: $color-positive-50;
     }
 
     &:active {
-      background-color: $color-positive-light-b;
+      background-color: $color-positive-100;
     }
   }
 
   &.button-lean {
-    border-color: $color-positive-medium;
+    border-color: $color-positive-500;
   }
 }
 
 // Attentive
 
 .button-attentive {
-  background-color: $color-attentive-dark-a;
+  background-color: $color-attentive-650;
 
   &.is-activated,
   &:hover {
-    background-color: $color-attentive-dark-b;
+    background-color: $color-attentive-700;
   }
 
   &:active {
-    background-color: $color-attentive-dark-c;
+    background-color: $color-attentive-750;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-attentive-dark-a;
+    color: $color-attentive-650;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-attentive-light-a;
+      background-color: $color-attentive-50;
     }
 
     &:active {
-      background-color: $color-attentive-light-b;
+      background-color: $color-attentive-100;
     }
   }
 
   &.button-lean {
-    border-color: $color-attentive-medium;
+    border-color: $color-attentive-500;
   }
 }
 
 // Negative
 
 .button-negative {
-  background-color: $color-negative-dark-a;
+  background-color: $color-negative-650;
 
   &.is-activated,
   &:hover {
-    background-color: $color-negative-dark-b;
+    background-color: $color-negative-700;
   }
 
   &:active {
-    background-color: $color-negative-dark-c;
+    background-color: $color-negative-750;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-negative-dark-a;
+    color: $color-negative-650;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-negative-light-a;
+      background-color: $color-negative-50;
     }
 
     &:active {
-      background-color: $color-negative-light-b;
+      background-color: $color-negative-100;
     }
   }
 
   &.button-lean {
-    border-color: $color-negative-medium;
+    border-color: $color-negative-500;
   }
 }
 
 // Neutral
 
 .button-neutral {
-  background-color: $color-neutral-dark-a;
+  background-color: $color-neutral-650;
 
   &.is-activated,
   &:hover {
-    background-color: $color-neutral-dark-b;
+    background-color: $color-neutral-700;
   }
 
   &:active {
-    background-color: $color-neutral-dark-c;
+    background-color: $color-neutral-750;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-neutral-light-a;
+      background-color: $color-neutral-50;
     }
 
     &:active {
-      background-color: $color-neutral-light-b;
+      background-color: $color-neutral-100;
     }
   }
 
   &.button-lean {
-    border-color: $color-neutral-medium;
+    border-color: $color-neutral-500;
   }
 }
 
 // Inverse
 
 .button-inverse {
-  color: $color-brand-dark-a;
+  color: $color-brand-650;
   background-color: $color-white;
 
   &:focus-visible {
@@ -241,27 +241,27 @@
   }
 
   &:hover {
-    background-color: $color-white-transparent-a;
+    background-color: $color-white-transparent-100;
   }
 
   &:active {
-    background-color: $color-white-transparent-b;
+    background-color: $color-white-transparent-150;
   }
 
   &.button-positive {
-    color: $color-positive-dark-a;
+    color: $color-positive-650;
   }
 
   &.button-attentive {
-    color: $color-attentive-dark-a;
+    color: $color-attentive-650;
   }
 
   &.button-negative {
-    color: $color-negative-dark-a;
+    color: $color-negative-650;
   }
 
   &.button-neutral {
-    color: $color-neutral-dark-a;
+    color: $color-neutral-650;
   }
 
   &.button-lean,
@@ -271,11 +271,11 @@
 
     &.is-activated,
     &:hover {
-      background-color: $color-white-transparent-d;
+      background-color: $color-white-transparent-900;
     }
 
     &:active {
-      background-color: $color-white-transparent-c;
+      background-color: $color-white-transparent-850;
     }
   }
 
