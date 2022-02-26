@@ -17,7 +17,7 @@
 
   &-link {
     color: $color-neutral-650;
-    text-decoration: $border-width-standard underline currentColor;
+    text-decoration: $border-width-1-x underline currentColor;
     text-underline-offset: 0.25rem;
     transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -26,7 +26,7 @@
     }
 
     &:hover {
-      text-decoration-thickness: $border-width-thick-b;
+      text-decoration-thickness: $border-width-2-x;
     }
   }
 

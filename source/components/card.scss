@@ -8,9 +8,9 @@
   display: flex;
   flex-direction: column;
   gap: $space-standard;
-  padding: calc(#{$space-large-d} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-150;
-  border-radius: $border-radius-standard;
+  padding: calc(#{$space-large-d} - #{$border-width-1-x});
+  border: $border-width-1-x solid $color-neutral-150;
+  border-radius: $border-radius-4-x;
   color: $color-neutral-650;
   background-color: $color-white;
 

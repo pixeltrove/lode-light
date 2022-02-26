@@ -10,9 +10,9 @@
   z-index: $z-index-top;
   display: none;
   flex-direction: column;
-  padding: calc(#{$space-small-c} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-150;
-  border-radius: $border-radius-standard;
+  padding: calc(#{$space-small-c} - #{$border-width-1-x});
+  border: $border-width-1-x solid $color-neutral-150;
+  border-radius: $border-radius-4-x;
   margin-top: $space-small-e;
   background-color: $color-white;
 
@@ -33,7 +33,7 @@
   &-action {
     display: flex;
     padding: $space-small-d $space-small-c;
-    border-radius: $border-radius-standard;
+    border-radius: $border-radius-4-x;
     font-size: $font-size-standard;
     line-height: $line-height-standard;
     white-space: nowrap;
@@ -54,9 +54,9 @@
   }
 
   &-separator {
-    height: $border-width-standard;
+    height: $border-width-1-x;
     margin-top: $space-small-c;
-    margin-bottom: calc(#{$space-small-c} - #{$border-width-standard});
+    margin-bottom: calc(#{$space-small-c} - #{$border-width-1-x});
   }
 }
 

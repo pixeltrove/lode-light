@@ -12,7 +12,7 @@
   gap: $space-small-d;
   padding: $space-small-b $space-standard;
   border: 0;
-  border-radius: $border-radius-standard;
+  border-radius: $border-radius-4-x;
   vertical-align: middle;
   font-size: $font-size-standard;
   line-height: $line-height-standard;
@@ -36,7 +36,7 @@
   }
 
   &:disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
     pointer-events: none;
   }
 
@@ -65,8 +65,8 @@
 }
 
 .button-lean {
-  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-standard} - #{$border-width-standard});
-  border: $border-width-standard solid $color-brand-500;
+  padding: calc(#{$space-small-b} - #{$border-width-1-x}) calc(#{$space-standard} - #{$border-width-1-x});
+  border: $border-width-1-x solid $color-brand-500;
 }
 
 // Iconic
@@ -75,7 +75,7 @@
   padding: $space-small-b;
 
   &.button-lean {
-    padding: calc(#{$space-small-b} - #{$border-width-standard});
+    padding: calc(#{$space-small-b} - #{$border-width-1-x});
   }
 
   .button-icon {
@@ -90,7 +90,7 @@
   padding: $space-small-d $space-small-a;
 
   &.button-lean {
-    padding: calc(#{$space-small-d} - #{$border-width-standard}) calc(#{$space-small-a} - #{$border-width-standard});
+    padding: calc(#{$space-small-d} - #{$border-width-1-x}) calc(#{$space-small-a} - #{$border-width-1-x});
   }
 }
 

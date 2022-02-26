@@ -65,8 +65,8 @@
       }
 
       &.is-activated {
-        padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-        border-bottom: $border-width-thick-b solid $color-brand-650;
+        padding-bottom: calc(#{$space-small-b} - #{$border-width-2-x});
+        border-bottom: $border-width-2-x solid $color-brand-650;
         color: $color-brand-650;
       }
     }

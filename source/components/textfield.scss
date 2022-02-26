@@ -7,9 +7,9 @@
 .textfield {
   display: block;
   width: 100%;
-  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-small-a} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-500;
-  border-radius: $border-radius-standard;
+  padding: calc(#{$space-small-b} - #{$border-width-1-x}) calc(#{$space-small-a} - #{$border-width-1-x});
+  border: $border-width-1-x solid $color-neutral-500;
+  border-radius: $border-radius-4-x;
   font-size: $font-size-standard;
   line-height: $line-height-standard;
   color: $color-neutral-650;
@@ -21,7 +21,7 @@
   }
 
   &:disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
   }
 
   &.is-invalid {
@@ -43,7 +43,7 @@
   cursor: pointer;
 
   &.is-disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
     cursor: default;
   }
 }

@@ -7,8 +7,8 @@
 .radio {
   width: 1.5rem;
   height: 1.5rem;
-  border: $border-width-standard solid $color-neutral-500;
-  border-radius: $border-radius-full;
+  border: $border-width-1-x solid $color-neutral-500;
+  border-radius: $border-radius-xxx;
   vertical-align: middle;
   background-color: $color-white;
   cursor: pointer;
@@ -29,7 +29,7 @@
   }
 
   &:disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
   }
 }
 
@@ -41,7 +41,7 @@
   cursor: pointer;
 
   &.is-disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
     cursor: default;
   }
 }
