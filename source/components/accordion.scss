@@ -6,10 +6,10 @@
 
 .accordion {
   &-segment {
-    border-top: $border-width-1-x solid $color-neutral-150;
+    border-top: $border-width-1 solid $color-neutral-150;
 
     &:last-child {
-      border-bottom: $border-width-1-x solid $color-neutral-150;
+      border-bottom: $border-width-1 solid $color-neutral-150;
     }
   }
 
@@ -19,7 +19,7 @@
     width: 100%;
     padding: $space-small-a 0;
     border: 0;
-    margin-top: -$border-width-1-x;
+    margin-top: -$border-width-1;
     font-size: $font-size-large-e;
     line-height: $line-height-small-a;
     color: $color-neutral-650;
@@ -27,7 +27,7 @@
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     @at-root .accordion-segment:last-child & {
-      margin-bottom: -$border-width-1-x;
+      margin-bottom: -$border-width-1;
     }
 
     &:focus-visible {
@@ -66,8 +66,8 @@
     padding-bottom: $space-standard;
 
     @at-root .accordion-segment:last-child & {
-      padding-bottom: calc(#{$space-standard} - #{$border-width-1-x});
-      margin-top: $border-width-1-x;
+      padding-bottom: calc(#{$space-standard} - #{$border-width-1});
+      margin-top: $border-width-1;
     }
   }
 }

@@ -15,8 +15,8 @@
   outline-offset: 2px;
 
   @if $shape == "rounded-standard" {
-    border-radius: $border-radius-4-x;
+    border-radius: $border-radius-4;
   } @else if $shape == "rounded-small" {
-    border-radius: $border-radius-1-x;
+    border-radius: $border-radius-1;
   }
 }

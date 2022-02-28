@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-1-x solid $color-neutral-150;
+    border-bottom: $border-width-1 solid $color-neutral-150;
     margin-bottom: 0;
     list-style: none;
   }
@@ -20,7 +20,7 @@
     align-items: center;
     padding: $space-small-b $space-standard;
     border: 0;
-    margin-bottom: -#{$border-width-1-x};
+    margin-bottom: -#{$border-width-1};
     color: $color-neutral-650;
     background-color: transparent;
     transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
@@ -35,8 +35,8 @@
 
     &.is-activated {
       color: $color-brand-650;
-      padding-bottom: calc(#{$space-small-b} - #{$border-width-2-x});
-      border-bottom: $border-width-2-x solid $color-brand-650;
+      padding-bottom: calc(#{$space-small-b} - #{$border-width-2});
+      border-bottom: $border-width-2 solid $color-brand-650;
     }
   }
 

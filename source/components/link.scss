@@ -7,7 +7,7 @@
 .link {
   display: inline-flex;
   color: $color-brand-650;
-  text-decoration: $border-width-1-x underline currentColor;
+  text-decoration: $border-width-1 underline currentColor;
   text-underline-offset: 0.25rem;
   transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -16,7 +16,7 @@
   }
 
   &:hover {
-    text-decoration-thickness: $border-width-2-x;
+    text-decoration-thickness: $border-width-2;
   }
 }
 
