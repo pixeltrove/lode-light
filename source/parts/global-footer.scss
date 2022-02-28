@@ -6,8 +6,8 @@
 @use "../helpers/set-breakpoint" as *;
 
 .global-footer {
-  padding-top: $space-large-a;
-  padding-bottom: $space-large-a;
+  padding-top: $space-3;
+  padding-bottom: $space-3;
 
   &-list {
     display: flex;
@@ -16,8 +16,8 @@
     margin-bottom: 0;
 
     &-item {
-      padding-top: $space-small-e;
-      padding-bottom: $space-small-e;
+      padding-top: $space-0-25;
+      padding-bottom: $space-0-25;
     }
   }
 
@@ -29,7 +29,7 @@
       padding-bottom: 0;
 
       &:not(:last-of-type) {
-        margin-right: $space-standard;
+        margin-right: $space-1;
       }
     }
   }

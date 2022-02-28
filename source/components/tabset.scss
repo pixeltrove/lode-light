@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-standard;
+    padding: $space-0-625 $space-1;
     border: 0;
     margin-bottom: -#{$border-width-1};
     color: $color-neutral-650;
@@ -35,15 +35,15 @@
 
     &.is-activated {
       color: $color-brand-650;
-      padding-bottom: calc(#{$space-small-b} - #{$border-width-2});
+      padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
       border-bottom: $border-width-2 solid $color-brand-650;
     }
   }
 
   &-panel {
     display: none;
-    padding-top: $space-standard;
-    padding-bottom: $space-standard;
+    padding-top: $space-1;
+    padding-bottom: $space-1;
 
     &.is-phasing-in,
     &.is-shown {

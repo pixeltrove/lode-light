@@ -4,13 +4,13 @@
 @use "../settings" as *;
 
 .notice {
-  padding: $space-standard $space-large-d;
+  padding: $space-1 $space-1-5;
   border-radius: $border-radius-4;
   color: $color-brand-650;
   background-color: $color-brand-50;
 
   &-heading {
-    margin-bottom: $space-small-c;
+    margin-bottom: $space-0-5;
     font-size: $font-size-large-e;
     line-height: $line-height-small-a;
   }

@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: $space-small-a 0;
+    padding: $space-0-75 0;
     border: 0;
     margin-top: -$border-width-1;
     font-size: $font-size-large-e;
@@ -62,11 +62,11 @@
   }
 
   &-panel-inner {
-    padding-top: $space-small-e;
-    padding-bottom: $space-standard;
+    padding-top: $space-0-25;
+    padding-bottom: $space-1;
 
     @at-root .accordion-segment:last-child & {
-      padding-bottom: calc(#{$space-standard} - #{$border-width-1});
+      padding-bottom: calc(#{$space-1} - #{$border-width-1});
       margin-top: $border-width-1;
     }
   }

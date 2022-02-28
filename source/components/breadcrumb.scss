@@ -7,7 +7,7 @@
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  gap: $space-small-d;
+  gap: $space-0-375;
   padding-left: 0;
 
   &-item {
@@ -33,7 +33,7 @@
   &-icon-trace {
     width: 0.75rem;
     height: 0.75rem;
-    margin-left: $space-small-d;
+    margin-left: $space-0-375;
     fill: currentColor;
   }
 }

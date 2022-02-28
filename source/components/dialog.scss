@@ -8,12 +8,12 @@
 .dialog {
   display: none;
   flex-direction: column;
-  gap: $space-standard;
+  gap: $space-1;
   overflow: auto;
   max-width: 36rem;
-  padding: $space-large-d;
+  padding: $space-1-5;
   border-radius: $border-radius-4;
-  margin: $space-large-d;
+  margin: $space-1-5;
   color: $color-neutral-650;
   background-color: $color-white;
 
@@ -43,7 +43,7 @@
   &-action-group {
     display: flex;
     justify-content: end;
-    gap: $space-small-c;
+    gap: $space-0-5;
   }
 }
 
