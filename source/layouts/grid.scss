@@ -8,14 +8,14 @@
 
 .lay-grid {
   display: grid;
-  gap: map.get($grid-gaps-standard, "small");
+  gap: map.get($grid-gaps, "small");
 
   @include set-breakpoint(large) {
-    gap: map.get($grid-gaps-standard, "large");
+    gap: map.get($grid-gaps, "large");
   }
 }
 
-@each $breakpoint, $column-totals in $grid-columns-standard {
+@each $breakpoint, $column-totals in $grid-columns {
   $prefix: if($breakpoint != "small", #{$breakpoint}\:, null);
 
   @include set-breakpoint($breakpoint) {

@@ -7,7 +7,7 @@ $container-max-width: 1240px;
 
 // Grid
 
-$grid-columns-standard: (
+$grid-columns: (
   "small": 2,
   "medium": (
     2,
@@ -21,7 +21,7 @@ $grid-columns-standard: (
   ),
 );
 
-$grid-gaps-standard: (
+$grid-gaps: (
   "small": 1.25rem,
   "large": 2.5rem,
 );
