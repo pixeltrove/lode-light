@@ -52,7 +52,7 @@
 .dialog-scrim {
   position: absolute;
   inset: 0;
-  z-index: $z-index-bottom;
+  z-index: $z-index-n-100;
   display: none;
   background-color: $color-white-transparent-700;
 
@@ -76,7 +76,7 @@
 .dialog-wrapper {
   position: fixed;
   inset: 0;
-  z-index: $z-index-top;
+  z-index: $z-index-100;
   display: none;
   flex-direction: column;
   justify-content: center;
