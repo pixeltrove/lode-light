@@ -11,7 +11,7 @@
   margin-right: auto;
   margin-left: auto;
 
-  @include set-breakpoint(medium) {
+  @include set-breakpoint(md) {
     padding-right: $space-2-5;
     padding-left: $space-2-5;
   }

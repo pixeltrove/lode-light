@@ -8,12 +8,12 @@ $container-max-width: 1240px;
 // Grid
 
 $grid-columns: (
-  "small": 2,
-  "medium": (
+  "sm": 2,
+  "md": (
     2,
     3,
   ),
-  "large": (
+  "lg": (
     2,
     3,
     4,
@@ -22,8 +22,8 @@ $grid-columns: (
 );
 
 $grid-gaps: (
-  "small": 1.25rem,
-  "large": 2.5rem,
+  "sm": 1.25rem,
+  "lg": 2.5rem,
 );
 
 // Z-index

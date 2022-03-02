@@ -5,11 +5,11 @@
 @use "../settings" as *;
 
 @mixin set-breakpoint($name) {
-  @if ($name != "small" and map.has-key($breakpoints, $name) == false) {
+  @if ($name != "sm" and map.has-key($breakpoints, $name) == false) {
     @error "Invalid breakpoint name. Check spelling or review viewport breakpoint settings.";
   }
 
-  @if ($name == "small") {
+  @if ($name == "sm") {
     @content;
   } @else {
     @media screen and (min-width: map.get($breakpoints, $name)) {

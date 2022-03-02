@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    @include set-breakpoint(medium) {
+    @include set-breakpoint(md) {
       flex-direction: row;
       justify-content: space-between;
       align-items: stretch;
