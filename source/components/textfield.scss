@@ -10,8 +10,8 @@
   padding: calc(#{$space-0-625} - #{$border-width-1}) calc(#{$space-0-75} - #{$border-width-1});
   border: $border-width-1 solid $color-neutral-500;
   border-radius: $border-radius-4;
-  font-size: $font-size-standard;
-  line-height: $line-height-standard;
+  font-size: $font-size-1;
+  line-height: $line-height-1-5;
   color: $color-neutral-650;
   background-color: $color-white;
   transition: outline $transition-ease-out-100, border-color $transition-ease-out-100;
@@ -33,7 +33,7 @@
 
 .textfield-select {
   &:not([size]):not([multiple]) {
-    height: calc(#{$font-size-standard} * #{$line-height-standard} + 2 * #{$space-0-625});
+    height: calc(#{$font-size-1} * #{$line-height-1-5} + 2 * #{$space-0-625});
   }
 }
 
