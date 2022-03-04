@@ -11,7 +11,7 @@
     @error "Invalid visible focus shape. Check spelling or review helper definition.";
   }
 
-  outline: 2px solid $color-brand-650;
+  outline: 2px solid $color-brand-100;
   outline-offset: 2px;
 
   @if $shape == "rounded-standard" {

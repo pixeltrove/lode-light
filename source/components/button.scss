@@ -18,7 +18,7 @@
   line-height: $line-height-1-5;
   font-weight: $font-weight-500;
   color: $color-white;
-  background-color: $color-brand-650;
+  background-color: $color-brand-100;
   user-select: none;
   transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
@@ -28,11 +28,11 @@
 
   &:hover,
   &.is-activated {
-    background-color: $color-brand-700;
+    background-color: $color-brand-75;
   }
 
   &:active {
-    background-color: $color-brand-750;
+    background-color: $color-brand-50;
   }
 
   &:disabled {
@@ -51,22 +51,22 @@
 
 .button-lean,
 .button-plain {
-  color: $color-brand-650;
+  color: $color-brand-100;
   background-color: transparent;
 
   &.is-activated,
   &:hover {
-    background-color: $color-brand-50;
+    background-color: $color-brand-900;
   }
 
   &:active {
-    background-color: $color-brand-100;
+    background-color: $color-brand-800;
   }
 }
 
 .button-lean {
   padding: calc(#{$space-0-625} - #{$border-width-1}) calc(#{$space-1} - #{$border-width-1});
-  border: $border-width-1 solid $color-brand-500;
+  border: $border-width-1 solid $color-brand-275;
 }
 
 // Iconic
@@ -233,7 +233,7 @@
 // Inverse
 
 .button-inverse {
-  color: $color-brand-650;
+  color: $color-brand-100;
   background-color: $color-white;
 
   &:focus-visible {

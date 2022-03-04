@@ -33,7 +33,7 @@
     }
 
     &:hover {
-      color: $color-brand-650;
+      color: $color-brand-100;
     }
   }
 
@@ -61,13 +61,13 @@
       }
 
       &:hover {
-        color: $color-brand-650;
+        color: $color-brand-100;
       }
 
       &.is-activated {
         padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
-        border-bottom: $border-width-2 solid $color-brand-650;
-        color: $color-brand-650;
+        border-bottom: $border-width-2 solid $color-brand-100;
+        color: $color-brand-100;
       }
     }
   }
