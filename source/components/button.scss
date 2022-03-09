@@ -97,34 +97,34 @@
 // Positive
 
 .button-positive {
-  background-color: $color-positive-650;
+  background-color: $color-positive-100;
 
   &.is-activated,
   &:hover {
-    background-color: $color-positive-700;
+    background-color: $color-positive-75;
   }
 
   &:active {
-    background-color: $color-positive-750;
+    background-color: $color-positive-50;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-positive-650;
+    color: $color-positive-100;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-positive-50;
+      background-color: $color-positive-900;
     }
 
     &:active {
-      background-color: $color-positive-100;
+      background-color: $color-positive-800;
     }
   }
 
   &.button-lean {
-    border-color: $color-positive-500;
+    border-color: $color-positive-275;
   }
 }
 
@@ -249,7 +249,7 @@
   }
 
   &.button-positive {
-    color: $color-positive-650;
+    color: $color-positive-100;
   }
 
   &.button-attentive {
