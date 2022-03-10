@@ -165,34 +165,34 @@
 // Negative
 
 .button-negative {
-  background-color: $color-negative-650;
+  background-color: $color-negative-100;
 
   &.is-activated,
   &:hover {
-    background-color: $color-negative-700;
+    background-color: $color-negative-75;
   }
 
   &:active {
-    background-color: $color-negative-750;
+    background-color: $color-negative-50;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-negative-650;
+    color: $color-negative-100;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-negative-50;
+      background-color: $color-negative-900;
     }
 
     &:active {
-      background-color: $color-negative-100;
+      background-color: $color-negative-800;
     }
   }
 
   &.button-lean {
-    border-color: $color-negative-500;
+    border-color: $color-negative-275;
   }
 }
 
@@ -257,7 +257,7 @@
   }
 
   &.button-negative {
-    color: $color-negative-650;
+    color: $color-negative-100;
   }
 
   &.button-neutral {
