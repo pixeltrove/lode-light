@@ -199,34 +199,34 @@
 // Neutral
 
 .button-neutral {
-  background-color: $color-neutral-650;
+  background-color: $color-neutral-50;
 
   &.is-activated,
   &:hover {
-    background-color: $color-neutral-700;
+    background-color: $color-neutral-25;
   }
 
   &:active {
-    background-color: $color-neutral-750;
+    background-color: $color-neutral-0;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-neutral-650;
+    color: $color-neutral-50;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-neutral-50;
+      background-color: $color-neutral-900;
     }
 
     &:active {
-      background-color: $color-neutral-100;
+      background-color: $color-neutral-825;
     }
   }
 
   &.button-lean {
-    border-color: $color-neutral-500;
+    border-color: $color-neutral-275;
   }
 }
 
@@ -261,7 +261,7 @@
   }
 
   &.button-neutral {
-    color: $color-neutral-650;
+    color: $color-neutral-50;
   }
 
   &.button-lean,

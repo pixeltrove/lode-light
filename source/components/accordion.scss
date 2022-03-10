@@ -6,10 +6,10 @@
 
 .accordion {
   &-segment {
-    border-top: $border-width-1 solid $color-neutral-150;
+    border-top: $border-width-1 solid $color-neutral-725;
 
     &:last-child {
-      border-bottom: $border-width-1 solid $color-neutral-150;
+      border-bottom: $border-width-1 solid $color-neutral-725;
     }
   }
 
@@ -22,7 +22,7 @@
     margin-top: -$border-width-1;
     font-size: $font-size-1-125;
     line-height: $line-height-1-333;
-    color: $color-neutral-650;
+    color: $color-neutral-50;
     background-color: transparent;
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 

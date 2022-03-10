@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-1 solid $color-neutral-150;
+    border-bottom: $border-width-1 solid $color-neutral-725;
     margin-bottom: 0;
     list-style: none;
   }
@@ -21,7 +21,7 @@
     padding: $space-0-625 $space-1;
     border: 0;
     margin-bottom: -#{$border-width-1};
-    color: $color-neutral-650;
+    color: $color-neutral-50;
     background-color: transparent;
     transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
 
