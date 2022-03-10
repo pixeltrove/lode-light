@@ -131,34 +131,34 @@
 // Attentive
 
 .button-attentive {
-  background-color: $color-attentive-650;
+  background-color: $color-attentive-100;
 
   &.is-activated,
   &:hover {
-    background-color: $color-attentive-700;
+    background-color: $color-attentive-75;
   }
 
   &:active {
-    background-color: $color-attentive-750;
+    background-color: $color-attentive-50;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-attentive-650;
+    color: $color-attentive-100;
     background-color: transparent;
 
     &.is-activated,
     &:hover {
-      background-color: $color-attentive-50;
+      background-color: $color-attentive-900;
     }
 
     &:active {
-      background-color: $color-attentive-100;
+      background-color: $color-attentive-800;
     }
   }
 
   &.button-lean {
-    border-color: $color-attentive-500;
+    border-color: $color-attentive-275;
   }
 }
 
@@ -253,7 +253,7 @@
   }
 
   &.button-attentive {
-    color: $color-attentive-650;
+    color: $color-attentive-100;
   }
 
   &.button-negative {
