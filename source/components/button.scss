@@ -241,11 +241,11 @@
   }
 
   &:hover {
-    background-color: $color-white-transparent-100;
+    background-color: $color-white-transparent-900;
   }
 
   &:active {
-    background-color: $color-white-transparent-150;
+    background-color: $color-white-transparent-825;
   }
 
   &.button-positive {
@@ -271,11 +271,11 @@
 
     &.is-activated,
     &:hover {
-      background-color: $color-white-transparent-900;
+      background-color: $color-white-transparent-75;
     }
 
     &:active {
-      background-color: $color-white-transparent-850;
+      background-color: $color-white-transparent-150;
     }
   }
 
