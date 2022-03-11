@@ -28,11 +28,11 @@
 
   &:hover,
   &.is-activated {
-    background-color: $color-brand-75;
+    background-color: $color-brand-075;
   }
 
   &:active {
-    background-color: $color-brand-50;
+    background-color: $color-brand-050;
   }
 
   &:disabled {
@@ -101,11 +101,11 @@
 
   &.is-activated,
   &:hover {
-    background-color: $color-positive-75;
+    background-color: $color-positive-075;
   }
 
   &:active {
-    background-color: $color-positive-50;
+    background-color: $color-positive-050;
   }
 
   &.button-lean,
@@ -135,11 +135,11 @@
 
   &.is-activated,
   &:hover {
-    background-color: $color-attentive-75;
+    background-color: $color-attentive-075;
   }
 
   &:active {
-    background-color: $color-attentive-50;
+    background-color: $color-attentive-050;
   }
 
   &.button-lean,
@@ -169,11 +169,11 @@
 
   &.is-activated,
   &:hover {
-    background-color: $color-negative-75;
+    background-color: $color-negative-075;
   }
 
   &:active {
-    background-color: $color-negative-50;
+    background-color: $color-negative-050;
   }
 
   &.button-lean,
@@ -199,20 +199,20 @@
 // Neutral
 
 .button-neutral {
-  background-color: $color-neutral-50;
+  background-color: $color-neutral-050;
 
   &.is-activated,
   &:hover {
-    background-color: $color-neutral-25;
+    background-color: $color-neutral-025;
   }
 
   &:active {
-    background-color: $color-neutral-0;
+    background-color: $color-neutral-000;
   }
 
   &.button-lean,
   &.button-plain {
-    color: $color-neutral-50;
+    color: $color-neutral-050;
     background-color: transparent;
 
     &.is-activated,
@@ -261,7 +261,7 @@
   }
 
   &.button-neutral {
-    color: $color-neutral-50;
+    color: $color-neutral-050;
   }
 
   &.button-lean,
@@ -271,7 +271,7 @@
 
     &.is-activated,
     &:hover {
-      background-color: $color-white-transparent-75;
+      background-color: $color-white-transparent-075;
     }
 
     &:active {
