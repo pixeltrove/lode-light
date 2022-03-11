@@ -3,62 +3,62 @@
 
 // Brand
 
-$color-brand-light-a: hsl(208, 92%, 96%);
-$color-brand-light-b: hsl(208, 92%, 92%);
-$color-brand-light-c: hsl(208, 92%, 88%);
-$color-brand-medium: hsl(208, 76%, 56%);
-$color-brand-dark-a: hsl(208, 100%, 36%);
-$color-brand-dark-b: hsl(208, 100%, 32%);
-$color-brand-dark-c: hsl(208, 100%, 28%);
+$color-brand-050: hsl(208, 100%, 28%);
+$color-brand-075: hsl(208, 100%, 32%);
+$color-brand-100: hsl(208, 100%, 36%);
+$color-brand-275: hsl(208, 76%, 56%);
+$color-brand-725: hsl(208, 92%, 88%);
+$color-brand-800: hsl(208, 92%, 92%);
+$color-brand-900: hsl(208, 92%, 96%);
 
 // Positive
 
-$color-positive-light-a: hsl(138, 84%, 94%);
-$color-positive-light-b: hsl(138, 80%, 88%);
-$color-positive-light-c: hsl(138, 76%, 82%);
-$color-positive-medium: hsl(138, 56%, 42%);
-$color-positive-dark-a: hsl(138, 100%, 22%);
-$color-positive-dark-b: hsl(138, 100%, 20%);
-$color-positive-dark-c: hsl(138, 100%, 18%);
+$color-positive-050: hsl(138, 100%, 16%);
+$color-positive-075: hsl(138, 100%, 20%);
+$color-positive-100: hsl(138, 100%, 22%);
+$color-positive-275: hsl(138, 56%, 42%);
+$color-positive-725: hsl(138, 76%, 78%);
+$color-positive-800: hsl(138, 76%, 86%);
+$color-positive-900: hsl(138, 76%, 94%);
 
 // Attentive
 
-$color-attentive-light-a: hsl(44, 88%, 94%);
-$color-attentive-light-b: hsl(44, 84%, 88%);
-$color-attentive-light-c: hsl(44, 80%, 82%);
-$color-attentive-medium: hsl(44, 56%, 44%);
-$color-attentive-dark-a: hsl(44, 100%, 26%);
-$color-attentive-dark-b: hsl(44, 100%, 22%);
-$color-attentive-dark-c: hsl(44, 100%, 18%);
+$color-attentive-050: hsl(44, 100%, 18%);
+$color-attentive-075: hsl(44, 100%, 22%);
+$color-attentive-100: hsl(44, 100%, 24%);
+$color-attentive-275: hsl(44, 56%, 44%);
+$color-attentive-725: hsl(44, 80%, 78%);
+$color-attentive-800: hsl(44, 80%, 86%);
+$color-attentive-900: hsl(44, 80%, 94%);
 
 // Negative
 
-$color-negative-light-a: hsl(8, 84%, 96%);
-$color-negative-light-b: hsl(8, 80%, 92%);
-$color-negative-light-c: hsl(8, 76%, 88%);
-$color-negative-medium: hsl(8, 72%, 58%);
-$color-negative-dark-a: hsl(8, 100%, 36%);
-$color-negative-dark-b: hsl(8, 100%, 32%);
-$color-negative-dark-c: hsl(8, 100%, 28%);
+$color-negative-050: hsl(12, 100%, 28%);
+$color-negative-075: hsl(12, 100%, 32%);
+$color-negative-100: hsl(12, 100%, 36%);
+$color-negative-275: hsl(12, 56%, 64%);
+$color-negative-725: hsl(12, 80%, 90%);
+$color-negative-800: hsl(12, 64%, 92%);
+$color-negative-900: hsl(12, 52%, 96%);
 
 // Neutral
 
-$color-neutral-light-a: hsl(0, 0%, 96%);
-$color-neutral-light-b: hsl(0, 0%, 92%);
-$color-neutral-light-c: hsl(0, 0%, 88%);
-$color-neutral-medium: hsl(0, 0%, 48%);
-$color-neutral-dark-a: hsl(0, 0%, 24%);
-$color-neutral-dark-b: hsl(0, 0%, 20%);
-$color-neutral-dark-c: hsl(0, 0%, 16%);
+$color-neutral-000: hsl(0, 0%, 16%);
+$color-neutral-025: hsl(0, 0%, 22%);
+$color-neutral-050: hsl(0, 0%, 28%);
+$color-neutral-275: hsl(0, 0%, 58%);
+$color-neutral-725: hsl(0, 0%, 88%);
+$color-neutral-825: hsl(0, 0%, 92%);
+$color-neutral-900: hsl(0, 0%, 96%);
 
 // White
 
 $color-white: hsl(0, 0%, 100%);
-$color-white-transparent-a: hsl(0, 0%, 100%, 0.92);
-$color-white-transparent-b: hsl(0, 0%, 100%, 0.84);
-$color-white-transparent-c: hsl(0, 0%, 100%, 0.16);
-$color-white-transparent-d: hsl(0, 0%, 100%, 0.08);
+$color-white-transparent-075: hsl(0, 0%, 100%, 0.08);
+$color-white-transparent-150: hsl(0, 0%, 100%, 0.16);
+$color-white-transparent-825: hsl(0, 0%, 100%, 0.84);
+$color-white-transparent-900: hsl(0, 0%, 100%, 0.92);
 
 // Black
 
-$color-black-transparent: hsl(0, 0%, 0%, 0.72);
+$color-black-transparent-700: hsl(0, 0%, 0%, 0.72);

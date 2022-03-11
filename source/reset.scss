@@ -24,11 +24,11 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font-family: $font-family-standard;
-  font-size: $font-size-standard;
-  line-height: $line-height-standard;
-  font-weight: $font-weight-standard;
-  color: $color-neutral-dark-a;
+  font-family: $font-family-sans;
+  font-size: $font-size-1;
+  line-height: $line-height-1-5;
+  font-weight: $font-weight-400;
+  color: $color-neutral-050;
   background-color: $color-white;
   -webkit-tap-highlight-color: transparent;
 }
@@ -66,7 +66,7 @@ ul {
 }
 
 dt {
-  font-weight: $font-weight-bold-a;
+  font-weight: $font-weight-700;
   overflow-wrap: break-word;
 }
 
@@ -91,38 +91,38 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0;
-  font-weight: $font-weight-bold-a;
+  font-weight: $font-weight-700;
   overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: $font-size-large-a;
-  line-height: $line-height-small-c;
+  font-size: $font-size-3;
+  line-height: $line-height-1-166;
 }
 
 h2 {
-  font-size: $font-size-large-b;
-  line-height: $line-height-small-b;
+  font-size: $font-size-2;
+  line-height: $line-height-1-25;
 }
 
 h3 {
-  font-size: $font-size-large-c;
-  line-height: $line-height-small-a;
+  font-size: $font-size-1-5;
+  line-height: $line-height-1-333;
 }
 
 h4 {
-  font-size: $font-size-large-d;
-  line-height: $line-height-small-a;
+  font-size: $font-size-1-3125;
+  line-height: $line-height-1-333;
 }
 
 h5 {
-  font-size: $font-size-large-e;
-  line-height: $line-height-small-a;
+  font-size: $font-size-1-125;
+  line-height: $line-height-1-333;
 }
 
 h6 {
-  font-size: $font-size-standard;
-  line-height: $line-height-standard;
+  font-size: $font-size-1;
+  line-height: $line-height-1-5;
 }
 
 // Thematic break
@@ -133,7 +133,7 @@ hr {
   border: 0;
   margin-top: 0;
   margin-bottom: 0;
-  background-color: $color-neutral-light-c;
+  background-color: $color-neutral-725;
 }
 
 // Paragraph
@@ -234,7 +234,7 @@ legend {
   width: 100%;
   padding-right: 0;
   padding-left: 0;
-  font-weight: $font-weight-bold-a;
+  font-weight: $font-weight-700;
 }
 
 // Label
@@ -259,7 +259,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: $font-weight-bold-a;
+  font-weight: $font-weight-700;
 }
 
 // Code, user input, and sample output

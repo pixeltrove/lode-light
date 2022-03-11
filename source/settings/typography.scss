@@ -3,28 +3,28 @@
 
 // Font family
 
-$font-family-standard: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+$font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 $font-family-monospace: SFMono-Regular, Consolas, monospace;
 
 // Font size
 
-$font-size-standard: 1rem;
-$font-size-large-a: 3rem;
-$font-size-large-b: 2rem;
-$font-size-large-c: 1.5rem;
-$font-size-large-d: 1.3125rem;
-$font-size-large-e: 1.125rem;
-$font-size-small: 0.75rem;
+$font-size-0-75: 0.75rem;
+$font-size-1: 1rem;
+$font-size-1-125: 1.125rem;
+$font-size-1-3125: 1.3125rem;
+$font-size-1-5: 1.5rem;
+$font-size-2: 2rem;
+$font-size-3: 3rem;
 
 // Line height
 
-$line-height-standard: 1.5;
-$line-height-small-a: 1.33333333;
-$line-height-small-b: 1.25;
-$line-height-small-c: 1.16666666;
+$line-height-1-166: 1.16666666;
+$line-height-1-25: 1.25;
+$line-height-1-333: 1.33333333;
+$line-height-1-5: 1.5;
 
 // Font weight
 
-$font-weight-standard: 400;
-$font-weight-bold-a: 700;
-$font-weight-bold-b: 500;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-700: 700;

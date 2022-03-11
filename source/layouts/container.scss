@@ -5,14 +5,14 @@
 @use "../helpers/set-breakpoint" as *;
 
 .lay-container {
-  max-width: $container-max-width-standard;
-  padding-right: $space-large-d;
-  padding-left: $space-large-d;
+  max-width: $container-max-width;
+  padding-right: $space-1-5;
+  padding-left: $space-1-5;
   margin-right: auto;
   margin-left: auto;
 
-  @include set-breakpoint(medium) {
-    padding-right: $space-large-b;
-    padding-left: $space-large-b;
+  @include set-breakpoint(md) {
+    padding-right: $space-2-5;
+    padding-left: $space-2-5;
   }
 }

@@ -9,7 +9,7 @@
   &-navigation {
     display: flex;
     padding-left: 0;
-    border-bottom: $border-width-standard solid $color-neutral-light-c;
+    border-bottom: $border-width-1 solid $color-neutral-725;
     margin-bottom: 0;
     list-style: none;
   }
@@ -18,32 +18,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: $space-small-b $space-standard;
+    padding: $space-0-625 $space-1;
     border: 0;
-    margin-bottom: -#{$border-width-standard};
-    color: $color-neutral-dark-a;
+    margin-bottom: -#{$border-width-1};
+    color: $color-neutral-050;
     background-color: transparent;
-    transition: border-color $transition-standard, color $transition-standard, outline $transition-standard;
+    transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
       @include focus-visible(rounded-small);
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-100;
     }
 
     &.is-activated {
-      color: $color-brand-dark-a;
-      padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-      border-bottom: $border-width-thick-b solid $color-brand-dark-a;
+      color: $color-brand-100;
+      padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
+      border-bottom: $border-width-2 solid $color-brand-100;
     }
   }
 
   &-panel {
     display: none;
-    padding-top: $space-standard;
-    padding-bottom: $space-standard;
+    padding-top: $space-1;
+    padding-bottom: $space-1;
 
     &.is-phasing-in,
     &.is-shown {
@@ -51,7 +51,7 @@
     }
 
     &.is-phasing-in {
-      animation: fade-in-standard $transition-slow;
+      animation: fade-in-standard $transition-ease-out-200;
     }
   }
 }

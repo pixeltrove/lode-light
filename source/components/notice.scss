@@ -4,42 +4,42 @@
 @use "../settings" as *;
 
 .notice {
-  padding: $space-standard $space-large-d;
-  border-radius: $border-radius-standard;
-  color: $color-brand-dark-a;
-  background-color: $color-brand-light-a;
+  padding: $space-1 $space-1-5;
+  border-radius: $border-radius-4;
+  color: $color-brand-100;
+  background-color: $color-brand-900;
 
   &-heading {
-    margin-bottom: $space-small-c;
-    font-size: $font-size-large-e;
-    line-height: $line-height-small-a;
+    margin-bottom: $space-0-5;
+    font-size: $font-size-1-125;
+    line-height: $line-height-1-333;
   }
 }
 
 // Positive
 
 .notice-positive {
-  color: $color-positive-dark-a;
-  background-color: $color-positive-light-a;
+  color: $color-positive-100;
+  background-color: $color-positive-900;
 }
 
 // Attentive
 
 .notice-attentive {
-  color: $color-attentive-dark-a;
-  background-color: $color-attentive-light-a;
+  color: $color-attentive-100;
+  background-color: $color-attentive-900;
 }
 
 // Negative
 
 .notice-negative {
-  color: $color-negative-dark-a;
-  background-color: $color-negative-light-a;
+  color: $color-negative-100;
+  background-color: $color-negative-900;
 }
 
 // Neutral
 
 .notice-neutral {
-  color: $color-neutral-dark-a;
-  background-color: $color-neutral-light-a;
+  color: $color-neutral-050;
+  background-color: $color-neutral-900;
 }

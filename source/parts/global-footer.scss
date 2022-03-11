@@ -6,8 +6,8 @@
 @use "../helpers/set-breakpoint" as *;
 
 .global-footer {
-  padding-top: $space-large-a;
-  padding-bottom: $space-large-a;
+  padding-top: $space-3;
+  padding-bottom: $space-3;
 
   &-list {
     display: flex;
@@ -16,8 +16,8 @@
     margin-bottom: 0;
 
     &-item {
-      padding-top: $space-small-e;
-      padding-bottom: $space-small-e;
+      padding-top: $space-0-25;
+      padding-bottom: $space-0-25;
     }
   }
 
@@ -29,22 +29,22 @@
       padding-bottom: 0;
 
       &:not(:last-of-type) {
-        margin-right: $space-standard;
+        margin-right: $space-1;
       }
     }
   }
 
   &-link {
     display: inline-block;
-    color: $color-neutral-dark-a;
-    transition: color $transition-standard, outline $transition-standard;
+    color: $color-neutral-050;
+    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
       @include focus-visible(rounded-small);
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-100;
     }
   }
 
@@ -56,7 +56,7 @@
       margin-bottom: 0;
     }
 
-    @include set-breakpoint(medium) {
+    @include set-breakpoint(md) {
       flex-direction: row;
       justify-content: space-between;
     }

@@ -5,41 +5,41 @@
 
 .badge {
   display: inline-flex;
-  padding: $space-small-d $space-small-b;
-  border-radius: $border-radius-full;
+  padding: $space-0-375 $space-0-625;
+  border-radius: $border-radius-m;
   vertical-align: top;
-  font-size: $font-size-small;
+  font-size: $font-size-0-75;
   line-height: 1;
-  font-weight: $font-weight-bold-b;
-  color: $color-brand-dark-a;
+  font-weight: $font-weight-500;
+  color: $color-brand-100;
   text-transform: uppercase;
-  background-color: $color-brand-light-b;
+  background-color: $color-brand-800;
 }
 
 // Positive
 
 .badge-positive {
-  color: $color-positive-dark-a;
-  background-color: $color-positive-light-b;
+  color: $color-positive-100;
+  background-color: $color-positive-800;
 }
 
 // Attentive
 
 .badge-attentive {
-  color: $color-attentive-dark-a;
-  background-color: $color-attentive-light-b;
+  color: $color-attentive-100;
+  background-color: $color-attentive-800;
 }
 
 // Negative
 
 .badge-negative {
-  color: $color-negative-dark-a;
-  background-color: $color-negative-light-b;
+  color: $color-negative-100;
+  background-color: $color-negative-725;
 }
 
 // Neutral
 
 .badge-neutral {
-  color: $color-neutral-dark-a;
-  background-color: $color-neutral-light-b;
+  color: $color-neutral-050;
+  background-color: $color-neutral-825;
 }

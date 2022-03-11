@@ -6,10 +6,10 @@
 
 .accordion {
   &-segment {
-    border-top: $border-width-standard solid $color-neutral-light-c;
+    border-top: $border-width-1 solid $color-neutral-725;
 
     &:last-child {
-      border-bottom: $border-width-standard solid $color-neutral-light-c;
+      border-bottom: $border-width-1 solid $color-neutral-725;
     }
   }
 
@@ -17,17 +17,17 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: $space-small-a 0;
+    padding: $space-0-75 0;
     border: 0;
-    margin-top: -$border-width-standard;
-    font-size: $font-size-large-e;
-    line-height: $line-height-small-a;
-    color: $color-neutral-dark-a;
+    margin-top: -$border-width-1;
+    font-size: $font-size-1-125;
+    line-height: $line-height-1-333;
+    color: $color-neutral-050;
     background-color: transparent;
-    transition: color $transition-standard, outline $transition-standard;
+    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     @at-root .accordion-segment:last-child & {
-      margin-bottom: -$border-width-standard;
+      margin-bottom: -$border-width-1;
     }
 
     &:focus-visible {
@@ -35,7 +35,7 @@
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-100;
     }
   }
 
@@ -44,7 +44,7 @@
     height: 1rem;
     margin-left: auto;
     fill: currentColor;
-    transition: transform $transition-standard;
+    transition: transform $transition-ease-out-100;
 
     @at-root .accordion-slat.is-activated & {
       transform: rotate(180deg);
@@ -53,7 +53,7 @@
 
   &-panel {
     display: none;
-    transition: height $transition-standard;
+    transition: height $transition-ease-out-100;
 
     &.is-phasing,
     &.is-shown {
@@ -62,12 +62,12 @@
   }
 
   &-panel-inner {
-    padding-top: $space-small-e;
-    padding-bottom: $space-standard;
+    padding-top: $space-0-25;
+    padding-bottom: $space-1;
 
     @at-root .accordion-segment:last-child & {
-      padding-bottom: calc(#{$space-standard} - #{$border-width-standard});
-      margin-top: $border-width-standard;
+      padding-bottom: calc(#{$space-1} - #{$border-width-1});
+      margin-top: $border-width-1;
     }
   }
 }

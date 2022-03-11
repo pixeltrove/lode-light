@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    @include set-breakpoint(medium) {
+    @include set-breakpoint(md) {
       flex-direction: row;
       justify-content: space-between;
       align-items: stretch;
@@ -19,21 +19,21 @@
   }
 
   &-brand {
-    padding-top: $space-small-d;
-    padding-bottom: $space-small-d;
-    margin-right: $space-large-c;
-    font-size: $font-size-large-c;
-    line-height: $line-height-small-a;
-    font-weight: $font-weight-bold-a;
-    color: $color-neutral-dark-a;
-    transition: color $transition-standard, outline $transition-standard;
+    padding-top: $space-0-375;
+    padding-bottom: $space-0-375;
+    margin-right: $space-2;
+    font-size: $font-size-1-5;
+    line-height: $line-height-1-333;
+    font-weight: $font-weight-700;
+    color: $color-neutral-050;
+    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
       @include focus-visible(rounded-small);
     }
 
     &:hover {
-      color: $color-brand-dark-a;
+      color: $color-brand-100;
     }
   }
 
@@ -45,29 +45,29 @@
 
     &-item {
       &:not(:last-child) {
-        margin-right: $space-large-c;
+        margin-right: $space-2;
       }
     }
 
     &-link {
       display: inline-block;
-      padding-top: $space-small-b;
-      padding-bottom: $space-small-b;
-      color: $color-neutral-dark-a;
-      transition: color $transition-standard, outline $transition-standard;
+      padding-top: $space-0-625;
+      padding-bottom: $space-0-625;
+      color: $color-neutral-050;
+      transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
       &:focus-visible {
         @include focus-visible(rounded-small);
       }
 
       &:hover {
-        color: $color-brand-dark-a;
+        color: $color-brand-100;
       }
 
       &.is-activated {
-        padding-bottom: calc(#{$space-small-b} - #{$border-width-thick-b});
-        border-bottom: $border-width-thick-b solid $color-brand-dark-a;
-        color: $color-brand-dark-a;
+        padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
+        border-bottom: $border-width-2 solid $color-brand-100;
+        color: $color-brand-100;
       }
     }
   }

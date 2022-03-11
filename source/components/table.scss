@@ -7,15 +7,15 @@
   width: 100%;
 
   &-caption {
-    padding: $space-small-a $space-standard;
+    padding: $space-0-75 $space-1;
     text-align: left;
-    font-weight: $font-weight-bold-a;
+    font-weight: $font-weight-700;
   }
 
   &-header,
   &-data {
-    padding: $space-small-a $space-standard calc(#{$space-small-a} - #{$border-width-standard});
-    border-bottom: $border-width-standard solid $color-neutral-light-c;
+    padding: $space-0-75 $space-1 calc(#{$space-0-75} - #{$border-width-1});
+    border-bottom: $border-width-1 solid $color-neutral-725;
     vertical-align: top;
   }
 
@@ -23,11 +23,11 @@
     text-align: left;
 
     thead & {
-      border-color: $color-neutral-medium;
+      border-color: $color-neutral-275;
     }
 
     tbody & {
-      border-right: $border-width-standard solid $color-neutral-medium;
+      border-right: $border-width-1 solid $color-neutral-275;
     }
   }
 }

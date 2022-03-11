@@ -7,25 +7,25 @@
 .textfield {
   display: block;
   width: 100%;
-  padding: calc(#{$space-small-b} - #{$border-width-standard}) calc(#{$space-small-a} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-medium;
-  border-radius: $border-radius-standard;
-  font-size: $font-size-standard;
-  line-height: $line-height-standard;
-  color: $color-neutral-dark-a;
+  padding: calc(#{$space-0-625} - #{$border-width-1}) calc(#{$space-0-75} - #{$border-width-1});
+  border: $border-width-1 solid $color-neutral-275;
+  border-radius: $border-radius-4;
+  font-size: $font-size-1;
+  line-height: $line-height-1-5;
+  color: $color-neutral-050;
   background-color: $color-white;
-  transition: outline $transition-standard, border-color $transition-standard;
+  transition: outline $transition-ease-out-100, border-color $transition-ease-out-100;
 
   &:focus-visible {
     @include focus-visible;
   }
 
   &:disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
   }
 
   &.is-invalid {
-    border-color: $color-negative-medium;
+    border-color: $color-negative-275;
   }
 }
 
@@ -33,7 +33,7 @@
 
 .textfield-select {
   &:not([size]):not([multiple]) {
-    height: calc(#{$font-size-standard} * #{$line-height-standard} + 2 * #{$space-small-b});
+    height: calc(#{$font-size-1} * #{$line-height-1-5} + 2 * #{$space-0-625});
   }
 }
 
@@ -43,7 +43,7 @@
   cursor: pointer;
 
   &.is-disabled {
-    opacity: $opacity-medium;
+    opacity: $opacity-500;
     cursor: default;
   }
 }

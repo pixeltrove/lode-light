@@ -28,7 +28,7 @@
 @keyframes slide-in-standard {
   0% {
     opacity: 0;
-    transform: translateY(-$translate-distance-standard);
+    transform: translateY(-$translate-distance-1);
   }
   100% {
     opacity: 1;
@@ -43,6 +43,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(-$translate-distance-standard);
+    transform: translateY(-$translate-distance-1);
   }
 }

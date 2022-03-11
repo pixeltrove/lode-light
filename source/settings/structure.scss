@@ -3,17 +3,17 @@
 
 // Container
 
-$container-max-width-standard: 1240px;
+$container-max-width: 1240px;
 
 // Grid
 
-$grid-columns-standard: (
-  "small": 2,
-  "medium": (
+$grid-columns: (
+  "sm": 2,
+  "md": (
     2,
     3,
   ),
-  "large": (
+  "lg": (
     2,
     3,
     4,
@@ -21,12 +21,12 @@ $grid-columns-standard: (
   ),
 );
 
-$grid-gaps-standard: (
-  "small": 1.25rem,
-  "large": 2.5rem,
+$grid-gaps: (
+  "sm": 1.25rem,
+  "lg": 2.5rem,
 );
 
 // Z-index
 
-$z-index-top: 100;
-$z-index-bottom: -100;
+$z-index-n-100: -100;
+$z-index-100: 100;

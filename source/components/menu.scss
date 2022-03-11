@@ -7,13 +7,13 @@
 
 .menu {
   position: absolute;
-  z-index: $z-index-top;
+  z-index: $z-index-100;
   display: none;
   flex-direction: column;
-  padding: calc(#{$space-small-c} - #{$border-width-standard});
-  border: $border-width-standard solid $color-neutral-light-c;
-  border-radius: $border-radius-standard;
-  margin-top: $space-small-e;
+  padding: calc(#{$space-0-5} - #{$border-width-1});
+  border: $border-width-1 solid $color-neutral-725;
+  border-radius: $border-radius-4;
+  margin-top: $space-0-25;
   background-color: $color-white;
 
   &.is-phasing-in,
@@ -23,40 +23,40 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-standard $transition-standard;
+    animation: slide-in-standard $transition-ease-out-100;
   }
 
   &.is-phasing-out {
-    animation: slide-out-standard $transition-standard;
+    animation: slide-out-standard $transition-ease-out-100;
   }
 
   &-action {
     display: flex;
-    padding: $space-small-d $space-small-c;
-    border-radius: $border-radius-standard;
-    font-size: $font-size-standard;
-    line-height: $line-height-standard;
+    padding: $space-0-375 $space-0-5;
+    border-radius: $border-radius-4;
+    font-size: $font-size-1;
+    line-height: $line-height-1-5;
     white-space: nowrap;
-    color: $color-neutral-dark-a;
-    transition: color $transition-standard, background-color $transition-standard, outline $transition-standard;
+    color: $color-neutral-050;
+    transition: color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
       @include focus-visible;
     }
 
     &:hover {
-      background-color: $color-neutral-light-a;
+      background-color: $color-neutral-900;
     }
 
     &:active {
-      background-color: $color-neutral-light-b;
+      background-color: $color-neutral-825;
     }
   }
 
   &-separator {
-    height: $border-width-standard;
-    margin-top: $space-small-c;
-    margin-bottom: calc(#{$space-small-c} - #{$border-width-standard});
+    height: $border-width-1;
+    margin-top: $space-0-5;
+    margin-bottom: calc(#{$space-0-5} - #{$border-width-1});
   }
 }
 
