@@ -62,3 +62,9 @@ $color-white-transparent-900: hsl(0, 0%, 100%, 0.92);
 // Black
 
 $color-black-transparent-700: hsl(0, 0%, 0%, 0.72);
+
+@use "../tools/compute-luminance" as *;
+
+$luminance: compute-luminance($color-brand-100);
+
+@debug ("Color luminance is #{$luminance}");

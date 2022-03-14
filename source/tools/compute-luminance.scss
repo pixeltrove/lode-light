@@ -4,13 +4,13 @@
 @use "sass:math";
 
 @function compute-luminance($color) {
-  $colors: (
+  $channels: (
     "red": red($color),
     "green": green($color),
     "blue": blue($color),
   );
 
-  @each $name, $value in $colors {
+  @each $name, $value in $channels {
     $value: math.div($value, 255);
 
     @if $value < 0.03928 {
@@ -20,13 +20,13 @@
       $value: math.pow($value, 2.4);
     }
 
-    $colors: map-merge(
-      $colors,
+    $channels: map-merge(
+      $channels,
       (
         $name: $value,
       )
     );
   }
 
-  @return (map-get($colors, "red") * 0.2126) + (map-get($colors, "green") * 0.7152) + (map-get($colors, "blue") * 0.0722);
+  @return (map-get($channels, "red") * 0.2126) + (map-get($channels, "green") * 0.7152) + (map-get($channels, "blue") * 0.0722);
 }
