@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: $space-1;
   padding: calc(#{$space-1-5} - #{$border-width-1});
-  border: $border-width-1 solid $color-neutral-725;
+  border: $border-width-1 solid $color-neutral-700;
   border-radius: $border-radius-4;
   color: $color-neutral-050;
   background-color: $color-white;
@@ -59,6 +59,6 @@
   }
 
   &:active {
-    background-color: $color-neutral-825;
+    background-color: $color-neutral-800;
   }
 }
