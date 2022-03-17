@@ -4,8 +4,8 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin focus-visible($shape: "contour") {
-  $valid-shapes: ("contour", "rounded-standard", "rounded-small");
+@mixin focus-visible($shape: null) {
+  $valid-shapes: ("rounded-standard", "rounded-small", null);
 
   @if list.index($valid-shapes, $shape) == null {
     @error "Invalid visible focus shape. Check spelling or review helper definition.";
