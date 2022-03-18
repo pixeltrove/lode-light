@@ -31,7 +31,7 @@
     }
 
     &:focus-visible {
-      @include focus-visible(rounded-small);
+      @include focus-visible(radius-1);
     }
 
     &:hover {
