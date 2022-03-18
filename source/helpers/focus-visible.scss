@@ -7,7 +7,7 @@
 @mixin focus-visible($radius: null) {
   $valid-radii: ("radius-4", "radius-1");
 
-  @if list.index($valid-radii, $radius) == null and $radius != null {
+  @if $radius != null and list.index($valid-radii, $radius) == null {
     @error "Invalid visible focus shape. Check spelling or review helper definition.";
   }
 
