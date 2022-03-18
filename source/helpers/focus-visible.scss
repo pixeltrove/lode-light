@@ -5,9 +5,9 @@
 @use "../settings" as *;
 
 @mixin focus-visible($shape: null) {
-  $valid-shapes: ("rounded-standard", "rounded-small", null);
+  $valid-shapes: ("rounded-standard", "rounded-small");
 
-  @if list.index($valid-shapes, $shape) == null {
+  @if list.index($valid-shapes, $shape) == null and $shape != null {
     @error "Invalid visible focus shape. Check spelling or review helper definition.";
   }
 
