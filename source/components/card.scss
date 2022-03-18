@@ -31,7 +31,7 @@
     transition: outline $transition-ease-out-100;
 
     &:focus-visible {
-      @include focus-visible(rounded-standard);
+      @include focus-visible(radius-4);
     }
 
     img {

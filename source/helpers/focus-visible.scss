@@ -4,19 +4,19 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin focus-visible($shape: "contour") {
-  $valid-shapes: ("contour", "rounded-standard", "rounded-small");
+@mixin focus-visible($radius: null) {
+  $valid-radii: ("radius-1", "radius-4");
 
-  @if list.index($valid-shapes, $shape) == null {
-    @error "Invalid visible focus shape. Check spelling or review helper definition.";
+  @if $radius != null and list.index($valid-radii, $radius) == null {
+    @error "Invalid visible focus radius. Check spelling or review helper definition.";
   }
 
   outline: 2px solid $color-brand-100;
   outline-offset: 2px;
 
-  @if $shape == "rounded-standard" {
-    border-radius: $border-radius-4;
-  } @else if $shape == "rounded-small" {
+  @if $radius == "radius-1" {
     border-radius: $border-radius-1;
+  } @else if $radius == "radius-4" {
+    border-radius: $border-radius-4;
   }
 }

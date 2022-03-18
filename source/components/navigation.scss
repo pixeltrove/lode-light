@@ -21,7 +21,7 @@
     transition: color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
-      @include focus-visible(rounded-small);
+      @include focus-visible(radius-1);
     }
 
     &:hover,
