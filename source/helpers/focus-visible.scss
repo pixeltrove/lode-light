@@ -4,10 +4,10 @@
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin focus-visible($radius: null) {
-  $valid-radii: ("radius-1", "radius-4");
+@mixin focus-visible($radius: "radius-o") {
+  $valid-radii: ("radius-1", "radius-4", "radius-o");
 
-  @if ($radius != null and list.index($valid-radii, $radius) == null) {
+  @if (list.index($valid-radii, $radius) == null) {
     @error "Invalid visible focus radius. Check spelling or review helper definition.";
   }
 
