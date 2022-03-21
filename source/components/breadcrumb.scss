@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .breadcrumb {
   display: flex;
@@ -22,7 +22,7 @@
     transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
-      @include focus-visible(radius-1);
+      @include style-focus(radius-1);
     }
 
     &:hover {

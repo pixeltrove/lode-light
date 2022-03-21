@@ -3,7 +3,7 @@
 
 @use "../settings" as *;
 @use "../helpers/animate-phasing" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .tabset {
   &-navigation {
@@ -26,7 +26,7 @@
     transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
 
     &:focus-visible {
-      @include focus-visible(radius-1);
+      @include style-focus(radius-1);
     }
 
     &:hover {

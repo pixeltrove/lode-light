@@ -3,7 +3,7 @@
 
 @use "../settings" as *;
 @use "../helpers/animate-phasing" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .dialog {
   display: none;
