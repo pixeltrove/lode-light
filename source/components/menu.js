@@ -76,7 +76,7 @@ function Menu(menu) {
 
     if (targetAction && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key, actions);
+      moveFocus(actions, event.key);
     }
   }
 

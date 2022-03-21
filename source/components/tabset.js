@@ -47,7 +47,7 @@ function Tabset(tabset) {
 
     if (targetTab && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key, tabs);
+      moveFocus(tabs, event.key);
     }
   }
 

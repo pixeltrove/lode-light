@@ -24,7 +24,7 @@ function Accordion(accordion) {
 
     if (targetSlat && navigationKeys.includes(event.key)) {
       event.preventDefault();
-      moveFocus(event.key, slats);
+      moveFocus(slats, event.key);
     }
   }
 
