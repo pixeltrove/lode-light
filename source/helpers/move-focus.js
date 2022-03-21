@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------------
 
 function moveFocus(elements, key) {
-  const outgoingIndex = elements.indexOf(document.activeElement);
   const lastIndex = elements.length - 1;
+  const outgoingIndex = elements.indexOf(document.activeElement);
   let upcomingIndex;
 
   switch (key) {
