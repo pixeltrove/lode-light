@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "settings" as *;
-@use "helpers/focus-visible" as *;
+@use "helpers/style-focus" as *;
 
 // Universal
 
@@ -178,7 +178,7 @@ video {
 audio[controls],
 video[controls] {
   &:focus-visible {
-    @include focus-visible(radius-1);
+    @include style-focus(radius-1);
   }
 }
 
@@ -314,6 +314,6 @@ summary {
 
 [contenteditable] {
   &:focus-visible {
-    @include focus-visible(radius-1);
+    @include style-focus(radius-1);
   }
 }

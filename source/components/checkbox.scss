@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .checkbox {
   width: 1.5rem;
@@ -16,7 +16,7 @@
   transition: border-color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
   &:focus-visible {
-    @include focus-visible;
+    @include style-focus;
   }
 
   &:checked {

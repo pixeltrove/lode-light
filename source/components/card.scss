@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .card {
   display: flex;
@@ -31,7 +31,7 @@
     transition: outline $transition-ease-out-100;
 
     &:focus-visible {
-      @include focus-visible(radius-4);
+      @include style-focus(radius-4);
     }
 
     img {
@@ -51,7 +51,7 @@
   transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
 
   &:focus-visible {
-    @include focus-visible;
+    @include style-focus;
   }
 
   &:hover {

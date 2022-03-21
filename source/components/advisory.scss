@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .advisory {

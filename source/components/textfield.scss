@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../settings" as *;
-@use "../helpers/focus-visible" as *;
+@use "../helpers/style-focus" as *;
 
 .textfield {
   display: block;
@@ -17,7 +17,7 @@
   transition: outline $transition-ease-out-100, border-color $transition-ease-out-100;
 
   &:focus-visible {
-    @include focus-visible;
+    @include style-focus;
   }
 
   &:disabled {

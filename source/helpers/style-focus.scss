@@ -1,10 +1,10 @@
-// FOCUS VISIBLE
+// STYLE FOCUS
 // -----------------------------------------------------------------------------
 
 @use "sass:list";
 @use "../settings" as *;
 
-@mixin focus-visible($radius: null) {
+@mixin style-focus($radius: null) {
   $valid-radii: ("radius-1", "radius-4", null);
 
   @if (list.index($valid-radii, $radius) == null) {
