@@ -1,7 +1,6 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import moveFocus from "../helpers/move-focus";
 import managePhasing from "../helpers/manage-phasing";
 
 const SELECTOR_TABSET = ".tabset";
@@ -13,7 +12,6 @@ const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
-  const navigationKeys = ["ArrowLeft", "ArrowRight", "Home", "End"];
 
   function swapPanel(targetTab) {
     const activatedTab = tabs.find((tab) => tab.classList.contains(CLASS_ACTIVATED));
@@ -42,17 +40,7 @@ function Tabset(tabset) {
     }
   }
 
-  function handleTabKeydown(event) {
-    const targetTab = event.target.closest(SELECTOR_TAB);
-
-    if (targetTab && navigationKeys.includes(event.key)) {
-      event.preventDefault();
-      moveFocus(event.key, tabs);
-    }
-  }
-
   tabset.addEventListener("click", handleTabClick);
-  tabset.addEventListener("keydown", handleTabKeydown);
 }
 
 Array.from(document.querySelectorAll(SELECTOR_TABSET)).forEach((tabset) => Tabset(tabset));
