@@ -65,7 +65,7 @@ function Dialog(dialog) {
 
   function handleTabKeydown(event) {
     if (event.key === "Tab") {
-      trapFocus(event, dialog);
+      trapFocus(dialog, event);
     }
   }
 
