@@ -3,8 +3,8 @@
 
 function trapFocus(element, event) {
   const focusableElements = Array.from(element.querySelectorAll(":where(a[href], audio[controls], button, input, select, summary, textarea, video[controls], [contenteditable], [tabindex]):not([tabindex^='-'], [disabled])"));
-  const outgoingIndex = focusableElements.indexOf(document.activeElement);
   const lastIndex = focusableElements.length - 1;
+  const outgoingIndex = focusableElements.indexOf(document.activeElement);
 
   if (event.shiftKey && (outgoingIndex === 0 || document.activeElement === element)) {
     event.preventDefault();
