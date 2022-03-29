@@ -314,6 +314,6 @@ summary {
 
 [contenteditable] {
   &:focus-visible {
-    @include style-focus(radius-1);
+    @include style-focus(radius-4);
   }
 }
