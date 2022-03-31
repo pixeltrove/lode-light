@@ -1,7 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import managePhasing from "../helpers/manage-phasing";
+import managePhasing from "../../helpers/manage-phasing";
 
 const SELECTOR_MENU = ".menu";
 const CLASS_ACTIVATED = "is-activated";

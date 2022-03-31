@@ -1,7 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import toggleCollapsible from "../helpers/toggle-collapsible";
+import toggleCollapsible from "../../helpers/toggle-collapsible";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";

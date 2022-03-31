@@ -1,9 +1,9 @@
 // GLOBAL FOOTER
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
-@use "../helpers/style-focus" as *;
-@use "../helpers/set-breakpoint" as *;
+@use "../../settings" as *;
+@use "../../helpers/style-focus" as *;
+@use "../../helpers/set-breakpoint" as *;
 
 .global-footer {
   padding-top: $space-3;

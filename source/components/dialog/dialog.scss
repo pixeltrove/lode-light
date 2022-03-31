@@ -1,9 +1,9 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
-@use "../helpers/animate-phasing" as *;
-@use "../helpers/style-focus" as *;
+@use "../../settings" as *;
+@use "../../helpers/animate-phasing" as *;
+@use "../../helpers/style-focus" as *;
 
 .dialog {
   display: none;

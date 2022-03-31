@@ -1,9 +1,9 @@
 // ADVISORY
 // -----------------------------------------------------------------------------
 
-@use "../settings" as *;
-@use "../helpers/style-focus" as *;
-@use "../helpers/set-breakpoint" as *;
+@use "../../settings" as *;
+@use "../../helpers/style-focus" as *;
+@use "../../helpers/set-breakpoint" as *;
 
 .advisory {
   color: $color-white;
