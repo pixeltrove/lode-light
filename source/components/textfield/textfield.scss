@@ -29,14 +29,6 @@
   }
 }
 
-// Select
-
-.textfield-select {
-  &:not([size]):not([multiple]) {
-    height: calc(#{$font-size-1} * #{$line-height-1-5} + 2 * #{$space-0-625});
-  }
-}
-
 // Label
 
 .textfield-label {

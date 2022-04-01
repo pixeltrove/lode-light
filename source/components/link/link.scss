@@ -19,20 +19,3 @@
     text-decoration-thickness: $border-width-2;
   }
 }
-
-// Adaptive
-
-.link-adaptive {
-  color: currentColor;
-}
-
-// Inverse
-
-.link-inverse {
-  color: $color-white;
-  text-decoration-color: $color-white;
-
-  &:focus-visible {
-    outline-color: $color-white;
-  }
-}

@@ -1,0 +1,29 @@
+// ADVISORY VARIANTS
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+
+// Positive
+
+.advisory-positive {
+    background-color: $color-positive-100;
+  }
+  
+  // Attentive
+  
+  .advisory-attentive {
+    background-color: $color-attentive-100;
+  }
+  
+  // Negative
+  
+  .advisory-negative {
+    background-color: $color-negative-100;
+  }
+  
+  // Neutral
+  
+  .advisory-neutral {
+    background-color: $color-neutral-050;
+  }
+  

@@ -44,21 +44,3 @@
     line-height: $line-height-1-333;
   }
 }
-
-// Interactive
-
-.card-interactive {
-  transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
-
-  &:focus-visible {
-    @include style-focus;
-  }
-
-  &:hover {
-    background-color: $color-neutral-900;
-  }
-
-  &:active {
-    background-color: $color-neutral-800;
-  }
-}
