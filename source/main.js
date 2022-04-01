@@ -1,7 +1,7 @@
 // COMPONENTS
 // -----------------------------------------------------------------------------
 
-import "./components/accordion/accordion";
-import "./components/dialog/dialog";
-import "./components/menu/menu";
-import "./components/tabset/tabset";
+import "./components/accordion";
+import "./components/dialog";
+import "./components/menu";
+import "./components/tabset";
