@@ -1,0 +1,21 @@
+// LINK
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+@use "../../helpers/style-focus" as *;
+
+.link {
+  display: inline-flex;
+  color: $color-brand-100;
+  text-decoration: $border-width-1 underline currentColor;
+  text-underline-offset: 0.25rem;
+  transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
+
+  &:focus-visible {
+    @include style-focus(radius-1);
+  }
+
+  &:hover {
+    text-decoration-thickness: $border-width-2;
+  }
+}

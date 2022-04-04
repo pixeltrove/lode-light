@@ -1,0 +1,17 @@
+// NOTICE
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+
+.notice {
+  padding: $space-1 $space-1-5;
+  border-radius: $border-radius-4;
+  color: $color-brand-100;
+  background-color: $color-brand-900;
+
+  &-heading {
+    margin-bottom: $space-0-5;
+    font-size: $font-size-1-125;
+    line-height: $line-height-1-333;
+  }
+}

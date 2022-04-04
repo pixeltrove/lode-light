@@ -1,0 +1,67 @@
+// MENU
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+@use "../../helpers/animate-phasing" as *;
+@use "../../helpers/style-focus" as *;
+
+.menu {
+  position: absolute;
+  z-index: $z-index-100;
+  display: none;
+  flex-direction: column;
+  padding: calc(#{$space-0-5} - #{$border-width-1});
+  border: $border-width-1 solid $color-neutral-700;
+  border-radius: $border-radius-4;
+  margin-top: $space-0-25;
+  list-style: none;
+  background-color: $color-white;
+
+  &.is-phasing-in,
+  &.is-phasing-out,
+  &.is-shown {
+    display: flex;
+  }
+
+  &.is-phasing-in {
+    animation: slide-in-standard $transition-ease-out-100;
+  }
+
+  &.is-phasing-out {
+    animation: slide-out-standard $transition-ease-out-100;
+  }
+
+  &-action {
+    display: flex;
+    padding: $space-0-375 $space-0-5;
+    border-radius: $border-radius-4;
+    font-size: $font-size-1;
+    line-height: $line-height-1-5;
+    white-space: nowrap;
+    color: $color-neutral-050;
+    transition: color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
+
+    &:focus-visible {
+      @include style-focus;
+    }
+
+    &:hover {
+      background-color: $color-neutral-900;
+    }
+
+    &:active {
+      background-color: $color-neutral-800;
+    }
+  }
+
+  &-separator {
+    height: $border-width-1;
+    margin-top: $space-0-5;
+    margin-bottom: calc(#{$space-0-5} - #{$border-width-1});
+  }
+}
+
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}

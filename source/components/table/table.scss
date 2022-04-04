@@ -1,0 +1,37 @@
+// TABLE
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+
+.table {
+  width: 100%;
+
+  &-caption {
+    padding: $space-0-75 $space-1;
+    text-align: left;
+    font-weight: $font-weight-700;
+  }
+
+  &-header,
+  &-data {
+    padding: $space-0-75 $space-1 calc(#{$space-0-75} - #{$border-width-1});
+    border-bottom: $border-width-1 solid $color-neutral-700;
+    vertical-align: top;
+  }
+
+  &-header {
+    text-align: left;
+
+    thead & {
+      border-color: $color-neutral-250;
+    }
+
+    tbody & {
+      border-right: $border-width-1 solid $color-neutral-250;
+    }
+  }
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}

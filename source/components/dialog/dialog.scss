@@ -1,0 +1,90 @@
+// DIALOG
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+@use "../../helpers/animate-phasing" as *;
+@use "../../helpers/style-focus" as *;
+
+.dialog {
+  display: none;
+  flex-direction: column;
+  gap: $space-1;
+  overflow: auto;
+  max-width: 36rem;
+  padding: $space-1-5;
+  border-radius: $border-radius-4;
+  margin: $space-1-5;
+  color: $color-neutral-050;
+  background-color: $color-white;
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &.is-phasing-in,
+  &.is-phasing-out,
+  &.is-shown {
+    display: flex;
+  }
+
+  &.is-phasing-in {
+    animation: slide-in-standard $transition-ease-out-200;
+  }
+
+  &.is-phasing-out {
+    animation: slide-out-standard $transition-ease-out-200;
+  }
+
+  &-heading {
+    font-size: $font-size-1-5;
+    line-height: $line-height-1-333;
+  }
+
+  &-action-group {
+    display: flex;
+    justify-content: end;
+    gap: $space-0-5;
+  }
+}
+
+// Scrim
+
+.dialog-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: $z-index-n-100;
+  display: none;
+  background-color: $color-black-transparent-700;
+
+  &.is-phasing-in,
+  &.is-phasing-out,
+  &.is-shown {
+    display: block;
+  }
+
+  &.is-phasing-in {
+    animation: fade-in-standard $transition-ease-out-200;
+  }
+
+  &.is-phasing-out {
+    animation: fade-out-standard $transition-ease-out-200;
+  }
+}
+
+// Wrapper
+
+.dialog-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: $z-index-100;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.is-phasing-in,
+  &.is-phasing-out,
+  &.is-shown {
+    display: flex;
+  }
+}

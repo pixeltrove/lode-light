@@ -1,0 +1,33 @@
+// NAVIGATION
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+@use "../../helpers/style-focus" as *;
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: $space-0-25;
+  max-width: 16.25rem;
+  padding-left: 0;
+  list-style: none;
+
+  &-link {
+    display: flex;
+    padding-top: $space-0-25;
+    padding-bottom: $space-0-25;
+    font-size: $font-size-1;
+    line-height: $line-height-1-5;
+    color: $color-neutral-050;
+    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
+
+    &:focus-visible {
+      @include style-focus(radius-1);
+    }
+
+    &:hover,
+    &.is-activated {
+      color: $color-brand-100;
+    }
+  }
+}

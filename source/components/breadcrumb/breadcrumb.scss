@@ -1,0 +1,39 @@
+// BREADCRUMB
+// -----------------------------------------------------------------------------
+
+@use "../../settings" as *;
+@use "../../helpers/style-focus" as *;
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-0-375;
+  padding-left: 0;
+
+  &-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &-link {
+    color: $color-neutral-050;
+    text-decoration: $border-width-1 underline currentColor;
+    text-underline-offset: 0.25rem;
+    transition: text-decoration $transition-ease-out-100, outline $transition-ease-out-100;
+
+    &:focus-visible {
+      @include style-focus(radius-1);
+    }
+
+    &:hover {
+      text-decoration-thickness: $border-width-2;
+    }
+  }
+
+  &-icon-trace {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: $space-0-375;
+    fill: currentColor;
+  }
+}
