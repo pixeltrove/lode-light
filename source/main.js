@@ -5,3 +5,8 @@ import "./components/accordion";
 import "./components/dialog";
 import "./components/menu";
 import "./components/tabset";
+
+// INITIALIZATION
+// -----------------------------------------------------------------------------
+
+import "./initialization";

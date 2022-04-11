@@ -5,7 +5,6 @@ import managePhasing from "../../helpers/manage-phasing";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
-const SELECTOR_DIALOG = ".dialog";
 const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
@@ -71,7 +70,5 @@ function Dialog(dialog) {
 
   trigger.addEventListener("click", show);
 }
-
-Array.from(document.querySelectorAll(SELECTOR_DIALOG)).forEach((dialog) => Dialog(dialog));
 
 export default Dialog;
