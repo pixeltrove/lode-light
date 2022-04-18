@@ -1,17 +1,11 @@
 // INITIALIZATION
 // -----------------------------------------------------------------------------
 
-import Accordion from "./components/accordion";
-import Dialog from "./components/dialog";
-import Menu from "./components/menu";
-import Tabset from "./components/tabset";
-
 import initializeComponent from "./helpers/initialize-component";
-
-const SELECTOR_ACCORDION = ".accordion";
-const SELECTOR_DIALOG = ".dialog";
-const SELECTOR_MENU = ".menu";
-const SELECTOR_TABSET = ".tabset";
+import { Accordion, SELECTOR_ACCORDION } from "./components/accordion";
+import { Dialog, SELECTOR_DIALOG } from "./components/dialog";
+import { Menu, SELECTOR_MENU } from "./components/menu";
+import { Tabset, SELECTOR_TABSET } from "./components/tabset";
 
 initializeComponent(Accordion, SELECTOR_ACCORDION);
 initializeComponent(Dialog, SELECTOR_DIALOG);

@@ -1,5 +1,4 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-export * from "./tabset";
-export { default } from "./tabset";
+export { Tabset, SELECTOR_TABSET } from "./tabset";

@@ -3,6 +3,7 @@
 
 import managePhasing from "../../helpers/manage-phasing";
 
+const SELECTOR_MENU = ".menu";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_PHASING_IN = "is-phasing-in";
 const CLASS_PHASING_OUT = "is-phasing-out";
@@ -67,4 +68,4 @@ function Menu(menu) {
   trigger.addEventListener("click", toggle);
 }
 
-export default Menu;
+export { Menu, SELECTOR_MENU };

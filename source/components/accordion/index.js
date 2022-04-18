@@ -1,5 +1,4 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-export * from "./accordion";
-export { default } from "./accordion";
+export { Accordion, SELECTOR_ACCORDION } from "./accordion";

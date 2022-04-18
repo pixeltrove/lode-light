@@ -3,6 +3,7 @@
 
 import managePhasing from "../../helpers/manage-phasing";
 
+const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_PHASING_IN = "is-phasing-in";
@@ -42,4 +43,4 @@ function Tabset(tabset) {
   tabset.addEventListener("click", handleTabClick);
 }
 
-export default Tabset;
+export { Tabset, SELECTOR_TABSET };

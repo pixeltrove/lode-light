@@ -1,5 +1,4 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-export * from "./dialog";
-export { default } from "./dialog";
+export { Dialog, SELECTOR_DIALOG } from "./dialog";
