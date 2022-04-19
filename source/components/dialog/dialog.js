@@ -72,6 +72,4 @@ function Dialog(dialog) {
   trigger.addEventListener("click", show);
 }
 
-Array.from(document.querySelectorAll(SELECTOR_DIALOG)).forEach((dialog) => Dialog(dialog));
-
-export default Dialog;
+export { Dialog, SELECTOR_DIALOG };

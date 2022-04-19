@@ -68,6 +68,4 @@ function Menu(menu) {
   trigger.addEventListener("click", toggle);
 }
 
-Array.from(document.querySelectorAll(SELECTOR_MENU)).forEach((menu) => Menu(menu));
-
-export default Menu;
+export { Menu, SELECTOR_MENU };

@@ -43,6 +43,4 @@ function Tabset(tabset) {
   tabset.addEventListener("click", handleTabClick);
 }
 
-Array.from(document.querySelectorAll(SELECTOR_TABSET)).forEach((tabset) => Tabset(tabset));
-
-export default Tabset;
+export { Tabset, SELECTOR_TABSET };

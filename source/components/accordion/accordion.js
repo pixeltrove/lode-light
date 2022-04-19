@@ -18,6 +18,4 @@ function Accordion(accordion) {
   accordion.addEventListener("click", handleSlatClick);
 }
 
-Array.from(document.querySelectorAll(SELECTOR_ACCORDION)).forEach((accordion) => Accordion(accordion));
-
-export default Accordion;
+export { Accordion, SELECTOR_ACCORDION };
