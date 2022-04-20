@@ -51,7 +51,7 @@
     }
 
     &.is-phasing-in {
-      animation: fade-in-standard $transition-ease-out-200;
+      animation: fade-in-regular $transition-ease-out-200;
     }
   }
 }
