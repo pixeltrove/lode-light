@@ -5,7 +5,7 @@
 
 // Fade
 
-@keyframes fade-in-standard {
+@keyframes fade-in-regular {
   0% {
     opacity: 0;
   }
@@ -14,7 +14,7 @@
   }
 }
 
-@keyframes fade-out-standard {
+@keyframes fade-out-regular {
   0% {
     opacity: 1;
   }
@@ -25,7 +25,7 @@
 
 // Slide
 
-@keyframes slide-in-standard {
+@keyframes slide-in-regular {
   0% {
     opacity: 0;
     transform: translateY(-$translate-distance-1);
@@ -36,7 +36,7 @@
   }
 }
 
-@keyframes slide-out-standard {
+@keyframes slide-out-regular {
   0% {
     opacity: 1;
     transform: translateY(0);
