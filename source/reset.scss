@@ -79,6 +79,10 @@ dd {
 
 figure {
   margin: 0;
+
+  figcaption {
+    overflow-wrap: break-word;
+  }
 }
 
 // Heading
