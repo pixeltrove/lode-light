@@ -24,11 +24,11 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-regular $transition-ease-out-100;
+    animation: slide-in-regular $ease-out-100;
   }
 
   &.is-phasing-out {
-    animation: slide-out-regular $transition-ease-out-100;
+    animation: slide-out-regular $ease-out-100;
   }
 
   &-action {
@@ -39,7 +39,7 @@
     line-height: $line-height-1-5;
     white-space: nowrap;
     color: $color-neutral-050;
-    transition: color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
+    transition: color $ease-out-100, background-color $ease-out-100, outline $ease-out-100;
 
     &:focus-visible {
       @include style-focus;

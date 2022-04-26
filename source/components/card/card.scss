@@ -28,7 +28,7 @@
   }
 
   &-link-cover {
-    transition: outline $transition-ease-out-100;
+    transition: outline $ease-out-100;
 
     &:focus-visible {
       @include style-focus(radius-4);

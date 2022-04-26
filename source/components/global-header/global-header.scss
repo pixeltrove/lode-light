@@ -26,7 +26,7 @@
     line-height: $line-height-1-3333;
     font-weight: $font-weight-700;
     color: $color-neutral-050;
-    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
+    transition: color $ease-out-100, outline $ease-out-100;
 
     &:focus-visible {
       @include style-focus(radius-1);
@@ -55,7 +55,7 @@
       padding-top: $space-0-625;
       padding-bottom: $space-0-625;
       color: $color-neutral-050;
-      transition: color $transition-ease-out-100, outline $transition-ease-out-100;
+      transition: color $ease-out-100, outline $ease-out-100;
 
       &:focus-visible {
         @include style-focus(radius-1);

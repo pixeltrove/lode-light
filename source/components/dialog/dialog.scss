@@ -28,11 +28,11 @@
   }
 
   &.is-phasing-in {
-    animation: slide-in-regular $transition-ease-out-200;
+    animation: slide-in-regular $ease-out-200;
   }
 
   &.is-phasing-out {
-    animation: slide-out-regular $transition-ease-out-200;
+    animation: slide-out-regular $ease-out-200;
   }
 
   &-heading {
@@ -63,11 +63,11 @@
   }
 
   &.is-phasing-in {
-    animation: fade-in-regular $transition-ease-out-200;
+    animation: fade-in-regular $ease-out-200;
   }
 
   &.is-phasing-out {
-    animation: fade-out-regular $transition-ease-out-200;
+    animation: fade-out-regular $ease-out-200;
   }
 }
 
