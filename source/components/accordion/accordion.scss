@@ -24,7 +24,7 @@
     line-height: $line-height-1-3333;
     color: $color-neutral-050;
     background-color: transparent;
-    transition: color $transition-ease-out-100, outline $transition-ease-out-100;
+    transition: color $ease-out-100, outline $ease-out-100;
 
     @at-root .accordion-segment:last-child & {
       margin-bottom: -$border-width-1;
@@ -44,7 +44,7 @@
     height: 1rem;
     margin-left: auto;
     fill: currentColor;
-    transition: transform $transition-ease-out-100;
+    transition: transform $ease-out-100;
 
     @at-root .accordion-slat.is-activated & {
       transform: rotate(180deg);
@@ -53,7 +53,7 @@
 
   &-panel {
     display: none;
-    transition: height $transition-ease-out-100;
+    transition: height $ease-out-100;
 
     &.is-phasing,
     &.is-shown {

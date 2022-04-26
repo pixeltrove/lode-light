@@ -23,7 +23,7 @@
     margin-bottom: -#{$border-width-1};
     color: $color-neutral-050;
     background-color: transparent;
-    transition: border-color $transition-ease-out-100, color $transition-ease-out-100, outline $transition-ease-out-100;
+    transition: border-color $ease-out-100, color $ease-out-100, outline $ease-out-100;
 
     &:focus-visible {
       @include style-focus(radius-1);
@@ -51,7 +51,7 @@
     }
 
     &.is-phasing-in {
-      animation: fade-in-regular $transition-ease-out-200;
+      animation: fade-in-regular $ease-out-200;
     }
   }
 }

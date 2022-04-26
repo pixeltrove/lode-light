@@ -20,7 +20,7 @@
   color: $color-white;
   background-color: $color-brand-100;
   user-select: none;
-  transition: background-color $transition-ease-out-100, outline $transition-ease-out-100;
+  transition: background-color $ease-out-100, outline $ease-out-100;
 
   &:focus-visible {
     @include style-focus;

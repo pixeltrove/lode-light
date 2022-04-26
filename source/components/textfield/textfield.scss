@@ -14,7 +14,7 @@
   line-height: $line-height-1-5;
   color: $color-neutral-050;
   background-color: $color-white;
-  transition: outline $transition-ease-out-100, border-color $transition-ease-out-100;
+  transition: outline $ease-out-100, border-color $ease-out-100;
 
   &:focus-visible {
     @include style-focus;

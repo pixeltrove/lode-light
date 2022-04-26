@@ -13,7 +13,7 @@
   background-color: $color-white;
   cursor: pointer;
   -webkit-appearance: none;
-  transition: border-color $transition-ease-out-100, background-color $transition-ease-out-100, outline $transition-ease-out-100;
+  transition: border-color $ease-out-100, background-color $ease-out-100, outline $ease-out-100;
 
   &:focus-visible {
     @include style-focus;
