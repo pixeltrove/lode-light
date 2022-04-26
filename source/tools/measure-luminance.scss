@@ -1,0 +1,32 @@
+// MEASURE LUMINANCE
+// -----------------------------------------------------------------------------
+
+@use "sass:math";
+
+@function measure-luminance($color) {
+  $channels: (
+    "red": red($color),
+    "green": green($color),
+    "blue": blue($color),
+  );
+
+  @each $name, $value in $channels {
+    $value: math.div($value, 255);
+
+    @if $value < 0.03928 {
+      $value: math.div($value, 12.92);
+    } @else {
+      $value: math.div(($value + 0.055), 1.055);
+      $value: math.pow($value, 2.4);
+    }
+
+    $channels: map-merge(
+      $channels,
+      (
+        $name: $value,
+      )
+    );
+  }
+
+  @return (map-get($channels, "red") * 0.2126) + (map-get($channels, "green") * 0.7152) + (map-get($channels, "blue") * 0.0722);
+}
