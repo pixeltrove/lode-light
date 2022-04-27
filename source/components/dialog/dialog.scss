@@ -6,7 +6,6 @@
 @use "../../helpers/style-focus" as *;
 
 .dialog {
-  display: none;
   flex-direction: column;
   gap: $space-1;
   overflow: auto;
@@ -21,18 +20,14 @@
     outline: 0;
   }
 
-  &.is-phasing-in,
-  &.is-phasing-out,
+  &.is-hidden {
+    display: none;
+  }
+
+  &.fade-in-regular,
+  &.fade-out-regular,
   &.is-shown {
     display: flex;
-  }
-
-  &.is-phasing-in {
-    animation: slide-in-regular $ease-out-200;
-  }
-
-  &.is-phasing-out {
-    animation: slide-out-regular $ease-out-200;
   }
 
   &-heading {
@@ -53,21 +48,16 @@
   position: absolute;
   inset: 0;
   z-index: $z-index-n-100;
-  display: none;
   background-color: $color-black-transparent-700;
 
-  &.is-phasing-in,
-  &.is-phasing-out,
+  &.is-hidden {
+    display: none;
+  }
+
+  &.fade-in-regular,
+  &.fade-out-regular,
   &.is-shown {
     display: block;
-  }
-
-  &.is-phasing-in {
-    animation: fade-in-regular $ease-out-200;
-  }
-
-  &.is-phasing-out {
-    animation: fade-out-regular $ease-out-200;
   }
 }
 
@@ -77,13 +67,16 @@
   position: fixed;
   inset: 0;
   z-index: $z-index-100;
-  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  &.is-phasing-in,
-  &.is-phasing-out,
+  &.is-hidden {
+    display: none;
+  }
+
+  &.fade-in-regular,
+  &.fade-out-regular,
   &.is-shown {
     display: flex;
   }

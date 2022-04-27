@@ -1,12 +1,10 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import managePhasing from "../../helpers/manage-phasing";
+import { phaseIn, phaseOut } from "../../helpers/manage-phasing";
 
 const SELECTOR_MENU = ".menu";
 const CLASS_ACTIVATED = "is-activated";
-const CLASS_PHASING_IN = "is-phasing-in";
-const CLASS_PHASING_OUT = "is-phasing-out";
 const CLASS_SHOWN = "is-shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -17,18 +15,15 @@ function Menu(menu) {
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   function toggle() {
-    const isPhasing = menu.classList.contains(CLASS_PHASING_IN) || menu.classList.contains(CLASS_PHASING_OUT);
     const isShown = menu.classList.contains(CLASS_SHOWN);
 
-    if (!isPhasing) {
-      isShown ? hide() : show();
-    }
+    isShown ? hide() : show();
   }
 
   function show() {
     trigger.classList.add(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", true);
-    managePhasing(menu);
+    phaseIn(menu, "fade");
 
     trigger.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleTabKeydown);
@@ -39,7 +34,7 @@ function Menu(menu) {
   function hide() {
     trigger.classList.remove(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", false);
-    managePhasing(menu);
+    phaseOut(menu, "fade");
 
     trigger.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleTabKeydown);

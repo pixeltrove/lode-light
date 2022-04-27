@@ -17,18 +17,14 @@
   list-style: none;
   background-color: $color-white;
 
-  &.is-phasing-in,
-  &.is-phasing-out,
+  &.is-hidden {
+    display: none;
+  }
+
+  &.fade-in-regular,
+  &.fade-out-regular,
   &.is-shown {
     display: flex;
-  }
-
-  &.is-phasing-in {
-    animation: slide-in-regular $ease-out-100;
-  }
-
-  &.is-phasing-out {
-    animation: slide-out-regular $ease-out-100;
   }
 
   &-action {
