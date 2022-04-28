@@ -37,27 +37,3 @@
 .fade-out-regular-start {
   opacity: 1;
 }
-
-// Slide
-
-@keyframes slide-in-regular {
-  0% {
-    opacity: 0;
-    transform: translateY(-$translate-1);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-out-regular {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-$translate-1);
-  }
-}
