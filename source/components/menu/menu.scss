@@ -17,10 +17,6 @@
   list-style: none;
   background-color: $color-white;
 
-  &.is-hidden {
-    display: none;
-  }
-
   &.fade-in-regular,
   &.fade-out-regular,
   &.is-shown {

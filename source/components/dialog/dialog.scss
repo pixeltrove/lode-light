@@ -6,6 +6,7 @@
 @use "../../helpers/style-focus" as *;
 
 .dialog {
+  display: none;
   flex-direction: column;
   gap: $space-1;
   overflow: auto;
@@ -18,10 +19,6 @@
 
   &:focus-visible {
     outline: 0;
-  }
-
-  &.is-hidden {
-    display: none;
   }
 
   &.fade-in-regular,
@@ -48,11 +45,8 @@
   position: absolute;
   inset: 0;
   z-index: $z-index-n-100;
+  display: none;
   background-color: $color-black-transparent-700;
-
-  &.is-hidden {
-    display: none;
-  }
 
   &.fade-in-regular,
   &.fade-out-regular,
@@ -67,13 +61,10 @@
   position: fixed;
   inset: 0;
   z-index: $z-index-100;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  &.is-hidden {
-    display: none;
-  }
 
   &.fade-in-regular,
   &.fade-out-regular,

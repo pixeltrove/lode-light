@@ -3,7 +3,6 @@
 
 const CLASS_PHASING_IN = "is-phasing-in";
 const CLASS_PHASING_OUT = "is-phasing-out";
-const CLASS_HIDDEN = "is-hidden";
 const CLASS_SHOWN = "is-shown";
 
 function managePhasing(...elements) {
@@ -25,8 +24,6 @@ function managePhasing(...elements) {
 }
 
 export function phaseIn(element, transition) {
-  element.classList.remove(CLASS_HIDDEN);
-
   element.classList.add(`${transition}-in-regular`);
   element.classList.add(`${transition}-in-regular-start`);
 
@@ -64,7 +61,6 @@ export function phaseOut(element, transition) {
         () => {
           element.classList.remove(`${transition}-out-regular-end`);
           element.classList.remove(`${transition}-out-regular`);
-          element.classList.add(CLASS_HIDDEN);
         },
         { once: true }
       );
