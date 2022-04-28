@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import { phaseIn, phaseOut } from "../../helpers/manage-phasing";
+import { enter, leave } from "../../helpers/manage-phasing";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
@@ -18,9 +18,9 @@ function Dialog(dialog) {
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
   function show() {
-    phaseIn(dialog, "fade");
-    phaseIn(scrim, "fade");
-    phaseIn(wrapper, "fade");
+    enter(dialog, "fade");
+    enter(scrim, "fade");
+    enter(wrapper, "fade");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -32,9 +32,9 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    phaseOut(dialog, "fade");
-    phaseOut(scrim, "fade");
-    phaseOut(wrapper, "fade");
+    leave(dialog, "fade");
+    leave(scrim, "fade");
+    leave(wrapper, "fade");
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();

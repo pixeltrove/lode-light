@@ -23,7 +23,7 @@ function managePhasing(...elements) {
   });
 }
 
-export function phaseIn(element, transition) {
+export function enter(element, transition) {
   element.classList.add(`${transition}-in-regular`);
   element.classList.add(`${transition}-in-regular-start`);
 
@@ -45,7 +45,7 @@ export function phaseIn(element, transition) {
   });
 }
 
-export function phaseOut(element, transition) {
+export function leave(element, transition) {
   element.classList.remove(CLASS_SHOWN);
 
   element.classList.add(`${transition}-out-regular`);
