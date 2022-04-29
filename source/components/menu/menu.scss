@@ -17,8 +17,8 @@
   list-style: none;
   background-color: $color-white;
 
-  &.fade-in-regular,
-  &.fade-out-regular,
+  &.fade-regular-enter,
+  &.fade-regular-leave,
   &.is-shown {
     display: flex;
   }

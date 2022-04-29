@@ -21,8 +21,8 @@
     outline: 0;
   }
 
-  &.fade-in-regular,
-  &.fade-out-regular,
+  &.fade-regular-enter,
+  &.fade-regular-leave,
   &.is-shown {
     display: flex;
   }
@@ -48,8 +48,8 @@
   display: none;
   background-color: $color-black-transparent-700;
 
-  &.fade-in-regular,
-  &.fade-out-regular,
+  &.fade-regular-enter,
+  &.fade-regular-leave,
   &.is-shown {
     display: block;
   }
@@ -66,8 +66,8 @@
   justify-content: center;
   align-items: center;
 
-  &.fade-in-regular,
-  &.fade-out-regular,
+  &.fade-regular-enter,
+  &.fade-regular-leave,
   &.is-shown {
     display: flex;
   }

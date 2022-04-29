@@ -23,17 +23,17 @@
   }
 }
 
-.fade-in-regular,
-.fade-out-regular {
+.fade-regular-enter,
+.fade-regular-leave {
   transition: opacity $ease-out-100;
 }
 
-.fade-in-regular-start,
-.fade-out-regular-end {
+.fade-regular-enter-start,
+.fade-regular-leave-end {
   opacity: 0;
 }
 
-.fade-in-regular-end,
-.fade-out-regular-start {
+.fade-regular-enter-end,
+.fade-regular-leave-start {
   opacity: 1;
 }

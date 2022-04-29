@@ -18,9 +18,9 @@ function Dialog(dialog) {
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
   function show() {
-    enter(dialog, "fade");
-    enter(scrim, "fade");
-    enter(wrapper, "fade");
+    enter(dialog, "fade-regular");
+    enter(scrim, "fade-regular");
+    enter(wrapper, "fade-regular");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -32,9 +32,9 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    leave(dialog, "fade");
-    leave(scrim, "fade");
-    leave(wrapper, "fade");
+    leave(dialog, "fade-regular");
+    leave(scrim, "fade-regular");
+    leave(wrapper, "fade-regular");
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();
