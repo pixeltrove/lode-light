@@ -5,24 +5,6 @@
 
 // Fade
 
-@keyframes fade-in-regular {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out-regular {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .fade-regular-enter,
 .fade-regular-leave {
   transition: opacity $ease-out-100;
