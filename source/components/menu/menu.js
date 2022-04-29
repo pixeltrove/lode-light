@@ -1,7 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import { manageTransition } from "../../helpers/manage-phasing";
+import manageTransition from "../../helpers/manage-transition";
 
 const SELECTOR_MENU = ".menu";
 const CLASS_ACTIVATED = "is-activated";

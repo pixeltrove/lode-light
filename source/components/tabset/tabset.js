@@ -1,7 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import { manageTransition } from "../../helpers/manage-phasing";
+import manageTransition from "../../helpers/manage-transition";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";

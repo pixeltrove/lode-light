@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import { manageTransition } from "../../helpers/manage-phasing";
+import manageTransition from "../../helpers/manage-transition";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
