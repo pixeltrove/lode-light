@@ -24,6 +24,7 @@ function managePhasing(...elements) {
 }
 
 export function enter(element, transition) {
+  element.classList.add(CLASS_SHOWN);
   element.classList.add(`${transition}-enter`);
   element.classList.add(`${transition}-enter-start`);
 
@@ -37,7 +38,6 @@ export function enter(element, transition) {
         () => {
           element.classList.remove(`${transition}-enter-end`);
           element.classList.remove(`${transition}-enter`);
-          element.classList.add(CLASS_SHOWN);
         },
         { once: true }
       );
@@ -46,8 +46,6 @@ export function enter(element, transition) {
 }
 
 export function leave(element, transition) {
-  element.classList.remove(CLASS_SHOWN);
-
   element.classList.add(`${transition}-leave`);
   element.classList.add(`${transition}-leave-start`);
 
@@ -61,6 +59,7 @@ export function leave(element, transition) {
         () => {
           element.classList.remove(`${transition}-leave-end`);
           element.classList.remove(`${transition}-leave`);
+          element.classList.remove(CLASS_SHOWN);
         },
         { once: true }
       );

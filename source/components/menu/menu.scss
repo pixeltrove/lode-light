@@ -17,8 +17,6 @@
   list-style: none;
   background-color: $color-white;
 
-  &.fade-regular-enter,
-  &.fade-regular-leave,
   &.is-shown {
     display: flex;
   }
