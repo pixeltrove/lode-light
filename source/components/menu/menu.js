@@ -23,7 +23,7 @@ function Menu(menu) {
   function show() {
     trigger.classList.add(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", true);
-    manageTransition(menu, "fade-regular", "enter");
+    manageTransition(menu, "slide-regular", "enter");
 
     trigger.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleTabKeydown);
@@ -34,7 +34,7 @@ function Menu(menu) {
   function hide() {
     trigger.classList.remove(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", false);
-    manageTransition(menu, "fade-regular", "leave");
+    manageTransition(menu, "slide-regular", "leave");
 
     trigger.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleTabKeydown);

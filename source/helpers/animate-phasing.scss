@@ -19,3 +19,22 @@
 .fade-regular-leave-start {
   opacity: 1;
 }
+
+// Slide
+
+.slide-regular-enter,
+.slide-regular-leave {
+  transition: opacity $ease-out-100, transform $ease-out-100;
+}
+
+.slide-regular-enter-start,
+.slide-regular-leave-end {
+  opacity: 0;
+  transform: translateY(-$translate-1);
+}
+
+.slide-regular-enter-end,
+.slide-regular-leave-start {
+  opacity: 1;
+  transform: translateY(0);
+}
