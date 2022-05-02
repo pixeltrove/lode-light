@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../../settings" as *;
-@use "../../helpers/animate-transition" as *;
+@use "../../helpers/define-transition" as *;
 @use "../../helpers/style-focus" as *;
 
 .dialog {
