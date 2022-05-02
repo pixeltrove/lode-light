@@ -11,13 +11,13 @@
     transition: opacity $timing;
   }
 
-  .fade-regular-enter-start,
-  .fade-regular-leave-end {
+  .fade-#{$variant}-enter-start,
+  .fade-#{$variant}-leave-end {
     opacity: 0;
   }
 
-  .fade-regular-enter-end,
-  .fade-regular-leave-start {
+  .fade-#{$variant}-enter-end,
+  .fade-#{$variant}-leave-start {
     opacity: 1;
   }
 }
@@ -32,14 +32,14 @@
     transition: opacity $timing, transform $timing;
   }
 
-  .slide-regular-enter-start,
-  .slide-regular-leave-end {
+  .slide-#{$variant}-enter-start,
+  .slide-#{$variant}-leave-end {
     opacity: 0;
     transform: translateY($distance);
   }
 
-  .slide-regular-enter-end,
-  .slide-regular-leave-start {
+  .slide-#{$variant}-enter-end,
+  .slide-#{$variant}-leave-start {
     opacity: 1;
     transform: translateY(0);
   }
