@@ -5,7 +5,7 @@
 
 // Fade
 
-@mixin fade($variant, $timing) {
+@mixin define-fade($variant, $timing) {
   .fade-#{$variant}-enter,
   .fade-#{$variant}-leave {
     transition: opacity $timing;
@@ -22,11 +22,11 @@
   }
 }
 
-@include fade("regular", $ease-out-200);
+@include define-fade("regular", $ease-out-200);
 
 // Slide
 
-@mixin slide($variant, $timing, $distance) {
+@mixin define-slide($variant, $timing, $distance) {
   .slide-#{$variant}-enter,
   .slide-#{$variant}-leave {
     transition: opacity $timing, transform $timing;
@@ -45,4 +45,4 @@
   }
 }
 
-@include slide("regular", $ease-out-100, -$translate-1);
+@include define-slide("regular", $ease-out-100, -$translate-1);
