@@ -5,44 +5,36 @@
 
 // Fade
 
-@mixin define-fade($variant, $timing) {
-  .fade-#{$variant}-enter,
-  .fade-#{$variant}-leave {
-    transition: opacity $timing;
-  }
-
-  .fade-#{$variant}-enter-start,
-  .fade-#{$variant}-leave-end {
-    opacity: 0;
-  }
-
-  .fade-#{$variant}-enter-end,
-  .fade-#{$variant}-leave-start {
-    opacity: 1;
-  }
+.fade-regular-enter,
+.fade-regular-leave {
+  transition: opacity $ease-out-200;
 }
 
-@include define-fade("regular", $ease-out-200);
+.fade-regular-enter-start,
+.fade-regular-leave-end {
+  opacity: 0;
+}
+
+.fade-regular-enter-end,
+.fade-regular-leave-start {
+  opacity: 1;
+}
 
 // Slide
 
-@mixin define-slide($variant, $timing, $distance) {
-  .slide-#{$variant}-enter,
-  .slide-#{$variant}-leave {
-    transition: opacity $timing, transform $timing;
-  }
-
-  .slide-#{$variant}-enter-start,
-  .slide-#{$variant}-leave-end {
-    opacity: 0;
-    transform: translateY($distance);
-  }
-
-  .slide-#{$variant}-enter-end,
-  .slide-#{$variant}-leave-start {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.slide-regular-enter,
+.slide-regular-leave {
+  transition: opacity $ease-out-100, transform $ease-out-100;
 }
 
-@include define-slide("regular", $ease-out-100, -$translate-1);
+.slide-regular-enter-start,
+.slide-regular-leave-end {
+  opacity: 0;
+  transform: translateY(-$translate-1);
+}
+
+.slide-regular-enter-end,
+.slide-regular-leave-start {
+  opacity: 1;
+  transform: translateY(0);
+}
