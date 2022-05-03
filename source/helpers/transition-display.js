@@ -1,9 +1,9 @@
-// MANAGE TRANSITION
+// TRANSITION DISPLAY
 // -----------------------------------------------------------------------------
 
 const CLASS_SHOWN = "is-shown";
 
-function manageTransition(element, transition, phase) {
+function transitionDisplay(element, transition, phase) {
   if (phase === "enter") {
     element.classList.add(CLASS_SHOWN);
   }
@@ -28,4 +28,4 @@ function manageTransition(element, transition, phase) {
   );
 }
 
-export default manageTransition;
+export default transitionDisplay;

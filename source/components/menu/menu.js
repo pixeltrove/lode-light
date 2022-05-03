@@ -1,7 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import manageTransition from "../../helpers/manage-transition";
+import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_MENU = ".menu";
 const CLASS_ACTIVATED = "is-activated";
@@ -23,7 +23,7 @@ function Menu(menu) {
   function show() {
     trigger.classList.add(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", true);
-    manageTransition(menu, "slide-regular", "enter");
+    transitionDisplay(menu, "slide-regular", "enter");
 
     trigger.addEventListener("keydown", handleTabKeydown);
     menu.addEventListener("keydown", handleTabKeydown);
@@ -34,7 +34,7 @@ function Menu(menu) {
   function hide() {
     trigger.classList.remove(CLASS_ACTIVATED);
     trigger.setAttribute("aria-expanded", false);
-    manageTransition(menu, "slide-regular", "leave");
+    transitionDisplay(menu, "slide-regular", "leave");
 
     trigger.removeEventListener("keydown", handleTabKeydown);
     menu.removeEventListener("keydown", handleTabKeydown);

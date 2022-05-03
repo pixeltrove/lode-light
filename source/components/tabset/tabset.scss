@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../../settings" as *;
-@use "../../helpers/define-transition" as *;
+@use "../../helpers/transition-display" as *;
 @use "../../helpers/style-focus" as *;
 
 .tabset {
