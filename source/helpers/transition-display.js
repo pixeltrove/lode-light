@@ -4,9 +4,7 @@
 const CLASS_SHOWN = "is-shown";
 
 function transitionDisplay(element, transition, phase) {
-  if (phase === "enter") {
-    element.classList.add(CLASS_SHOWN);
-  }
+  if (phase === "enter") element.classList.add(CLASS_SHOWN);
   element.classList.add(`${transition}-${phase}`);
   element.classList.add(`${transition}-${phase}-start`);
 
@@ -18,11 +16,9 @@ function transitionDisplay(element, transition, phase) {
   element.addEventListener(
     "transitionend",
     () => {
+      if (phase === "leave") element.classList.remove(CLASS_SHOWN);
       element.classList.remove(`${transition}-${phase}-end`);
       element.classList.remove(`${transition}-${phase}`);
-      if (phase === "leave") {
-        element.classList.remove(CLASS_SHOWN);
-      }
     },
     { once: true }
   );
