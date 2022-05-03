@@ -30,7 +30,7 @@
 .slide-regular-enter-start,
 .slide-regular-leave-end {
   opacity: 0;
-  transform: translateY(-$translate-1);
+  transform: translateY($translate-1);
 }
 
 .slide-regular-enter-end,
