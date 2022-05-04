@@ -16,9 +16,9 @@ function transitionDisplay(element, transition, phase) {
       element.addEventListener(
         "transitionend",
         () => {
-          if (phase === "leave") element.classList.remove(CLASS_SHOWN);
           element.classList.remove(`${transition}-${phase}-to`);
           element.classList.remove(`${transition}-${phase}`);
+          if (phase === "leave") element.classList.remove(CLASS_SHOWN);
         },
         { once: true }
       );
