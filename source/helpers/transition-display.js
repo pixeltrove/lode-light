@@ -11,17 +11,19 @@ function transitionDisplay(element, transition, phase) {
   requestAnimationFrame(() => {
     element.classList.remove(`${transition}-${phase}-from`);
     element.classList.add(`${transition}-${phase}-to`);
-  });
 
-  element.addEventListener(
-    "transitionend",
-    () => {
-      if (phase === "leave") element.classList.remove(CLASS_SHOWN);
-      element.classList.remove(`${transition}-${phase}-to`);
-      element.classList.remove(`${transition}-${phase}`);
-    },
-    { once: true }
-  );
+    requestAnimationFrame(() => {
+      element.addEventListener(
+        "transitionend",
+        () => {
+          if (phase === "leave") element.classList.remove(CLASS_SHOWN);
+          element.classList.remove(`${transition}-${phase}-to`);
+          element.classList.remove(`${transition}-${phase}`);
+        },
+        { once: true }
+      );
+    });
+  });
 }
 
 export default transitionDisplay;
