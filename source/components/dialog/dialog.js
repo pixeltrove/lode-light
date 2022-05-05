@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import managePhasing from "../../helpers/manage-phasing";
+import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
@@ -18,7 +18,9 @@ function Dialog(dialog) {
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
   function show() {
-    managePhasing(dialog, scrim, wrapper);
+    transitionDisplay(dialog, "fade-regular", "enter");
+    transitionDisplay(scrim, "fade-regular", "enter");
+    transitionDisplay(wrapper, "fade-regular", "enter");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -30,7 +32,9 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    managePhasing(dialog, scrim, wrapper);
+    transitionDisplay(dialog, "fade-regular", "leave");
+    transitionDisplay(scrim, "fade-regular", "leave");
+    transitionDisplay(wrapper, "fade-regular", "leave");
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();

@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 @use "../../settings" as *;
-@use "../../helpers/animate-phasing" as *;
+@use "../../helpers/transition-display" as *;
 @use "../../helpers/style-focus" as *;
 
 .menu {
@@ -17,18 +17,8 @@
   list-style: none;
   background-color: $color-white;
 
-  &.is-phasing-in,
-  &.is-phasing-out,
   &.is-shown {
     display: flex;
-  }
-
-  &.is-phasing-in {
-    animation: slide-in-regular $ease-out-100;
-  }
-
-  &.is-phasing-out {
-    animation: slide-out-regular $ease-out-100;
   }
 
   &-action {

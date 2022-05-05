@@ -1,0 +1,40 @@
+// TRANSITION DISPLAY
+// -----------------------------------------------------------------------------
+
+@use "../settings" as *;
+
+// Fade
+
+.fade-regular-enter,
+.fade-regular-leave {
+  transition: opacity $ease-out-200;
+}
+
+.fade-regular-enter-from,
+.fade-regular-leave-to {
+  opacity: 0;
+}
+
+.fade-regular-enter-to,
+.fade-regular-leave-from {
+  opacity: 1;
+}
+
+// Slide
+
+.slide-regular-enter,
+.slide-regular-leave {
+  transition: opacity $ease-out-100, transform $ease-out-100;
+}
+
+.slide-regular-enter-from,
+.slide-regular-leave-to {
+  opacity: 0;
+  transform: translateY($translate-1);
+}
+
+.slide-regular-enter-to,
+.slide-regular-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
