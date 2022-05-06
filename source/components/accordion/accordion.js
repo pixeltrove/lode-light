@@ -7,15 +7,9 @@ const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 
 function Accordion(event) {
-  function handleSlatClick(event) {
-    const targetSlat = event.target.closest(SELECTOR_SLAT);
+  const targetSlat = event.target.closest(SELECTOR_SLAT);
 
-    if (targetSlat) {
-      toggleCollapsible(targetSlat);
-    }
-  }
-
-  handleSlatClick(event);
+  if (targetSlat) toggleCollapsible(targetSlat);
 }
 
 document.addEventListener("click", (event) => {
