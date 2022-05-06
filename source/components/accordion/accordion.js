@@ -6,7 +6,7 @@ import toggleCollapsible from "../../helpers/toggle-collapsible";
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 
-function Accordion() {
+function Accordion(event) {
   function handleSlatClick(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
@@ -15,14 +15,11 @@ function Accordion() {
     }
   }
 
-  return handleSlatClick;
+  handleSlatClick(event);
 }
 
 document.addEventListener("click", (event) => {
-  if (event.target.closest(SELECTOR_ACCORDION)) {
-    let initializer = Accordion();
-    initializer(event);
-  }
+  if (event.target.closest(SELECTOR_ACCORDION)) Accordion(event);
 });
 
 export default Accordion;
