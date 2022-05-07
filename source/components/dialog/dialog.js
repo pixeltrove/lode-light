@@ -5,15 +5,15 @@ import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
-const SELECTOR_DIALOG = ".dialog";
+const SELECTOR_TRIGGER = "[data-dialog]";
 const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
-const DATA_SHOW = "data-show";
 
-function Dialog(dialog) {
-  const dialogId = dialog.id;
-  const trigger = document.querySelector(`[${DATA_SHOW}="${dialogId}"]`);
+function Dialog(event) {
+  const trigger = event.target;
+  const target = trigger.getAttribute("data-dialog");
+  const dialog = document.querySelector(`#${target}`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
@@ -73,7 +73,11 @@ function Dialog(dialog) {
     }
   }
 
-  trigger.addEventListener("click", show);
+  show();
 }
 
-export { Dialog, SELECTOR_DIALOG };
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_TRIGGER)) Dialog(event);
+});
+
+export default Dialog;

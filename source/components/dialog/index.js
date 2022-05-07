@@ -1,4 +1,4 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-export { Dialog, SELECTOR_DIALOG } from "./dialog";
+export * from "./dialog";
