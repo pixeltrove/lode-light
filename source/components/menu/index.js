@@ -1,4 +1,4 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-export { Menu, SELECTOR_MENU } from "./menu";
+export * from "./menu";

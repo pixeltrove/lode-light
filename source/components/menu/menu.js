@@ -3,14 +3,14 @@
 
 import transitionDisplay from "../../helpers/transition-display";
 
-const SELECTOR_MENU = ".menu";
+const SELECTOR_TRIGGER = "[data-menu]";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const DATA_TOGGLE = "data-toggle";
 
-function Menu(menu) {
-  const menuId = menu.id;
-  const trigger = document.querySelector(`[${DATA_TOGGLE}="${menuId}"]`);
+function Menu(event) {
+  const trigger = event.target;
+  const target = trigger.getAttribute("data-menu");
+  const menu = document.querySelector(`#${target}`);
   const focusableElements = Array.from(menu.querySelectorAll(":where(a[href], button, input):not([tabindex^='-'], [disabled])"));
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
@@ -60,7 +60,11 @@ function Menu(menu) {
     }
   }
 
-  trigger.addEventListener("click", toggle);
+  toggle();
 }
 
-export { Menu, SELECTOR_MENU };
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_TRIGGER)) Menu(event);
+});
+
+export default Menu;
