@@ -9,8 +9,10 @@ const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
 
-function Tabset(tabset) {
+function Tabset(event) {
+  const tabset = event.target.closest(SELECTOR_TABSET);
   const tabs = Array.from(tabset.querySelectorAll(SELECTOR_TAB));
+  const targetTab = event.target.closest(SELECTOR_TAB);
 
   function swapPanel(targetTab) {
     const activatedTab = tabs.find((tab) => tab.classList.contains(CLASS_ACTIVATED));
@@ -29,15 +31,11 @@ function Tabset(tabset) {
     }
   }
 
-  function handleTabClick(event) {
-    const targetTab = event.target.closest(SELECTOR_TAB);
-
-    if (targetTab) {
-      swapPanel(targetTab);
-    }
-  }
-
-  tabset.addEventListener("click", handleTabClick);
+  swapPanel(targetTab);
 }
 
-export { Tabset, SELECTOR_TABSET };
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_TABSET)) Tabset(event);
+});
+
+export default Tabset;
