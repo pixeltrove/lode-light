@@ -1,6 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
+import initializeComponent from "../../helpers/initialize-component";
 import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
@@ -9,6 +10,13 @@ const SELECTOR_TRIGGER = "[data-dialog]";
 const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
+
+const CONFIG_DIALOG = {
+  eventType: "click",
+  componentSelector: false,
+  triggerSelector: SELECTOR_TRIGGER,
+  componentDefinition: Dialog,
+};
 
 function Dialog(event) {
   const trigger = event.target;
@@ -76,8 +84,6 @@ function Dialog(event) {
   show();
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.closest(SELECTOR_TRIGGER)) Dialog(event);
-});
+initializeComponent(CONFIG_DIALOG);
 
 export default Dialog;

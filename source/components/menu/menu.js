@@ -1,11 +1,19 @@
 // MENU
 // -----------------------------------------------------------------------------
 
+import initializeComponent from "../../helpers/initialize-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_TRIGGER = "[data-menu]";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
+
+const CONFIG_MENU = {
+  eventType: "click",
+  componentSelector: false,
+  triggerSelector: SELECTOR_TRIGGER,
+  componentDefinition: Menu,
+};
 
 function Menu(event) {
   const trigger = event.target;
@@ -63,8 +71,6 @@ function Menu(event) {
   toggle();
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.closest(SELECTOR_TRIGGER)) Menu(event);
-});
+initializeComponent(CONFIG_MENU);
 
 export default Menu;

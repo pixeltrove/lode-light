@@ -7,12 +7,19 @@ import toggleCollapsible from "../../helpers/toggle-collapsible";
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 
+const CONFIG_ACCORDION = {
+  eventType: "click",
+  componentSelector: SELECTOR_ACCORDION,
+  triggerSelector: false,
+  componentDefinition: Accordion,
+};
+
 function Accordion(event) {
   const targetSlat = event.target.closest(SELECTOR_SLAT);
 
   if (targetSlat) toggleCollapsible(targetSlat);
 }
 
-initializeComponent("click", SELECTOR_ACCORDION, Accordion);
+initializeComponent(CONFIG_ACCORDION);
 
 export default Accordion;

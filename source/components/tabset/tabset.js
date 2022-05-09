@@ -1,6 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
+import initializeComponent from "../../helpers/initialize-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_TABSET = ".tabset";
@@ -8,6 +9,13 @@ const SELECTOR_TAB = ".tabset-tab";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
+
+const CONFIG_TABSET = {
+  eventType: "click",
+  componentSelector: SELECTOR_TABSET,
+  triggerSelector: false,
+  componentDefinition: Tabset,
+};
 
 function Tabset(event) {
   const tabset = event.target.closest(SELECTOR_TABSET);
@@ -34,8 +42,6 @@ function Tabset(event) {
   swapPanel(targetTab);
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.closest(SELECTOR_TABSET)) Tabset(event);
-});
+initializeComponent(CONFIG_TABSET);
 
 export default Tabset;
