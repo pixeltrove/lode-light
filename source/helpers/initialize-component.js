@@ -1,10 +1,10 @@
 // INITIALIZE COMPONENT
 // -----------------------------------------------------------------------------
 
-function initializeComponent(component, selector) {
-  const elements = Array.from(document.querySelectorAll(selector));
-
-  elements.forEach((element) => component(element));
+function initializeComponent(eventType, selector, component) {
+  document.addEventListener(eventType, (event) => {
+    if (event.target.closest(selector)) component(event);
+  });
 }
 
 export default initializeComponent;
