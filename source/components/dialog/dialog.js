@@ -10,13 +10,7 @@ const SELECTOR_TRIGGER = "[data-dialog]";
 const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
 const SELECTOR_HIDE = "[data-hide]";
-
-const CONFIG_DIALOG = {
-  eventType: "click",
-  componentSelector: false,
-  triggerSelector: SELECTOR_TRIGGER,
-  componentDefinition: Dialog,
-};
+const EVENT_TYPE = "click";
 
 function Dialog(event) {
   const trigger = event.target;
@@ -84,6 +78,6 @@ function Dialog(event) {
   show();
 }
 
-initializeComponent(CONFIG_DIALOG);
+initializeComponent(EVENT_TYPE, SELECTOR_TRIGGER, Dialog);
 
 export default Dialog;

@@ -9,13 +9,7 @@ const SELECTOR_TAB = ".tabset-tab";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
 const DATA_SHOW = "data-show";
-
-const CONFIG_TABSET = {
-  eventType: "click",
-  componentSelector: SELECTOR_TABSET,
-  triggerSelector: false,
-  componentDefinition: Tabset,
-};
+const EVENT_TYPE = "click";
 
 function Tabset(event) {
   const tabset = event.target.closest(SELECTOR_TABSET);
@@ -42,6 +36,6 @@ function Tabset(event) {
   swapPanel(targetTab);
 }
 
-initializeComponent(CONFIG_TABSET);
+initializeComponent(EVENT_TYPE, SELECTOR_TABSET, Tabset);
 
 export default Tabset;
