@@ -6,14 +6,14 @@ import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
-const SELECTOR_TRIGGER = "[data-dialog]";
 const SELECTOR_SCRIM = ".dialog-scrim";
 const SELECTOR_WRAPPER = ".dialog-wrapper";
-const SELECTOR_HIDE = "[data-hide]";
+const SELECTOR_SHOW = "[data-show-dialog]";
+const SELECTOR_HIDE = "[data-hide-dialog]";
 
 function Dialog(event) {
   const trigger = event.target;
-  const target = trigger.getAttribute("data-dialog");
+  const target = trigger.getAttribute("data-show-dialog");
   const dialog = document.querySelector(`#${target}`);
   const wrapper = dialog.closest(SELECTOR_WRAPPER);
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
@@ -77,6 +77,6 @@ function Dialog(event) {
   show();
 }
 
-initializeComponent(SELECTOR_TRIGGER, Dialog);
+initializeComponent(SELECTOR_SHOW, Dialog);
 
 export default Dialog;
