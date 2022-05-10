@@ -7,7 +7,6 @@ import transitionDisplay from "../../helpers/transition-display";
 const SELECTOR_TRIGGER = "[data-menu]";
 const CLASS_ACTIVATED = "is-activated";
 const CLASS_SHOWN = "is-shown";
-const EVENT_TYPE = "click";
 
 function Menu(event) {
   const trigger = event.target;
@@ -65,6 +64,6 @@ function Menu(event) {
   toggle();
 }
 
-initializeComponent(EVENT_TYPE, SELECTOR_TRIGGER, Menu);
+initializeComponent(SELECTOR_TRIGGER, Menu);
 
 export default Menu;

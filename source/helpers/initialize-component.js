@@ -1,8 +1,8 @@
 // INITIALIZE COMPONENT
 // -----------------------------------------------------------------------------
 
-function initializeComponent(eventType, selector, component) {
-  document.addEventListener(eventType, (event) => {
+function initializeComponent(selector, component) {
+  document.addEventListener("click", (event) => {
     if (event.target.closest(selector)) component(event);
   });
 }
