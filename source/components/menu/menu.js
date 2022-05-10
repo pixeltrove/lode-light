@@ -1,7 +1,7 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import initializeComponent from "../../helpers/initialize-component";
+import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const CLASS_ACTIVATED = "is-activated";
@@ -64,6 +64,6 @@ function Menu(event) {
   toggle();
 }
 
-initializeComponent(SELECTOR_SHOW, Menu);
+readyComponent(SELECTOR_SHOW, Menu);
 
 export default Menu;

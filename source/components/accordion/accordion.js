@@ -1,7 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import initializeComponent from "../../helpers/initialize-component";
+import readyComponent from "../../helpers/ready-component";
 import toggleCollapsible from "../../helpers/toggle-collapsible";
 
 const SELECTOR_ACCORDION = ".accordion";
@@ -13,6 +13,6 @@ function Accordion(event) {
   if (targetSlat) toggleCollapsible(targetSlat);
 }
 
-initializeComponent(SELECTOR_ACCORDION, Accordion);
+readyComponent(SELECTOR_ACCORDION, Accordion);
 
 export default Accordion;

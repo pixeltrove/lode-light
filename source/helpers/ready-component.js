@@ -1,10 +1,10 @@
-// INITIALIZE COMPONENT
+// READY COMPONENT
 // -----------------------------------------------------------------------------
 
-function initializeComponent(selector, component) {
+function readyComponent(selector, component) {
   document.addEventListener("click", (event) => {
     if (event.target.closest(selector)) component(event);
   });
 }
 
-export default initializeComponent;
+export default readyComponent;

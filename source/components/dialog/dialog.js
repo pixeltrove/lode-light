@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import initializeComponent from "../../helpers/initialize-component";
+import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
@@ -77,6 +77,6 @@ function Dialog(event) {
   show();
 }
 
-initializeComponent(SELECTOR_SHOW, Dialog);
+readyComponent(SELECTOR_SHOW, Dialog);
 
 export default Dialog;

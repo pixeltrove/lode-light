@@ -1,7 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import initializeComponent from "../../helpers/initialize-component";
+import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_TABSET = ".tabset";
@@ -35,6 +35,6 @@ function Tabset(event) {
   swapPanel(targetTab);
 }
 
-initializeComponent(SELECTOR_TABSET, Tabset);
+readyComponent(SELECTOR_TABSET, Tabset);
 
 export default Tabset;
