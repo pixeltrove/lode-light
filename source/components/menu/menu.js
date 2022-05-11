@@ -64,6 +64,6 @@ function Menu(event) {
   toggle();
 }
 
-readyComponent(SELECTOR_SHOW, Menu);
+readyComponent(document, "click", SELECTOR_SHOW, Menu);
 
 export default Menu;

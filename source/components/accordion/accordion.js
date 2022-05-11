@@ -13,6 +13,6 @@ function Accordion(event) {
   if (targetSlat) toggleCollapsible(targetSlat);
 }
 
-readyComponent(SELECTOR_ACCORDION, Accordion);
+readyComponent(document, "click", SELECTOR_ACCORDION, Accordion);
 
 export default Accordion;

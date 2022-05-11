@@ -35,6 +35,6 @@ function Tabset(event) {
   swapPanel(targetTab);
 }
 
-readyComponent(SELECTOR_TABSET, Tabset);
+readyComponent(document, "click", SELECTOR_TABSET, Tabset);
 
 export default Tabset;

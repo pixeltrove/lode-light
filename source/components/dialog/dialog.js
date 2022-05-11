@@ -77,6 +77,6 @@ function Dialog(event) {
   show();
 }
 
-readyComponent(SELECTOR_SHOW, Dialog);
+readyComponent(document, "click", SELECTOR_SHOW, Dialog);
 
 export default Dialog;
