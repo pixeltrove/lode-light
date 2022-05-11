@@ -1,7 +1,6 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
@@ -77,6 +76,8 @@ function Dialog(event) {
   show();
 }
 
-readyComponent(document, "click", SELECTOR_SHOW, Dialog);
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_SHOW)) Dialog(event);
+});
 
 export default Dialog;

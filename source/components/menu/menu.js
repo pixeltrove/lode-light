@@ -1,7 +1,6 @@
 // MENU
 // -----------------------------------------------------------------------------
 
-import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const CLASS_ACTIVATED = "is-activated";
@@ -64,6 +63,8 @@ function Menu(event) {
   toggle();
 }
 
-readyComponent(document, "click", SELECTOR_SHOW, Menu);
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_SHOW)) Menu(event);
+});
 
 export default Menu;

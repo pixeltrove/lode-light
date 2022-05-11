@@ -1,7 +1,6 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import readyComponent from "../../helpers/ready-component";
 import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_TABSET = ".tabset";
@@ -35,6 +34,8 @@ function Tabset(event) {
   swapPanel(targetTab);
 }
 
-readyComponent(document, "click", SELECTOR_TABSET, Tabset);
+document.addEventListener("click", (event) => {
+  if (event.target.closest(SELECTOR_TABSET)) Tabset(event);
+});
 
 export default Tabset;
