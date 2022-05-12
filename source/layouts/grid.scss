@@ -3,7 +3,7 @@
 
 @use "sass:list";
 @use "sass:map";
-@use "../settings" as *;
+@use "../tokens" as *;
 @use "../helpers/set-breakpoint" as *;
 
 .lay-grid {
