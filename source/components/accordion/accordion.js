@@ -6,16 +6,25 @@ import toggleCollapsible from "../../helpers/toggle-collapsible";
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
 
-function initializeAccordion(accordion) {
-  accordion.addEventListener("click", handleSlatClick);
+function Accordion() {
+  function initialize(accordion) {
+    accordion.addEventListener("click", handleSlatClick);
+  }
+
+  function handleSlatClick(event) {
+    const targetSlat = event.target.closest(SELECTOR_SLAT);
+
+    if (targetSlat) {
+      toggleCollapsible(targetSlat);
+    }
+  }
+
+  return { initialize };
 }
 
-function handleSlatClick(event) {
-  const targetSlat = event.target.closest(SELECTOR_SLAT);
+const elements = document.querySelectorAll(SELECTOR_ACCORDION);
 
-  if (targetSlat) toggleCollapsible(targetSlat);
-}
-
-const accordions = document.querySelectorAll(SELECTOR_ACCORDION);
-
-accordions.forEach((accordion) => initializeAccordion(accordion));
+elements.forEach((element) => {
+  const accordion = Accordion();
+  accordion.initialize(element);
+});
