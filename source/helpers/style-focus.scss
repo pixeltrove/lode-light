@@ -5,7 +5,7 @@
 @use "../tokens" as *;
 
 @mixin style-focus($radius: null) {
-  $valid-radii: ("radius-1", "radius-4", null);
+  $valid-radii: (null, "radius-1", "radius-4");
 
   @if not list.index($valid-radii, $radius) {
     @error "Invalid focus radius. Check spelling or review helper definition.";
