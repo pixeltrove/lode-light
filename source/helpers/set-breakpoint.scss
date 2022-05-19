@@ -5,11 +5,11 @@
 @use "../tokens" as *;
 
 @mixin set-breakpoint($name) {
-  @if (map.has-key($breakpoints, $name) == false) {
+  @if not map.has-key($breakpoints, $name) {
     @error "Invalid breakpoint name. Check spelling or review viewport breakpoints setting.";
   }
 
-  @if ($name == "sm") {
+  @if $name == "sm" {
     @content;
   } @else {
     @media screen and (min-width: map.get($breakpoints, $name)) {
