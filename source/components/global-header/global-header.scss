@@ -65,7 +65,7 @@
         color: $color-brand-100;
       }
 
-      &.is-activated {
+      &.activated {
         padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
         border-bottom: $border-width-2 solid $color-brand-100;
         color: $color-brand-100;

@@ -10,7 +10,7 @@
   color: $color-brand-100;
   background-color: transparent;
 
-  &.is-activated,
+  &.activated,
   &:hover {
     background-color: $color-brand-900;
   }
@@ -55,7 +55,7 @@
 .button-positive {
   background-color: $color-positive-100;
 
-  &.is-activated,
+  &.activated,
   &:hover {
     background-color: $color-positive-075;
   }
@@ -69,7 +69,7 @@
     color: $color-positive-100;
     background-color: transparent;
 
-    &.is-activated,
+    &.activated,
     &:hover {
       background-color: $color-positive-900;
     }
@@ -89,7 +89,7 @@
 .button-attentive {
   background-color: $color-attentive-100;
 
-  &.is-activated,
+  &.activated,
   &:hover {
     background-color: $color-attentive-075;
   }
@@ -103,7 +103,7 @@
     color: $color-attentive-100;
     background-color: transparent;
 
-    &.is-activated,
+    &.activated,
     &:hover {
       background-color: $color-attentive-900;
     }
@@ -123,7 +123,7 @@
 .button-negative {
   background-color: $color-negative-100;
 
-  &.is-activated,
+  &.activated,
   &:hover {
     background-color: $color-negative-075;
   }
@@ -137,7 +137,7 @@
     color: $color-negative-100;
     background-color: transparent;
 
-    &.is-activated,
+    &.activated,
     &:hover {
       background-color: $color-negative-900;
     }
@@ -157,7 +157,7 @@
 .button-neutral {
   background-color: $color-neutral-050;
 
-  &.is-activated,
+  &.activated,
   &:hover {
     background-color: $color-neutral-025;
   }
@@ -171,7 +171,7 @@
     color: $color-neutral-050;
     background-color: transparent;
 
-    &.is-activated,
+    &.activated,
     &:hover {
       background-color: $color-neutral-900;
     }
@@ -225,7 +225,7 @@
     color: $color-white;
     background-color: transparent;
 
-    &.is-activated,
+    &.activated,
     &:hover {
       background-color: $color-white-transparent-075;
     }

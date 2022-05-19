@@ -1,7 +1,7 @@
 // TRANSITION DISPLAY
 // -----------------------------------------------------------------------------
 
-const CLASS_SHOWN = "is-shown";
+const CLASS_SHOWN = "shown";
 
 function transitionDisplay(element, transition, phase) {
   if (phase === "enter") element.classList.add(CLASS_SHOWN);

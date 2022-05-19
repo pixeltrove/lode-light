@@ -33,7 +33,7 @@
       color: $color-brand-100;
     }
 
-    &.is-activated {
+    &.activated {
       color: $color-brand-100;
       padding-bottom: calc(#{$space-0-625} - #{$border-width-2});
       border-bottom: $border-width-2 solid $color-brand-100;
@@ -45,12 +45,12 @@
     padding-top: $space-1;
     padding-bottom: $space-1;
 
-    &.is-phasing-in,
-    &.is-shown {
+    &.phasing-in,
+    &.shown {
       display: block;
     }
 
-    &.is-phasing-in {
+    &.phasing-in {
       animation: fade-in-regular $ease-out-200;
     }
   }

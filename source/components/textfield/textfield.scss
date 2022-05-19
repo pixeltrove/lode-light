@@ -24,7 +24,7 @@
     opacity: $opacity-500;
   }
 
-  &.is-invalid {
+  &.invalid {
     border-color: $color-negative-250;
   }
 }
@@ -34,7 +34,7 @@
 .textfield-label {
   cursor: pointer;
 
-  &.is-disabled {
+  &.disabled {
     opacity: $opacity-500;
     cursor: default;
   }
