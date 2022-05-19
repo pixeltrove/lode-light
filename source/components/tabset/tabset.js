@@ -5,8 +5,8 @@ import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
-const CLASS_ACTIVATED = "is-activated";
-const CLASS_SHOWN = "is-shown";
+const CLASS_ACTIVATED = "activated";
+const CLASS_SHOWN = "shown";
 const DATA_SHOW = "data-show";
 
 function Tabset(tabset) {

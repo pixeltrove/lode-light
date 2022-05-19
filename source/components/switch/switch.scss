@@ -42,7 +42,7 @@
   vertical-align: middle;
   cursor: pointer;
 
-  &.is-disabled {
+  &.disabled {
     opacity: $opacity-500;
     cursor: default;
   }

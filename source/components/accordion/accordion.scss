@@ -46,7 +46,7 @@
     fill: currentColor;
     transition: transform $ease-out-100;
 
-    @at-root .accordion-slat.is-activated & {
+    @at-root .accordion-slat.activated & {
       transform: rotate(180deg);
     }
   }
@@ -55,8 +55,8 @@
     display: none;
     transition: height $ease-out-100;
 
-    &.is-phasing,
-    &.is-shown {
+    &.phasing,
+    &.shown {
       display: block;
     }
   }

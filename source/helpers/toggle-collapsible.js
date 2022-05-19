@@ -1,9 +1,9 @@
 // TOGGLE COLLAPSIBLE
 // -----------------------------------------------------------------------------
 
-const CLASS_ACTIVATED = "is-activated";
-const CLASS_PHASING = "is-phasing";
-const CLASS_SHOWN = "is-shown";
+const CLASS_ACTIVATED = "activated";
+const CLASS_PHASING = "phasing";
+const CLASS_SHOWN = "shown";
 const DATA_TOGGLE = "data-toggle";
 
 function toggleCollapsible(trigger) {

@@ -4,8 +4,8 @@
 import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_MENU = ".menu";
-const CLASS_ACTIVATED = "is-activated";
-const CLASS_SHOWN = "is-shown";
+const CLASS_ACTIVATED = "activated";
+const CLASS_SHOWN = "shown";
 const DATA_TOGGLE = "data-toggle";
 
 function Menu(menu) {
