@@ -2,7 +2,6 @@
 // -----------------------------------------------------------------------------
 
 const CLASS_ACTIVATED = "activated";
-const CLASS_PHASING = "phasing";
 const CLASS_SHOWN = "shown";
 const DATA_TOGGLE = "data-toggle";
 
@@ -10,9 +9,10 @@ function toggleCollapsible(trigger) {
   const collapsibleId = trigger.getAttribute(DATA_TOGGLE);
   const collapsible = document.getElementById(collapsibleId);
   const phase = collapsible.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
+  const phasingClass = `phasing-regular-${phase}`;
 
   if (phase === "enter") collapsible.classList.add(CLASS_SHOWN);
-  collapsible.classList.add(CLASS_PHASING);
+  collapsible.classList.add(phasingClass);
 
   requestAnimationFrame(() => {
     trigger.classList.toggle(CLASS_ACTIVATED);
@@ -26,7 +26,7 @@ function toggleCollapsible(trigger) {
       collapsible.addEventListener(
         "transitionend",
         () => {
-          collapsible.classList.remove(CLASS_PHASING);
+          collapsible.classList.remove(phasingClass);
           if (phase === "leave") collapsible.classList.remove(CLASS_SHOWN);
           collapsible.style.overflowY = "";
           collapsible.style.height = phase === "enter" ? "auto" : 0;

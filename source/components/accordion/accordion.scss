@@ -57,10 +57,6 @@
     &.shown {
       display: block;
     }
-
-    &.phasing {
-      transition: height $ease-out-100;
-    }
   }
 
   &-panel-inner {
