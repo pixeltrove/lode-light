@@ -9,8 +9,7 @@ function toggleExpandable(trigger, transition = "expand-regular") {
   const expandableId = trigger.getAttribute(DATA_TOGGLE);
   const expandable = document.getElementById(expandableId);
   const phase = expandable.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
-  const isEntering = phase === "enter";
-  const isLeaving = phase === "leave";
+  const isEntering = phase === "enter" ? true : false;
   const transitionClass = `${transition}-${phase}`;
 
   if (isEntering) expandable.classList.add(CLASS_SHOWN);
@@ -29,7 +28,7 @@ function toggleExpandable(trigger, transition = "expand-regular") {
         "transitionend",
         () => {
           expandable.classList.remove(transitionClass);
-          if (isLeaving) expandable.classList.remove(CLASS_SHOWN);
+          if (!isEntering) expandable.classList.remove(CLASS_SHOWN);
           expandable.style.overflowY = "";
           expandable.style.height = isEntering ? "auto" : 0;
         },
