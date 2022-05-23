@@ -10,26 +10,28 @@ function toggleExpandable(trigger, transition) {
   const expandable = document.getElementById(expandableId);
   const phase = expandable.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
   const phasingClass = `${transition}-${phase}`;
+  const isEntering = phase === "enter";
+  const isLeaving = phase === "leave";
 
-  if (phase === "enter") expandable.classList.add(CLASS_SHOWN);
+  if (isEntering) expandable.classList.add(CLASS_SHOWN);
   expandable.classList.add(phasingClass);
 
   requestAnimationFrame(() => {
     trigger.classList.toggle(CLASS_ACTIVATED);
-    trigger.setAttribute("aria-expanded", phase === "enter" ? "true" : "false");
+    trigger.setAttribute("aria-expanded", isEntering ? "true" : "false");
     expandable.style.overflowY = "hidden";
-    expandable.style.height = phase === "enter" ? 0 : expandable.scrollHeight + "px";
+    expandable.style.height = isEntering ? 0 : expandable.scrollHeight + "px";
 
     requestAnimationFrame(() => {
-      expandable.style.height = phase === "enter" ? expandable.scrollHeight + "px" : 0;
+      expandable.style.height = isEntering ? expandable.scrollHeight + "px" : 0;
 
       expandable.addEventListener(
         "transitionend",
         () => {
           expandable.classList.remove(phasingClass);
-          if (phase === "leave") expandable.classList.remove(CLASS_SHOWN);
+          if (isLeaving) expandable.classList.remove(CLASS_SHOWN);
           expandable.style.overflowY = "";
-          expandable.style.height = phase === "enter" ? "auto" : 0;
+          expandable.style.height = isEntering ? "auto" : 0;
         },
         { once: true }
       );
