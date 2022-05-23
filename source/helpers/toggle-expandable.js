@@ -9,12 +9,12 @@ function toggleExpandable(trigger, transition) {
   const expandableId = trigger.getAttribute(DATA_TOGGLE);
   const expandable = document.getElementById(expandableId);
   const phase = expandable.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
-  const phasingClass = `${transition}-${phase}`;
   const isEntering = phase === "enter";
   const isLeaving = phase === "leave";
+  const transitionClass = `${transition}-${phase}`;
 
   if (isEntering) expandable.classList.add(CLASS_SHOWN);
-  expandable.classList.add(phasingClass);
+  expandable.classList.add(transitionClass);
 
   requestAnimationFrame(() => {
     trigger.classList.toggle(CLASS_ACTIVATED);
@@ -28,7 +28,7 @@ function toggleExpandable(trigger, transition) {
       expandable.addEventListener(
         "transitionend",
         () => {
-          expandable.classList.remove(phasingClass);
+          expandable.classList.remove(transitionClass);
           if (isLeaving) expandable.classList.remove(CLASS_SHOWN);
           expandable.style.overflowY = "";
           expandable.style.height = isEntering ? "auto" : 0;
