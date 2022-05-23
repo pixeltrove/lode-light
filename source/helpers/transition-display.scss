@@ -3,6 +3,13 @@
 
 @use "../tokens" as *;
 
+// Expand
+
+.expand-regular-enter,
+.expand-regular-leave {
+  transition: height $ease-out-100;
+}
+
 // Fade
 
 .fade-regular-enter,
@@ -37,11 +44,4 @@
 .slide-regular-leave-from {
   opacity: 1;
   transform: translateY(0);
-}
-
-// Phasing
-
-.phasing-regular-enter,
-.phasing-regular-leave {
-  transition: height $ease-out-100;
 }
