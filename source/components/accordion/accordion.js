@@ -11,7 +11,7 @@ function Accordion(accordion) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
     if (targetSlat) {
-      toggleExpandable(targetSlat, "expand-regular");
+      toggleExpandable(targetSlat);
     }
   }
 

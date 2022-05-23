@@ -5,7 +5,7 @@ const CLASS_ACTIVATED = "activated";
 const CLASS_SHOWN = "shown";
 const DATA_TOGGLE = "data-toggle";
 
-function toggleExpandable(trigger, transition) {
+function toggleExpandable(trigger, transition = "expand-regular") {
   const expandableId = trigger.getAttribute(DATA_TOGGLE);
   const expandable = document.getElementById(expandableId);
   const phase = expandable.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
