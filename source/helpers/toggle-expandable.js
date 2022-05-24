@@ -1,11 +1,11 @@
-// TRANSITION EXPANDABLE
+// TOGGLE EXPANDABLE
 // -----------------------------------------------------------------------------
 
 const CLASS_ACTIVATED = "activated";
 const CLASS_SHOWN = "shown";
 const DATA_EXPANDABLE = "data-expandable";
 
-function transitionExpandable(trigger, transition = "expand-regular") {
+function toggleExpandable(trigger, transition = "expand-regular") {
   const expandableId = trigger.getAttribute(DATA_EXPANDABLE);
   const expandable = document.getElementById(expandableId);
   const phase = expandable.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
@@ -38,4 +38,4 @@ function transitionExpandable(trigger, transition = "expand-regular") {
   });
 }
 
-export default transitionExpandable;
+export default toggleExpandable;
