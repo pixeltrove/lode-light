@@ -1,7 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import toggleExpandable from "../../helpers/toggle-expandable";
+import transitionExpandable from "../../helpers/transition-expandable";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
@@ -11,7 +11,7 @@ function Accordion(accordion) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
 
     if (targetSlat) {
-      toggleExpandable(targetSlat);
+      transitionExpandable(targetSlat);
     }
   }
 
