@@ -27,8 +27,8 @@ function toggleExpandable(trigger, transition = "expand-regular") {
       expandable.addEventListener(
         "transitionend",
         () => {
-          expandable.classList.remove(transitionClass);
           if (!isEntering) expandable.classList.remove(CLASS_SHOWN);
+          expandable.classList.remove(transitionClass);
           expandable.style.overflowY = "";
           expandable.style.height = isEntering ? "auto" : 0;
         },
