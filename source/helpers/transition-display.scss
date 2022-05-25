@@ -3,6 +3,13 @@
 
 @use "../tokens" as *;
 
+// Expand
+
+.expand-regular-enter,
+.expand-regular-leave {
+  transition: height $ease-out-100;
+}
+
 // Fade
 
 .fade-regular-enter,
