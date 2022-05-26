@@ -3,11 +3,11 @@
 
 const CLASS_SHOWN = "shown";
 
-function transitionDisplay(element, transition) {
+function transitionDisplay(element, transition, timing) {
   const phase = element.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
-  const transitionClass = `${transition}-${phase}`;
+  const transitionClass = `${transition}-${timing}-${phase}`;
   const isEntering = phase === "enter" ? true : false;
-  const isExpandable = transition === "expand-regular" ? true : false;
+  const isExpandable = transition === "expand" ? true : false;
 
   if (isEntering) element.classList.add(CLASS_SHOWN);
   element.classList.add(transitionClass);
@@ -15,8 +15,8 @@ function transitionDisplay(element, transition) {
 
   requestAnimationFrame(() => {
     if (!isExpandable) {
-      element.classList.remove(`${transition}-${phase}-from`);
-      element.classList.add(`${transition}-${phase}-to`);
+      element.classList.remove(`${transitionClass}-from`);
+      element.classList.add(`${transitionClass}-to`);
     } else {
       element.style.overflowY = "hidden";
       element.style.height = isEntering ? 0 : element.scrollHeight + "px";

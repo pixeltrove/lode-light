@@ -17,7 +17,7 @@ function Accordion(accordion) {
     if (targetSlat) {
       targetSlat.classList.toggle(CLASS_ACTIVATED);
 
-      transitionDisplay(panel, "expand-regular");
+      transitionDisplay(panel, "expand", "regular");
     }
   }
 
