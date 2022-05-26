@@ -3,20 +3,20 @@
 
 const CLASS_SHOWN = "shown";
 
-function transitionDisplay(element, transition, timing) {
+function transitionDisplay(element, effect, timing) {
   const phase = element.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
-  const transitionClass = `${transition}-${timing}-${phase}`;
+  const transition = `${effect}-${timing}-${phase}`;
   const isEntering = phase === "enter" ? true : false;
-  const isExpandable = transition === "expand" ? true : false;
+  const isExpandable = effect === "expand" ? true : false;
 
   if (isEntering) element.classList.add(CLASS_SHOWN);
-  element.classList.add(transitionClass);
-  if (!isExpandable) element.classList.add(`${transitionClass}-from`);
+  element.classList.add(transition);
+  if (!isExpandable) element.classList.add(`${transition}-from`);
 
   requestAnimationFrame(() => {
     if (!isExpandable) {
-      element.classList.remove(`${transitionClass}-from`);
-      element.classList.add(`${transitionClass}-to`);
+      element.classList.remove(`${transition}-from`);
+      element.classList.add(`${transition}-to`);
     } else {
       element.style.overflowY = "hidden";
       element.style.height = isEntering ? 0 : element.scrollHeight + "px";
@@ -29,9 +29,9 @@ function transitionDisplay(element, transition, timing) {
         "transitionend",
         () => {
           if (!isEntering) element.classList.remove(CLASS_SHOWN);
-          element.classList.remove(transitionClass);
+          element.classList.remove(transition);
           if (!isExpandable) {
-            element.classList.remove(`${transitionClass}-to`);
+            element.classList.remove(`${transition}-to`);
           } else {
             element.style.overflowY = "";
             element.style.height = isEntering ? "auto" : 0;
