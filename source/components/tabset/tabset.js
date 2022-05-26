@@ -25,7 +25,7 @@ function Tabset(tabset) {
       activatedPanel.classList.remove(CLASS_SHOWN);
       targetTab.classList.add(CLASS_ACTIVATED);
       targetTab.removeAttribute("tabIndex");
-      transitionDisplay(upcomingPanel, "fade-regular", "enter");
+      transitionDisplay(upcomingPanel, "fade-regular");
     }
   }
 

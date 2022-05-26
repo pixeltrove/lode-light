@@ -1,17 +1,23 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import toggleExpandable from "../../helpers/toggle-expandable";
+import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
+const CLASS_ACTIVATED = "activated";
+const DATA_EXPANDABLE = "data-expandable";
 
 function Accordion(accordion) {
   function handleSlatClick(event) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
+    const panelId = targetSlat.getAttribute(DATA_EXPANDABLE);
+    const panel = document.getElementById(panelId);
 
     if (targetSlat) {
-      toggleExpandable(targetSlat);
+      targetSlat.classList.toggle(CLASS_ACTIVATED);
+
+      transitionDisplay(panel, "expand-regular");
     }
   }
 
