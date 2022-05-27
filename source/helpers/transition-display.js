@@ -13,20 +13,22 @@ function transitionDisplay(element, effect, timing) {
 
   if (isEntering) element.classList.add(CLASS_SHOWN);
   element.classList.add(transition);
-  if (!isExpandable) element.classList.add(transitionFrom);
+  if (!isExpandable) {
+    element.classList.add(transitionFrom);
+  } else {
+    element.style.overflowY = "hidden";
+    element.style.height = isEntering ? 0 : element.scrollHeight + "px";
+  }
 
   requestAnimationFrame(() => {
     if (!isExpandable) {
       element.classList.remove(transitionFrom);
       element.classList.add(transitionTo);
     } else {
-      element.style.overflowY = "hidden";
-      element.style.height = isEntering ? 0 : element.scrollHeight + "px";
+      element.style.height = isEntering ? element.scrollHeight + "px" : 0;
     }
 
     requestAnimationFrame(() => {
-      if (isExpandable) element.style.height = isEntering ? element.scrollHeight + "px" : 0;
-
       element.addEventListener(
         "transitionend",
         () => {
