@@ -6,7 +6,7 @@
 
 @mixin set-breakpoint($name) {
   @if not map.has-key($breakpoints, $name) {
-    @error "Invalid breakpoint name. Check spelling or review viewport breakpoints setting.";
+    @error "Invalid breakpoint name. Check spelling or review viewport breakpoint tokens.";
   }
 
   @if $name == "sm" {
