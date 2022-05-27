@@ -13,9 +13,11 @@ function Accordion(accordion) {
     const targetSlat = event.target.closest(SELECTOR_SLAT);
     const panelId = targetSlat.getAttribute(DATA_EXPANDABLE);
     const panel = document.getElementById(panelId);
+    const isExpanded = targetSlat.getAttribute("aria-expanded") === "true";
 
     if (targetSlat) {
       targetSlat.classList.toggle(CLASS_ACTIVATED);
+      targetSlat.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 
       transitionDisplay(panel, "expand", "regular");
     }
