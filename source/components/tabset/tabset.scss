@@ -26,7 +26,7 @@
     transition: border-color $ease-out-100, color $ease-out-100, outline $ease-out-100;
 
     &:focus-visible {
-      @include style-focus(radius-1);
+      @include style-focus($border-radius-1);
     }
 
     &:hover {

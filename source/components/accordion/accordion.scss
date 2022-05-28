@@ -31,7 +31,7 @@
     }
 
     &:focus-visible {
-      @include style-focus(radius-1);
+      @include style-focus($border-radius-1);
     }
 
     &:hover {

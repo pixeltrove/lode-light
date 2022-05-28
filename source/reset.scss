@@ -182,7 +182,7 @@ video {
 audio[controls],
 video[controls] {
   &:focus-visible {
-    @include style-focus(radius-4);
+    @include style-focus($border-radius-4);
   }
 }
 
@@ -318,6 +318,6 @@ summary {
 
 [contenteditable] {
   &:focus-visible {
-    @include style-focus(radius-4);
+    @include style-focus($border-radius-4);
   }
 }
