@@ -1,10 +1,10 @@
 // INITIALIZE COMPONENT
 // -----------------------------------------------------------------------------
 
-function initializeComponent(component, selector) {
+function initializeComponent(definition, selector) {
   const elements = Array.from(document.querySelectorAll(selector));
 
-  elements.forEach((element) => component(element));
+  elements.forEach((element) => definition(element));
 }
 
 export default initializeComponent;
