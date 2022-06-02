@@ -2,7 +2,7 @@
 // -----------------------------------------------------------------------------
 
 function toggleScroll() {
-  const isScrollable = window.innerHeight < document.documentElement.scrollHeight;
+  const isScrollable = document.documentElement.clientHeight < document.documentElement.scrollHeight;
   const scrollPosition = window.scrollY || Math.abs(parseInt(document.body.style.top));
 
   document.body.style.position = isScrollable ? "fixed" : "";
