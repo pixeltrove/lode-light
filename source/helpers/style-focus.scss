@@ -11,9 +11,7 @@
     @error "Invalid focus border radius. Check spelling or review helper definition.";
   }
 
-  @if $border-radius != null {
-    border-radius: $border-radius;
-  }
+  border-radius: $border-radius;
   outline: 2px solid $color-brand-100;
   outline-offset: 2px;
 }
