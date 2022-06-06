@@ -21,29 +21,27 @@ function transitionDisplay(element, effect, timing) {
   }
 
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      if (!isExpandable) {
-        element.classList.remove(transitionFrom);
-        element.classList.add(transitionTo);
-      } else {
-        element.style.height = isEntering ? element.scrollHeight + "px" : 0;
-      }
+    if (!isExpandable) {
+      element.classList.remove(transitionFrom);
+      element.classList.add(transitionTo);
+    } else {
+      element.style.height = isEntering ? element.scrollHeight + "px" : 0;
+    }
 
-      element.addEventListener(
-        "transitionend",
-        () => {
-          if (!isEntering) element.classList.remove(CLASS_SHOWN);
-          element.classList.remove(transition);
-          if (!isExpandable) {
-            element.classList.remove(transitionTo);
-          } else {
-            element.style.overflowY = "";
-            element.style.height = isEntering ? "auto" : 0;
-          }
-        },
-        { once: true }
-      );
-    });
+    element.addEventListener(
+      "transitionend",
+      () => {
+        if (!isEntering) element.classList.remove(CLASS_SHOWN);
+        element.classList.remove(transition);
+        if (!isExpandable) {
+          element.classList.remove(transitionTo);
+        } else {
+          element.style.overflowY = "";
+          element.style.height = isEntering ? "auto" : 0;
+        }
+      },
+      { once: true }
+    );
   });
 }
 
