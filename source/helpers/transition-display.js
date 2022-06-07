@@ -10,39 +10,67 @@ function transitionDisplay(element, effect, timing) {
   const transitionTo = `${transition}-to`;
   const isEntering = phase === "enter" ? true : false;
   const isExpandable = effect === "expand" ? true : false;
+  const isWaiting = effect === "wait" ? true : false;
+
+  function getTransitionDuration(event) {
+    console.log(event.target);
+    console.log(getComputedStyle(event.target).transitionDuration);
+  }
 
   if (isEntering) element.classList.add(CLASS_SHOWN);
-  element.classList.add(transition);
-  if (!isExpandable) {
-    element.classList.add(transitionFrom);
-  } else {
-    element.style.overflowY = "hidden";
-    element.style.height = isEntering ? 0 : element.scrollHeight + "px";
+  if (!isEntering && isWaiting) {
+    element.addEventListener("transitionstart", getTransitionDuration);
+  }
+  if (!isWaiting) {
+    element.classList.add(transition);
+    if (!isExpandable) {
+      element.classList.add(transitionFrom);
+    } else {
+      element.style.overflowY = "hidden";
+      element.style.height = isEntering ? 0 : element.scrollHeight + "px";
+    }
   }
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!isExpandable) {
-        element.classList.remove(transitionFrom);
-        element.classList.add(transitionTo);
-      } else {
-        element.style.height = isEntering ? element.scrollHeight + "px" : 0;
+      if (!isWaiting) {
+        if (!isExpandable) {
+          element.classList.remove(transitionFrom);
+          element.classList.add(transitionTo);
+        } else {
+          element.style.height = isEntering ? element.scrollHeight + "px" : 0;
+        }
       }
-
-      element.addEventListener(
-        "transitionend",
-        () => {
-          if (!isEntering) element.classList.remove(CLASS_SHOWN);
+      if (!isEntering && isWaiting) {
+        setTimeout(() => {
+          element.classList.remove(CLASS_SHOWN);
           element.classList.remove(transition);
+          element.removeEventListener("transitionstart", getTransitionDuration);
           if (!isExpandable) {
             element.classList.remove(transitionTo);
           } else {
             element.style.overflowY = "";
             element.style.height = isEntering ? "auto" : 0;
           }
-        },
-        { once: true }
-      );
+        }, timing);
+      } else {
+        element.addEventListener(
+          "transitionend",
+          () => {
+            if (!isEntering) {
+              element.classList.remove(CLASS_SHOWN);
+            }
+            element.classList.remove(transition);
+            if (!isExpandable) {
+              element.classList.remove(transitionTo);
+            } else {
+              element.style.overflowY = "";
+              element.style.height = isEntering ? "auto" : 0;
+            }
+          },
+          { once: true }
+        );
+      }
     });
   });
 }

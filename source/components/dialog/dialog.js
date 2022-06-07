@@ -20,7 +20,7 @@ function Dialog(dialog) {
   function show() {
     transitionDisplay(dialog, "fade", "regular");
     transitionDisplay(scrim, "fade", "regular");
-    transitionDisplay(wrapper, "fade", "regular");
+    transitionDisplay(wrapper, "wait");
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -34,7 +34,7 @@ function Dialog(dialog) {
   function hide() {
     transitionDisplay(dialog, "fade", "regular");
     transitionDisplay(scrim, "fade", "regular");
-    transitionDisplay(wrapper, "fade", "regular");
+    transitionDisplay(wrapper, "wait", "280");
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();
