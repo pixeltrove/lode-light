@@ -29,22 +29,20 @@ function transitionDisplay(element, effect, timing) {
         element.style.height = isEntering ? element.scrollHeight + "px" : 0;
       }
 
-      requestAnimationFrame(() => {
-        element.addEventListener(
-          "transitionend",
-          () => {
-            if (!isEntering) element.classList.remove(CLASS_SHOWN);
-            element.classList.remove(transition);
-            if (!isExpandable) {
-              element.classList.remove(transitionTo);
-            } else {
-              element.style.overflowY = "";
-              element.style.height = isEntering ? "auto" : 0;
-            }
-          },
-          { once: true }
-        );
-      });
+      element.addEventListener(
+        "transitionend",
+        () => {
+          if (!isEntering) element.classList.remove(CLASS_SHOWN);
+          element.classList.remove(transition);
+          if (!isExpandable) {
+            element.classList.remove(transitionTo);
+          } else {
+            element.style.overflowY = "";
+            element.style.height = isEntering ? "auto" : 0;
+          }
+        },
+        { once: true }
+      );
     });
   });
 }
