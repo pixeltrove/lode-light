@@ -11,16 +11,28 @@ function transitionDisplay(element, effect, timing) {
   const isEntering = phase === "enter" ? true : false;
   const isExpandable = effect === "expand" ? true : false;
   const isWaiting = effect === "wait" ? true : false;
+  let timeoutDuration;
 
-  function getTransitionDuration(event) {
-    console.log(event.target);
-    console.log(getComputedStyle(event.target).transitionDuration);
+  function computeDuration(timing) {
+    let duration = 0;
+    let durationArray = [];
+
+    timing.forEach((element) => {
+      duration = getComputedStyle(element).transitionDuration.replace("s", "") * 1000;
+      durationArray.push(duration);
+    });
+
+    return Math.max(...durationArray);
+  }
+
+  if (isWaiting) {
+    if (Array.isArray(timing)) {
+      timeoutDuration = computeDuration(timing) + 40;
+    }
   }
 
   if (isEntering) element.classList.add(CLASS_SHOWN);
-  if (!isEntering && isWaiting) {
-    element.addEventListener("transitionstart", getTransitionDuration);
-  }
+
   if (!isWaiting) {
     element.classList.add(transition);
     if (!isExpandable) {
@@ -44,16 +56,8 @@ function transitionDisplay(element, effect, timing) {
       if (!isEntering && isWaiting) {
         setTimeout(() => {
           element.classList.remove(CLASS_SHOWN);
-          element.classList.remove(transition);
-          element.removeEventListener("transitionstart", getTransitionDuration);
-          if (!isExpandable) {
-            element.classList.remove(transitionTo);
-          } else {
-            element.style.overflowY = "";
-            element.style.height = isEntering ? "auto" : 0;
-          }
-        }, timing);
-      } else {
+        }, timeoutDuration);
+      } else if (!isWaiting) {
         element.addEventListener(
           "transitionend",
           () => {
