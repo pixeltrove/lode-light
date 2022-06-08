@@ -3,7 +3,7 @@
 
 const CLASS_SHOWN = "shown";
 
-function transitionDisplay(element, effect, timing) {
+function transitionDisplay(element, effect, timing = "regular") {
   const phase = element.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
   const transition = `${effect}-${timing}-${phase}`;
   const transitionFrom = `${transition}-from`;
