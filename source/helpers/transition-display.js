@@ -14,6 +14,8 @@ function transitionDisplay(element, effect, timing = "regular") {
   let timeoutDuration;
 
   function computeDuration(timing) {
+    if (!Array.isArray(timing)) return;
+
     let duration = 0;
     let durationArray = [];
 
@@ -25,14 +27,8 @@ function transitionDisplay(element, effect, timing = "regular") {
     return Math.max(...durationArray);
   }
 
-  if (isWaiting) {
-    if (Array.isArray(timing)) {
-      timeoutDuration = computeDuration(timing) + 40;
-    }
-  }
-
   if (isEntering) element.classList.add(CLASS_SHOWN);
-
+  if (isWaiting) timeoutDuration = computeDuration(timing) + 40;
   if (!isWaiting) {
     element.classList.add(transition);
     if (!isExpandable) {
