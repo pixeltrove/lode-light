@@ -4,75 +4,88 @@
 const CLASS_SHOWN = "shown";
 
 function transitionDisplay(element, effect, timing = "regular") {
-  const phase = element.classList.contains(CLASS_SHOWN) ? "leave" : "enter";
-  const transition = `${effect}-${timing}-${phase}`;
-  const transitionFrom = `${transition}-from`;
-  const transitionTo = `${transition}-to`;
-  const isEntering = phase === "enter" ? true : false;
-  const isExpandable = effect === "expand" ? true : false;
-  const isWaiting = effect === "wait" ? true : false;
-  let timeoutDuration;
+  if (effect != "wait") {
+    const isShowing = element.classList.contains(CLASS_SHOWN);
+    const enterTransition = `${effect}-${timing}-enter`;
+    const enterFrom = `${enterTransition}-from`;
+    const enterTo = `${enterTransition}-to`;
+    const leaveTransition = `${effect}-${timing}-leave`;
+    const leaveFrom = `${leaveTransition}-from`;
+    const leaveTo = `${leaveTransition}-to`;
 
-  function computeDuration(timing) {
-    if (!Array.isArray(timing)) return;
+    function enter() {
+      element.classList.add(CLASS_SHOWN);
+      element.classList.add(enterTransition);
+      element.classList.add(enterFrom);
 
-    let duration = 0;
-    let durationArray = [];
+      requestAnimationFrame(() => {
+        element.classList.remove(enterFrom);
+        element.classList.add(enterTo);
 
-    timing.forEach((element) => {
-      duration = getComputedStyle(element).transitionDuration.replace("s", "") * 1000;
-      durationArray.push(duration);
-    });
+        element.addEventListener("transitionend", enterEnd);
+      });
+    }
 
-    return Math.max(...durationArray);
-  }
+    function enterEnd() {
+      element.classList.remove(enterTo);
+      element.classList.remove(enterTransition);
 
-  if (isEntering) element.classList.add(CLASS_SHOWN);
-  if (isWaiting) timeoutDuration = computeDuration(timing) + 40;
-  if (!isWaiting) {
-    element.classList.add(transition);
-    if (!isExpandable) {
-      element.classList.add(transitionFrom);
+      element.removeEventListener("transitionend", enterEnd);
+    }
+
+    function cancelEnter() {
+      element.classList.remove(enterTo);
+      element.classList.add(enterFrom);
+
+      element.addEventListener("transitionend", cancelEnterEnd);
+    }
+
+    function cancelEnterEnd() {
+      element.classList.remove(enterFrom);
+      element.classList.remove(enterTransition);
+      requestAnimationFrame(() => {
+        element.classList.remove(CLASS_SHOWN);
+      });
+
+      element.removeEventListener("transitionend", cancelEnterEnd);
+    }
+
+    function leave() {
+      element.classList.add(leaveTransition);
+      element.classList.add(leaveFrom);
+
+      requestAnimationFrame(() => {
+        element.classList.remove(leaveFrom);
+        element.classList.add(leaveTo);
+
+        element.addEventListener("transitionend", leaveEnd);
+      });
+    }
+
+    function leaveEnd() {
+      element.classList.remove(leaveTo);
+      element.classList.remove(leaveTransition);
+      requestAnimationFrame(() => {
+        element.classList.remove(CLASS_SHOWN);
+      });
+
+      element.removeEventListener("transitionend", leaveEnd);
+    }
+
+    if (!isShowing) enter();
+    if (isShowing && element.classList.contains(enterTransition)) {
+      cancelEnter();
+    }
+    if (isShowing && !element.classList.contains(enterTransition)) leave();
+  } else {
+    if (!element.classList.contains(CLASS_SHOWN)) {
+      element.classList.add(CLASS_SHOWN);
     } else {
-      element.style.overflowY = "hidden";
-      element.style.height = isEntering ? 0 : element.scrollHeight + "px";
+      setTimeout(() => {
+        element.classList.remove(CLASS_SHOWN);
+      }, "280");
     }
   }
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      if (!isWaiting) {
-        if (!isExpandable) {
-          element.classList.remove(transitionFrom);
-          element.classList.add(transitionTo);
-        } else {
-          element.style.height = isEntering ? element.scrollHeight + "px" : 0;
-        }
-      }
-      if (!isEntering && isWaiting) {
-        setTimeout(() => {
-          element.classList.remove(CLASS_SHOWN);
-        }, timeoutDuration);
-      } else if (!isWaiting) {
-        element.addEventListener(
-          "transitionend",
-          () => {
-            if (!isEntering) {
-              element.classList.remove(CLASS_SHOWN);
-            }
-            element.classList.remove(transition);
-            if (!isExpandable) {
-              element.classList.remove(transitionTo);
-            } else {
-              element.style.overflowY = "";
-              element.style.height = isEntering ? "auto" : 0;
-            }
-          },
-          { once: true }
-        );
-      }
-    });
-  });
 }
 
 export default transitionDisplay;

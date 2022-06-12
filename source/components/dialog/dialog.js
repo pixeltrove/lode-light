@@ -34,7 +34,7 @@ function Dialog(dialog) {
   function hide() {
     transitionDisplay(dialog, "fade");
     transitionDisplay(scrim, "fade");
-    transitionDisplay(wrapper, "wait", [dialog, scrim]);
+    transitionDisplay(wrapper, "wait");
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();
