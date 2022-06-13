@@ -3,29 +3,11 @@
 
 const CLASS_SHOWN = "shown";
 
-function transitionDisplay(element, effect, timing = "regular") {
+function enter(element, effect, timing = "regular") {
   const enterTransition = `${effect}-${timing}-enter`;
   const enterFrom = `${enterTransition}-from`;
   const enterTo = `${enterTransition}-to`;
-  const leaveTransition = `${effect}-${timing}-leave`;
-  const leaveFrom = `${leaveTransition}-from`;
-  const leaveTo = `${leaveTransition}-to`;
-  const isWaiting = effect === "wait" ? true : false;
   const isShowing = element.classList.contains(CLASS_SHOWN);
-  const isEntering = element.classList.contains(enterTransition);
-
-  function enter() {
-    element.classList.add(CLASS_SHOWN);
-    element.classList.add(enterTransition);
-    element.classList.add(enterFrom);
-
-    requestAnimationFrame(() => {
-      element.classList.remove(enterFrom);
-      element.classList.add(enterTo);
-
-      element.addEventListener("transitionend", enterEnd);
-    });
-  }
 
   function enterEnd() {
     element.classList.remove(enterTo);
@@ -51,17 +33,24 @@ function transitionDisplay(element, effect, timing = "regular") {
     element.removeEventListener("transitionend", cancelEnterEnd);
   }
 
-  function leave() {
-    element.classList.add(leaveTransition);
-    element.classList.add(leaveFrom);
+  if (isShowing) cancelEnter();
 
-    requestAnimationFrame(() => {
-      element.classList.remove(leaveFrom);
-      element.classList.add(leaveTo);
+  element.classList.add(CLASS_SHOWN);
+  element.classList.add(enterTransition);
+  element.classList.add(enterFrom);
 
-      element.addEventListener("transitionend", leaveEnd);
-    });
-  }
+  requestAnimationFrame(() => {
+    element.classList.remove(enterFrom);
+    element.classList.add(enterTo);
+
+    element.addEventListener("transitionend", enterEnd);
+  });
+}
+
+function leave(element, effect, timing = "regular") {
+  const leaveTransition = `${effect}-${timing}-leave`;
+  const leaveFrom = `${leaveTransition}-from`;
+  const leaveTo = `${leaveTransition}-to`;
 
   function leaveEnd() {
     element.classList.remove(leaveTo);
@@ -73,18 +62,26 @@ function transitionDisplay(element, effect, timing = "regular") {
     element.removeEventListener("transitionend", leaveEnd);
   }
 
-  if (!isShowing && !isWaiting) enter();
-  if (isShowing && isEntering && !isWaiting) {
-    cancelEnter();
-  }
-  if (isShowing && !isEntering && !isWaiting) leave();
+  element.classList.add(leaveTransition);
+  element.classList.add(leaveFrom);
 
-  if (!isShowing && isWaiting) element.classList.add(CLASS_SHOWN);
-  if (isShowing && isWaiting) {
+  requestAnimationFrame(() => {
+    element.classList.remove(leaveFrom);
+    element.classList.add(leaveTo);
+
+    element.addEventListener("transitionend", leaveEnd);
+  });
+}
+
+function wait(element) {
+  const isShowing = element.classList.contains(CLASS_SHOWN);
+
+  if (!isShowing) element.classList.add(CLASS_SHOWN);
+  if (isShowing) {
     setTimeout(() => {
       element.classList.remove(CLASS_SHOWN);
     }, "280");
   }
 }
 
-export default transitionDisplay;
+export { enter, leave, wait };

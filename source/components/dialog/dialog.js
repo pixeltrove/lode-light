@@ -1,7 +1,7 @@
 // DIALOG
 // -----------------------------------------------------------------------------
 
-import transitionDisplay from "../../helpers/transition-display";
+import { enter, leave, wait } from "../../helpers/transition-display";
 import toggleScroll from "../../helpers/toggle-scroll";
 import trapFocus from "../../helpers/trap-focus";
 
@@ -18,9 +18,9 @@ function Dialog(dialog) {
   const scrim = wrapper.querySelector(SELECTOR_SCRIM);
 
   function show() {
-    transitionDisplay(dialog, "fade");
-    transitionDisplay(scrim, "fade");
-    transitionDisplay(wrapper, "wait");
+    enter(dialog, "fade");
+    enter(scrim, "fade");
+    wait(wrapper);
     dialog.setAttribute("tabindex", -1);
     dialog.focus();
     toggleScroll();
@@ -32,9 +32,9 @@ function Dialog(dialog) {
   }
 
   function hide() {
-    transitionDisplay(dialog, "fade");
-    transitionDisplay(scrim, "fade");
-    transitionDisplay(wrapper, "wait");
+    leave(dialog, "fade");
+    leave(scrim, "fade");
+    wait(wrapper);
     dialog.removeAttribute("tabindex");
     trigger.focus();
     toggleScroll();

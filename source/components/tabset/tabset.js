@@ -1,7 +1,7 @@
 // TABSET
 // -----------------------------------------------------------------------------
 
-import transitionDisplay from "../../helpers/transition-display";
+import { enter } from "../../helpers/transition-display";
 
 const SELECTOR_TABSET = ".tabset";
 const SELECTOR_TAB = ".tabset-tab";
@@ -25,7 +25,7 @@ function Tabset(tabset) {
       activatedPanel.classList.remove(CLASS_SHOWN);
       targetTab.classList.add(CLASS_ACTIVATED);
       targetTab.removeAttribute("tabIndex");
-      transitionDisplay(upcomingPanel, "fade");
+      enter(upcomingPanel, "fade");
     }
   }
 
