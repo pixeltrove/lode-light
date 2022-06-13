@@ -16,24 +16,24 @@ function enter(element, effect, timing = "regular") {
     element.removeEventListener("transitionend", enterEnd);
   }
 
-  function cancelEnter() {
+  function enterCancel() {
     element.classList.remove(enterTo);
     element.classList.add(enterFrom);
 
-    element.addEventListener("transitionend", cancelEnterEnd);
+    element.addEventListener("transitionend", enterCancelEnd);
   }
 
-  function cancelEnterEnd() {
+  function enterCancelEnd() {
     element.classList.remove(enterFrom);
     element.classList.remove(enterTransition);
     requestAnimationFrame(() => {
       element.classList.remove(CLASS_SHOWN);
     });
 
-    element.removeEventListener("transitionend", cancelEnterEnd);
+    element.removeEventListener("transitionend", enterCancelEnd);
   }
 
-  if (isShowing) cancelEnter();
+  if (isShowing) enterCancel();
 
   element.classList.add(CLASS_SHOWN);
   element.classList.add(enterTransition);
