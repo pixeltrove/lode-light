@@ -1,7 +1,7 @@
 // ACCORDION
 // -----------------------------------------------------------------------------
 
-import { enter, leave } from "../../helpers/transition-display";
+import transitionDisplay from "../../helpers/transition-display";
 
 const SELECTOR_ACCORDION = ".accordion";
 const SELECTOR_SLAT = ".accordion-slat";
@@ -19,7 +19,7 @@ function Accordion(accordion) {
       targetSlat.classList.toggle(CLASS_ACTIVATED);
       targetSlat.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 
-      isExpanded ? enter(panel, "expand") : leave(panel, "expand");
+      transitionDisplay(panel, "expand");
     }
   }
 
