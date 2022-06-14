@@ -22,32 +22,33 @@ function transitionDisplay(element, effect, timing = "regular") {
         element.classList.remove(enterFrom);
         element.classList.add(enterTo);
 
-        element.addEventListener("transitionend", enterEnd);
+        element.addEventListener(
+          "transitionend",
+          () => {
+            element.classList.remove(enterTo);
+            element.classList.remove(enterTransition);
+          },
+          { once: true }
+        );
       });
-    }
-
-    function enterEnd() {
-      element.classList.remove(enterTo);
-      element.classList.remove(enterTransition);
-
-      element.removeEventListener("transitionend", enterEnd);
     }
 
     function cancelEnter() {
       element.classList.remove(enterTo);
       element.classList.add(enterFrom);
 
-      element.addEventListener("transitionend", cancelEnterEnd);
-    }
+      element.addEventListener(
+        "transitionend",
+        () => {
+          element.classList.remove(enterFrom);
+          element.classList.remove(enterTransition);
 
-    function cancelEnterEnd() {
-      element.classList.remove(enterFrom);
-      element.classList.remove(enterTransition);
-      requestAnimationFrame(() => {
-        element.classList.remove(CLASS_SHOWN);
-      });
-
-      element.removeEventListener("transitionend", cancelEnterEnd);
+          requestAnimationFrame(() => {
+            element.classList.remove(CLASS_SHOWN);
+          });
+        },
+        { once: true }
+      );
     }
 
     function leave() {
@@ -58,18 +59,19 @@ function transitionDisplay(element, effect, timing = "regular") {
         element.classList.remove(leaveFrom);
         element.classList.add(leaveTo);
 
-        element.addEventListener("transitionend", leaveEnd);
-      });
-    }
+        element.addEventListener(
+          "transitionend",
+          () => {
+            element.classList.remove(leaveTo);
+            element.classList.remove(leaveTransition);
 
-    function leaveEnd() {
-      element.classList.remove(leaveTo);
-      element.classList.remove(leaveTransition);
-      requestAnimationFrame(() => {
-        element.classList.remove(CLASS_SHOWN);
+            requestAnimationFrame(() => {
+              element.classList.remove(CLASS_SHOWN);
+            });
+          },
+          { once: true }
+        );
       });
-
-      element.removeEventListener("transitionend", leaveEnd);
     }
 
     if (!isShowing) enter();
@@ -83,7 +85,7 @@ function transitionDisplay(element, effect, timing = "regular") {
     } else {
       setTimeout(() => {
         element.classList.remove(CLASS_SHOWN);
-      }, "280");
+      }, 280);
     }
   }
 }
