@@ -55,10 +55,7 @@ function cancelEnter(element, transitionClasses) {
     () => {
       element.classList.remove(transitionClasses.enterFrom);
       element.classList.remove(transitionClasses.enter);
-
-      requestAnimationFrame(() => {
-        element.classList.remove(CLASS_SHOWN);
-      });
+      element.classList.remove(CLASS_SHOWN);
     },
     { once: true }
   );
@@ -77,10 +74,7 @@ function leave(element, transitionClasses) {
       () => {
         element.classList.remove(transitionClasses.leaveTo);
         element.classList.remove(transitionClasses.leave);
-
-        requestAnimationFrame(() => {
-          element.classList.remove(CLASS_SHOWN);
-        });
+        element.classList.remove(CLASS_SHOWN);
       },
       { once: true }
     );
