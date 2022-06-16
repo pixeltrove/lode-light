@@ -16,10 +16,19 @@ function generateTransitionClasses(effect, timing) {
   return transitionClasses;
 }
 
+function determineTransitionStages(element, effect, transitionClasses) {
+  const transitionStages = {
+    isEntering: element.classList.contains(transitionClasses.enter),
+    isShowing: element.classList.contains(CLASS_SHOWN),
+    isWaiting: effect === "wait" ? true : false,
+  };
+
+  return transitionStages;
+}
+
 function transitionDisplay(element, effect, timing = "regular") {
-  const isShowing = element.classList.contains(CLASS_SHOWN);
-  const isWaiting = effect === "wait" ? true : false;
   const transitionClasses = generateTransitionClasses(effect, timing);
+  const transitionStages = determineTransitionStages(element, effect, transitionClasses);
 
   function enter() {
     element.classList.add(CLASS_SHOWN);
@@ -92,10 +101,10 @@ function transitionDisplay(element, effect, timing = "regular") {
     }
   }
 
-  if (!isShowing && !isWaiting) enter();
-  if (isShowing && !isWaiting && element.classList.contains(transitionClasses.enter)) cancelEnter();
-  if (isShowing && !isWaiting && !element.classList.contains(transitionClasses.enter)) leave();
-  if (isWaiting) wait();
+  if (!transitionStages.isShowing && !transitionStages.isWaiting) enter();
+  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) cancelEnter();
+  if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave();
+  if (transitionStages.isWaiting) wait();
 }
 
 export default transitionDisplay;
