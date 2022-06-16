@@ -26,39 +26,57 @@ function determineTransitionStages(element, effect, transitionClasses) {
   return transitionStages;
 }
 
-function transitionDisplay(element, effect, timing = "regular") {
-  const transitionClasses = generateTransitionClasses(effect, timing);
-  const transitionStages = determineTransitionStages(element, effect, transitionClasses);
+function enter(element, transitionClasses) {
+  element.classList.add(CLASS_SHOWN);
+  element.classList.add(transitionClasses.enter);
+  element.classList.add(transitionClasses.enterFrom);
 
-  function enter() {
-    element.classList.add(CLASS_SHOWN);
-    element.classList.add(transitionClasses.enter);
-    element.classList.add(transitionClasses.enterFrom);
-
-    requestAnimationFrame(() => {
-      element.classList.remove(transitionClasses.enterFrom);
-      element.classList.add(transitionClasses.enterTo);
-
-      element.addEventListener(
-        "transitionend",
-        () => {
-          element.classList.remove(transitionClasses.enterTo);
-          element.classList.remove(transitionClasses.enter);
-        },
-        { once: true }
-      );
-    });
-  }
-
-  function cancelEnter() {
-    element.classList.remove(transitionClasses.enterTo);
-    element.classList.add(transitionClasses.enterFrom);
+  requestAnimationFrame(() => {
+    element.classList.remove(transitionClasses.enterFrom);
+    element.classList.add(transitionClasses.enterTo);
 
     element.addEventListener(
       "transitionend",
       () => {
-        element.classList.remove(transitionClasses.enterFrom);
+        element.classList.remove(transitionClasses.enterTo);
         element.classList.remove(transitionClasses.enter);
+      },
+      { once: true }
+    );
+  });
+}
+
+function cancelEnter(element, transitionClasses) {
+  element.classList.remove(transitionClasses.enterTo);
+  element.classList.add(transitionClasses.enterFrom);
+
+  element.addEventListener(
+    "transitionend",
+    () => {
+      element.classList.remove(transitionClasses.enterFrom);
+      element.classList.remove(transitionClasses.enter);
+
+      requestAnimationFrame(() => {
+        element.classList.remove(CLASS_SHOWN);
+      });
+    },
+    { once: true }
+  );
+}
+
+function leave(element, transitionClasses) {
+  element.classList.add(transitionClasses.leave);
+  element.classList.add(transitionClasses.leaveFrom);
+
+  requestAnimationFrame(() => {
+    element.classList.remove(transitionClasses.leaveFrom);
+    element.classList.add(transitionClasses.leaveTo);
+
+    element.addEventListener(
+      "transitionend",
+      () => {
+        element.classList.remove(transitionClasses.leaveTo);
+        element.classList.remove(transitionClasses.leave);
 
         requestAnimationFrame(() => {
           element.classList.remove(CLASS_SHOWN);
@@ -66,45 +84,27 @@ function transitionDisplay(element, effect, timing = "regular") {
       },
       { once: true }
     );
+  });
+}
+
+function wait(element) {
+  if (!element.classList.contains(CLASS_SHOWN)) {
+    element.classList.add(CLASS_SHOWN);
+  } else {
+    setTimeout(() => {
+      element.classList.remove(CLASS_SHOWN);
+    }, 280);
   }
+}
 
-  function leave() {
-    element.classList.add(transitionClasses.leave);
-    element.classList.add(transitionClasses.leaveFrom);
+function transitionDisplay(element, effect, timing = "regular") {
+  const transitionClasses = generateTransitionClasses(effect, timing);
+  const transitionStages = determineTransitionStages(element, effect, transitionClasses);
 
-    requestAnimationFrame(() => {
-      element.classList.remove(transitionClasses.leaveFrom);
-      element.classList.add(transitionClasses.leaveTo);
-
-      element.addEventListener(
-        "transitionend",
-        () => {
-          element.classList.remove(transitionClasses.leaveTo);
-          element.classList.remove(transitionClasses.leave);
-
-          requestAnimationFrame(() => {
-            element.classList.remove(CLASS_SHOWN);
-          });
-        },
-        { once: true }
-      );
-    });
-  }
-
-  function wait() {
-    if (!element.classList.contains(CLASS_SHOWN)) {
-      element.classList.add(CLASS_SHOWN);
-    } else {
-      setTimeout(() => {
-        element.classList.remove(CLASS_SHOWN);
-      }, 280);
-    }
-  }
-
-  if (!transitionStages.isShowing && !transitionStages.isWaiting) enter();
-  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) cancelEnter();
-  if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave();
-  if (transitionStages.isWaiting) wait();
+  if (!transitionStages.isShowing && !transitionStages.isWaiting) enter(element, transitionClasses);
+  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) cancelEnter(element, transitionClasses);
+  if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave(element, transitionClasses);
+  if (transitionStages.isWaiting) wait(element);
 }
 
 export default transitionDisplay;
