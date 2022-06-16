@@ -32,17 +32,19 @@ function enter(element, transitionClasses) {
   element.classList.add(transitionClasses.enterFrom);
 
   requestAnimationFrame(() => {
-    element.classList.remove(transitionClasses.enterFrom);
-    element.classList.add(transitionClasses.enterTo);
+    requestAnimationFrame(() => {
+      element.classList.remove(transitionClasses.enterFrom);
+      element.classList.add(transitionClasses.enterTo);
 
-    element.addEventListener(
-      "transitionend",
-      () => {
-        element.classList.remove(transitionClasses.enterTo);
-        element.classList.remove(transitionClasses.enter);
-      },
-      { once: true }
-    );
+      element.addEventListener(
+        "transitionend",
+        () => {
+          element.classList.remove(transitionClasses.enterTo);
+          element.classList.remove(transitionClasses.enter);
+        },
+        { once: true }
+      );
+    });
   });
 }
 
@@ -66,18 +68,20 @@ function leave(element, transitionClasses) {
   element.classList.add(transitionClasses.leaveFrom);
 
   requestAnimationFrame(() => {
-    element.classList.remove(transitionClasses.leaveFrom);
-    element.classList.add(transitionClasses.leaveTo);
+    requestAnimationFrame(() => {
+      element.classList.remove(transitionClasses.leaveFrom);
+      element.classList.add(transitionClasses.leaveTo);
 
-    element.addEventListener(
-      "transitionend",
-      () => {
-        element.classList.remove(transitionClasses.leaveTo);
-        element.classList.remove(transitionClasses.leave);
-        element.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
+      element.addEventListener(
+        "transitionend",
+        () => {
+          element.classList.remove(transitionClasses.leaveTo);
+          element.classList.remove(transitionClasses.leave);
+          element.classList.remove(CLASS_SHOWN);
+        },
+        { once: true }
+      );
+    });
   });
 }
 
