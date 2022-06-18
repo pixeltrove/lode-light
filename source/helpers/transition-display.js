@@ -74,9 +74,7 @@ function leave(element, transitionClasses) {
 
       element.addEventListener(
         "transitionend",
-        (event) => {
-          if (event.target !== event.currentTarget) event.stopPropagation();
-
+        () => {
           element.classList.remove(transitionClasses.leaveTo);
           element.classList.remove(transitionClasses.leave);
           element.classList.remove(CLASS_SHOWN);
