@@ -48,19 +48,19 @@ function enter(element, transitionClasses) {
   });
 }
 
-function cancelEnter(element, transitionClasses) {
-  function cancelEnterEnd() {
+function enterCancel(element, transitionClasses) {
+  function enterCancelEnd() {
     element.classList.remove(transitionClasses.enterFrom);
     element.classList.remove(transitionClasses.enter);
     element.classList.remove(CLASS_SHOWN);
 
-    element.removeEventListener("transitionend", cancelEnterEnd);
+    element.removeEventListener("transitionend", enterCancelEnd);
   }
 
   element.classList.remove(transitionClasses.enterTo);
   element.classList.add(transitionClasses.enterFrom);
 
-  element.addEventListener("transitionend", cancelEnterEnd);
+  element.addEventListener("transitionend", enterCancelEnd);
 }
 
 function leave(element, transitionClasses) {
@@ -106,7 +106,7 @@ function transitionDisplay(element, effect, timing = "regular") {
   const transitionStages = determineTransitionStages(element, effect, transitionClasses);
 
   if (!transitionStages.isShowing && !transitionStages.isWaiting) enter(element, transitionClasses);
-  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) cancelEnter(element, transitionClasses);
+  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) enterCancel(element, transitionClasses);
   if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave(element, transitionClasses);
   if (transitionStages.isWaiting) wait(element, timing);
 }
