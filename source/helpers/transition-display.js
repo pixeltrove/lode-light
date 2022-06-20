@@ -85,13 +85,17 @@ function leave(element, transitionClasses) {
   });
 }
 
-function wait(element) {
+function wait(element, timing) {
   if (!element.classList.contains(CLASS_SHOWN)) {
     element.classList.add(CLASS_SHOWN);
   } else {
-    setTimeout(() => {
-      element.classList.remove(CLASS_SHOWN);
-    }, 280);
+    timing.addEventListener(
+      "transitionend",
+      () => {
+        element.classList.remove(CLASS_SHOWN);
+      },
+      { once: true }
+    );
   }
 }
 
@@ -102,7 +106,7 @@ function transitionDisplay(element, effect, timing = "regular") {
   if (!transitionStages.isShowing && !transitionStages.isWaiting) enter(element, transitionClasses);
   if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) cancelEnter(element, transitionClasses);
   if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave(element, transitionClasses);
-  if (transitionStages.isWaiting) wait(element);
+  if (transitionStages.isWaiting) wait(element, timing);
 }
 
 export default transitionDisplay;
