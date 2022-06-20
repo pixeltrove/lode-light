@@ -27,6 +27,13 @@ function determineTransitionStages(element, effect, transitionClasses) {
 }
 
 function enter(element, transitionClasses) {
+  function enterEnd() {
+    element.classList.remove(transitionClasses.enterTo);
+    element.classList.remove(transitionClasses.enter);
+
+    element.removeEventListener("transitionend", enterEnd);
+  }
+
   element.classList.add(CLASS_SHOWN);
   element.classList.add(transitionClasses.enter);
   element.classList.add(transitionClasses.enterFrom);
@@ -36,31 +43,24 @@ function enter(element, transitionClasses) {
       element.classList.remove(transitionClasses.enterFrom);
       element.classList.add(transitionClasses.enterTo);
 
-      element.addEventListener(
-        "transitionend",
-        () => {
-          element.classList.remove(transitionClasses.enterTo);
-          element.classList.remove(transitionClasses.enter);
-        },
-        { once: true }
-      );
+      element.addEventListener("transitionend", enterEnd);
     });
   });
 }
 
 function cancelEnter(element, transitionClasses) {
+  function cancelEnterEnd() {
+    element.classList.remove(transitionClasses.enterFrom);
+    element.classList.remove(transitionClasses.enter);
+    element.classList.remove(CLASS_SHOWN);
+
+    element.removeEventListener("transitionend", cancelEnterEnd);
+  }
+
   element.classList.remove(transitionClasses.enterTo);
   element.classList.add(transitionClasses.enterFrom);
 
-  element.addEventListener(
-    "transitionend",
-    () => {
-      element.classList.remove(transitionClasses.enterFrom);
-      element.classList.remove(transitionClasses.enter);
-      element.classList.remove(CLASS_SHOWN);
-    },
-    { once: true }
-  );
+  element.addEventListener("transitionend", cancelEnterEnd);
 }
 
 function leave(element, transitionClasses) {
@@ -91,13 +91,13 @@ function wait(element, timing) {
   if (!element.classList.contains(CLASS_SHOWN)) {
     element.classList.add(CLASS_SHOWN);
   } else {
-    timing.addEventListener(
-      "transitionend",
-      () => {
-        element.classList.remove(CLASS_SHOWN);
-      },
-      { once: true }
-    );
+    function waitEnd() {
+      element.classList.remove(CLASS_SHOWN);
+
+      timing.removeEventListener("transitionend", waitEnd);
+    }
+
+    timing.addEventListener("transitionend", waitEnd);
   }
 }
 
