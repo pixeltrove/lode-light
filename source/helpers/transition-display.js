@@ -64,6 +64,16 @@ function cancelEnter(element, transitionClasses) {
 }
 
 function leave(element, transitionClasses) {
+  function leaveEnd(event) {
+    if (event.target === event.currentTarget) {
+      element.classList.remove(transitionClasses.leaveTo);
+      element.classList.remove(transitionClasses.leave);
+      element.classList.remove(CLASS_SHOWN);
+
+      element.removeEventListener("transitionend", leaveEnd);
+    }
+  }
+
   element.classList.add(transitionClasses.leave);
   element.classList.add(transitionClasses.leaveFrom);
 
@@ -72,15 +82,7 @@ function leave(element, transitionClasses) {
       element.classList.remove(transitionClasses.leaveFrom);
       element.classList.add(transitionClasses.leaveTo);
 
-      element.addEventListener(
-        "transitionend",
-        () => {
-          element.classList.remove(transitionClasses.leaveTo);
-          element.classList.remove(transitionClasses.leave);
-          element.classList.remove(CLASS_SHOWN);
-        },
-        { once: true }
-      );
+      element.addEventListener("transitionend", leaveEnd);
     });
   });
 }
