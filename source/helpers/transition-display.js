@@ -4,13 +4,14 @@
 const CLASS_SHOWN = "shown";
 
 function generateTransitionClasses(effect, timing) {
+  const transitionName = `${effect}-${timing}`;
   const transitionClasses = {
-    enter: `${effect}-${timing}-enter`,
-    enterFrom: `${effect}-${timing}-enter-from`,
-    enterTo: `${effect}-${timing}-enter-to`,
-    leave: `${effect}-${timing}-leave`,
-    leaveFrom: `${effect}-${timing}-leave-from`,
-    leaveTo: `${effect}-${timing}-leave-to`,
+    enter: `${transitionName}-enter`,
+    enterFrom: `${transitionName}-enter-from`,
+    enterTo: `${transitionName}-enter-to`,
+    leave: `${transitionName}-leave`,
+    leaveFrom: `${transitionName}-leave-from`,
+    leaveTo: `${transitionName}-leave-to`,
   };
 
   return transitionClasses;
