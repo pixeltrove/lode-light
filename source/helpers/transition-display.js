@@ -3,7 +3,7 @@
 
 const CLASS_SHOWN = "shown";
 
-function generateTransitionClasses(effect, timing) {
+function setTransitionClasses(effect, timing) {
   const transitionName = `${effect}-${timing}`;
   const transitionClasses = {
     enter: `${transitionName}-enter`,
@@ -17,7 +17,7 @@ function generateTransitionClasses(effect, timing) {
   return transitionClasses;
 }
 
-function determineElementFeatures(element, effect, transitionClasses) {
+function setElementFeatures(element, effect, transitionClasses) {
   const elementFeatures = {
     isEntering: element.classList.contains(transitionClasses.enter),
     isShowing: element.classList.contains(CLASS_SHOWN),
@@ -103,8 +103,8 @@ function wait(element, timing) {
 }
 
 function transitionDisplay(element, effect, timing = "regular") {
-  const transitionClasses = generateTransitionClasses(effect, timing);
-  const elementFeatures = determineElementFeatures(element, effect, transitionClasses);
+  const transitionClasses = setTransitionClasses(effect, timing);
+  const elementFeatures = setElementFeatures(element, effect, transitionClasses);
 
   if (!elementFeatures.isShowing && !elementFeatures.isWaiting) enter(element, transitionClasses);
   if (elementFeatures.isShowing && !elementFeatures.isWaiting && elementFeatures.isEntering) enterCancel(element, transitionClasses);
