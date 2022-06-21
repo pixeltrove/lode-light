@@ -17,14 +17,14 @@ function generateTransitionClasses(effect, timing) {
   return transitionClasses;
 }
 
-function determineTransitionStages(element, effect, transitionClasses) {
-  const transitionStages = {
+function determineElementFeatures(element, effect, transitionClasses) {
+  const elementFeatures = {
     isEntering: element.classList.contains(transitionClasses.enter),
     isShowing: element.classList.contains(CLASS_SHOWN),
     isWaiting: effect === "wait" ? true : false,
   };
 
-  return transitionStages;
+  return elementFeatures;
 }
 
 function enter(element, transitionClasses) {
@@ -104,12 +104,12 @@ function wait(element, timing) {
 
 function transitionDisplay(element, effect, timing = "regular") {
   const transitionClasses = generateTransitionClasses(effect, timing);
-  const transitionStages = determineTransitionStages(element, effect, transitionClasses);
+  const elementFeatures = determineElementFeatures(element, effect, transitionClasses);
 
-  if (!transitionStages.isShowing && !transitionStages.isWaiting) enter(element, transitionClasses);
-  if (transitionStages.isShowing && !transitionStages.isWaiting && transitionStages.isEntering) enterCancel(element, transitionClasses);
-  if (transitionStages.isShowing && !transitionStages.isWaiting && !transitionStages.isEntering) leave(element, transitionClasses);
-  if (transitionStages.isWaiting) wait(element, timing);
+  if (!elementFeatures.isShowing && !elementFeatures.isWaiting) enter(element, transitionClasses);
+  if (elementFeatures.isShowing && !elementFeatures.isWaiting && elementFeatures.isEntering) enterCancel(element, transitionClasses);
+  if (elementFeatures.isShowing && !elementFeatures.isWaiting && !elementFeatures.isEntering) leave(element, transitionClasses);
+  if (elementFeatures.isWaiting) wait(element, timing);
 }
 
 export default transitionDisplay;
