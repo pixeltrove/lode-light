@@ -20,8 +20,8 @@ function setTransitionClasses(effect, timing) {
 function setTransitionTraits(element, effect, transitionClasses) {
   const transitionTraits = {
     isEntering: element.classList.contains(transitionClasses.enter),
-    isShowing: element.classList.contains(CLASS_SHOWN),
-    isWaiting: effect === "wait" ? true : false,
+    isShown: element.classList.contains(CLASS_SHOWN),
+    isWaitable: effect === "wait" ? true : false,
   };
 
   return transitionTraits;
@@ -106,10 +106,10 @@ function transitionDisplay(element, effect, timing = "regular") {
   const transitionClasses = setTransitionClasses(effect, timing);
   const transitionTraits = setTransitionTraits(element, effect, transitionClasses);
 
-  if (!transitionTraits.isShowing && !transitionTraits.isWaiting) enter(element, transitionClasses);
-  if (transitionTraits.isShowing && !transitionTraits.isWaiting && transitionTraits.isEntering) enterCancel(element, transitionClasses);
-  if (transitionTraits.isShowing && !transitionTraits.isWaiting && !transitionTraits.isEntering) leave(element, transitionClasses);
-  if (transitionTraits.isWaiting) wait(element, timing);
+  if (!transitionTraits.isShown && !transitionTraits.isWaitable) enter(element, transitionClasses);
+  if (transitionTraits.isShown && !transitionTraits.isWaitable && transitionTraits.isEntering) enterCancel(element, transitionClasses);
+  if (transitionTraits.isShown && !transitionTraits.isWaitable && !transitionTraits.isEntering) leave(element, transitionClasses);
+  if (transitionTraits.isWaitable) wait(element, timing);
 }
 
 export default transitionDisplay;
