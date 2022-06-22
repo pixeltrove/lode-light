@@ -89,15 +89,15 @@ function leave(element, transitionClasses) {
 }
 
 function wait(element, timing, transitionTraits) {
+  const handleWaitEnd = () => {
+    element.classList.remove(CLASS_SHOWN);
+
+    timing.removeEventListener("transitionend", handleWaitEnd);
+  };
+
   if (!transitionTraits.isShown) {
     element.classList.add(CLASS_SHOWN);
   } else {
-    const handleWaitEnd = () => {
-      element.classList.remove(CLASS_SHOWN);
-
-      timing.removeEventListener("transitionend", handleWaitEnd);
-    };
-
     timing.addEventListener("transitionend", handleWaitEnd);
   }
 }
