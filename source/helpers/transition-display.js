@@ -28,12 +28,12 @@ function setTransitionTraits(element, effect, transitionClasses) {
 }
 
 function enter(element, transitionClasses) {
-  function handleEnterEnd() {
+  const handleEnterEnd = () => {
     element.classList.remove(transitionClasses.enterTo);
     element.classList.remove(transitionClasses.enter);
 
     element.removeEventListener("transitionend", handleEnterEnd);
-  }
+  };
 
   element.classList.add(CLASS_SHOWN);
   element.classList.add(transitionClasses.enter);
@@ -50,13 +50,13 @@ function enter(element, transitionClasses) {
 }
 
 function enterCancel(element, transitionClasses) {
-  function handleEnterCancelEnd() {
+  const handleEnterCancelEnd = () => {
     element.classList.remove(transitionClasses.enterFrom);
     element.classList.remove(transitionClasses.enter);
     element.classList.remove(CLASS_SHOWN);
 
     element.removeEventListener("transitionend", handleEnterCancelEnd);
-  }
+  };
 
   element.classList.remove(transitionClasses.enterTo);
   element.classList.add(transitionClasses.enterFrom);
@@ -65,7 +65,7 @@ function enterCancel(element, transitionClasses) {
 }
 
 function leave(element, transitionClasses) {
-  function handleLeaveEnd(event) {
+  const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
       element.classList.remove(transitionClasses.leaveTo);
       element.classList.remove(transitionClasses.leave);
@@ -73,7 +73,7 @@ function leave(element, transitionClasses) {
 
       element.removeEventListener("transitionend", handleLeaveEnd);
     }
-  }
+  };
 
   element.classList.add(transitionClasses.leave);
   element.classList.add(transitionClasses.leaveFrom);
@@ -92,11 +92,11 @@ function wait(element, timing) {
   if (!element.classList.contains(CLASS_SHOWN)) {
     element.classList.add(CLASS_SHOWN);
   } else {
-    function handleWaitEnd() {
+    const handleWaitEnd = () => {
       element.classList.remove(CLASS_SHOWN);
 
       timing.removeEventListener("transitionend", handleWaitEnd);
-    }
+    };
 
     timing.addEventListener("transitionend", handleWaitEnd);
   }
