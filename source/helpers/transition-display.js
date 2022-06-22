@@ -88,8 +88,8 @@ function leave(element, transitionClasses) {
   });
 }
 
-function wait(element, timing) {
-  if (!element.classList.contains(CLASS_SHOWN)) {
+function wait(element, timing, transitionTraits) {
+  if (!transitionTraits.isShown) {
     element.classList.add(CLASS_SHOWN);
   } else {
     const handleWaitEnd = () => {
@@ -109,7 +109,7 @@ function transitionDisplay(element, effect, timing = "regular") {
   if (!transitionTraits.isShown && !transitionTraits.isWaitable) enter(element, transitionClasses);
   if (transitionTraits.isShown && !transitionTraits.isWaitable && transitionTraits.isEntering) enterCancel(element, transitionClasses);
   if (transitionTraits.isShown && !transitionTraits.isWaitable && !transitionTraits.isEntering) leave(element, transitionClasses);
-  if (transitionTraits.isWaitable) wait(element, timing);
+  if (transitionTraits.isWaitable) wait(element, timing, transitionTraits);
 }
 
 export default transitionDisplay;
