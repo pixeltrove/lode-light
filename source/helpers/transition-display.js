@@ -28,11 +28,11 @@ function setTransitionTraits(element, effect, transitionClasses) {
 }
 
 function enter(element, transitionClasses) {
-  function enterEnd() {
+  function handleEnterEnd() {
     element.classList.remove(transitionClasses.enterTo);
     element.classList.remove(transitionClasses.enter);
 
-    element.removeEventListener("transitionend", enterEnd);
+    element.removeEventListener("transitionend", handleEnterEnd);
   }
 
   element.classList.add(CLASS_SHOWN);
@@ -44,34 +44,34 @@ function enter(element, transitionClasses) {
       element.classList.remove(transitionClasses.enterFrom);
       element.classList.add(transitionClasses.enterTo);
 
-      element.addEventListener("transitionend", enterEnd);
+      element.addEventListener("transitionend", handleEnterEnd);
     });
   });
 }
 
 function enterCancel(element, transitionClasses) {
-  function enterCancelEnd() {
+  function handleEnterCancelEnd() {
     element.classList.remove(transitionClasses.enterFrom);
     element.classList.remove(transitionClasses.enter);
     element.classList.remove(CLASS_SHOWN);
 
-    element.removeEventListener("transitionend", enterCancelEnd);
+    element.removeEventListener("transitionend", handleEnterCancelEnd);
   }
 
   element.classList.remove(transitionClasses.enterTo);
   element.classList.add(transitionClasses.enterFrom);
 
-  element.addEventListener("transitionend", enterCancelEnd);
+  element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
 function leave(element, transitionClasses) {
-  function leaveEnd(event) {
+  function handleLeaveEnd(event) {
     if (event.target === event.currentTarget) {
       element.classList.remove(transitionClasses.leaveTo);
       element.classList.remove(transitionClasses.leave);
       element.classList.remove(CLASS_SHOWN);
 
-      element.removeEventListener("transitionend", leaveEnd);
+      element.removeEventListener("transitionend", handleLeaveEnd);
     }
   }
 
@@ -83,7 +83,7 @@ function leave(element, transitionClasses) {
       element.classList.remove(transitionClasses.leaveFrom);
       element.classList.add(transitionClasses.leaveTo);
 
-      element.addEventListener("transitionend", leaveEnd);
+      element.addEventListener("transitionend", handleLeaveEnd);
     });
   });
 }
@@ -92,13 +92,13 @@ function wait(element, timing) {
   if (!element.classList.contains(CLASS_SHOWN)) {
     element.classList.add(CLASS_SHOWN);
   } else {
-    function waitEnd() {
+    function handleWaitEnd() {
       element.classList.remove(CLASS_SHOWN);
 
-      timing.removeEventListener("transitionend", waitEnd);
+      timing.removeEventListener("transitionend", handleWaitEnd);
     }
 
-    timing.addEventListener("transitionend", waitEnd);
+    timing.addEventListener("transitionend", handleWaitEnd);
   }
 }
 
