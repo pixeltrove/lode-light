@@ -22,14 +22,17 @@ function setTransitionTraits(element, effect, transitionClasses) {
     isEntering: element.classList.contains(transitionClasses.enter),
     isShown: element.classList.contains(CLASS_SHOWN),
     isWaitable: effect === "wait" ? true : false,
+    isExpandable: effect === "expand" ? true : false,
   };
 
   return transitionTraits;
 }
 
-function enter(element, transitionClasses) {
+function enter(element, transitionClasses, transitionTraits) {
   const handleEnterEnd = () => {
-    element.classList.remove(transitionClasses.enterTo);
+    if (!transitionTraits.isExpandable) {
+      element.classList.remove(transitionClasses.enterTo);
+    }
     element.classList.remove(transitionClasses.enter);
 
     element.removeEventListener("transitionend", handleEnterEnd);
@@ -37,12 +40,21 @@ function enter(element, transitionClasses) {
 
   element.classList.add(CLASS_SHOWN);
   element.classList.add(transitionClasses.enter);
-  element.classList.add(transitionClasses.enterFrom);
+  if (!transitionTraits.isExpandable) {
+    element.classList.add(transitionClasses.enterFrom);
+  } else {
+    element.style.overflowY = "hidden";
+    element.style.height = 0;
+  }
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      element.classList.remove(transitionClasses.enterFrom);
-      element.classList.add(transitionClasses.enterTo);
+      if (!transitionTraits.isExpandable) {
+        element.classList.remove(transitionClasses.enterFrom);
+        element.classList.add(transitionClasses.enterTo);
+      } else {
+        element.style.height = element.scrollHeight + "px";
+      }
 
       element.addEventListener("transitionend", handleEnterEnd);
     });
@@ -64,10 +76,12 @@ function enterCancel(element, transitionClasses) {
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
-function leave(element, transitionClasses) {
+function leave(element, transitionClasses, transitionTraits) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
-      element.classList.remove(transitionClasses.leaveTo);
+      if (!transitionTraits.isExpandable) {
+        element.classList.remove(transitionClasses.leaveTo);
+      }
       element.classList.remove(transitionClasses.leave);
       element.classList.remove(CLASS_SHOWN);
 
@@ -76,12 +90,21 @@ function leave(element, transitionClasses) {
   };
 
   element.classList.add(transitionClasses.leave);
-  element.classList.add(transitionClasses.leaveFrom);
+  if (!transitionTraits.isExpandable) {
+    element.classList.add(transitionClasses.leaveFrom);
+  } else {
+    element.style.overflowY = "hidden";
+    element.style.height = element.scrollHeight + "px";
+  }
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      element.classList.remove(transitionClasses.leaveFrom);
-      element.classList.add(transitionClasses.leaveTo);
+      if (!transitionTraits.isExpandable) {
+        element.classList.remove(transitionClasses.leaveFrom);
+        element.classList.add(transitionClasses.leaveTo);
+      } else {
+        element.style.height = 0;
+      }
 
       element.addEventListener("transitionend", handleLeaveEnd);
     });
@@ -108,10 +131,10 @@ function transitionDisplay(element, effect, timing = "regular") {
 
   if (!transitionTraits.isWaitable) {
     if (!transitionTraits.isShown) {
-      enter(element, transitionClasses);
+      enter(element, transitionClasses, transitionTraits);
     } else {
       if (!transitionTraits.isEntering) {
-        leave(element, transitionClasses);
+        leave(element, transitionClasses, transitionTraits);
       } else {
         enterCancel(element, transitionClasses);
       }
