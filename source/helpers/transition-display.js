@@ -32,6 +32,8 @@ function enter(element, transitionClasses, transitionTraits) {
   const handleEnterEnd = () => {
     if (!transitionTraits.isExpandable) {
       element.classList.remove(transitionClasses.enterTo);
+    } else {
+      element.style.overflowY = "";
     }
     element.classList.remove(transitionClasses.enter);
 
