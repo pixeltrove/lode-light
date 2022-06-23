@@ -34,6 +34,7 @@ function enter(element, transitionClasses, transitionTraits) {
       element.classList.remove(transitionClasses.enterTo);
     } else {
       element.style.overflowY = "";
+      element.style.height = "auto";
     }
     element.classList.remove(transitionClasses.enter);
 
