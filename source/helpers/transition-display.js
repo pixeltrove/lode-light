@@ -3,48 +3,48 @@
 
 const CLASS_SHOWN = "shown";
 
-function setTransitionClasses(effect, timing) {
-  const transitionName = `${effect}-${timing}`;
-  const transitionClasses = {
-    enter: `${transitionName}-enter`,
-    enterFrom: `${transitionName}-enter-from`,
-    enterTo: `${transitionName}-enter-to`,
-    leave: `${transitionName}-leave`,
-    leaveFrom: `${transitionName}-leave-from`,
-    leaveTo: `${transitionName}-leave-to`,
+function setPhases(effect, timing) {
+  const transition = `${effect}-${timing}`;
+  const phases = {
+    enter: `${transition}-enter`,
+    enterFrom: `${transition}-enter-from`,
+    enterTo: `${transition}-enter-to`,
+    leave: `${transition}-leave`,
+    leaveFrom: `${transition}-leave-from`,
+    leaveTo: `${transition}-leave-to`,
   };
 
-  return transitionClasses;
+  return phases;
 }
 
-function setTransitionTraits(element, effect, transitionClasses) {
-  const transitionTraits = {
-    isEntering: element.classList.contains(transitionClasses.enter),
+function setTraits(element, effect, phases) {
+  const traits = {
+    isEntering: element.classList.contains(phases.enter),
     isShown: element.classList.contains(CLASS_SHOWN),
     isWaitable: effect === "wait" ? true : false,
     isExpandable: effect === "expand" ? true : false,
   };
 
-  return transitionTraits;
+  return traits;
 }
 
-function enter(element, transitionClasses, transitionTraits) {
+function enter(element, phases, traits) {
   const handleEnterEnd = () => {
-    if (!transitionTraits.isExpandable) {
-      element.classList.remove(transitionClasses.enterTo);
+    if (!traits.isExpandable) {
+      element.classList.remove(phases.enterTo);
     } else {
       element.style.overflowY = "";
       element.style.height = "auto";
     }
-    element.classList.remove(transitionClasses.enter);
+    element.classList.remove(phases.enter);
 
     element.removeEventListener("transitionend", handleEnterEnd);
   };
 
   element.classList.add(CLASS_SHOWN);
-  element.classList.add(transitionClasses.enter);
-  if (!transitionTraits.isExpandable) {
-    element.classList.add(transitionClasses.enterFrom);
+  element.classList.add(phases.enter);
+  if (!traits.isExpandable) {
+    element.classList.add(phases.enterFrom);
   } else {
     element.style.overflowY = "hidden";
     element.style.height = 0;
@@ -52,9 +52,9 @@ function enter(element, transitionClasses, transitionTraits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!transitionTraits.isExpandable) {
-        element.classList.remove(transitionClasses.enterFrom);
-        element.classList.add(transitionClasses.enterTo);
+      if (!traits.isExpandable) {
+        element.classList.remove(phases.enterFrom);
+        element.classList.add(phases.enterTo);
       } else {
         element.style.height = element.scrollHeight + "px";
       }
@@ -64,37 +64,37 @@ function enter(element, transitionClasses, transitionTraits) {
   });
 }
 
-function enterCancel(element, transitionClasses) {
+function enterCancel(element, phases) {
   const handleEnterCancelEnd = () => {
-    element.classList.remove(transitionClasses.enterFrom);
-    element.classList.remove(transitionClasses.enter);
+    element.classList.remove(phases.enterFrom);
+    element.classList.remove(phases.enter);
     element.classList.remove(CLASS_SHOWN);
 
     element.removeEventListener("transitionend", handleEnterCancelEnd);
   };
 
-  element.classList.remove(transitionClasses.enterTo);
-  element.classList.add(transitionClasses.enterFrom);
+  element.classList.remove(phases.enterTo);
+  element.classList.add(phases.enterFrom);
 
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
-function leave(element, transitionClasses, transitionTraits) {
+function leave(element, phases, traits) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
-      if (!transitionTraits.isExpandable) {
-        element.classList.remove(transitionClasses.leaveTo);
+      if (!traits.isExpandable) {
+        element.classList.remove(phases.leaveTo);
       }
-      element.classList.remove(transitionClasses.leave);
+      element.classList.remove(phases.leave);
       element.classList.remove(CLASS_SHOWN);
 
       element.removeEventListener("transitionend", handleLeaveEnd);
     }
   };
 
-  element.classList.add(transitionClasses.leave);
-  if (!transitionTraits.isExpandable) {
-    element.classList.add(transitionClasses.leaveFrom);
+  element.classList.add(phases.leave);
+  if (!traits.isExpandable) {
+    element.classList.add(phases.leaveFrom);
   } else {
     element.style.overflowY = "hidden";
     element.style.height = element.scrollHeight + "px";
@@ -102,9 +102,9 @@ function leave(element, transitionClasses, transitionTraits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!transitionTraits.isExpandable) {
-        element.classList.remove(transitionClasses.leaveFrom);
-        element.classList.add(transitionClasses.leaveTo);
+      if (!traits.isExpandable) {
+        element.classList.remove(phases.leaveFrom);
+        element.classList.add(phases.leaveTo);
       } else {
         element.style.height = 0;
       }
@@ -114,14 +114,14 @@ function leave(element, transitionClasses, transitionTraits) {
   });
 }
 
-function wait(element, timing, transitionTraits) {
+function wait(element, timing, traits) {
   const handleWaitEnd = () => {
     element.classList.remove(CLASS_SHOWN);
 
     timing.removeEventListener("transitionend", handleWaitEnd);
   };
 
-  if (!transitionTraits.isShown) {
+  if (!traits.isShown) {
     element.classList.add(CLASS_SHOWN);
   } else {
     timing.addEventListener("transitionend", handleWaitEnd);
@@ -129,21 +129,21 @@ function wait(element, timing, transitionTraits) {
 }
 
 function transitionDisplay(element, effect, timing = "regular") {
-  const transitionClasses = setTransitionClasses(effect, timing);
-  const transitionTraits = setTransitionTraits(element, effect, transitionClasses);
+  const phases = setPhases(effect, timing);
+  const traits = setTraits(element, effect, phases);
 
-  if (!transitionTraits.isWaitable) {
-    if (!transitionTraits.isShown) {
-      enter(element, transitionClasses, transitionTraits);
+  if (!traits.isWaitable) {
+    if (!traits.isShown) {
+      enter(element, phases, traits);
     } else {
-      if (!transitionTraits.isEntering) {
-        leave(element, transitionClasses, transitionTraits);
+      if (!traits.isEntering) {
+        leave(element, phases, traits);
       } else {
-        enterCancel(element, transitionClasses);
+        enterCancel(element, phases);
       }
     }
   } else {
-    wait(element, timing, transitionTraits);
+    wait(element, timing, traits);
   }
 }
 
