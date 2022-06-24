@@ -7,6 +7,7 @@
 
 .expand-regular-enter,
 .expand-regular-leave {
+  overflow-y: hidden;
   transition: height $ease-out-100;
 }
 

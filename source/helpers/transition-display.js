@@ -33,7 +33,6 @@ function enter(element, phases, traits) {
     if (!traits.isExpandable) {
       element.classList.remove(phases.enterTo);
     } else {
-      element.style.overflowY = "";
       element.style.height = "auto";
     }
     element.classList.remove(phases.enter);
@@ -46,7 +45,6 @@ function enter(element, phases, traits) {
   if (!traits.isExpandable) {
     element.classList.add(phases.enterFrom);
   } else {
-    element.style.overflowY = "hidden";
     element.style.height = 0;
   }
 
@@ -96,7 +94,6 @@ function leave(element, phases, traits) {
   if (!traits.isExpandable) {
     element.classList.add(phases.leaveFrom);
   } else {
-    element.style.overflowY = "hidden";
     element.style.height = element.scrollHeight + "px";
   }
 
