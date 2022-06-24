@@ -33,7 +33,7 @@ function enter(element, phases, traits) {
     if (!traits.isExpandable) {
       element.classList.remove(phases.enterTo);
     } else {
-      element.style.height = "auto";
+      element.style.height = "";
     }
     element.classList.remove(phases.enter);
 
