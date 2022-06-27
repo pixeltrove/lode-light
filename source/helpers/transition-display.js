@@ -69,7 +69,7 @@ function enterCancel(element, phases) {
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
-function leave(element, phases, traits) {
+function leave(element, phases) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
       element.classList.remove(phases.leaveTo);
@@ -80,7 +80,7 @@ function leave(element, phases, traits) {
     }
   };
 
-  if (traits.isConvertible) {
+  if (element.style.getPropertyValue("--convert-height") === "") {
     element.style.setProperty("--convert-height", element.scrollHeight + "px");
   }
 
