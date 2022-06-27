@@ -30,6 +30,10 @@ function setTraits(element, effect, phases) {
 
 function enter(element, phases, traits) {
   const handleEnterEnd = () => {
+    if (traits.isConvertible) {
+      element.style.removeProperty("--convert-height");
+    }
+
     element.classList.remove(phases.enterTo);
     element.classList.remove(phases.enter);
 
@@ -69,7 +73,7 @@ function enterCancel(element, phases) {
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
-function leave(element, phases) {
+function leave(element, phases, traits) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
       element.classList.remove(phases.leaveTo);
@@ -80,7 +84,7 @@ function leave(element, phases) {
     }
   };
 
-  if (element.style.getPropertyValue("--convert-height") === "") {
+  if (traits.isConvertible) {
     element.style.setProperty("--convert-height", element.scrollHeight + "px");
   }
 
@@ -89,6 +93,10 @@ function leave(element, phases) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
+      if (traits.isConvertible) {
+        element.style.removeProperty("--convert-height");
+      }
+
       element.classList.remove(phases.leaveFrom);
       element.classList.add(phases.leaveTo);
 
