@@ -30,11 +30,7 @@ function setTraits(element, effect, phases) {
 
 function enter(element, phases, traits) {
   const handleEnterEnd = () => {
-    if (!traits.isConvertible) {
-      element.classList.remove(phases.enterTo);
-    } else {
-      element.style.height = "";
-    }
+    element.classList.remove(phases.enterTo);
     element.classList.remove(phases.enter);
 
     element.removeEventListener("transitionend", handleEnterEnd);
@@ -42,20 +38,16 @@ function enter(element, phases, traits) {
 
   element.classList.add(CLASS_SHOWN);
   element.classList.add(phases.enter);
-  if (!traits.isConvertible) {
-    element.classList.add(phases.enterFrom);
-  } else {
-    element.style.height = 0;
-  }
+  element.classList.add(phases.enterFrom);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!traits.isConvertible) {
-        element.classList.remove(phases.enterFrom);
-        element.classList.add(phases.enterTo);
-      } else {
-        element.style.height = element.scrollHeight + "px";
+      if (traits.isConvertible) {
+        document.documentElement.style.setProperty("--convert-height-auto", element.scrollHeight + "px");
       }
+
+      element.classList.remove(phases.enterFrom);
+      element.classList.add(phases.enterTo);
 
       element.addEventListener("transitionend", handleEnterEnd);
     });
@@ -80,9 +72,7 @@ function enterCancel(element, phases) {
 function leave(element, phases, traits) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
-      if (!traits.isConvertible) {
-        element.classList.remove(phases.leaveTo);
-      }
+      element.classList.remove(phases.leaveTo);
       element.classList.remove(phases.leave);
       element.classList.remove(CLASS_SHOWN);
 
@@ -90,21 +80,17 @@ function leave(element, phases, traits) {
     }
   };
 
-  element.classList.add(phases.leave);
-  if (!traits.isConvertible) {
-    element.classList.add(phases.leaveFrom);
-  } else {
-    element.style.height = element.scrollHeight + "px";
+  if (traits.isConvertible) {
+    document.documentElement.style.setProperty("--convert-height-auto", element.scrollHeight + "px");
   }
+
+  element.classList.add(phases.leave);
+  element.classList.add(phases.leaveFrom);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!traits.isConvertible) {
-        element.classList.remove(phases.leaveFrom);
-        element.classList.add(phases.leaveTo);
-      } else {
-        element.style.height = 0;
-      }
+      element.classList.remove(phases.leaveFrom);
+      element.classList.add(phases.leaveTo);
 
       element.addEventListener("transitionend", handleLeaveEnd);
     });
