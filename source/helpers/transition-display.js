@@ -21,8 +21,8 @@ function setTraits(element, effect, phases) {
   const traits = {
     isEntering: element.classList.contains(phases.enter),
     isShown: element.classList.contains(CLASS_SHOWN),
-    isConvertible: effect === "convert" ? true : false,
-    isWaitable: effect === "wait" ? true : false,
+    isConvertible: effect === "convert",
+    isWaitable: effect === "wait",
   };
 
   return traits;
