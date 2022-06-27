@@ -3,10 +3,10 @@
 
 @use "../tokens" as *;
 
-// Expand
+// Convert
 
-.expand-regular-enter,
-.expand-regular-leave {
+.convert-regular-enter,
+.convert-regular-leave {
   overflow-y: hidden;
   transition: height $ease-out-100;
 }

@@ -21,8 +21,8 @@ function setTraits(element, effect, phases) {
   const traits = {
     isEntering: element.classList.contains(phases.enter),
     isShown: element.classList.contains(CLASS_SHOWN),
+    isConvertible: effect === "convert" ? true : false,
     isWaitable: effect === "wait" ? true : false,
-    isExpandable: effect === "expand" ? true : false,
   };
 
   return traits;
@@ -30,7 +30,7 @@ function setTraits(element, effect, phases) {
 
 function enter(element, phases, traits) {
   const handleEnterEnd = () => {
-    if (!traits.isExpandable) {
+    if (!traits.isConvertible) {
       element.classList.remove(phases.enterTo);
     } else {
       element.style.height = "";
@@ -42,7 +42,7 @@ function enter(element, phases, traits) {
 
   element.classList.add(CLASS_SHOWN);
   element.classList.add(phases.enter);
-  if (!traits.isExpandable) {
+  if (!traits.isConvertible) {
     element.classList.add(phases.enterFrom);
   } else {
     element.style.height = 0;
@@ -50,7 +50,7 @@ function enter(element, phases, traits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!traits.isExpandable) {
+      if (!traits.isConvertible) {
         element.classList.remove(phases.enterFrom);
         element.classList.add(phases.enterTo);
       } else {
@@ -80,7 +80,7 @@ function enterCancel(element, phases) {
 function leave(element, phases, traits) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
-      if (!traits.isExpandable) {
+      if (!traits.isConvertible) {
         element.classList.remove(phases.leaveTo);
       }
       element.classList.remove(phases.leave);
@@ -91,7 +91,7 @@ function leave(element, phases, traits) {
   };
 
   element.classList.add(phases.leave);
-  if (!traits.isExpandable) {
+  if (!traits.isConvertible) {
     element.classList.add(phases.leaveFrom);
   } else {
     element.style.height = element.scrollHeight + "px";
@@ -99,7 +99,7 @@ function leave(element, phases, traits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (!traits.isExpandable) {
+      if (!traits.isConvertible) {
         element.classList.remove(phases.leaveFrom);
         element.classList.add(phases.leaveTo);
       } else {

@@ -19,7 +19,7 @@ function Accordion(accordion) {
       targetSlat.classList.toggle(CLASS_ACTIVATED);
       targetSlat.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 
-      transitionDisplay(panel, "expand");
+      transitionDisplay(panel, "convert");
     }
   }
 
