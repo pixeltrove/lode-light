@@ -5,10 +5,6 @@
 
 // Convert
 
-:root {
-  --convert-height-auto: 0;
-}
-
 .convert-regular-enter,
 .convert-regular-leave {
   overflow-y: hidden;
@@ -22,7 +18,7 @@
 
 .convert-regular-enter-to,
 .convert-regular-leave-from {
-  height: var(--convert-height-auto);
+  height: var(--convert-height);
 }
 
 // Fade

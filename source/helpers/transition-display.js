@@ -43,7 +43,7 @@ function enter(element, phases, traits) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       if (traits.isConvertible) {
-        document.documentElement.style.setProperty("--convert-height-auto", element.scrollHeight + "px");
+        element.style.setProperty("--convert-height", element.scrollHeight + "px");
       }
 
       element.classList.remove(phases.enterFrom);
@@ -81,7 +81,7 @@ function leave(element, phases, traits) {
   };
 
   if (traits.isConvertible) {
-    document.documentElement.style.setProperty("--convert-height-auto", element.scrollHeight + "px");
+    element.style.setProperty("--convert-height", element.scrollHeight + "px");
   }
 
   element.classList.add(phases.leave);
