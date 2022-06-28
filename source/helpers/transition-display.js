@@ -21,6 +21,7 @@ function setPhases(effect, timing) {
 function setTraits(element, effect, phases) {
   const traits = {
     isEntering: element.classList.contains(phases.enter),
+    isLeaving: element.classList.contains(phases.leave),
     isShown: element.classList.contains(CLASS_SHOWN),
     isConvertible: effect === "convert",
     isWaitable: effect === "wait",
@@ -106,6 +107,29 @@ function leave(element, phases, traits) {
   });
 }
 
+function leaveCancel(element, phases, traits) {
+  const handleLeaveCancelEnd = () => {
+    if (traits.isConvertible) {
+      element.style.removeProperty(PROPERTY_HEIGHT);
+    }
+
+    element.classList.add(CLASS_SHOWN);
+    element.classList.remove(phases.leaveFrom);
+    element.classList.remove(phases.leave);
+
+    element.removeEventListener("transitionend", handleLeaveCancelEnd);
+  };
+
+  if (traits.isConvertible) {
+    element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
+  }
+
+  element.classList.remove(phases.leaveTo);
+  element.classList.add(phases.leaveFrom);
+
+  element.addEventListener("transitionend", handleLeaveCancelEnd);
+}
+
 function wait(element, timing, traits) {
   const handleWaitEnd = () => {
     element.classList.remove(CLASS_SHOWN);
@@ -127,11 +151,13 @@ function transitionDisplay(element, effect, timing = "regular") {
   if (!traits.isWaitable) {
     if (!traits.isShown) {
       enter(element, phases, traits);
-    } else {
-      if (!traits.isEntering) {
-        leave(element, phases, traits);
-      } else {
+    } else if (traits.isShown) {
+      if (traits.isEntering) {
         enterCancel(element, phases);
+      } else if (!traits.isEntering && !traits.isLeaving) {
+        leave(element, phases, traits);
+      } else if (traits.isLeaving && traits.isConvertible) {
+        leaveCancel(element, phases, traits);
       }
     }
   } else {
