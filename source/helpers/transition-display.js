@@ -2,6 +2,7 @@
 // -----------------------------------------------------------------------------
 
 const CLASS_SHOWN = "shown";
+const PROPERTY_HEIGHT = "--height";
 
 function setPhases(effect, timing) {
   const transition = `${effect}-${timing}`;
@@ -31,7 +32,7 @@ function setTraits(element, effect, phases) {
 function enter(element, phases, traits) {
   const handleEnterEnd = () => {
     if (traits.isConvertible) {
-      element.style.removeProperty("--convert-height");
+      element.style.removeProperty(PROPERTY_HEIGHT);
     }
 
     element.classList.remove(phases.enterTo);
@@ -47,7 +48,7 @@ function enter(element, phases, traits) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       if (traits.isConvertible) {
-        element.style.setProperty("--convert-height", element.scrollHeight + "px");
+        element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
       }
 
       element.classList.remove(phases.enterFrom);
@@ -85,7 +86,7 @@ function leave(element, phases, traits) {
   };
 
   if (traits.isConvertible) {
-    element.style.setProperty("--convert-height", element.scrollHeight + "px");
+    element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
   }
 
   element.classList.add(phases.leave);
@@ -94,7 +95,7 @@ function leave(element, phases, traits) {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       if (traits.isConvertible) {
-        element.style.removeProperty("--convert-height");
+        element.style.removeProperty(PROPERTY_HEIGHT);
       }
 
       element.classList.remove(phases.leaveFrom);
