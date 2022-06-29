@@ -69,8 +69,8 @@ function enterCancel(element, phases) {
     element.removeEventListener("transitionend", handleEnterCancelEnd);
   };
 
-  element.classList.remove(phases.enterTo);
-  element.classList.add(phases.enterFrom);
+  element.classList.toggle(phases.enterTo);
+  element.classList.toggle(phases.enterFrom);
 
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
@@ -124,8 +124,8 @@ function leaveCancel(element, phases, traits) {
     element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
   }
 
-  element.classList.remove(phases.leaveTo);
-  element.classList.add(phases.leaveFrom);
+  element.classList.toggle(phases.leaveTo);
+  element.classList.toggle(phases.leaveFrom);
 
   element.addEventListener("transitionend", handleLeaveCancelEnd);
 }
