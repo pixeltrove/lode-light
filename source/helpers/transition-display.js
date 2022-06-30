@@ -62,9 +62,11 @@ function enter(element, phases, traits) {
 
 function enterCancel(element, phases) {
   const handleEnterCancelEnd = () => {
-    element.classList.remove(phases.enterFrom);
     element.classList.remove(phases.enter);
-    element.classList.remove(CLASS_SHOWN);
+    if (element.classList.contains(phases.enterFrom)) {
+      element.classList.remove(phases.enterFrom);
+      element.classList.remove(CLASS_SHOWN);
+    }
 
     element.removeEventListener("transitionend", handleEnterCancelEnd);
   };
@@ -113,8 +115,10 @@ function leaveCancel(element, phases, traits) {
       element.style.removeProperty(PROPERTY_HEIGHT);
     }
 
-    element.classList.add(CLASS_SHOWN);
-    element.classList.remove(phases.leaveFrom);
+    if (element.classList.contains(phases.leaveFrom)) {
+      element.classList.remove(phases.leaveFrom);
+      element.classList.add(CLASS_SHOWN);
+    }
     element.classList.remove(phases.leave);
 
     element.removeEventListener("transitionend", handleLeaveCancelEnd);
