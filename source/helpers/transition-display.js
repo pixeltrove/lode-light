@@ -31,22 +31,6 @@ function setTraits(element, effect, phases) {
 }
 
 function enter(element, phases, traits) {
-  const handleEnterCancelEnd = () => {
-    element.classList.remove(phases.enter);
-    if (element.classList.contains(phases.enterFrom)) {
-      element.classList.remove(phases.enterFrom);
-      element.classList.remove(CLASS_SHOWN);
-    }
-
-    element.removeEventListener("transitionend", handleEnterCancelEnd);
-  };
-
-  const handleEnterCancel = () => {
-    element.removeEventListener("transitionend", handleEnterEnd);
-    element.removeEventListener("transitioncancel", handleEnterCancel);
-    element.addEventListener("transitionend", handleEnterCancelEnd);
-  };
-
   const handleEnterEnd = () => {
     if (traits.isConvertible) {
       element.style.removeProperty(PROPERTY_HEIGHT);
@@ -58,14 +42,9 @@ function enter(element, phases, traits) {
     element.removeEventListener("transitionend", handleEnterEnd);
   };
 
-  if (!traits.isEntering) {
-    element.classList.add(CLASS_SHOWN);
-    element.classList.add(phases.enter);
-    element.classList.add(phases.enterFrom);
-  } else {
-    element.classList.toggle(phases.enterTo);
-    element.classList.toggle(phases.enterFrom);
-  }
+  element.classList.add(CLASS_SHOWN);
+  element.classList.add(phases.enter);
+  element.classList.add(phases.enterFrom);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -73,15 +52,29 @@ function enter(element, phases, traits) {
         element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
       }
 
-      if (!traits.isEntering) {
-        element.classList.remove(phases.enterFrom);
-        element.classList.add(phases.enterTo);
-      }
+      element.classList.remove(phases.enterFrom);
+      element.classList.add(phases.enterTo);
 
-      element.addEventListener("transitioncancel", handleEnterCancel);
       element.addEventListener("transitionend", handleEnterEnd);
     });
   });
+}
+
+function enterCancel(element, phases) {
+  const handleEnterCancelEnd = () => {
+    element.classList.remove(phases.enter);
+    if (element.classList.contains(phases.enterFrom)) {
+      element.classList.remove(phases.enterFrom);
+      element.classList.remove(CLASS_SHOWN);
+    }
+
+    element.removeEventListener("transitionend", handleEnterCancelEnd);
+  };
+
+  element.classList.toggle(phases.enterTo);
+  element.classList.toggle(phases.enterFrom);
+
+  element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
 function leave(element, phases, traits) {
@@ -160,10 +153,12 @@ function transitionDisplay(element, effect, timing = "regular") {
   const traits = setTraits(element, effect, phases);
 
   if (!traits.isWaitable) {
-    if (!traits.isShown || traits.isEntering) {
+    if (!traits.isShown) {
       enter(element, phases, traits);
     } else if (traits.isShown) {
-      if (!traits.isEntering && !traits.isLeaving) {
+      if (traits.isEntering) {
+        enterCancel(element, phases);
+      } else if (!traits.isEntering && !traits.isLeaving) {
         leave(element, phases, traits);
       } else if (traits.isLeaving && traits.isConvertible) {
         leaveCancel(element, phases, traits);
