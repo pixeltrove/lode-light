@@ -4,6 +4,15 @@
 const CLASS_SHOWN = "shown";
 const PROPERTY_HEIGHT = "--height";
 
+function setDescriptors(effect) {
+  const descriptors = {
+    isConvertible: effect === "convert",
+    isWaitable: effect === "wait",
+  };
+
+  return descriptors;
+}
+
 function setPhases(effect, timing) {
   const transition = `${effect}-${timing}`;
   const phases = {
@@ -18,21 +27,19 @@ function setPhases(effect, timing) {
   return phases;
 }
 
-function setTraits(element, effect, phases) {
-  const traits = {
+function setStates(element, phases) {
+  const states = {
     isEntering: element.classList.contains(phases.enter),
     isLeaving: element.classList.contains(phases.leave),
     isShown: element.classList.contains(CLASS_SHOWN),
-    isConvertible: effect === "convert",
-    isWaitable: effect === "wait",
   };
 
-  return traits;
+  return states;
 }
 
-function enter(element, phases, traits) {
+function enter(element, phases, descriptors) {
   const handleEnterEnd = () => {
-    if (traits.isConvertible) {
+    if (descriptors.isConvertible) {
       element.style.removeProperty(PROPERTY_HEIGHT);
     }
 
@@ -48,7 +55,7 @@ function enter(element, phases, traits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (traits.isConvertible) {
+      if (descriptors.isConvertible) {
         element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
       }
 
@@ -77,7 +84,7 @@ function enterCancel(element, phases) {
   element.addEventListener("transitionend", handleEnterCancelEnd);
 }
 
-function leave(element, phases, traits) {
+function leave(element, phases, descriptors) {
   const handleLeaveEnd = (event) => {
     if (event.target === event.currentTarget) {
       element.classList.remove(phases.leaveTo);
@@ -88,7 +95,7 @@ function leave(element, phases, traits) {
     }
   };
 
-  if (traits.isConvertible) {
+  if (descriptors.isConvertible) {
     element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
   }
 
@@ -97,7 +104,7 @@ function leave(element, phases, traits) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (traits.isConvertible) {
+      if (descriptors.isConvertible) {
         element.style.removeProperty(PROPERTY_HEIGHT);
       }
 
@@ -109,9 +116,9 @@ function leave(element, phases, traits) {
   });
 }
 
-function leaveCancel(element, phases, traits) {
+function leaveCancel(element, phases, descriptors) {
   const handleLeaveCancelEnd = () => {
-    if (traits.isConvertible) {
+    if (descriptors.isConvertible) {
       element.style.removeProperty(PROPERTY_HEIGHT);
     }
 
@@ -124,7 +131,7 @@ function leaveCancel(element, phases, traits) {
     element.removeEventListener("transitionend", handleLeaveCancelEnd);
   };
 
-  if (traits.isConvertible) {
+  if (descriptors.isConvertible) {
     element.style.setProperty(PROPERTY_HEIGHT, element.scrollHeight + "px");
   }
 
@@ -134,14 +141,14 @@ function leaveCancel(element, phases, traits) {
   element.addEventListener("transitionend", handleLeaveCancelEnd);
 }
 
-function wait(element, timing, traits) {
+function wait(element, timing, states) {
   const handleWaitEnd = () => {
     element.classList.remove(CLASS_SHOWN);
 
     timing.removeEventListener("transitionend", handleWaitEnd);
   };
 
-  if (!traits.isShown) {
+  if (!states.isShown) {
     element.classList.add(CLASS_SHOWN);
   } else {
     timing.addEventListener("transitionend", handleWaitEnd);
@@ -149,23 +156,24 @@ function wait(element, timing, traits) {
 }
 
 function transitionDisplay(element, effect, timing = "regular") {
+  const descriptors = setDescriptors(effect);
   const phases = setPhases(effect, timing);
-  const traits = setTraits(element, effect, phases);
+  const states = setStates(element, phases);
 
-  if (!traits.isWaitable) {
-    if (!traits.isShown) {
-      enter(element, phases, traits);
-    } else if (traits.isShown) {
-      if (traits.isEntering) {
+  if (!descriptors.isWaitable) {
+    if (!states.isShown) {
+      enter(element, phases, descriptors);
+    } else if (states.isShown) {
+      if (states.isEntering) {
         enterCancel(element, phases);
-      } else if (!traits.isEntering && !traits.isLeaving) {
-        leave(element, phases, traits);
-      } else if (traits.isLeaving && traits.isConvertible) {
-        leaveCancel(element, phases, traits);
+      } else if (!states.isEntering && !states.isLeaving) {
+        leave(element, phases, descriptors);
+      } else if (states.isLeaving && descriptors.isConvertible) {
+        leaveCancel(element, phases, descriptors);
       }
     }
   } else {
-    wait(element, timing, traits);
+    wait(element, timing, states);
   }
 }
 
