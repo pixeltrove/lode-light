@@ -38,15 +38,17 @@ function setStates(element, phases) {
 }
 
 function enter(element, phases, descriptors) {
-  const handleEnterEnd = () => {
-    if (descriptors.isConvertible) {
-      element.style.removeProperty(PROPERTY_HEIGHT);
+  const handleEnterEnd = (event) => {
+    if (event.target === event.currentTarget) {
+      if (descriptors.isConvertible) {
+        element.style.removeProperty(PROPERTY_HEIGHT);
+      }
+
+      element.classList.remove(phases.enterTo);
+      element.classList.remove(phases.enter);
+
+      element.removeEventListener("transitionend", handleEnterEnd);
     }
-
-    element.classList.remove(phases.enterTo);
-    element.classList.remove(phases.enter);
-
-    element.removeEventListener("transitionend", handleEnterEnd);
   };
 
   element.classList.add(CLASS_SHOWN);
