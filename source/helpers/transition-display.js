@@ -165,14 +165,12 @@ function transitionDisplay(element, effect, timing = "regular") {
   if (!descriptors.isWaitable) {
     if (!states.isShown) {
       enter(element, phases, descriptors);
-    } else if (states.isShown) {
-      if (states.isEntering) {
-        enterCancel(element, phases);
-      } else if (!states.isEntering && !states.isLeaving) {
-        leave(element, phases, descriptors);
-      } else if (states.isLeaving && descriptors.isConvertible) {
-        leaveCancel(element, phases, descriptors);
-      }
+    } else if (states.isEntering) {
+      enterCancel(element, phases);
+    } else if (!states.isLeaving) {
+      leave(element, phases, descriptors);
+    } else {
+      leaveCancel(element, phases, descriptors);
     }
   } else {
     wait(element, timing, states);
