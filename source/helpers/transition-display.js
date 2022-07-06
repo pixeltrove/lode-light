@@ -71,11 +71,11 @@ function enter(element, phases, descriptors) {
 
 function enterCancel(element, phases) {
   const handleEnterCancelEnd = () => {
-    element.classList.remove(phases.enter);
     if (element.classList.contains(phases.enterFrom)) {
       element.classList.remove(phases.enterFrom);
       element.classList.remove(CLASS_SHOWN);
     }
+    element.classList.remove(phases.enter);
 
     element.removeEventListener("transitionend", handleEnterCancelEnd);
   };
